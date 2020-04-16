@@ -4,7 +4,7 @@ export default {
 };
 </script>
 
-<template>
+<template lang="html">
   <div id="app">
     <main>
       <router-view />
@@ -12,8 +12,15 @@ export default {
   </div>
 </template>
 
-<style lang="css" scoped>
+<style lang="css">
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
 
 #app {
   color: #000;
