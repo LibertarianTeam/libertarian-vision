@@ -1,11 +1,18 @@
 <script>
+import AppBar from "@/components/AppBar";
+
 export default {
-  name: "App"
+  name: "App",
+  components: {
+    "c-app-bar": AppBar
+  }
 };
 </script>
 
 <template lang="html">
   <div id="app">
+    <c-app-bar></c-app-bar>
+
     <main>
       <router-view />
     </main>
@@ -28,5 +35,10 @@ export default {
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --primary: #fc0;
+  --text-primary: #000;
 }
 </style>
