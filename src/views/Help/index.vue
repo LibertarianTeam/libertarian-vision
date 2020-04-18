@@ -1,13 +1,13 @@
 <script>
 export default {
-  name: "Home"
+  name: "Help"
 };
 </script>
 
-<template>
-  <div id="home">
-    Home
-  </div>
+<template lang="html">
+  <main id="help">
+    Help
+  </main>
 </template>
 
 <style lang="css" scoped></style>

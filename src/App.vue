@@ -1,21 +1,12 @@
 <script>
-import AppBar from "@/components/AppBar";
-
 export default {
-  name: "App",
-  components: {
-    "c-app-bar": AppBar
-  }
+  name: "App"
 };
 </script>
 
 <template lang="html">
   <div id="app">
-    <c-app-bar></c-app-bar>
-
-    <main>
-      <router-view />
-    </main>
+    <router-view></router-view>
   </div>
 </template>
 
