@@ -15,7 +15,7 @@ export default {
     v-if="type === 'link' && to.name"
     :to="to"
     class="button"
-    @click="emitClick($event)"
+    @click.native="emitClick($event)"
   >
     <slot name="default"></slot>
   </router-link>
