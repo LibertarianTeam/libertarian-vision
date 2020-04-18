@@ -10,7 +10,27 @@ export default {
       height: 0
     }
   },
-  getters: {},
+  getters: {
+    xsWindow(state) {
+      return state.window.width <= 480;
+    },
+
+    smWindow(state) {
+      return state.window.width <= 600;
+    },
+
+    mdWindow(state) {
+      return state.window.width <= 800;
+    },
+
+    lgWindow(state) {
+      return state.window.width <= 1366;
+    },
+
+    xlWindow(state) {
+      return state.window.width > 1366;
+    }
+  },
   mutations: {
     updateAppBarSideNavStatus(state, { visible }) {
       state.appBar.sideNav.visible = visible;
