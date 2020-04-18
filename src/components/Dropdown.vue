@@ -19,13 +19,23 @@ export default {
         this.type === "contained" ? "contained-dropdown-content" : ""
       }`;
     }
+  },
+  methods: {
+    emitEvent(name, evt) {
+      this.$emit(name, evt);
+    }
   }
 };
 </script>
 
 <template lang="html">
   <div class="dropdown">
-    <c-button type="link" :to="to" :class="classDropdownRootButton">
+    <c-button
+      type="link"
+      :to="to"
+      :class="classDropdownRootButton"
+      @click="emitEvent('click', $event)"
+    >
       <slot name="default"></slot>
     </c-button>
 
@@ -35,6 +45,7 @@ export default {
         :key="index"
         type="link"
         :to="item.to"
+        @click="emitEvent('clickOnItem', $event)"
       >
         {{ item.text }}
       </c-button>
