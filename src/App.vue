@@ -1,6 +1,18 @@
 <script>
+import { mapMutations } from "vuex";
+
 export default {
-  name: "App"
+  name: "App",
+  methods: {
+    ...mapMutations(["updateWindowSize"])
+  },
+  mounted() {
+    this.updateWindowSize();
+    window.addEventListener("resize", this.updateWindowSize);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.updateWindowSize);
+  }
 };
 </script>
 
