@@ -1,8 +1,12 @@
 <script>
 import { mapMutations } from "vuex";
+import AppBar from "@/components/AppBar";
 
 export default {
   name: "App",
+  components: {
+    "c-app-bar": AppBar
+  },
   methods: {
     ...mapMutations(["updateWindowSize"])
   },
@@ -18,6 +22,7 @@ export default {
 
 <template lang="html">
   <div id="app">
+    <c-app-bar></c-app-bar>
     <router-view></router-view>
   </div>
 </template>
