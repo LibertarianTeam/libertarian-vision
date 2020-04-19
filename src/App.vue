@@ -32,16 +32,30 @@ export default {
   box-sizing: border-box;
 }
 
+:root {
+  --primary: #fc0;
+  --text-primary: #000;
+}
+
 #app {
-  color: #000;
-  font-family: Roboto, Avenir, Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  font-family: Roboto, Arial, sans-serif;
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
 
-:root {
-  --primary: #fc0;
-  --text-primary: #000;
+button::-moz-focus-inner {
+  border: none !important;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+a:focus,
+a:active,
+button:focus {
+  outline: none !important;
 }
 </style>
