@@ -31,9 +31,9 @@ export default {
 <template lang="html">
   <div class="dropdown">
     <c-button
-      type="link"
-      :to="to"
       :class="classDropdownRootButton"
+      :to="type !== 'contained' ? to : undefined"
+      :type="type !== 'contained' ? 'link' : 'button'"
       @click="emitEvent('click', $event)"
     >
       <slot name="default"></slot>
@@ -61,6 +61,8 @@ export default {
 
 .root-button {
   display: block;
+
+  width: 100%;
 
   padding: 8px 22px;
   border: none;
