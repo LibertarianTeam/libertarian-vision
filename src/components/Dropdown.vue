@@ -3,21 +3,32 @@ import Button from "@/components/Button";
 
 export default {
   name: "Dropdown",
-  props: ["type", "items", "to"],
   components: {
     "c-button": Button
   },
+  props: {
+    items: {
+      type: Array,
+      default: []
+    },
+    to: {
+      type: [Object, String],
+      default: () => ({})
+    },
+    contained: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     classDropdownRootButton() {
-      return `root-button ${
-        this.type === "contained" ? "large-root-button" : ""
-      }`;
+      const { contained } = this;
+      return `root-button${contained ? " large-button" : ""}`;
     },
 
     classDropdownContent() {
-      return `dropdown-content ${
-        this.type === "contained" ? "contained-dropdown-content" : ""
-      }`;
+      const { contained } = this;
+      return `dropdown-content${contained ? " contained-content" : ""}`;
     }
   },
   methods: {
@@ -32,8 +43,8 @@ export default {
   <div class="dropdown">
     <c-button
       :class="classDropdownRootButton"
-      :to="type !== 'contained' ? to : undefined"
-      :type="type !== 'contained' ? 'link' : 'button'"
+      :to="contained ? to : undefined"
+      :type="contained ? 'link' : 'button'"
       @click="emitEvent('click', $event)"
     >
       <slot name="default"></slot>
@@ -71,9 +82,9 @@ export default {
   font-weight: bold;
 }
 
-.large-root-button {
-  padding: 14px 22px !important;
-  font-size: 16px !important;
+.large-button {
+  padding: 14px 22px;
+  font-size: 16px;
 }
 
 .dropdown:hover .root-button {
@@ -92,8 +103,8 @@ export default {
   display: block;
 }
 
-.contained-dropdown-content {
-  position: relative !important;
+.contained-content {
+  position: relative;
 }
 
 .dropdown-content > .button {

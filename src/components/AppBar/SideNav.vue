@@ -39,9 +39,9 @@ export default {
       <c-dropdown
         v-for="(sideNavItem, index) in sideNavItems"
         :key="index"
-        type="contained"
         :to="sideNavItem.to"
         :items="sideNavItem.items"
+        contained
         @clickOnItem.stop="handleSideNavClick('hide')"
       >
         {{ sideNavItem.text }}
