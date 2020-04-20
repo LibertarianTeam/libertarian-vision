@@ -3,8 +3,8 @@ import { mapGetters } from "vuex";
 
 import Nav from "@/components/AppBar/Nav";
 import Main from "@/components/AppBar/Main";
+import SocialNav from "@/components/SocialNav";
 import SideNav from "@/components/AppBar/SideNav";
-import SocialNav from "@/components/AppBar/SocialNav";
 import Hamburger from "@/components/AppBar/Hamburger";
 
 export default {
@@ -14,7 +14,7 @@ export default {
     "m-app-bar-main": Main,
     "m-app-bar-side-nav": SideNav,
     "m-app-bar-hamburger": Hamburger,
-    "m-app-bar-social-nav": SocialNav
+    "c-social-nav": SocialNav
   },
   computed: {
     showSideNav() {
@@ -29,7 +29,7 @@ export default {
 <template lang="html">
   <header class="app-bar">
     <div>
-      <m-app-bar-social-nav></m-app-bar-social-nav>
+      <c-social-nav></c-social-nav>
       <m-app-bar-main></m-app-bar-main>
 
       <m-app-bar-nav v-if="!smWindow"></m-app-bar-nav>
@@ -52,7 +52,7 @@ export default {
   padding: 0 48px;
 }
 
-.app-bar-social-nav {
+.social-nav {
   padding-top: 2px;
 }
 

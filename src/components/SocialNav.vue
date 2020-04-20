@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "AppBarSocialNav",
+  name: "SocialNav",
   computed: {
     links() {
       return this.$store.state.static.links;
@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="app-bar-social-nav">
+  <div class="social-nav">
     <a :href="links.youtube" target="_blank" title="Youtube">
       <img src="@/assets/icons/youtube.svg" alt="Youtube" />
     </a>
@@ -38,7 +38,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.app-bar-social-nav {
+.social-nav {
   text-align: center;
 }
 
@@ -66,7 +66,7 @@ a:hover img {
 }
 
 @media only screen and (max-width: 480px) {
-  .app-bar-social-nav {
+  .social-nav {
     padding-left: 14px;
     text-align: left;
   }
