@@ -1,7 +1,16 @@
 <script>
 export default {
   name: "Button",
-  props: ["type", "to"],
+  props: {
+    type: {
+      type: String,
+      default: "button"
+    },
+    to: {
+      type: [Object, String],
+      default: () => ({})
+    }
+  },
   methods: {
     emitClick(evt) {
       this.$emit("click", evt);
