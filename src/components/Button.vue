@@ -9,6 +9,20 @@ export default {
     to: {
       type: [Object, String],
       default: () => ({})
+    },
+    icon: {
+      type: Boolean,
+      default: false
+    },
+    fab: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    classButton() {
+      const { icon, fab } = this;
+      return `button${icon ? " icon" : ""}${fab ? " fab" : ""}`;
     }
   },
   methods: {
@@ -23,7 +37,7 @@ export default {
   <router-link
     v-if="type === 'link' && to.name"
     :to="to"
-    class="button"
+    :class="classButton"
     @click.native="emitClick($event)"
   >
     <slot name="default"></slot>
@@ -31,7 +45,7 @@ export default {
 
   <a
     v-else-if="type === 'link'"
-    class="button"
+    :class="classButton"
     :href="to"
     target="_blank"
     @click="emitClick($event)"
@@ -39,7 +53,7 @@ export default {
     <slot name="default"></slot>
   </a>
 
-  <button v-else :type="type" class="button" @click="emitClick($event)">
+  <button v-else :type="type" :class="classButton" @click="emitClick($event)">
     <slot name="default"></slot>
   </button>
 </template>
@@ -63,6 +77,17 @@ export default {
   transition: filter 0.2s;
 
   background-color: var(--primary);
+}
+
+.icon {
+  display: inline-flex;
+
+  padding: 0;
+  border: none;
+}
+
+.fab {
+  border-radius: 50%;
 }
 
 .button:hover {
