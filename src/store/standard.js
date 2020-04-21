@@ -11,6 +11,10 @@ export default {
     }
   },
   getters: {
+    getAsset() {
+      return img => require(`@/assets/${img}`);
+    },
+
     xsWindow(state) {
       return state.window.width <= 480;
     },
@@ -21,6 +25,10 @@ export default {
 
     mdWindow(state) {
       return state.window.width <= 800;
+    },
+
+    mlWindow(state) {
+      return state.window.width <= 1000;
     },
 
     lgWindow(state) {
