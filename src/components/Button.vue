@@ -82,6 +82,9 @@ export default {
 .icon {
   display: inline-flex;
 
+  align-items: center;
+  justify-content: center;
+
   padding: 0;
   border: none;
 }
