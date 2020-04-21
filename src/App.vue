@@ -58,6 +58,14 @@ export default {
   -webkit-font-smoothing: antialiased;
 }
 
+main {
+  min-width: 340px;
+  max-width: 1920px;
+
+  margin: 0 auto;
+  padding: 12px 4%;
+}
+
 button::-moz-focus-inner {
   border: none !important;
 }
@@ -70,5 +78,17 @@ a:focus,
 a:active,
 button:focus {
   outline: none !important;
+}
+
+@media only screen and (max-width: 600px) {
+  #home {
+    padding: 12px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #home {
+    padding: 6px;
+  }
 }
 </style>
