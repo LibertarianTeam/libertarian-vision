@@ -1,39 +1,59 @@
 <script>
+import { mapGetters } from "vuex";
+import Button from "@/components/Button";
+
 export default {
   name: "SocialNav",
+  components: {
+    "c-button": Button
+  },
+  props: {
+    vertical: {
+      type: Boolean,
+      default: false
+    },
+    invertColor: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {
+      items: ["Youtube", "Bitchute", "Facebook", "Minds", "Twitter", "Gab"]
+    };
+  },
   computed: {
     links() {
       return this.$store.state.static.links;
-    }
+    },
+
+    classSocialNav() {
+      const { vertical } = this;
+      return `social-nav${vertical ? " vertical" : ""}`;
+    },
+
+    ...mapGetters(["getAsset"])
   }
 };
 </script>
 
 <template lang="html">
-  <div class="social-nav">
-    <a :href="links.youtube" target="_blank" title="Youtube">
-      <img src="@/assets/icons/youtube.svg" alt="Youtube" />
-    </a>
+  <div :class="classSocialNav">
+    <c-button
+      v-for="(item, index) in items"
+      :key="index"
+      type="link"
+      target="_blank"
+      :title="item"
+      :to="links[item.toLowerCase()]"
+      icon
+    >
+      <img :src="getAsset(`icons/${item.toLowerCase()}.svg`)" :alt="item" />
 
-    <a :href="links.bitchute" target="_blank" title="Bitchute">
-      <img src="@/assets/icons/bitchute.svg" alt="Bitchute" />
-    </a>
-
-    <a :href="links.facebook" target="_blank" title="Facebook">
-      <img src="@/assets/icons/facebook.svg" alt="Facebook" />
-    </a>
-
-    <a :href="links.minds" target="_blank" title="Minds">
-      <img src="@/assets/icons/minds.svg" alt="Minds" />
-    </a>
-
-    <a :href="links.twitter" target="_blank" title="Twitter">
-      <img src="@/assets/icons/twitter.svg" alt="Twitter" />
-    </a>
-
-    <a :href="links.gab" target="_blank" title="Gab">
-      <img src="@/assets/icons/gab.svg" alt="Gab" />
-    </a>
+      <h6 v-if="vertical">
+        <slot :name="item.toLowerCase()"></slot>
+      </h6>
+    </c-button>
   </div>
 </template>
 
@@ -42,12 +62,40 @@ export default {
   text-align: center;
 }
 
-a {
+.vertical {
+  display: inline-flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.button {
   display: inline-flex;
 }
 
-a + a {
+.button + .button {
   margin-left: 18px;
+}
+
+.vertical .button {
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 8px 0;
+  border: 1px solid var(--primary);
+
+  transition: opacity 0.2s;
+
+  background-color: transparent;
+}
+
+.vertical .button:hover {
+  opacity: 72%;
+}
+
+.vertical .button + .button {
+  margin-top: 8px;
+  margin-left: 0;
 }
 
 img {
@@ -60,9 +108,13 @@ img {
   box-sizing: content-box;
 }
 
-a:hover img {
-  filter: opacity(72%);
-  transition: filter 0.2s;
+.vertical img {
+  padding: 0 8px;
+}
+
+h6 {
+  font-size: 12px;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 480px) {
