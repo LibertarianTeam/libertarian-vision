@@ -21,7 +21,7 @@ export default {
 </script>
 
 <template lang="html">
-  <div id="app">
+  <div id="app" class="light-theme">
     <c-app-bar></c-app-bar>
     <router-view></router-view>
   </div>
@@ -38,13 +38,19 @@ export default {
 }
 
 :root {
+}
+
+.light-theme {
   --primary: #fc0;
   --secondary: #03a9f4;
+
   --error: #f44336;
   --warning: #ffeb3b;
   --success: #4caf50;
+
   --info: #ffc107;
   --accent: #607d8b;
+
   --text-primary: #000;
   --text-secondary: #fff;
   --text-tertiary: #fc0;
