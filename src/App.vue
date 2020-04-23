@@ -28,7 +28,7 @@ export default {
 </template>
 
 <style lang="css">
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800,800i&display=swap");
 
 * {
   margin: 0;
@@ -69,7 +69,7 @@ export default {
 
 #app {
   color: var(--text-primary);
-  font-family: Roboto, Arial, sans-serif;
+  font-family: Merriweather Sans, Arial, sans-serif;
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
