@@ -15,28 +15,40 @@ export default {
       return img => require(`@/assets/${img}`);
     },
 
-    xsWindow(state) {
+    xsmWindow(state) {
+      return state.window.width <= 360;
+    },
+
+    dsmWindow(state) {
       return state.window.width <= 480;
     },
 
-    smWindow(state) {
-      return state.window.width <= 600;
+    lsmWindow(state) {
+      return state.window.width <= 640;
     },
 
-    mdWindow(state) {
+    smdWindow(state) {
       return state.window.width <= 800;
     },
 
-    mlWindow(state) {
-      return state.window.width <= 1000;
+    dmdWindow(state) {
+      return state.window.width <= 1024;
     },
 
-    lgWindow(state) {
+    lmdWindow(state) {
       return state.window.width <= 1366;
     },
 
-    xlWindow(state) {
-      return state.window.width > 1366;
+    slgWindow(state) {
+      return state.window.width <= 1620;
+    },
+
+    dlgWindow(state) {
+      return state.window.width <= 1920;
+    },
+
+    xlgWindow(state) {
+      return state.window.width > 1920;
     }
   },
   mutations: {

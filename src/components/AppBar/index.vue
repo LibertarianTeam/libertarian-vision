@@ -21,7 +21,7 @@ export default {
       return this.$store.state.appBar.sideNav.visible;
     },
 
-    ...mapGetters(["smWindow"])
+    ...mapGetters(["lsmWindow"])
   }
 };
 </script>
@@ -32,10 +32,10 @@ export default {
       <c-social-nav></c-social-nav>
       <m-app-bar-main></m-app-bar-main>
 
-      <m-app-bar-nav v-if="!smWindow"></m-app-bar-nav>
+      <m-app-bar-nav v-if="!lsmWindow"></m-app-bar-nav>
       <m-app-bar-hamburger v-else></m-app-bar-hamburger>
 
-      <m-app-bar-side-nav v-if="smWindow"></m-app-bar-side-nav>
+      <m-app-bar-side-nav v-if="lsmWindow"></m-app-bar-side-nav>
     </div>
   </header>
 </template>
@@ -46,7 +46,7 @@ export default {
 }
 
 .app-bar > div {
-  max-width: 1100px;
+  max-width: 1366px;
 
   margin: 0 auto;
   padding: 0 48px;
@@ -66,7 +66,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .app-bar > div {
     padding: 0 6px;
   }

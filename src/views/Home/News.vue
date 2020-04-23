@@ -58,7 +58,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1024px) {
   .cards {
     grid-template-columns: repeat(3, auto);
   }
@@ -70,7 +70,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .cards {
     grid-template-columns: auto;
   }

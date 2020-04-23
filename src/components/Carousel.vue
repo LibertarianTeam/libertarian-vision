@@ -28,10 +28,18 @@ export default {
     },
 
     itemsInScreen() {
-      const { xsWindow, smWindow, mdWindow, mlWindow, lgWindow } = this;
+      const { dsmWindow, smdWindow, dmdWindow, lmdWindow } = this;
 
       this.start = 0;
-      this.end = xsWindow ? 0 : mdWindow ? 1 : mlWindow ? 2 : lgWindow ? 3 : 4;
+      this.end = dsmWindow
+        ? 0
+        : smdWindow
+        ? 1
+        : dmdWindow
+        ? 2
+        : lmdWindow
+        ? 3
+        : 4;
     },
 
     classCard() {
@@ -39,7 +47,7 @@ export default {
       return index => `${index >= start && index <= end ? "show" : ""}`;
     },
 
-    ...mapGetters(["xsWindow", "smWindow", "mdWindow", "mlWindow", "lgWindow"])
+    ...mapGetters(["dsmWindow", "smdWindow", "dmdWindow", "lmdWindow"])
   },
   watch: {
     itemsInScreen() {
@@ -165,7 +173,7 @@ export default {
   margin-left: 4px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .cards {
     height: 300px;
     min-width: 100%;

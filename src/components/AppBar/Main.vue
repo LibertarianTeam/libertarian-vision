@@ -54,7 +54,7 @@ export default {
   margin-left: 5px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   .app-bar-main {
     flex-direction: column;
     align-items: center;

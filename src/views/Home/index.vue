@@ -67,7 +67,7 @@ export default {
   grid-area: numbers;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1024px) {
   #home {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:

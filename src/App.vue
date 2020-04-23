@@ -38,11 +38,22 @@ export default {
 }
 
 :root {
+  /*        breakpoints        */
+  /*   360 xsm extreme  small */
+  /*   480 dsm default  small */
+  /*   640 lsm   large  small */
+  /*   800 smd   small medium */
+  /*  1024 dmd default medium */
+  /*  1366 lmd   large medium */
+  /*  1620 slg   small  large */
+  /*  1920 dlg default  large */
+  /* >1920 xlg extreme  large */
 }
 
 .light-theme {
   --primary: #fc0;
   --secondary: #03a9f4;
+  --tertiary: #e1e1e1;
 
   --error: #f44336;
   --warning: #ffeb3b;
@@ -64,12 +75,29 @@ export default {
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #fc0 #9999;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #9999;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fc0;
+}
+
 main {
-  min-width: 340px;
+  min-width: 240px;
   max-width: 1920px;
 
   margin: 0 auto;
-  padding: 12px 4%;
+  padding: 12px 24px;
 }
 
 button::-moz-focus-inner {
@@ -86,7 +114,7 @@ button:focus {
   outline: none !important;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 640px) {
   #home {
     padding: 12px;
   }
@@ -95,6 +123,12 @@ button:focus {
 @media only screen and (max-width: 480px) {
   #home {
     padding: 6px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  #home {
+    padding: 2px;
   }
 }
 </style>
