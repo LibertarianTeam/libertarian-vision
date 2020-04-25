@@ -1,9 +1,11 @@
 <script>
+import Button from "@/components/Button";
 import Dropdown from "@/components/Dropdown";
 
 export default {
   name: "AppBarNav",
   components: {
+    "c-button": Button,
     "c-dropdown": Dropdown
   },
   computed: {
@@ -16,9 +18,9 @@ export default {
 
 <template lang="html">
   <nav class="app-bar-nav">
-    <router-link class="home" :to="{ name: 'Home' }" title="Home">
+    <c-button class="home" type="link" :to="{ name: 'Home' }" title="Home" icon>
       <img alt="Home" src="@/assets/icons/home.svg" />
-    </router-link>
+    </c-button>
 
     <c-dropdown
       v-for="(navItem, index) in navItems"
@@ -37,8 +39,7 @@ export default {
 }
 
 .home {
-  position: relative;
-  padding: 4px 22px;
+  padding: 6px 22px;
 }
 
 .home > img {
@@ -49,21 +50,23 @@ export default {
 .home::after,
 .dropdown::after {
   content: "";
+  position: absolute;
 
   width: 0;
   height: 3px;
 
   margin: 0 auto;
-  position: absolute;
 
   left: 0;
   right: 0;
   bottom: 0;
 
-  background-color: #000;
+  transition: width 0.2s;
+  background-color: var(--bd-primary);
+}
 
-  transform: translateZ(0);
-  transition: width 0.2s ease;
+.home::after {
+  height: 4px;
 }
 
 .home:hover::after,

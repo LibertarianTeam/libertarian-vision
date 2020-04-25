@@ -8,7 +8,7 @@ export default {
     },
     to: {
       type: [Object, String],
-      default: () => ({})
+      default: () => ({ name: "Home" })
     },
     icon: {
       type: Boolean,
@@ -17,12 +17,18 @@ export default {
     fab: {
       type: Boolean,
       default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     classButton() {
-      const { icon, fab } = this;
-      return `button${icon ? " icon" : ""}${fab ? " fab" : ""}`;
+      const { icon, fab, disabled } = this;
+      return `button${icon ? " icon" : ""}${fab ? " fab" : ""}${
+        disabled ? " disabled" : ""
+      }`;
     }
   },
   methods: {
@@ -64,19 +70,24 @@ export default {
 
   padding: 4px 8px;
 
-  border: 1px solid #000;
+  border: 1px solid var(--bd-primary);
   border-radius: 2px;
 
   color: var(--text-primary);
-  font-size: 14px;
+  font: normal 14px caption;
+
   text-align: center;
-  font-weight: medium;
   text-decoration: none;
 
   cursor: pointer;
-  transition: filter 0.2s;
+  transition: filter 0.2s linear, border-color 0.2s linear;
 
   background-color: var(--primary);
+}
+
+.button:hover {
+  filter: brightness(96%);
+  border-color: transparent;
 }
 
 .icon {
@@ -87,13 +98,23 @@ export default {
 
   padding: 0;
   border: none;
+
+  background-color: transparent;
+}
+
+.icon:hover {
+  filter: invert(28%);
 }
 
 .fab {
   border-radius: 50%;
 }
 
-.button:hover {
-  filter: brightness(90%);
+.disabled {
+  opacity: 40%;
+}
+
+.disabled:hover {
+  filter: none;
 }
 </style>

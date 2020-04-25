@@ -15,6 +15,6 @@ export default {
 
   margin: 8px 0 16px;
 
-  background-color: #000;
+  background-color: var(--bd-primary);
 }
 </style>

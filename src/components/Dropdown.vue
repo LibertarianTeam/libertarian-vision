@@ -9,7 +9,7 @@ export default {
   props: {
     items: {
       type: Array,
-      default: []
+      default: () => []
     },
     to: {
       type: [Object, String],
@@ -21,14 +21,9 @@ export default {
     }
   },
   computed: {
-    classDropdownRootButton() {
+    classDropdown() {
       const { contained } = this;
-      return `root-button${contained ? " large-button" : ""}`;
-    },
-
-    classDropdownContent() {
-      const { contained } = this;
-      return `dropdown-content${contained ? " contained-content" : ""}`;
+      return `dropdown${contained ? " contained" : ""}`;
     }
   },
   methods: {
@@ -40,17 +35,17 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="dropdown">
+  <div :class="classDropdown">
     <c-button
-      :class="classDropdownRootButton"
-      :to="contained ? to : undefined"
-      :type="contained ? 'link' : 'button'"
+      class="root-button"
+      :to="!contained ? to : undefined"
+      :type="!contained ? 'link' : 'button'"
       @click="emitEvent('click', $event)"
     >
       <slot name="default"></slot>
     </c-button>
 
-    <div :class="classDropdownContent">
+    <div class="items">
       <c-button
         v-for="(item, index) in items"
         :key="index"
@@ -71,27 +66,24 @@ export default {
 }
 
 .root-button {
-  display: block;
-
-  width: 100%;
-
   padding: 8px 22px;
-  border: none;
 
-  font-size: 15px;
-  font-weight: bold;
+  border: none;
+  font: bold 16px menu;
 }
 
-.large-button {
+.contained .root-button {
+  width: 100%;
+
   padding: 14px 22px;
-  font-size: 16px;
+  border-radius: 0;
 }
 
 .dropdown:hover .root-button {
-  filter: brightness(90%);
+  filter: brightness(96%);
 }
 
-.dropdown-content {
+.items {
   display: none;
   position: absolute;
 
@@ -99,22 +91,22 @@ export default {
   min-width: 160px;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .items {
   display: block;
 }
 
-.contained-content {
+.contained .items {
   position: relative;
 }
 
-.dropdown-content > .button {
+.items > .button {
   display: block;
 
   margin: 0;
   padding: 10px 14px;
 }
 
-.dropdown-content > .button + .button {
-  border-top: 0;
+.items > .button + .button {
+  border-top: none;
 }
 </style>

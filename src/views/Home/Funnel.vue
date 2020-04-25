@@ -1,24 +1,21 @@
 <script>
 import Title from "@/views/Home/Title";
 import Button from "@/components/Button";
-import Divider from "@/components/Divider";
 
 export default {
   name: "HomeFunnel",
   components: {
     "m-title": Title,
-    "c-button": Button,
-    "c-divider": Divider
+    "c-button": Button
   }
 };
 </script>
 
 <template lang="html">
   <div class="home-funnel">
-    <c-divider></c-divider>
     <m-title>Funil de Produção</m-title>
 
-    <div>
+    <div class="content">
       <c-button class="schedule" type="link" :to="{ name: 'Home' }">
         <h6>138</h6>
         <span>Pautas</span>
@@ -33,11 +30,8 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.home-funnel {
-}
-
-.home-funnel > div {
-  display: flex;
+.content {
+  padding: 2px 0;
 }
 
 .button {
@@ -52,11 +46,11 @@ export default {
 
   border-radius: 8px;
 
-  color: #fff;
+  color: var(--text-secondary);
 }
 
 .schedule {
-  margin-right: 20px;
+  margin-right: 22px;
   background-color: var(--secondary);
 }
 
@@ -70,5 +64,12 @@ h6 {
 
 span {
   font-size: 12px;
+}
+
+@media only screen and (max-width: 360px) {
+  .content {
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

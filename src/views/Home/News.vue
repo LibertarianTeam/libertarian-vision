@@ -2,22 +2,19 @@
 import Card from "@/components/Card";
 import Title from "@/views/Home/Title";
 import Button from "@/components/Button";
-import Divider from "@/components/Divider";
 
 export default {
   name: "HomeNews",
   components: {
     "c-card": Card,
     "m-title": Title,
-    "c-button": Button,
-    "c-divider": Divider
+    "c-button": Button
   }
 };
 </script>
 
 <template lang="html">
   <div class="home-news">
-    <c-divider></c-divider>
     <m-title>Últimas Notícias Veiculadas</m-title>
 
     <div class="cards">
@@ -25,12 +22,12 @@ export default {
         v-for="i in 9"
         :key="i"
         tag="Crônica"
-        img="https://i.ibb.co/ZhWXc4X/1-kg8aaunxi055ohnht04srq.jpg"
-        extended
+        img="https://i.ibb.co/Lnz4Tgs/image.png"
+        compact
         externalImg
       >
-        África Oriental: Surto de gafanhotos que já perdura mais de 3 meses é a
-        maior praga no continente dos últimos 70 anos.
+        Burger King e Ambev capitalistas malvados dando um empurrãozinho no
+        sistema estatal.
       </c-card>
     </div>
   </div>
@@ -40,39 +37,31 @@ export default {
 .cards {
   display: grid;
 
-  grid-gap: 12px;
-  grid-template-columns: repeat(3, auto);
+  grid-gap: 8px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .card {
   width: 100%;
 }
 
-@media only screen and (max-width: 1365px) {
-  .cards {
-    grid-template-columns: repeat(2, auto);
-  }
-
-  .card {
-    background-size: cover;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .cards {
-    grid-template-columns: repeat(3, auto);
-  }
-}
-
 @media only screen and (max-width: 800px) {
   .cards {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card:last-child {
+    grid-column: 1/3;
   }
 }
 
 @media only screen and (max-width: 640px) {
   .cards {
     grid-template-columns: auto;
+  }
+
+  .card:last-child {
+    grid-column: 1/2;
   }
 }
 </style>

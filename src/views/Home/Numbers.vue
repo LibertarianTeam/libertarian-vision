@@ -1,7 +1,6 @@
 <script>
 import Title from "@/views/Home/Title";
 import Button from "@/components/Button";
-import Divider from "@/components/Divider";
 import SocialNav from "@/components/SocialNav";
 
 export default {
@@ -9,7 +8,6 @@ export default {
   components: {
     "m-title": Title,
     "c-button": Button,
-    "c-divider": Divider,
     "c-social-nav": SocialNav
   }
 };
@@ -17,7 +15,6 @@ export default {
 
 <template lang="html">
   <div class="home-numbers">
-    <c-divider></c-divider>
     <m-title>Números</m-title>
 
     <c-social-nav vertical>

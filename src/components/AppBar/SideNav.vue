@@ -1,16 +1,19 @@
 <script>
 import { mapGetters } from "vuex";
+
+import Button from "@/components/Button";
 import Dropdown from "@/components/Dropdown";
 
 export default {
   name: "AppBarSideNav",
   components: {
+    "c-button": Button,
     "c-dropdown": Dropdown
   },
   computed: {
     classAppBarSideNav() {
       const { visible } = this.$store.state.appBar.sideNav;
-      return `app-bar-side-nav ${visible ? "show" : ""}`;
+      return `app-bar-side-nav${visible ? " show" : ""}`;
     },
 
     ...mapGetters("static", ["sideNavItems"])
@@ -25,16 +28,18 @@ export default {
 </script>
 
 <template lang="html">
-  <div :class="classAppBarSideNav" @click="handleSideNavClick('hide')">
-    <div @click.stop="handleSideNavClick('continue')">
-      <router-link
+  <nav :class="classAppBarSideNav" @click="handleSideNavClick('hide')">
+    <div class="content" @click.stop="handleSideNavClick('continue')">
+      <c-button
         class="home"
+        type="link"
         :to="{ name: 'Home' }"
         title="Home"
+        icon
         @click.native.stop="handleSideNavClick('hide')"
       >
         <img alt="Home" src="@/assets/icons/home.svg" />
-      </router-link>
+      </c-button>
 
       <c-dropdown
         v-for="(sideNavItem, index) in sideNavItems"
@@ -47,12 +52,12 @@ export default {
         {{ sideNavItem.text }}
       </c-dropdown>
     </div>
-  </div>
+  </nav>
 </template>
 
 <style lang="css" scoped>
 .app-bar-side-nav {
-  position: absolute;
+  position: fixed;
 
   width: 0;
   height: 100%;
@@ -62,45 +67,38 @@ export default {
   top: 0;
   left: 0;
 
-  z-index: 1;
+  z-index: 2;
   transition: width 0.4s ease-in;
 
-  background-color: #000a;
+  background-color: var(--bd-primary);
 }
 
 .show {
   width: 100%;
 }
 
-.app-bar-side-nav > div {
+.content {
   display: flex;
   flex-direction: column;
+
+  overflow-y: hidden;
 
   width: 60%;
   height: 100%;
   min-width: 180px;
   max-width: 320px;
 
-  background-color: #000d;
+  background-color: var(--bd-secondary);
 }
 
 .home {
-  display: inline-block;
-
   padding: 12px 0;
-  text-align: center;
-
-  cursor: pointer;
 }
 
 .home > img {
   width: 22px;
   height: 22px;
 
-  filter: invert(100%) opacity(100%);
-}
-
-.home:hover img {
-  filter: invert(100%) opacity(72%);
+  filter: invert(100%);
 }
 </style>

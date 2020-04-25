@@ -20,9 +20,13 @@ export default {
       type: Boolean,
       default: false
     },
-    extended: {
+    compact: {
       type: Boolean,
       default: false
+    },
+    dark: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -38,8 +42,8 @@ export default {
     },
 
     classCard() {
-      const { extended } = this;
-      return `card${extended ? " extended" : ""}`;
+      const { compact, dark } = this;
+      return `card${compact ? " compact" : ""}${dark ? " dark" : ""}`;
     },
 
     ...mapGetters(["getAsset"])
@@ -74,59 +78,65 @@ export default {
   height: 360px;
 
   border-radius: 8px;
-
   transition: box-shadow 0.2s;
-  box-shadow: 0 4px 8px #0006;
 
+  box-shadow: 0 0 8px 2px var(--bx-primary);
+
+  background: var(--primary) no-repeat center;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: var(--primary);
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px #0006;
+  box-shadow: 0 0 16px 2px var(--bx-tertiary);
 }
 
-.extended {
-  height: 280px;
+.compact {
+  height: 220px;
   overflow: hidden;
-
-  background-position: top;
-  background-size: auto 50%;
-}
-
-.card > div {
-  padding: 12px;
-}
-
-.extended.card > div {
-  height: 64%;
 }
 
 .tag {
-  margin-bottom: 16px;
+  margin: 8px;
 
+  border-radius: 4px;
+  text-shadow: 2px 2px 2px var(--bx-secondary);
+
+  font: normal bold 14px caption;
   color: var(--text-secondary);
-  font-size: 12px;
 }
 
 .title {
-  padding: 0;
+  padding: 8px 12px;
   border: none;
 
-  color: var(--text-secondary);
+  text-align: left;
+  transition: background-color 0.4s;
+
   background-color: transparent;
 }
 
 h5 {
-  text-shadow: 2px 2px 4px var(--text-primary);
+  font: bold 22px caption;
+  color: var(--text-secondary);
 
-  font-size: 22px;
-  text-align: left;
+  text-shadow: 2px 2px 8px var(--bx-tertiary);
 }
 
-.extended h5 {
+.compact .title {
+  padding: 6px 8px;
+  background-color: var(--bx-secondary);
+}
+
+.compact h5 {
   font-size: 18px;
+  line-height: 22px;
+}
+
+.dark.card:hover .title {
+  background-color: var(--bx-tertiary);
+}
+
+.dark.compact .title:hover {
+  background-color: var(--bd-primary);
 }
 </style>

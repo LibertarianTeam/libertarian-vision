@@ -1,33 +1,30 @@
 <script>
 import Card from "@/components/Card";
 import Title from "@/views/Home/Title";
-import Divider from "@/components/Divider";
 
 export default {
   name: "HomeHelp",
   components: {
     "c-card": Card,
-    "m-title": Title,
-    "c-divider": Divider
+    "m-title": Title
   }
 };
 </script>
 
 <template lang="html">
   <div class="home-help">
-    <c-divider></c-divider>
     <m-title>Quer Ajudar?</m-title>
 
     <div class="cards">
-      <c-card img="imgs/news.png">
+      <c-card :dark="false" img="imgs/news.png">
         <span>Sugerir Noticia</span>
       </c-card>
 
-      <c-card img="imgs/typewriter.png">
+      <c-card :dark="false" img="imgs/typewriter.png">
         <span>Escrever Matéria</span>
       </c-card>
 
-      <c-card img="imgs/mic.png">
+      <c-card :dark="false" img="imgs/mic.png">
         <span>Narrar Matéria</span>
       </c-card>
     </div>
@@ -35,13 +32,8 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.home-help {
-}
-
 .cards {
   display: inline-flex;
-  justify-content: center;
-
   width: 100%;
 }
 
@@ -66,5 +58,30 @@ export default {
 
 .card:hover span {
   color: var(--text-secondary);
+}
+
+@media only screen and (max-width: 800px) {
+  .cards {
+    justify-content: center;
+  }
+
+  .card {
+    width: 180px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card + .card {
+    margin: 8px 0 0;
+  }
 }
 </style>

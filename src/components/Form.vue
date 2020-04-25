@@ -9,17 +9,12 @@ export default {
   props: {
     inline: {
       type: Boolean,
-      default: false,
-      validator: value => value !== undefined
+      default: false
     }
   },
   computed: {
     classForm() {
-      return `form${this.inline ? " inline-form" : ""}`;
-    },
-
-    classFormFields() {
-      return `form${this.inline ? " inline-form-fields" : ""}`;
+      return `form${this.inline ? " inline" : ""}`;
     }
   },
   methods: {
@@ -32,7 +27,7 @@ export default {
 
 <template lang="html">
   <form :class="classForm" @submit.prevent="emitSubmit($event)">
-    <div :class="classFormFields">
+    <div class="fields">
       <slot name="default"></slot>
     </div>
 
@@ -43,22 +38,39 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.inline-form {
+.inline {
   display: inline-flex;
   justify-content: space-between;
 
   width: 100%;
 }
 
-.inline-form-fields {
-  width: 30vw;
+.inline .fields {
+  width: 100%;
   max-width: 400px;
+
+  padding-right: 12px;
 }
 
 .button {
   padding: 0 36px;
-  border-radius: 6px;
+  border-radius: 8px;
 
   font-weight: bold;
+}
+
+@media only screen and (max-width: 360px) {
+  .inline {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .inline .fields {
+    padding: 0 0 12px;
+  }
+
+  .button {
+    padding: 12px;
+  }
 }
 </style>

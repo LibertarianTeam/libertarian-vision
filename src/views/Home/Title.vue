@@ -1,18 +1,27 @@
 <script>
+import Divider from "@/components/Divider";
+
 export default {
-  name: "HomeTitle"
+  name: "HomeTitle",
+  components: {
+    "c-divider": Divider
+  }
 };
 </script>
 
 <template lang="html">
-  <h3 class="home-title">
-    <slot name="default"></slot>
-  </h3>
+  <div class="home-title">
+    <c-divider></c-divider>
+
+    <h3>
+      <slot name="default"></slot>
+    </h3>
+  </div>
 </template>
 
 <style lang="css" scoped>
-h3 {
+.home-title {
   margin-bottom: 20px;
-  font-size: 22px;
+  font: bold 24px caption;
 }
 </style>

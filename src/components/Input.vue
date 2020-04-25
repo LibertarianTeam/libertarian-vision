@@ -4,13 +4,11 @@ export default {
   props: {
     type: {
       type: String,
-      required: true
+      default: "text"
     },
-    placeholder: String,
     lazy: {
       type: Boolean,
-      default: false,
-      validator: value => value !== undefined
+      default: false
     }
   },
   methods: {
@@ -26,7 +24,6 @@ export default {
   <input
     class="input"
     :type="type"
-    :placeholder="placeholder"
     @input="emitInput($event)"
     @change="emitInput($event)"
   />
@@ -35,15 +32,17 @@ export default {
 <style lang="css" scoped>
 .input {
   width: 100%;
-  min-width: 180px;
+  min-width: 160px;
 
   padding: 10px 16px;
 
-  border: 1px solid #e1e1e1;
+  border: 1px solid var(--tertiary);
   border-radius: 4px;
 
-  font-size: 14px;
-  font-weight: lighter;
+  outline: transparent;
+  transition: all 0.2s linear;
+
+  font: lighter 16px caption;
 }
 
 .input:focus {

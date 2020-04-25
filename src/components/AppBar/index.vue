@@ -42,7 +42,8 @@ export default {
 
 <style lang="css" scoped>
 .app-bar {
-  background: var(--primary) url(../../assets/imgs/appbarv1.svg) no-repeat right;
+  background: var(--primary) url("../../assets/imgs/appbarv1.svg") no-repeat
+    right;
 }
 
 .app-bar > div {
@@ -62,7 +63,7 @@ export default {
 
 @media only screen and (max-width: 800px) {
   .app-bar {
-    background-image: url(../../assets/imgs/appbarv2.svg);
+    background-image: url("../../assets/imgs/appbarv2.svg");
   }
 }
 

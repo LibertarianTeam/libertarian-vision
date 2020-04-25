@@ -65,6 +65,14 @@ export default {
   --text-primary: #000;
   --text-secondary: #fff;
   --text-tertiary: #fc0;
+
+  --bd-primary: #000c;
+  --bd-secondary: #000e;
+  --bd-tertiary: #fc06;
+
+  --bx-primary: #0002;
+  --bx-secondary: #0004;
+  --bx-tertiary: #0008;
 }
 
 #app {

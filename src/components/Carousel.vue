@@ -19,32 +19,36 @@ export default {
   data() {
     return {
       end: 1,
-      start: 0
+      start: 1
     };
   },
   computed: {
-    itemsLength() {
-      return this.items.length;
+    startOfList() {
+      return this.start <= 1;
+    },
+
+    endOfList() {
+      return this.end >= this.items.length;
     },
 
     itemsInScreen() {
       const { dsmWindow, smdWindow, dmdWindow, lmdWindow } = this;
 
-      this.start = 0;
+      this.start = 1;
       this.end = dsmWindow
-        ? 0
-        : smdWindow
         ? 1
-        : dmdWindow
+        : smdWindow
         ? 2
-        : lmdWindow
+        : dmdWindow
         ? 3
-        : 4;
+        : lmdWindow
+        ? 4
+        : 5;
     },
 
     classCard() {
       const { start, end } = this;
-      return index => `${index >= start && index <= end ? "show" : ""}`;
+      return index => `${index + 1 >= start && index + 1 <= end ? "show" : ""}`;
     },
 
     ...mapGetters(["dsmWindow", "smdWindow", "dmdWindow", "lmdWindow"])
@@ -56,16 +60,14 @@ export default {
   },
   methods: {
     handleNext() {
-      const { end, itemsLength } = this;
-      if (end >= itemsLength - 1) return;
+      if (this.endOfList) return;
 
       this.end += 1;
       this.start += 1;
     },
 
     handlePrev() {
-      const { start } = this;
-      if (start <= 0) return;
+      if (this.startOfList) return;
 
       this.end -= 1;
       this.start -= 1;
@@ -76,7 +78,7 @@ export default {
 
 <template lang="html">
   <section class="carousel">
-    <c-button class="arrow arrow-prev" icon fab>
+    <c-button class="arrow" :disabled="startOfList" icon fab>
       <img
         alt="Anterior"
         title="Anterior"
@@ -98,7 +100,7 @@ export default {
       </c-card>
     </div>
 
-    <c-button class="arrow arrow-next" icon fab>
+    <c-button class="arrow" :disabled="endOfList" icon fab>
       <img
         alt="Próximo"
         title="Próximo"
@@ -117,7 +119,7 @@ export default {
   justify-content: center;
 }
 
-.carousel > div {
+.cards {
   display: inherit;
   overflow: hidden;
 }
@@ -125,31 +127,28 @@ export default {
 .arrow {
   min-width: 48px;
   min-height: 48px;
-
-  transition: background-color 0.2s 0.1s;
-}
-
-.arrow:hover {
-  background-color: transparent;
 }
 
 .arrow > img {
   width: 48px;
   height: 48px;
-
-  transition: width 0.2s;
 }
 
-.arrow:hover > img {
+.arrow:active > img {
   width: 42px;
   height: 42px;
 }
 
-.arrow-prev {
+.disabled.arrow:active > img {
+  width: 48px;
+  height: 48px;
+}
+
+.arrow:first-child {
   margin-right: 4px;
 }
 
-.arrow-next {
+.arrow:last-child {
   margin-left: 4px;
 }
 
@@ -157,13 +156,13 @@ export default {
   width: 0;
 
   overflow: hidden;
-  transition: width 0.4s;
+  transition: all 0.2s;
 
   background-size: auto;
 }
 
 .show.card {
-  width: auto;
+  width: 100%;
   height: inherit;
 
   background-size: cover;
@@ -180,15 +179,17 @@ export default {
   }
 
   .arrow {
-    position: absolute;
     z-index: 1;
+    position: absolute;
+
+    opacity: 60%;
   }
 
-  .arrow-prev {
+  .arrow:first-child {
     left: 12px;
   }
 
-  .arrow-next {
+  .arrow:last-child {
     right: 12px;
   }
 }

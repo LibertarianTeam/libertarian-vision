@@ -1,13 +1,11 @@
 <script>
 import Title from "@/views/Home/Title";
-import Divider from "@/components/Divider";
 import Carousel from "@/components/Carousel";
 
 export default {
   name: "HomeVideos",
   components: {
     "m-title": Title,
-    "c-divider": Divider,
     "c-carousel": Carousel
   },
   data() {
@@ -63,9 +61,7 @@ export default {
 
 <template lang="html">
   <div class="home-videos">
-    <c-divider></c-divider>
     <m-title>Últimos Vídeos do Canal</m-title>
-
     <c-carousel :items="items"></c-carousel>
   </div>
 </template>

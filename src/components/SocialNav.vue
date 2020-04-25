@@ -11,10 +11,6 @@ export default {
     vertical: {
       type: Boolean,
       default: false
-    },
-    invertColor: {
-      type: Boolean,
-      default: false
     }
   },
   data() {
@@ -43,7 +39,6 @@ export default {
       v-for="(item, index) in items"
       :key="index"
       type="link"
-      target="_blank"
       :title="item"
       :to="links[item.toLowerCase()]"
       icon
@@ -69,33 +64,22 @@ export default {
   width: 100%;
 }
 
-.button {
-  display: inline-flex;
-}
-
-.button + .button {
+.button.icon + .button.icon {
   margin-left: 18px;
 }
 
-.vertical .button {
+.vertical .button.icon {
   align-items: center;
   justify-content: flex-start;
 
   padding: 8px 0;
   border: 1px solid var(--primary);
 
-  transition: opacity 0.2s;
-
   background-color: transparent;
 }
 
-.vertical .button:hover {
-  opacity: 72%;
-}
-
-.vertical .button + .button {
-  margin-top: 8px;
-  margin-left: 0;
+.vertical .button.icon + .button.icon {
+  margin: 6px 0 0;
 }
 
 img {
@@ -103,8 +87,6 @@ img {
   height: 18px;
 
   padding: 1px;
-  cursor: pointer;
-
   box-sizing: content-box;
 }
 
@@ -113,14 +95,6 @@ img {
 }
 
 h6 {
-  font-size: 12px;
-  font-weight: bold;
-}
-
-@media only screen and (max-width: 480px) {
-  .social-nav {
-    padding-left: 14px;
-    text-align: left;
-  }
+  font: bold 12px menu;
 }
 </style>
