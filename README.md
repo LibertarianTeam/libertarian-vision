@@ -1,29 +1,49 @@
-# ancapsu
+# AncapSU
 
-## Project setup
+[AncapSU] é a plataforma oficial do canal [Ancap.SU] feita em [ReactJS], o código nesse repositório é uma versão de cunho didática desenvolvida em [VueJS].
 
-```
-yarn install
-```
+## :fire: Tecs
 
-### Compiles and hot-reloads for development
+- [VueJS] - Framework JavaScript progressivo ❤️.
+- [VueRouter] - Roteador oficial para [VueJS].
+- [CLIPluginPWA] - Plugin da CLI [VueJS] para configuração da PWA (App Web Progressivo).
+- [Vuex] - Padrão de gerenciamento de estado para [VueJS].
+- [NodeJS] - Ferramenta de magia negra.
 
-```
-yarn serve
-```
+### :wrench: Rode Localmente
 
-### Compiles and minifies for production
-
-```
-yarn build
-```
-
-### Lints and fixes files
-
-```
-yarn lint
+```shell
+  $ git clone https://github.com/PaulloClara/ancapsu.git # Clone o repositório.
+  $ cd ancapsu # Navegue ate a pasta.
+  $ yarn -i # Instale as dependencias.
+  $ yarn start # Execute o servidor.
 ```
 
-### Customize configuration
+### :scroll: Scripts
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- start - Inicia o servidor em modo de desenvolvimento.
+- build - Gera a versão de produção do código.
+- lint - Verifica a qualidade do código.
+- submit - Envia a versão de produção do código para a branch heroku no github.
+- deploy - Atalho para build e submit.
+
+#### :memo: Licença
+
+Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE] para obter detalhes.
+
+---
+
+> Imposto é roubo.
+
+<!-- Links -->
+
+[ancapsu]: https://ancap.su
+[ancap.su]: https://www.youtube.com/ancapsu
+[paulloclara]: https://github.com/PaulloClara
+[vuejs]: https://vuejs.org
+[vuex]: https://vuex.vuejs.org
+[nodejs]: https://nodejs.org/en
+[vuerouter]: https://router.vuejs.org
+[clipluginpwa]: https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-pwa#readme
+[reactjs]: https://pt-br.reactjs.org
+[license]: LICENSE
