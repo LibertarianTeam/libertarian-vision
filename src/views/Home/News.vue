@@ -1,14 +1,12 @@
 <script>
 import Card from "@/components/Card";
 import Title from "@/views/Home/Title";
-import Button from "@/components/Button";
 
 export default {
   name: "HomeNews",
   components: {
     "c-card": Card,
-    "m-title": Title,
-    "c-button": Button
+    "m-title": Title
   }
 };
 </script>

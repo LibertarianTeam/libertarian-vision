@@ -1,13 +1,11 @@
 <script>
 import Title from "@/views/Home/Title";
-import Button from "@/components/Button";
 import SocialNav from "@/components/SocialNav";
 
 export default {
   name: "HomeNumber",
   components: {
     "m-title": Title,
-    "c-button": Button,
     "c-social-nav": SocialNav
   }
 };

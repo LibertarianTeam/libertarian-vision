@@ -31,19 +31,12 @@ export default {
       return this.end >= this.items.length;
     },
 
-    itemsInScreen() {
+    itemsOnScreen() {
       const { dsmWindow, smdWindow, dmdWindow, lmdWindow } = this;
 
-      this.start = 1;
-      this.end = dsmWindow
-        ? 1
-        : smdWindow
-        ? 2
-        : dmdWindow
-        ? 3
-        : lmdWindow
-        ? 4
-        : 5;
+      this.updateItemsOnScreen(
+        dsmWindow ? 1 : smdWindow ? 2 : dmdWindow ? 3 : lmdWindow ? 4 : 5
+      );
     },
 
     classCard() {
@@ -54,11 +47,16 @@ export default {
     ...mapGetters(["dsmWindow", "smdWindow", "dmdWindow", "lmdWindow"])
   },
   watch: {
-    itemsInScreen() {
+    itemsOnScreen() {
       // updates the start and end of the card list when the screen is resized
     }
   },
   methods: {
+    updateItemsOnScreen(end) {
+      this.start = 1;
+      this.end = end;
+    },
+
     handleNext() {
       if (this.endOfList) return;
 
