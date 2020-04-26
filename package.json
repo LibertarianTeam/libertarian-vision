@@ -1,7 +1,8 @@
 {
   "name": "ancapsu",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "author": "paulloclara <paulloclara@gmail.com>",
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
