@@ -6,7 +6,9 @@
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "yarn build && yarn submit",
+    "submit": "git-directory-deploy --directory production --branch heroku"
   },
   "dependencies": {
     "register-service-worker": "^1.7.1",
