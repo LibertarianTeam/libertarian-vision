@@ -53,7 +53,7 @@ export default {
 
 <template lang="html">
   <div :class="classCard" :style="imgURL">
-    <div>
+    <div class="content">
       <c-button v-if="tag" class="tag" type="link" :to="{ name: 'Home' }">
         {{ tag }}
       </c-button>
@@ -95,6 +95,10 @@ export default {
   overflow: hidden;
 }
 
+.content {
+  width: 100%;
+}
+
 .tag {
   margin: 8px;
 
@@ -106,6 +110,8 @@ export default {
 }
 
 .title {
+  width: 100%;
+
   padding: 8px 12px;
   border: none;
 
