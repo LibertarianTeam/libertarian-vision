@@ -96,11 +96,11 @@ export default {
   box-shadow: 0 0 16px 2px var(--bx-tertiary);
 }
 
-.center-bg {
+.center-bg.card {
   background-position: center;
 }
 
-.compact {
+.compact.card {
   height: 220px;
   overflow: hidden;
 }
@@ -140,15 +140,15 @@ h5 {
 
 .dark.card .title {
   padding: 6px 8px;
-  background-color: var(--bx-secondary);
-}
-
-.dark.card:hover .title {
   background-color: var(--bx-tertiary);
 }
 
-.dark.card .title:hover {
+.dark.card:hover .title {
   background-color: var(--bd-primary);
+}
+
+.dark.card .title:hover {
+  background-color: var(--bd-secondary);
 }
 .compact.card .title {
   min-height: 80px;
