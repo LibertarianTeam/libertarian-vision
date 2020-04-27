@@ -20,11 +20,15 @@ export default {
       type: Boolean,
       default: false
     },
+    dark: {
+      type: Boolean,
+      default: true
+    },
     compact: {
       type: Boolean,
       default: false
     },
-    dark: {
+    centerBG: {
       type: Boolean,
       default: true
     }
@@ -42,8 +46,10 @@ export default {
     },
 
     classCard() {
-      const { compact, dark } = this;
-      return `card${compact ? " compact" : ""}${dark ? " dark" : ""}`;
+      const { dark, compact, centerBG } = this;
+      return `card${compact ? " compact" : ""}${dark ? " dark" : ""}${
+        centerBG ? " center-bg" : ""
+      }`;
     },
 
     ...mapGetters(["getAsset"])
@@ -82,12 +88,16 @@ export default {
 
   box-shadow: 0 0 8px 2px var(--bx-primary);
 
-  background: var(--primary) no-repeat center;
+  background: var(--primary) no-repeat;
   background-size: cover;
 }
 
 .card:hover {
   box-shadow: 0 0 16px 2px var(--bx-tertiary);
+}
+
+.center-bg {
+  background-position: center;
 }
 
 .compact {

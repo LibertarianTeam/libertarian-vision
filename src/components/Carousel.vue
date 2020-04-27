@@ -14,6 +14,10 @@ export default {
     items: {
       type: Array,
       default: () => []
+    },
+    centerBG: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -91,6 +95,7 @@ export default {
         :key="index"
         :class="classCard(index)"
         :tag="item.tag"
+        :centerBG="centerBG"
         :img="item.img"
         :externalImg="item.externalImg"
       >
