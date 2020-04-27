@@ -121,38 +121,40 @@ export default {
 
 .title {
   width: 100%;
+  min-height: 100px;
 
   padding: 8px 12px;
   border: none;
 
-  text-align: left;
   transition: background-color 0.4s;
 
   background-color: transparent;
 }
 
 h5 {
-  font: bold 22px caption;
+  font: bold 24px caption;
   color: var(--text-secondary);
 
   text-shadow: 2px 2px 8px var(--bx-tertiary);
 }
 
-.compact .title {
+.dark.card .title {
   padding: 6px 8px;
   background-color: var(--bx-secondary);
-}
-
-.compact h5 {
-  font-size: 18px;
-  line-height: 22px;
 }
 
 .dark.card:hover .title {
   background-color: var(--bx-tertiary);
 }
 
-.dark.compact .title:hover {
+.dark.card .title:hover {
   background-color: var(--bd-primary);
+}
+.compact.card .title {
+  min-height: 80px;
+}
+.compact.card h5 {
+  font-size: 18px;
+  line-height: 22px;
 }
 </style>
