@@ -17,6 +17,7 @@ export default {
 
     <c-social-nav vertical>
       <template #youtube>72000 Inscritos</template>
+      <template #visaolibertaria>8580 Inscritos</template>
       <template #bitchute>1314 Inscritos</template>
       <template #facebook>4401 Inscritos</template>
       <template #minds>363 Inscritos</template>

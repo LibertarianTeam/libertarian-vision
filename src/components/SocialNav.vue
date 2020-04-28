@@ -15,7 +15,15 @@ export default {
   },
   data() {
     return {
-      items: ["Youtube", "Bitchute", "Facebook", "Minds", "Twitter", "Gab"]
+      items: [
+        "Youtube",
+        "VisaoLibertaria",
+        "Bitchute",
+        "Facebook",
+        "Minds",
+        "Twitter",
+        "Gab"
+      ]
     };
   },
   computed: {

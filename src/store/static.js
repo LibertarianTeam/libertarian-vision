@@ -6,7 +6,8 @@ export default {
       twitter: "https://twitter.com/ancapsu",
       youtube: "https://youtube.com/ancapsu",
       bitchute: "https://bitchute.com/ancapsu",
-      facebook: "https://facebook.com/pageancapsu"
+      facebook: "https://facebook.com/pageancapsu",
+      visaolibertaria: "https://www.youtube.com/visaolibertaria"
     },
     navItems: {
       video: {
