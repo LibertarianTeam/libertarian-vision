@@ -14,7 +14,7 @@ export default {
     },
     img: {
       type: String,
-      default: "icons/broken-image.svg"
+      default: "icons/broken.svg"
     },
     dark: {
       type: Boolean,
