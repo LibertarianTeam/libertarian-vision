@@ -30,11 +30,9 @@ export default {
     startOfList() {
       return this.start <= 1;
     },
-
     endOfList() {
       return this.end >= this.items.length;
     },
-
     itemsOnScreen() {
       const { dsmWindow, smdWindow, dmdWindow, lmdWindow } = this;
 
@@ -42,12 +40,10 @@ export default {
         dsmWindow ? 1 : smdWindow ? 2 : dmdWindow ? 3 : lmdWindow ? 4 : 5
       );
     },
-
     classCard() {
       const { start, end } = this;
       return index => `${index + 1 >= start && index + 1 <= end ? "show" : ""}`;
     },
-
     ...mapGetters(["dsmWindow", "smdWindow", "dmdWindow", "lmdWindow"])
   },
   watch: {
@@ -60,14 +56,12 @@ export default {
       this.start = 1;
       this.end = end;
     },
-
     handleNext() {
       if (this.endOfList) return;
 
       this.end += 1;
       this.start += 1;
     },
-
     handlePrev() {
       if (this.startOfList) return;
 
@@ -80,13 +74,15 @@ export default {
 
 <template lang="html">
   <section class="carousel">
-    <c-button class="arrow" :disabled="startOfList" icon fab>
-      <img
-        alt="Anterior"
-        title="Anterior"
-        src="@/assets/icons/arrow-prev.svg"
-        @click="handlePrev"
-      />
+    <c-button
+      class="arrow"
+      title="Anterior"
+      :disabled="startOfList"
+      icon
+      fab
+      @click="handlePrev"
+    >
+      <img alt="Anterior" src="@/assets/icons/arrow-prev.svg" />
     </c-button>
 
     <div class="cards">
@@ -97,19 +93,20 @@ export default {
         :tag="item.tag"
         :centerBG="centerBG"
         :img="item.img"
-        :externalImg="item.externalImg"
       >
         {{ item.title }}
       </c-card>
     </div>
 
-    <c-button class="arrow" :disabled="endOfList" icon fab>
-      <img
-        alt="Próximo"
-        title="Próximo"
-        src="@/assets/icons/arrow-next.svg"
-        @click="handleNext"
-      />
+    <c-button
+      class="arrow"
+      title="Próximo"
+      :disabled="endOfList"
+      icon
+      fab
+      @click="handleNext"
+    >
+      <img alt="Próximo" src="@/assets/icons/arrow-next.svg" />
     </c-button>
   </section>
 </template>
@@ -172,7 +169,7 @@ export default {
 }
 
 .show.card + .show.card {
-  margin-left: 4px;
+  margin-left: 6px;
 }
 
 @media only screen and (max-width: 640px) {

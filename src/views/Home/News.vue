@@ -22,7 +22,6 @@ export default {
         tag="Crônica"
         img="https://i.ibb.co/Lnz4Tgs/image.png"
         compact
-        externalImg
       >
         Burger King e Ambev capitalistas malvados dando um empurrãozinho no
         sistema estatal.

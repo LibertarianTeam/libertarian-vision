@@ -15,51 +15,43 @@ export default {
           title:
             "Presidente das Filipinas manda matar quem descumprir quarentena.",
           img: "https://i.ibb.co/n0PJpgL/image.png",
-          tag: "Vídeo",
-          externalImg: true
+          tag: "Vídeo"
         },
         {
           title: "Estão faltando mortos nessa conta.",
           img: "https://i.ibb.co/WFhvVym/image.png",
-          tag: "Vídeo",
-          externalImg: true
+          tag: "Vídeo"
         },
         {
           title: "Chegou a hora de o Brasil ter um Banco Central independente?",
           img: "https://i.ibb.co/DLdmLWW/image.png",
-          tag: "Vídeo",
-          externalImg: true
+          tag: "Vídeo"
         },
         {
           title: "Venezuela está afundando seus próprios navios.",
           img: "https://i.ibb.co/LpHFy7n/image.png",
-          tag: "Vídeo",
-          externalImg: true
+          tag: "Vídeo"
         },
         {
           title:
             "Presidente das Filipinas manda matar quem descumprir quarentena.",
           img: "https://i.ibb.co/n0PJpgL/image.png",
-          tag: "Vídeo",
-          externalImg: true
+          tag: "Vídeo"
         },
         {
           title: "Estão faltando mortos nessa conta.",
           img: "https://i.ibb.co/WFhvVym/image.png",
-          tag: "Vídeo",
-          externalImg: true
+          tag: "Vídeo"
         },
         {
           title: "Chegou a hora de o Brasil ter um Banco Central independente?",
           img: "https://i.ibb.co/DLdmLWW/image.png",
-          tag: "Vídeo",
-          externalImg: true
+          tag: "Vídeo"
         },
         {
           title: "Venezuela está afundando seus próprios navios.",
           img: "https://i.ibb.co/LpHFy7n/image.png",
-          tag: "Vídeo",
-          externalImg: true
+          tag: "Vídeo"
         }
       ]
     };

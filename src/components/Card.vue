@@ -16,10 +16,6 @@ export default {
       type: String,
       default: "icons/broken-image.svg"
     },
-    externalImg: {
-      type: Boolean,
-      default: false
-    },
     dark: {
       type: Boolean,
       default: true
@@ -37,21 +33,15 @@ export default {
     title() {
       return this.$attrs.title || "";
     },
-
     imgURL() {
-      const { img, externalImg } = this;
-      const imgURL = externalImg ? img : this.getAsset(img);
-
-      return { backgroundImage: `url("${imgURL}")` };
+      return { backgroundImage: `url("${this.getAsset(this.img)}")` };
     },
-
     classCard() {
       const { dark, compact, centerBG } = this;
       return `card${compact ? " compact" : ""}${dark ? " dark" : ""}${
         centerBG ? " center-bg" : ""
       }`;
     },
-
     ...mapGetters(["getAsset"])
   }
 };
