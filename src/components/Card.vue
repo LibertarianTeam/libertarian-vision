@@ -74,16 +74,16 @@ export default {
   height: 360px;
 
   border-radius: 8px;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s linear;
 
-  box-shadow: 0 0 8px 2px var(--bx-primary);
+  box-shadow: inset 0 0 18px 6px var(--bx-secondary);
 
   background: var(--primary) no-repeat;
   background-size: cover;
 }
 
 .card:hover {
-  box-shadow: 0 0 16px 2px var(--bx-tertiary);
+  box-shadow: inset 0 0 24px 4px var(--bx-tertiary);
 }
 
 .center-bg.card {
