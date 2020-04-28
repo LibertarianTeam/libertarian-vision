@@ -24,6 +24,9 @@ export default {
     }
   },
   computed: {
+    title() {
+      return this.disabled ? "" : this.$attrs.title;
+    },
     classButton() {
       const { icon, fab, disabled } = this;
       return `button${icon ? " icon" : ""}${fab ? " fab" : ""}${
@@ -44,6 +47,7 @@ export default {
     v-if="type === 'link' && to.name"
     :to="to"
     :class="classButton"
+    :title="title"
     @click.native="emitClick($event)"
   >
     <slot name="default"></slot>
@@ -52,6 +56,7 @@ export default {
   <a
     v-else-if="type === 'link'"
     :class="classButton"
+    :title="title"
     :href="to"
     target="_blank"
     @click="emitClick($event)"
@@ -59,7 +64,14 @@ export default {
     <slot name="default"></slot>
   </a>
 
-  <button v-else :type="type" :class="classButton" @click="emitClick($event)">
+  <button
+    v-else
+    :type="type"
+    :class="classButton"
+    :title="title"
+    :disabled="disabled"
+    @click="emitClick($event)"
+  >
     <slot name="default"></slot>
   </button>
 </template>
@@ -111,7 +123,10 @@ export default {
 }
 
 .disabled {
-  opacity: 40%;
+  opacity: 60%;
+  cursor: default;
+
+  border: none;
 }
 
 .disabled:hover {
