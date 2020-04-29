@@ -11,6 +11,10 @@ export default {
     vertical: {
       type: Boolean,
       default: false
+    },
+    invert: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -30,12 +34,13 @@ export default {
     links() {
       return this.$store.state.static.links;
     },
-
     classSocialNav() {
-      const { vertical } = this;
-      return `social-nav${vertical ? " vertical" : ""}`;
-    },
+      const { vertical, invert } = this;
 
+      return `social-nav${vertical ? " vertical" : ""}${
+        invert ? " invert" : ""
+      }`;
+    },
     ...mapGetters(["getAsset"])
   }
 };
@@ -100,6 +105,10 @@ img {
 
 .vertical img {
   padding: 0 8px;
+}
+
+.invert img {
+  filter: invert(100%);
 }
 
 h6 {
