@@ -27,6 +27,10 @@
 - submit - Envia a versão de produção do código para a branch heroku no github.
 - deploy - Atalho para build e submit.
 
+#### :muscle: Progresso
+
+O código nesse repositório é de cunho didático (pelo menos por enquanto), caso queira contribuir ou ver de perto o progresso feito, acesse o [trello] do projeto.
+
 #### :memo: Licença
 
 Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE] para obter detalhes.
@@ -39,6 +43,7 @@ Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE] 
 
 [ancapsu]: https://ancap.su
 [ancap.su]: https://www.youtube.com/ancapsu
+[trello]: https://trello.com/b/eOBZHJ5j/ancapsu
 [paulloclara]: https://github.com/PaulloClara
 [vuejs]: https://vuejs.org
 [vuex]: https://vuex.vuejs.org
