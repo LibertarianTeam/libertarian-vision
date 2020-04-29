@@ -1,10 +1,13 @@
 <script>
 import { mapMutations } from "vuex";
+
 import AppBar from "@/components/AppBar";
+import Footer from "@/components/Footer";
 
 export default {
   name: "App",
   components: {
+    "c-footer": Footer,
     "c-app-bar": AppBar
   },
   methods: {
@@ -24,6 +27,7 @@ export default {
   <div id="app" class="light-theme">
     <c-app-bar></c-app-bar>
     <router-view></router-view>
+    <c-footer></c-footer>
   </div>
 </template>
 
