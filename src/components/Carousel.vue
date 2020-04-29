@@ -7,15 +7,15 @@ import Button from "@/components/Button";
 export default {
   name: "Carousel",
   components: {
-    "c-card": Card,
-    "c-button": Button
+    "gc-card": Card,
+    "gc-button": Button
   },
   props: {
     items: {
       type: Array,
       default: () => []
     },
-    centerBG: {
+    center: {
       type: Boolean,
       default: true
     }
@@ -42,6 +42,7 @@ export default {
     },
     classCard() {
       const { start, end } = this;
+
       return index => `${index + 1 >= start && index + 1 <= end ? "show" : ""}`;
     },
     ...mapGetters(["dsmWindow", "smdWindow", "dmdWindow", "lmdWindow"])
@@ -73,53 +74,53 @@ export default {
 </script>
 
 <template lang="html">
-  <section class="carousel">
-    <c-button
+  <section class="gc-carousel">
+    <gc-button
       class="arrow"
       title="Anterior"
-      :disabled="startOfList"
       icon
       fab
+      :disabled="startOfList"
       @click="handlePrev"
     >
       <img alt="Anterior" src="@/assets/icons/arrow-prev.svg" />
-    </c-button>
+    </gc-button>
 
-    <div class="cards">
-      <c-card
+    <div class="list">
+      <gc-card
         v-for="(item, index) in items"
         :key="index"
         :class="classCard(index)"
         :tag="item.tag"
-        :centerBG="centerBG"
+        :center="center"
         :img="item.img"
       >
         {{ item.title }}
-      </c-card>
+      </gc-card>
     </div>
 
-    <c-button
+    <gc-button
       class="arrow"
       title="Próximo"
-      :disabled="endOfList"
       icon
       fab
+      :disabled="endOfList"
       @click="handleNext"
     >
       <img alt="Próximo" src="@/assets/icons/arrow-next.svg" />
-    </c-button>
+    </gc-button>
   </section>
 </template>
 
 <style lang="css" scoped>
-.carousel {
+.gc-carousel {
   display: inline-flex;
 
   align-items: center;
   justify-content: center;
 }
 
-.cards {
+.list {
   display: inherit;
   overflow: hidden;
 }
@@ -152,7 +153,7 @@ export default {
   margin-left: 4px;
 }
 
-.card {
+.gc-card {
   width: 0;
 
   overflow: hidden;
@@ -161,19 +162,19 @@ export default {
   background-size: auto;
 }
 
-.show.card {
+.show.gc-card {
   width: 100%;
   height: inherit;
 
   background-size: cover;
 }
 
-.show.card + .show.card {
+.show.gc-card + .show.gc-card {
   margin-left: 6px;
 }
 
 @media only screen and (max-width: 640px) {
-  .cards {
+  .list {
     height: 300px;
     min-width: 100%;
   }

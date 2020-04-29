@@ -9,24 +9,24 @@ import Newsletter from "@/views/Home/Newsletter";
 export default {
   name: "Home",
   components: {
-    "m-home-help": Help,
-    "m-home-news": News,
-    "m-home-funnel": Funnel,
-    "m-home-videos": Videos,
-    "m-home-numbers": Numbers,
-    "m-home-newsletter": Newsletter
+    "sc-help": Help,
+    "sc-news": News,
+    "sc-funnel": Funnel,
+    "sc-videos": Videos,
+    "sc-numbers": Numbers,
+    "sc-newsletter": Newsletter
   }
 };
 </script>
 
 <template>
   <main id="home">
-    <m-home-newsletter></m-home-newsletter>
-    <m-home-funnel></m-home-funnel>
-    <m-home-videos></m-home-videos>
-    <m-home-help></m-home-help>
-    <m-home-news></m-home-news>
-    <m-home-numbers></m-home-numbers>
+    <sc-newsletter></sc-newsletter>
+    <sc-funnel></sc-funnel>
+    <sc-videos></sc-videos>
+    <sc-help></sc-help>
+    <sc-news></sc-news>
+    <sc-numbers></sc-numbers>
   </main>
 </template>
 
@@ -43,27 +43,27 @@ export default {
     "numbers numbers news news news news";
 }
 
-.home-newsletter {
+.sc-newsletter {
   grid-area: newsletter;
 }
 
-.home-funnel {
+.sc-funnel {
   grid-area: funnel;
 }
 
-.home-videos {
+.sc-videos {
   grid-area: videos;
 }
 
-.home-help {
+.sc-help {
   grid-area: help;
 }
 
-.home-news {
+.sc-news {
   grid-area: news;
 }
 
-.home-numbers {
+.sc-numbers {
   grid-area: numbers;
 }
 

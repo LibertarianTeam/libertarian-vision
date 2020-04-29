@@ -37,7 +37,11 @@ Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE] 
 
 ---
 
-> Imposto é roubo.
+<div align="center">
+
+> Imposto é roubo!
+
+</div>
 
 <!-- Links -->
 

@@ -1,10 +1,11 @@
 <script>
+import { buildClass } from "@/utils";
 import Button from "@/components/Button";
 
 export default {
   name: "Dropdown",
   components: {
-    "c-button": Button
+    "gc-button": Button
   },
   props: {
     items: {
@@ -13,7 +14,7 @@ export default {
     },
     to: {
       type: [Object, String],
-      default: () => ({})
+      default: () => ""
     },
     contained: {
       type: Boolean,
@@ -22,8 +23,7 @@ export default {
   },
   computed: {
     classDropdown() {
-      const { contained } = this;
-      return `dropdown${contained ? " contained" : ""}`;
+      return buildClass("gc-dropdown", ["contained"], this.$props);
     }
   },
   methods: {
@@ -36,31 +36,25 @@ export default {
 
 <template lang="html">
   <div :class="classDropdown">
-    <c-button
-      class="root-button"
-      :to="!contained ? to : undefined"
-      :type="!contained ? 'link' : 'button'"
-      @click="emitEvent('click', $event)"
-    >
+    <gc-button class="root-button" :to="to" @click="emitEvent('click', $event)">
       <slot name="default"></slot>
-    </c-button>
+    </gc-button>
 
     <div class="items">
-      <c-button
+      <gc-button
         v-for="(item, index) in items"
         :key="index"
-        type="link"
         :to="item.to"
         @click="emitEvent('clickOnItem', $event)"
       >
         {{ item.text }}
-      </c-button>
+      </gc-button>
     </div>
   </div>
 </template>
 
 <style lang="css" scoped>
-.dropdown {
+.gc-dropdown {
   display: inline-block;
   position: relative;
 }
@@ -79,7 +73,7 @@ export default {
   border-radius: 0;
 }
 
-.dropdown:hover .root-button {
+.gc-dropdown:hover .root-button {
   filter: brightness(96%);
 }
 
@@ -91,7 +85,7 @@ export default {
   min-width: 160px;
 }
 
-.dropdown:hover .items {
+.gc-dropdown:hover .items {
   display: block;
 }
 
@@ -99,14 +93,14 @@ export default {
   position: relative;
 }
 
-.items > .button {
+.items > .gc-button {
   display: block;
 
   margin: 0;
   padding: 10px 14px;
 }
 
-.items > .button + .button {
+.items > .gc-button + .gc-button {
   border-top: none;
 }
 </style>

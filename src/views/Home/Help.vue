@@ -5,50 +5,50 @@ import Title from "@/views/Home/Title";
 export default {
   name: "HomeHelp",
   components: {
-    "c-card": Card,
-    "m-title": Title
+    "gc-card": Card,
+    "sc-title": Title
   }
 };
 </script>
 
 <template lang="html">
-  <div class="home-help">
-    <m-title>Quer Ajudar?</m-title>
+  <div class="sc-help">
+    <sc-title>Quer Ajudar?</sc-title>
 
-    <div class="cards">
-      <c-card :dark="false" img="imgs/news.png">
+    <div class="list">
+      <gc-card :dark="false" img="imgs/news.png">
         <span>Sugerir Noticia</span>
-      </c-card>
+      </gc-card>
 
-      <c-card :dark="false" img="imgs/typewriter.png">
+      <gc-card :dark="false" img="imgs/typewriter.png">
         <span>Escrever Matéria</span>
-      </c-card>
+      </gc-card>
 
-      <c-card :dark="false" img="imgs/mic.png">
+      <gc-card :dark="false" img="imgs/mic.png">
         <span>Narrar Matéria</span>
-      </c-card>
+      </gc-card>
     </div>
   </div>
 </template>
 
 <style lang="css" scoped>
-.cards {
+.list {
   display: inline-flex;
   width: 100%;
 }
 
-.card {
+.gc-card {
   align-items: flex-start;
 
   width: 120px;
   height: 240px;
 }
 
-.card + .card {
+.gc-card + .gc-card {
   margin-left: 6px;
 }
 
-.card span {
+.gc-card span {
   transition: color 0.4s;
 
   color: var(--text-tertiary);
@@ -56,31 +56,31 @@ export default {
   font-weight: bolder;
 }
 
-.card:hover span {
+.gc-card:hover span {
   color: var(--text-secondary);
 }
 
 @media only screen and (max-width: 800px) {
-  .cards {
+  .list {
     justify-content: center;
   }
 
-  .card {
+  .gc-card {
     width: 180px;
   }
 }
 
 @media only screen and (max-width: 360px) {
-  .cards {
+  .list {
     flex-direction: column;
     align-items: center;
   }
 
-  .card {
+  .gc-card {
     width: 100%;
   }
 
-  .card + .card {
+  .gc-card + .gc-card {
     margin: 8px 0 0;
   }
 }

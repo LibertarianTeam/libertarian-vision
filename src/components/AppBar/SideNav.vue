@@ -1,5 +1,6 @@
 <script>
 import { mapGetters } from "vuex";
+import { buildClass } from "@/utils";
 
 import Button from "@/components/Button";
 import Dropdown from "@/components/Dropdown";
@@ -7,15 +8,15 @@ import Dropdown from "@/components/Dropdown";
 export default {
   name: "AppBarSideNav",
   components: {
-    "c-button": Button,
-    "c-dropdown": Dropdown
+    "gc-button": Button,
+    "gc-dropdown": Dropdown
   },
   computed: {
     classAppBarSideNav() {
-      const { visible } = this.$store.state.appBar.sideNav;
-      return `app-bar-side-nav${visible ? " show" : ""}`;
+      return buildClass("sc-side-nav", ["show"], {
+        show: this.$store.state.appBar.sideNav.visible
+      });
     },
-
     ...mapGetters("static", ["sideNavItems"])
   },
   methods: {
@@ -30,33 +31,31 @@ export default {
 <template lang="html">
   <nav :class="classAppBarSideNav" @click="handleSideNavClick('hide')">
     <div class="content" @click.stop="handleSideNavClick('continue')">
-      <c-button
+      <gc-button
         class="home"
-        type="link"
         :to="{ name: 'Home' }"
         title="Home"
         icon
         @click.native.stop="handleSideNavClick('hide')"
       >
         <img alt="Home" src="@/assets/icons/home.svg" />
-      </c-button>
+      </gc-button>
 
-      <c-dropdown
+      <gc-dropdown
         v-for="(sideNavItem, index) in sideNavItems"
         :key="index"
-        :to="sideNavItem.to"
         :items="sideNavItem.items"
         contained
         @clickOnItem.stop="handleSideNavClick('hide')"
       >
         {{ sideNavItem.text }}
-      </c-dropdown>
+      </gc-dropdown>
     </div>
   </nav>
 </template>
 
 <style lang="css" scoped>
-.app-bar-side-nav {
+.sc-side-nav {
   position: fixed;
 
   width: 0;

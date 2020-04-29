@@ -11,10 +11,6 @@ export default {
     }
   },
   getters: {
-    getAsset() {
-      return img => (img.includes("https") ? img : require(`@/assets/${img}`));
-    },
-
     xsmWindow(state) {
       return state.window.width <= 360;
     },

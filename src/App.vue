@@ -7,8 +7,8 @@ import Footer from "@/components/Footer";
 export default {
   name: "App",
   components: {
-    "c-footer": Footer,
-    "c-app-bar": AppBar
+    "gc-footer": Footer,
+    "gc-app-bar": AppBar
   },
   methods: {
     ...mapMutations(["updateWindowSize"])
@@ -25,9 +25,9 @@ export default {
 
 <template lang="html">
   <div id="app" class="light-theme">
-    <c-app-bar></c-app-bar>
+    <gc-app-bar></gc-app-bar>
     <router-view></router-view>
-    <c-footer></c-footer>
+    <gc-footer></gc-footer>
   </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
 }
 
 :root {
-  /*        breakpoints        */
+  /*       breakpoints        */
   /*   360 xsm extreme  small */
   /*   480 dsm default  small */
   /*   640 lsm   large  small */

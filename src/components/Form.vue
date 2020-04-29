@@ -1,10 +1,11 @@
 <script>
+import { buildClass } from "@/utils";
 import Button from "@/components/Button";
 
 export default {
   name: "Form",
   components: {
-    "c-button": Button
+    "gc-button": Button
   },
   props: {
     inline: {
@@ -14,7 +15,7 @@ export default {
   },
   computed: {
     classForm() {
-      return `form${this.inline ? " inline" : ""}`;
+      return buildClass("gc-form", ["inline"], this.$props);
     }
   },
   methods: {
@@ -31,9 +32,9 @@ export default {
       <slot name="default"></slot>
     </div>
 
-    <c-button type="submit">
+    <gc-button type="submit">
       Cadastrar
-    </c-button>
+    </gc-button>
   </form>
 </template>
 
@@ -52,7 +53,7 @@ export default {
   padding-right: 12px;
 }
 
-.button {
+.gc-button {
   padding: 0 36px;
   border-radius: 8px;
 
@@ -69,7 +70,7 @@ export default {
     padding: 0 0 12px;
   }
 
-  .button {
+  .gc-button {
     padding: 12px;
   }
 }

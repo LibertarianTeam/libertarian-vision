@@ -1,4 +1,6 @@
 <script>
+import { buildClass } from "@/utils";
+
 export default {
   name: "Button",
   props: {
@@ -8,7 +10,7 @@ export default {
     },
     to: {
       type: [Object, String],
-      default: () => ({ name: "Home" })
+      default: () => ""
     },
     icon: {
       type: Boolean,
@@ -27,11 +29,14 @@ export default {
     title() {
       return this.disabled ? "" : this.$attrs.title;
     },
+    internalLink() {
+      return this.to && this.to.name;
+    },
+    externalLink() {
+      return this.to && !this.to.name;
+    },
     classButton() {
-      const { icon, fab, disabled } = this;
-      return `button${icon ? " icon" : ""}${fab ? " fab" : ""}${
-        disabled ? " disabled" : ""
-      }`;
+      return buildClass("gc-button", ["icon", "fab", "disabled"], this.$props);
     }
   },
   methods: {
@@ -44,17 +49,17 @@ export default {
 
 <template lang="html">
   <router-link
-    v-if="type === 'link' && to.name"
-    :to="to"
+    v-if="internalLink"
     :class="classButton"
     :title="title"
+    :to="to"
     @click.native="emitClick($event)"
   >
     <slot name="default"></slot>
   </router-link>
 
   <a
-    v-else-if="type === 'link'"
+    v-else-if="externalLink"
     :class="classButton"
     :title="title"
     :href="to"
@@ -66,8 +71,8 @@ export default {
 
   <button
     v-else
-    :type="type"
     :class="classButton"
+    :type="type"
     :title="title"
     :disabled="disabled"
     @click="emitClick($event)"
@@ -77,7 +82,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.button {
+.gc-button {
   display: inline-block;
 
   padding: 4px 8px;
@@ -97,7 +102,7 @@ export default {
   background-color: var(--primary);
 }
 
-.button:hover {
+.gc-button:hover {
   filter: brightness(96%);
   border-color: transparent;
 }

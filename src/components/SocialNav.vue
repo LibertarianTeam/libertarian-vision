@@ -1,11 +1,11 @@
 <script>
-import { mapGetters } from "vuex";
 import Button from "@/components/Button";
+import { getAsset, buildClass } from "@/utils";
 
 export default {
   name: "SocialNav",
   components: {
-    "c-button": Button
+    "gc-button": Button
   },
   props: {
     vertical: {
@@ -35,38 +35,35 @@ export default {
       return this.$store.state.static.links;
     },
     classSocialNav() {
-      const { vertical, invert } = this;
-
-      return `social-nav${vertical ? " vertical" : ""}${
-        invert ? " invert" : ""
-      }`;
-    },
-    ...mapGetters(["getAsset"])
+      return buildClass("gc-social-nav", ["vertical", "invert"], this.$props);
+    }
+  },
+  methods: {
+    getAsset
   }
 };
 </script>
 
 <template lang="html">
   <div :class="classSocialNav">
-    <c-button
+    <gc-button
       v-for="(item, index) in items"
       :key="index"
-      type="link"
       :title="item"
       :to="links[item.toLowerCase()]"
       icon
     >
-      <img :src="getAsset(`icons/${item.toLowerCase()}.svg`)" :alt="item" />
+      <img :alt="item" :src="getAsset(`icons/${item.toLowerCase()}.svg`)" />
 
       <h6 v-if="vertical">
         <slot :name="item.toLowerCase()"></slot>
       </h6>
-    </c-button>
+    </gc-button>
   </div>
 </template>
 
 <style lang="css" scoped>
-.social-nav {
+.gc-social-nav {
   text-align: center;
 }
 
@@ -77,11 +74,11 @@ export default {
   width: 100%;
 }
 
-.button.icon + .button.icon {
+.gc-button.icon + .gc-button.icon {
   margin-left: 18px;
 }
 
-.vertical .button.icon {
+.vertical .gc-button.icon {
   align-items: center;
   justify-content: flex-start;
 
@@ -91,7 +88,7 @@ export default {
   background-color: transparent;
 }
 
-.vertical .button.icon + .button.icon {
+.vertical .gc-button.icon + .gc-button.icon {
   margin: 6px 0 0;
 }
 

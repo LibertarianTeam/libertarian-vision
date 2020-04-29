@@ -5,11 +5,11 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="divider"></div>
+  <div class="gc-divider"></div>
 </template>
 
 <style lang="css" scoped>
-.divider {
+.gc-divider {
   width: 100%;
   height: 2px;
 
