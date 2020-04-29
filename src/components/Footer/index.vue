@@ -1,12 +1,25 @@
 <script>
+import Help from "@/components/Footer/Help";
+import About from "@/components/Footer/About";
+import Store from "@/components/Footer/Store";
+
 export default {
-  name: "Footer"
+  name: "Footer",
+  components: {
+    "sc-help": Help,
+    "sc-about": About,
+    "sc-store": Store
+  }
 };
 </script>
 
 <template lang="html">
   <footer class="footer">
-    <div class="content"></div>
+    <div class="content">
+      <sc-about></sc-about>
+      <sc-help></sc-help>
+      <sc-store></sc-store>
+    </div>
   </footer>
 </template>
 
