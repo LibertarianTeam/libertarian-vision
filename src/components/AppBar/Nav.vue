@@ -18,13 +18,7 @@ export default {
 
 <template lang="html">
   <nav class="sc-nav">
-    <gc-button
-      class="home"
-      type="link"
-      :to="{ name: 'Home' }"
-      title="Home"
-      icon
-    >
+    <gc-button class="home" :to="{ name: 'Home' }" title="Home" icon>
       <img alt="Home" src="@/assets/icons/home.svg" />
     </gc-button>
 

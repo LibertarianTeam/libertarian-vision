@@ -50,7 +50,6 @@ export default {
       <gc-button
         v-for="(item, index) in items"
         :key="index"
-        type="link"
         :to="item.to"
         @click="emitEvent('clickOnItem', $event)"
       >

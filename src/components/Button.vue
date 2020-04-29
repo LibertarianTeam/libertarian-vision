@@ -8,7 +8,7 @@ export default {
     },
     to: {
       type: [Object, String],
-      default: () => ({ name: "Home" })
+      default: () => ""
     },
     icon: {
       type: Boolean,
@@ -26,6 +26,12 @@ export default {
   computed: {
     title() {
       return this.disabled ? "" : this.$attrs.title;
+    },
+    internalLink() {
+      return this.to && this.to.name;
+    },
+    externalLink() {
+      return this.to && !this.to.name;
     },
     classButton() {
       const { icon, fab, disabled } = this;
@@ -45,7 +51,7 @@ export default {
 
 <template lang="html">
   <router-link
-    v-if="type === 'link' && to.name"
+    v-if="internalLink"
     :to="to"
     :class="classButton"
     :title="title"
@@ -55,7 +61,7 @@ export default {
   </router-link>
 
   <a
-    v-else-if="type === 'link'"
+    v-else-if="externalLink"
     :class="classButton"
     :title="title"
     :href="to"

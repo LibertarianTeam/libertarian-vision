@@ -51,7 +51,6 @@ export default {
     <gc-button
       v-for="(item, index) in items"
       :key="index"
-      type="link"
       :title="item"
       :to="links[item.toLowerCase()]"
       icon

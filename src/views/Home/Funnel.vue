@@ -16,12 +16,12 @@ export default {
     <sc-title>Funil de Produção</sc-title>
 
     <div class="content">
-      <gc-button class="schedule" type="link" :to="{ name: 'Home' }">
+      <gc-button class="schedule" :to="{ name: 'Home' }">
         <h6>138</h6>
         <span>Pautas</span>
       </gc-button>
 
-      <gc-button class="approved" type="link" :to="{ name: 'Home' }">
+      <gc-button class="approved" :to="{ name: 'Home' }">
         <h6>17</h6>
         <span>Aprovadas</span>
       </gc-button>

@@ -51,16 +51,11 @@ export default {
 <template lang="html">
   <div :class="classCard" :style="imgURL">
     <div class="content">
-      <gc-button v-if="tag" class="tag" type="link" :to="{ name: 'Home' }">
+      <gc-button v-if="tag" class="tag" :to="{ name: 'Home' }">
         {{ tag }}
       </gc-button>
 
-      <gc-button
-        class="title"
-        type="link"
-        :title="title"
-        :to="{ name: 'Home' }"
-      >
+      <gc-button class="title" :title="title" :to="{ name: 'Home' }">
         <h5>
           <slot name="default"></slot>
         </h5>

@@ -32,7 +32,6 @@ export default {
     <div class="content" @click.stop="handleSideNavClick('continue')">
       <gc-button
         class="home"
-        type="link"
         :to="{ name: 'Home' }"
         title="Home"
         icon

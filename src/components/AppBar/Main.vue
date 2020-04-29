@@ -16,10 +16,10 @@ export default {
     </router-link>
 
     <div class="account">
-      <gc-button type="link" :to="{ name: 'Login' }">
+      <gc-button :to="{ name: 'Login' }">
         Autenticar
       </gc-button>
-      <gc-button type="link" :to="{ name: 'Register' }">
+      <gc-button :to="{ name: 'Register' }">
         Criar conta
       </gc-button>
     </div>
