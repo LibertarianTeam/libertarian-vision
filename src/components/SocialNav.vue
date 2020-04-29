@@ -1,5 +1,5 @@
 <script>
-import { mapGetters } from "vuex";
+import { getAsset } from "@/utils";
 import Button from "@/components/Button";
 
 export default {
@@ -40,8 +40,10 @@ export default {
       return `gc-social-nav${vertical ? " vertical" : ""}${
         invert ? " invert" : ""
       }`;
-    },
-    ...mapGetters(["getAsset"])
+    }
+  },
+  methods: {
+    getAsset
   }
 };
 </script>
@@ -55,7 +57,7 @@ export default {
       :to="links[item.toLowerCase()]"
       icon
     >
-      <img :src="getAsset(`icons/${item.toLowerCase()}.svg`)" :alt="item" />
+      <img :alt="item" :src="getAsset(`icons/${item.toLowerCase()}.svg`)" />
 
       <h6 v-if="vertical">
         <slot :name="item.toLowerCase()"></slot>

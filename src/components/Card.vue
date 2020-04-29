@@ -1,5 +1,5 @@
 <script>
-import { mapGetters } from "vuex";
+import { getAsset } from "@/utils";
 import Button from "@/components/Button";
 
 export default {
@@ -34,7 +34,7 @@ export default {
       return this.$attrs.title || "";
     },
     imgURL() {
-      return { backgroundImage: `url("${this.getAsset(this.img)}")` };
+      return { backgroundImage: `url("${getAsset(this.img)}")` };
     },
     classCard() {
       const { dark, compact, centerBG } = this;
@@ -42,8 +42,7 @@ export default {
       return `gc-card${compact ? " compact" : ""}${dark ? " dark" : ""}${
         centerBG ? " center-bg" : ""
       }`;
-    },
-    ...mapGetters(["getAsset"])
+    }
   }
 };
 </script>
