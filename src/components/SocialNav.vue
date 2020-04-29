@@ -1,6 +1,6 @@
 <script>
-import { getAsset } from "@/utils";
 import Button from "@/components/Button";
+import { getAsset, buildClass } from "@/utils";
 
 export default {
   name: "SocialNav",
@@ -35,11 +35,7 @@ export default {
       return this.$store.state.static.links;
     },
     classSocialNav() {
-      const { vertical, invert } = this;
-
-      return `gc-social-nav${vertical ? " vertical" : ""}${
-        invert ? " invert" : ""
-      }`;
+      return buildClass("gc-social-nav", ["vertical", "invert"], this.$props);
     }
   },
   methods: {

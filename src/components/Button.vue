@@ -1,4 +1,6 @@
 <script>
+import { buildClass } from "@/utils";
+
 export default {
   name: "Button",
   props: {
@@ -34,11 +36,7 @@ export default {
       return this.to && !this.to.name;
     },
     classButton() {
-      const { icon, fab, disabled } = this;
-
-      return `gc-button${icon ? " icon" : ""}${fab ? " fab" : ""}${
-        disabled ? " disabled" : ""
-      }`;
+      return buildClass("gc-button", ["icon", "fab", "disabled"], this.$props);
     }
   },
   methods: {
@@ -52,9 +50,9 @@ export default {
 <template lang="html">
   <router-link
     v-if="internalLink"
-    :to="to"
     :class="classButton"
     :title="title"
+    :to="to"
     @click.native="emitClick($event)"
   >
     <slot name="default"></slot>
@@ -73,8 +71,8 @@ export default {
 
   <button
     v-else
-    :type="type"
     :class="classButton"
+    :type="type"
     :title="title"
     :disabled="disabled"
     @click="emitClick($event)"

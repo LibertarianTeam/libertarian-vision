@@ -1,5 +1,6 @@
 <script>
 import { mapGetters } from "vuex";
+import { buildClass } from "@/utils";
 
 import Button from "@/components/Button";
 import Dropdown from "@/components/Dropdown";
@@ -12,9 +13,9 @@ export default {
   },
   computed: {
     classAppBarSideNav() {
-      const { visible } = this.$store.state.appBar.sideNav;
-
-      return `sc-side-nav${visible ? " show" : ""}`;
+      return buildClass("sc-side-nav", ["show"], {
+        show: this.$store.state.appBar.sideNav.visible
+      });
     },
     ...mapGetters("static", ["sideNavItems"])
   },
@@ -43,7 +44,6 @@ export default {
       <gc-dropdown
         v-for="(sideNavItem, index) in sideNavItems"
         :key="index"
-        :to="sideNavItem.to"
         :items="sideNavItem.items"
         contained
         @clickOnItem.stop="handleSideNavClick('hide')"

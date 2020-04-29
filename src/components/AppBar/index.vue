@@ -20,7 +20,6 @@ export default {
     showSideNav() {
       return this.$store.state.appBar.sideNav.visible;
     },
-
     ...mapGetters(["lsmWindow"])
   }
 };

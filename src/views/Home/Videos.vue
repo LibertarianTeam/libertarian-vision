@@ -62,7 +62,7 @@ export default {
 <template lang="html">
   <div class="sc-videos">
     <sc-title>Últimos Vídeos do Canal</sc-title>
-    <gc-carousel :items="items" :centerBG="false"></gc-carousel>
+    <gc-carousel :items="items" :center="false"></gc-carousel>
   </div>
 </template>
 

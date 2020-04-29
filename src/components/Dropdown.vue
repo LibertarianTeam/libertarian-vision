@@ -1,4 +1,5 @@
 <script>
+import { buildClass } from "@/utils";
 import Button from "@/components/Button";
 
 export default {
@@ -13,7 +14,7 @@ export default {
     },
     to: {
       type: [Object, String],
-      default: () => ({})
+      default: () => ""
     },
     contained: {
       type: Boolean,
@@ -22,9 +23,7 @@ export default {
   },
   computed: {
     classDropdown() {
-      const { contained } = this;
-
-      return `gc-dropdown${contained ? " contained" : ""}`;
+      return buildClass("gc-dropdown", ["contained"], this.$props);
     }
   },
   methods: {
@@ -37,12 +36,7 @@ export default {
 
 <template lang="html">
   <div :class="classDropdown">
-    <gc-button
-      class="root-button"
-      :to="!contained ? to : undefined"
-      :type="!contained ? 'link' : 'button'"
-      @click="emitEvent('click', $event)"
-    >
+    <gc-button class="root-button" :to="to" @click="emitEvent('click', $event)">
       <slot name="default"></slot>
     </gc-button>
 

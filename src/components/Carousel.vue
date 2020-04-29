@@ -15,7 +15,7 @@ export default {
       type: Array,
       default: () => []
     },
-    centerBG: {
+    center: {
       type: Boolean,
       default: true
     }
@@ -78,9 +78,9 @@ export default {
     <gc-button
       class="arrow"
       title="Anterior"
-      :disabled="startOfList"
       icon
       fab
+      :disabled="startOfList"
       @click="handlePrev"
     >
       <img alt="Anterior" src="@/assets/icons/arrow-prev.svg" />
@@ -92,7 +92,7 @@ export default {
         :key="index"
         :class="classCard(index)"
         :tag="item.tag"
-        :centerBG="centerBG"
+        :center="center"
         :img="item.img"
       >
         {{ item.title }}
@@ -102,9 +102,9 @@ export default {
     <gc-button
       class="arrow"
       title="Próximo"
-      :disabled="endOfList"
       icon
       fab
+      :disabled="endOfList"
       @click="handleNext"
     >
       <img alt="Próximo" src="@/assets/icons/arrow-next.svg" />

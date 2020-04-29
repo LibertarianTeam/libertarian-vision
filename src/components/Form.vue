@@ -1,4 +1,5 @@
 <script>
+import { buildClass } from "@/utils";
 import Button from "@/components/Button";
 
 export default {
@@ -14,7 +15,7 @@ export default {
   },
   computed: {
     classForm() {
-      return `gc-form${this.inline ? " inline" : ""}`;
+      return buildClass("gc-form", ["inline"], this.$props);
     }
   },
   methods: {

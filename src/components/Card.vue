@@ -1,6 +1,6 @@
 <script>
-import { getAsset } from "@/utils";
 import Button from "@/components/Button";
+import { getAsset, buildClass } from "@/utils";
 
 export default {
   name: "Card",
@@ -24,7 +24,7 @@ export default {
       type: Boolean,
       default: false
     },
-    centerBG: {
+    center: {
       type: Boolean,
       default: true
     }
@@ -37,11 +37,7 @@ export default {
       return { backgroundImage: `url("${getAsset(this.img)}")` };
     },
     classCard() {
-      const { dark, compact, centerBG } = this;
-
-      return `gc-card${compact ? " compact" : ""}${dark ? " dark" : ""}${
-        centerBG ? " center-bg" : ""
-      }`;
+      return buildClass("gc-card", ["dark", "compact", "center"], this.$props);
     }
   }
 };
@@ -86,7 +82,7 @@ export default {
   box-shadow: inset 0 0 24px 4px var(--bx-tertiary);
 }
 
-.center-bg.gc-card {
+.center.gc-card {
   background-position: center;
 }
 
