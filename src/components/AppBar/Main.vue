@@ -4,30 +4,30 @@ import Button from "@/components/Button";
 export default {
   name: "AppBarMain",
   components: {
-    "c-button": Button
+    "gc-button": Button
   }
 };
 </script>
 
 <template lang="html">
-  <div class="app-bar-main">
+  <div class="sc-main">
     <router-link class="logo" :to="{ name: 'Home' }">
       <img alt="Ancap.SU" title="Home" src="@/assets/logov1.svg" />
     </router-link>
 
     <div class="account">
-      <c-button type="link" :to="{ name: 'Login' }">
+      <gc-button type="link" :to="{ name: 'Login' }">
         Autenticar
-      </c-button>
-      <c-button type="link" :to="{ name: 'Register' }">
+      </gc-button>
+      <gc-button type="link" :to="{ name: 'Register' }">
         Criar conta
-      </c-button>
+      </gc-button>
     </div>
   </div>
 </template>
 
 <style lang="css" scoped>
-.app-bar-main {
+.sc-main {
   display: inline-flex;
   align-items: flex-end;
 
@@ -46,16 +46,16 @@ export default {
   padding-bottom: 14px;
 }
 
-.account > .button {
+.account > .gc-button {
   font-size: 12px;
 }
 
-.account > .button + .button {
+.account > .gc-button + .gc-button {
   margin-left: 5px;
 }
 
 @media only screen and (max-width: 640px) {
-  .app-bar-main {
+  .sc-main {
     flex-direction: column;
     align-items: center;
   }
@@ -73,7 +73,7 @@ export default {
 }
 
 @media only screen and (max-width: 480px) {
-  .app-bar-main {
+  .sc-main {
     align-items: flex-start;
   }
 

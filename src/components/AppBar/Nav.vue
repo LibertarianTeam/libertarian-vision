@@ -5,8 +5,8 @@ import Dropdown from "@/components/Dropdown";
 export default {
   name: "AppBarNav",
   components: {
-    "c-button": Button,
-    "c-dropdown": Dropdown
+    "gc-button": Button,
+    "gc-dropdown": Dropdown
   },
   computed: {
     navItems() {
@@ -17,24 +17,30 @@ export default {
 </script>
 
 <template lang="html">
-  <nav class="app-bar-nav">
-    <c-button class="home" type="link" :to="{ name: 'Home' }" title="Home" icon>
+  <nav class="sc-nav">
+    <gc-button
+      class="home"
+      type="link"
+      :to="{ name: 'Home' }"
+      title="Home"
+      icon
+    >
       <img alt="Home" src="@/assets/icons/home.svg" />
-    </c-button>
+    </gc-button>
 
-    <c-dropdown
+    <gc-dropdown
       v-for="(navItem, index) in navItems"
       :key="index"
       :to="navItem.to"
       :items="navItem.items"
     >
       {{ navItem.text }}
-    </c-dropdown>
+    </gc-dropdown>
   </nav>
 </template>
 
 <style lang="css" scoped>
-.app-bar-nav {
+.sc-nav {
   display: inline-flex;
 }
 
@@ -48,7 +54,7 @@ export default {
 }
 
 .home::after,
-.dropdown::after {
+.gc-dropdown::after {
   content: "";
   position: absolute;
 
@@ -70,7 +76,7 @@ export default {
 }
 
 .home:hover::after,
-.dropdown:hover::after {
+.gc-dropdown:hover::after {
   width: 100%;
 }
 </style>

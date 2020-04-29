@@ -29,7 +29,8 @@ export default {
     },
     classButton() {
       const { icon, fab, disabled } = this;
-      return `button${icon ? " icon" : ""}${fab ? " fab" : ""}${
+
+      return `gc-button${icon ? " icon" : ""}${fab ? " fab" : ""}${
         disabled ? " disabled" : ""
       }`;
     }
@@ -77,7 +78,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.button {
+.gc-button {
   display: inline-block;
 
   padding: 4px 8px;
@@ -97,7 +98,7 @@ export default {
   background-color: var(--primary);
 }
 
-.button:hover {
+.gc-button:hover {
   filter: brightness(96%);
   border-color: transparent;
 }

@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 export default {
   name: "AppBarHamburger",
   components: {
-    "c-button": Button
+    "gc-button": Button
   },
   methods: {
     handleHamburgerClick() {
@@ -16,20 +16,15 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="app-bar-hamburger">
-    <c-button type="button" icon>
-      <img
-        alt="Menu"
-        title="Menu de Navegação"
-        src="@/assets/icons/hamburger.svg"
-        @click="handleHamburgerClick"
-      />
-    </c-button>
+  <div class="sc-hamburger">
+    <gc-button icon title="Menu de Navegação" @click="handleHamburgerClick">
+      <img alt="Menu" src="@/assets/icons/hamburger.svg" />
+    </gc-button>
   </div>
 </template>
 
 <style lang="css" scoped>
-.app-bar-hamburger {
+.sc-hamburger {
   display: inline-block;
 
   width: 100%;

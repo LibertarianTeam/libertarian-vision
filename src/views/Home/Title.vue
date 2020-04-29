@@ -4,14 +4,14 @@ import Divider from "@/components/Divider";
 export default {
   name: "HomeTitle",
   components: {
-    "c-divider": Divider
+    "gc-divider": Divider
   }
 };
 </script>
 
 <template lang="html">
-  <div class="home-title">
-    <c-divider></c-divider>
+  <div class="sc-title">
+    <gc-divider></gc-divider>
 
     <h3>
       <slot name="default"></slot>
@@ -20,7 +20,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.home-title {
+.sc-title {
   margin-bottom: 20px;
   font: bold 24px caption;
 }

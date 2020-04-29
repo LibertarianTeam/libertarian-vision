@@ -5,7 +5,7 @@ import Button from "@/components/Button";
 export default {
   name: "Card",
   components: {
-    "c-button": Button
+    "gc-button": Button
   },
   props: {
     tag: {
@@ -38,7 +38,8 @@ export default {
     },
     classCard() {
       const { dark, compact, centerBG } = this;
-      return `card${compact ? " compact" : ""}${dark ? " dark" : ""}${
+
+      return `gc-card${compact ? " compact" : ""}${dark ? " dark" : ""}${
         centerBG ? " center-bg" : ""
       }`;
     },
@@ -50,21 +51,26 @@ export default {
 <template lang="html">
   <div :class="classCard" :style="imgURL">
     <div class="content">
-      <c-button v-if="tag" class="tag" type="link" :to="{ name: 'Home' }">
+      <gc-button v-if="tag" class="tag" type="link" :to="{ name: 'Home' }">
         {{ tag }}
-      </c-button>
+      </gc-button>
 
-      <c-button class="title" type="link" :to="{ name: 'Home' }" :title="title">
+      <gc-button
+        class="title"
+        type="link"
+        :title="title"
+        :to="{ name: 'Home' }"
+      >
         <h5>
           <slot name="default"></slot>
         </h5>
-      </c-button>
+      </gc-button>
     </div>
   </div>
 </template>
 
 <style lang="css" scoped>
-.card {
+.gc-card {
   display: flex;
 
   align-items: flex-end;
@@ -82,15 +88,15 @@ export default {
   background-size: cover;
 }
 
-.card:hover {
+.gc-card:hover {
   box-shadow: inset 0 0 24px 4px var(--bx-tertiary);
 }
 
-.center-bg.card {
+.center-bg.gc-card {
   background-position: center;
 }
 
-.compact.card {
+.compact.gc-card {
   height: 220px;
   overflow: hidden;
 }
@@ -128,22 +134,22 @@ h5 {
   text-shadow: 2px 2px 8px var(--bx-tertiary);
 }
 
-.dark.card .title {
+.dark.gc-card .title {
   padding: 6px 8px;
   background-color: var(--bx-tertiary);
 }
 
-.dark.card:hover .title {
+.dark.gc-card:hover .title {
   background-color: var(--bd-primary);
 }
 
-.dark.card .title:hover {
+.dark.gc-card .title:hover {
   background-color: var(--bd-secondary);
 }
-.compact.card .title {
+.compact.gc-card .title {
   min-height: 80px;
 }
-.compact.card h5 {
+.compact.gc-card h5 {
   font-size: 18px;
   line-height: 22px;
 }
