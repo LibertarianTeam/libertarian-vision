@@ -62,6 +62,11 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@iconfu/svg-inject@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@iconfu/svg-inject/-/svg-inject-1.2.3.tgz#17ab680b382859e6121cf523cd3879bf15c88732"
+  integrity sha512-3v1MUAJqmJS4jmhHoCkSxt+EdJrjPHlLXrWocCT25kCxnxJto8028Z6CC406EL11KA53SDZgI/QQA5GEJAoiRw==
+
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@intervolga/optimize-cssnano-plugin/-/optimize-cssnano-plugin-1.0.6.tgz#be7c7846128b88f6a9b1d1261a0ad06eb5c0fdf8"

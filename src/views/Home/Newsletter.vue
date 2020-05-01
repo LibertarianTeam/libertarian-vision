@@ -1,21 +1,21 @@
 <script>
 import Form from "@/components/Form";
 import Input from "@/components/Input";
-import Title from "@/views/Home/Title";
+import Title from "@/components/Title";
 
 export default {
   name: "HomeNewsletter",
   components: {
     "gc-form": Form,
     "gc-input": Input,
-    "sc-title": Title
+    "gc-title": Title
   }
 };
 </script>
 
 <template lang="html">
   <div class="sc-newsletter">
-    <sc-title>Newsletter do Canal</sc-title>
+    <gc-title>Newsletter do Canal</gc-title>
     <span>
       Registre seu email na Newsletter para ser avisado de novos vídeos!
     </span>

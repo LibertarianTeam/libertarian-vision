@@ -1,11 +1,11 @@
 <script>
-import Title from "@/views/Home/Title";
+import Title from "@/components/Title";
 import Button from "@/components/Button";
 
 export default {
   name: "HomeFunnel",
   components: {
-    "sc-title": Title,
+    "gc-title": Title,
     "gc-button": Button
   }
 };
@@ -13,7 +13,7 @@ export default {
 
 <template lang="html">
   <div class="sc-funnel">
-    <sc-title>Funil de Produção</sc-title>
+    <gc-title>Funil de Produção</gc-title>
 
     <div class="content">
       <gc-button class="schedule" :to="{ name: 'Home' }">

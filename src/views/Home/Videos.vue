@@ -1,11 +1,11 @@
 <script>
-import Title from "@/views/Home/Title";
+import Title from "@/components/Title";
 import Carousel from "@/components/Carousel";
 
 export default {
   name: "HomeVídeos",
   components: {
-    "sc-title": Title,
+    "gc-title": Title,
     "gc-carousel": Carousel
   },
   data() {
@@ -61,7 +61,7 @@ export default {
 
 <template lang="html">
   <div class="sc-videos">
-    <sc-title>Últimos Vídeos do Canal</sc-title>
+    <gc-title>Últimos Vídeos do Canal</gc-title>
     <gc-carousel :items="items" :center="false"></gc-carousel>
   </div>
 </template>
