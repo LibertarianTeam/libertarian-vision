@@ -10,6 +10,8 @@ export default {
       patreon: "https://www.patreon.com/ancapsu",
       padrim: "https://www.padrim.com.br/ancapsu",
       facebook: "https://facebook.com/pageancapsu",
+      mug: "https://apoio.ancap.su/caneca-ancapsu",
+      shirt: "https://apoio.ancap.su/camiseta-ancapsu",
       visaolibertaria: "https://www.youtube.com/visaolibertaria"
     },
     navItems: {
