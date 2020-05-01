@@ -2,7 +2,7 @@
 import Divider from "@/components/Divider";
 
 export default {
-  name: "HomeTitle",
+  name: "Title",
   components: {
     "gc-divider": Divider
   }
@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="sc-title">
+  <div class="gc-title">
     <gc-divider></gc-divider>
 
     <h3>
@@ -20,7 +20,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.sc-title {
+.gc-title {
   margin-bottom: 20px;
   font: bold 24px caption;
 }

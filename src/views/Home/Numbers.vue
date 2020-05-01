@@ -1,11 +1,11 @@
 <script>
-import Title from "@/views/Home/Title";
+import Title from "@/components/Title";
 import SocialNav from "@/components/SocialNav";
 
 export default {
   name: "HomeNumber",
   components: {
-    "sc-title": Title,
+    "gc-title": Title,
     "gc-social-nav": SocialNav
   }
 };
@@ -13,7 +13,7 @@ export default {
 
 <template lang="html">
   <div class="sc-numbers">
-    <sc-title>Números</sc-title>
+    <gc-title>Números</gc-title>
 
     <gc-social-nav vertical>
       <template #youtube>72000 Inscritos</template>

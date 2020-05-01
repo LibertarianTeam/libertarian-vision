@@ -1,19 +1,19 @@
 <script>
 import Card from "@/components/Card";
-import Title from "@/views/Home/Title";
+import Title from "@/components/Title";
 
 export default {
   name: "HomeNews",
   components: {
     "gc-card": Card,
-    "sc-title": Title
+    "gc-title": Title
   }
 };
 </script>
 
 <template lang="html">
   <div class="sc-news">
-    <sc-title>Últimas Notícias Veiculadas</sc-title>
+    <gc-title>Últimas Notícias Veiculadas</gc-title>
 
     <div class="list">
       <gc-card
