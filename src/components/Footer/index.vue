@@ -38,6 +38,25 @@ export default {
   width: 100%;
   height: 460px;
 
+  padding: 0 24px;
+  transition: background-color 0.4s linear;
+
   background-color: var(--bx-tertiary);
+}
+
+.footer:hover .content {
+  background-color: var(--bd-primary);
+}
+
+.sc-about {
+  width: 33.33%;
+}
+
+.sc-help {
+  width: 33.33%;
+}
+
+.sc-store {
+  width: 33.33%;
 }
 </style>
