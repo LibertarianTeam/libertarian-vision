@@ -25,7 +25,8 @@ export default {
 
 <style lang="css" scoped>
 .footer {
-  background: var(--primary) url("../../assets/imgs/footer.jpg") no-repeat;
+  background: var(--primary) url("../../assets/imgs/footer.png") no-repeat;
+  background-size: cover;
 }
 
 .footer .content {
