@@ -3,9 +3,12 @@ export default {
     links: {
       gab: "https://gab.ai/ancapsu",
       minds: "https://minds.com/ancapsu",
+      apoiase: "https://apoia.se/ancapsu",
       twitter: "https://twitter.com/ancapsu",
       youtube: "https://youtube.com/ancapsu",
       bitchute: "https://bitchute.com/ancapsu",
+      patreon: "https://www.patreon.com/ancapsu",
+      padrim: "https://www.padrim.com.br/ancapsu",
       facebook: "https://facebook.com/pageancapsu",
       visaolibertaria: "https://www.youtube.com/visaolibertaria"
     },

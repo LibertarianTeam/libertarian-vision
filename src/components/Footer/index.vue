@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template lang="html">
-  <footer class="footer">
+  <footer class="gc-footer">
     <div class="content">
       <sc-about></sc-about>
       <sc-help></sc-help>
@@ -24,39 +24,30 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.footer {
+.gc-footer {
   background: var(--primary) url("../../assets/imgs/footer.png") no-repeat;
   background-size: cover;
 }
 
-.footer .content {
+.gc-footer .content {
   display: flex;
-
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   width: 100%;
-  height: 460px;
 
-  padding: 0 24px;
+  padding: 12px 24px;
   transition: background-color 0.4s linear;
 
   background-color: var(--bx-tertiary);
 }
 
-.footer:hover .content {
+.gc-footer:hover .content {
   background-color: var(--bd-primary);
 }
 
-.sc-about {
-  width: 33.33%;
-}
-
-.sc-help {
-  width: 33.33%;
-}
-
+.sc-help,
+.sc-about,
 .sc-store {
-  width: 33.33%;
+  width: 32%;
 }
 </style>
