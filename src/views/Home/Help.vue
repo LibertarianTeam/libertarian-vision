@@ -78,6 +78,11 @@ export default {
 
   .gc-card {
     width: 100%;
+    height: 140px;
+  }
+
+  .gc-card span {
+    font-size: 28px;
   }
 
   .gc-card + .gc-card {
