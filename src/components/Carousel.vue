@@ -126,8 +126,15 @@ export default {
 }
 
 .arrow {
+  z-index: 1;
+  position: absolute;
+
   min-width: 48px;
   min-height: 48px;
+}
+
+.disabled.arrow {
+  opacity: 0%;
 }
 
 .arrow > img {
@@ -146,10 +153,12 @@ export default {
 }
 
 .arrow:first-child {
+  left: 28px;
   margin-right: 4px;
 }
 
 .arrow:last-child {
+  right: 28px;
   margin-left: 4px;
 }
 
@@ -174,24 +183,16 @@ export default {
 }
 
 @media only screen and (max-width: 640px) {
+  .gc-carousel {
+    align-items: flex-start;
+  }
+
   .list {
-    height: 300px;
-    min-width: 100%;
+    height: 280px;
   }
 
   .arrow {
-    z-index: 1;
-    position: absolute;
-
-    opacity: 60%;
-  }
-
-  .arrow:first-child {
-    left: 12px;
-  }
-
-  .arrow:last-child {
-    right: 12px;
+    margin: 24px 0 0;
   }
 }
 </style>
