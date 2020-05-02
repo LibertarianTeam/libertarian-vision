@@ -1,12 +1,12 @@
 <script>
-import Image from "@/components/Image";
+import Figure from "@/components/Figure";
 import Button from "@/components/Button";
 import SocialNav from "@/components/SocialNav";
 
 export default {
   name: "FooterAbout",
   components: {
-    "gc-image": Image,
+    "gc-figure": Figure,
     "gc-button": Button,
     "gc-social-nav": SocialNav
   },
@@ -20,7 +20,7 @@ export default {
 
 <template lang="html">
   <div class="sc-about">
-    <gc-image src="logov1.svg"></gc-image>
+    <gc-figure src="logov1.svg"></gc-figure>
 
     <h4 class="description">
       Ancap.su é um canal no youtube com o objetivo de divulgar o
@@ -55,7 +55,7 @@ export default {
   text-align: justify;
 }
 
-.gc-image {
+.gc-figure {
   fill: var(--primary);
   width: 220px;
 

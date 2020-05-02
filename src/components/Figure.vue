@@ -3,7 +3,7 @@ import { getAsset } from "@/utils";
 import SVGInject from "@iconfu/svg-inject";
 
 export default {
-  name: "Img",
+  name: "Figure",
   props: {
     src: {
       type: String,
@@ -20,7 +20,9 @@ export default {
 </script>
 
 <template lang="html">
-  <img class="gc-image" :src="getAsset(src)" @load="handleOnLoad($event)" />
+  <figure class="gc-figure">
+    <img :src="getAsset(src)" @load="handleOnLoad($event)" />
+  </figure>
 </template>
 
 <style lang="css" scoped></style>

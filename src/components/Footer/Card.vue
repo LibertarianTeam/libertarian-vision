@@ -1,11 +1,11 @@
 <script>
-import Image from "@/components/Image";
+import Figure from "@/components/Figure";
 import Button from "@/components/Button";
 
 export default {
   name: "FooterCard",
   components: {
-    "gc-image": Image,
+    "gc-figure": Figure,
     "gc-button": Button
   },
   props: {
@@ -24,7 +24,7 @@ export default {
 <template lang="html">
   <div class="sc-card">
     <gc-button :to="to" icon>
-      <gc-image :src="image"></gc-image>
+      <gc-figure :src="image"></gc-figure>
     </gc-button>
 
     <span class="text">
@@ -45,7 +45,7 @@ export default {
   height: 94px;
 }
 
-.gc-image {
+.gc-figure {
   margin-right: 12px;
 }
 
@@ -69,13 +69,13 @@ export default {
     font-size: 18px;
   }
 
-  .gc-image {
+  .gc-figure {
     height: 50px;
   }
 }
 
 @media only screen and (max-width: 360px) {
-  .gc-image {
+  .gc-figure {
     height: 42px;
   }
 
