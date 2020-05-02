@@ -107,6 +107,7 @@ html {
 main {
   min-width: 240px;
   max-width: 1920px;
+  min-height: 100vh;
 
   margin: 0 auto;
   padding: 12px 24px;
