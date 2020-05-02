@@ -42,24 +42,45 @@ export default {
   display: inline-flex;
   align-items: center;
 
-  height: 98px;
+  height: 94px;
 }
 
 .gc-image {
-  height: inherit;
   margin-right: 12px;
+}
+
+.text {
+  text-align: justify;
+  color: var(--text-secondary);
 }
 
 .text,
 .gc-button {
-  text-align: justify;
-
   font: normal 16px small-caption;
-  color: var(--text-secondary);
 }
 
 .gc-button {
   font-size: 20px;
   color: var(--text-tertiary);
+}
+
+@media only screen and (max-width: 800px) {
+  .gc-button {
+    font-size: 18px;
+  }
+
+  .gc-image {
+    height: 50px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .gc-image {
+    height: 42px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
 }
 </style>

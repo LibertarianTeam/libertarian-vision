@@ -65,16 +65,32 @@ export default {
 .contact,
 .description {
   padding: 0 0 22px;
+  color: var(--text-secondary);
 }
 
 .contact,
 .gc-button,
 .description {
   font: small-caps bold 22px/1 cursive;
-  color: var(--text-secondary);
 }
 
 .gc-button {
   color: var(--text-tertiary);
+}
+
+@media only screen and (max-width: 1366px) {
+  .contact,
+  .gc-button,
+  .description {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .contact,
+  .gc-button,
+  .description {
+    font-size: 14px;
+  }
 }
 </style>

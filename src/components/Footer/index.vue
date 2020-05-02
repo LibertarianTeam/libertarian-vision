@@ -30,14 +30,15 @@ export default {
 }
 
 .gc-footer .content {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
 
-  width: 100%;
+  grid-gap: 6px 12px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "sc-about sc-help sc-store";
 
   padding: 12px 24px;
-  transition: background-color 0.4s linear;
 
+  transition: background-color 0.4s linear;
   background-color: var(--bx-tertiary);
 }
 
@@ -45,9 +46,31 @@ export default {
   background-color: var(--bd-primary);
 }
 
-.sc-help,
-.sc-about,
+.sc-help {
+  grid-area: sc-help;
+}
+
+.sc-about {
+  grid-area: sc-about;
+}
+
 .sc-store {
-  width: 32%;
+  grid-area: sc-store;
+}
+
+@media only screen and (max-width: 1024px) {
+  .gc-footer .content {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "sc-help sc-store" "sc-about sc-about";
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .gc-footer .content {
+    grid-template-columns: 1fr;
+    grid-template-areas: "sc-help" "sc-store" "sc-about";
+
+    padding: 12px;
+  }
 }
 </style>

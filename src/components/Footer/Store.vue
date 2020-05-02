@@ -50,4 +50,16 @@ export default {
 .gc-title {
   color: var(--text-secondary);
 }
+
+@media only screen and (max-width: 1024px) {
+  .gc-title {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .gc-title {
+    font-size: 18px;
+  }
+}
 </style>
