@@ -24,11 +24,11 @@ export default {
 </script>
 
 <template lang="html">
-  <div id="app" class="light-theme">
+  <body id="app" class="light-theme">
     <gc-app-bar></gc-app-bar>
     <router-view></router-view>
     <gc-footer></gc-footer>
-  </div>
+  </body>
 </template>
 
 <style lang="css">
