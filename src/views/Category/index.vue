@@ -1,6 +1,13 @@
 <script>
+import GenerateMetaInfo from "@/meta/info";
+
 export default {
-  name: "Category"
+  name: "Category",
+  meta: GenerateMetaInfo({
+    page: {
+      title: "Categorias"
+    }
+  })
 };
 </script>
 

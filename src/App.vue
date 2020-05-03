@@ -1,11 +1,13 @@
 <script>
 import { mapMutations } from "vuex";
+import { GenerateInitialMetaInfo } from "@/meta/info";
 
 import AppBar from "@/components/AppBar";
 import Footer from "@/components/Footer";
 
 export default {
   name: "App",
+  meta: GenerateInitialMetaInfo(),
   components: {
     "gc-footer": Footer,
     "gc-app-bar": AppBar

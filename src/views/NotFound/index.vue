@@ -1,6 +1,13 @@
 <script>
+import GenerateMetaInfo from "@/meta/info";
+
 export default {
-  name: "NotFound"
+  name: "NotFound",
+  meta: GenerateMetaInfo({
+    page: {
+      title: "Pagina Não Encontrada"
+    }
+  })
 };
 </script>
 

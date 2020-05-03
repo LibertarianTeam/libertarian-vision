@@ -1,6 +1,13 @@
 <script>
+import GenerateMetaInfo from "@/meta/info";
+
 export default {
-  name: "About"
+  name: "About",
+  meta: GenerateMetaInfo({
+    page: {
+      title: "Sobre"
+    }
+  })
 };
 </script>
 

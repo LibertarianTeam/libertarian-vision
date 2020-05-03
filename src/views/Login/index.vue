@@ -1,6 +1,14 @@
 <script>
+import GenerateMetaInfo from "@/meta/info";
+
 export default {
-  name: "Login"
+  name: "Login",
+  meta: GenerateMetaInfo({
+    page: {
+      title: "Fazer Login",
+      description: "Faça já o seu login na plataforma AncapSU!"
+    }
+  })
 };
 </script>
 

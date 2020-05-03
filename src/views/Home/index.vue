@@ -1,4 +1,6 @@
 <script>
+import GenerateMetaInfo from "@/meta/info";
+
 import Help from "@/views/Home/Help";
 import News from "@/views/Home/News";
 import Funnel from "@/views/Home/Funnel";
@@ -8,6 +10,11 @@ import Newsletter from "@/views/Home/Newsletter";
 
 export default {
   name: "Home",
+  meta: GenerateMetaInfo({
+    page: {
+      title: "Home"
+    }
+  }),
   components: {
     "sc-help": Help,
     "sc-news": News,

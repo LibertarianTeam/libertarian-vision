@@ -1,6 +1,13 @@
 <script>
+import GenerateMetaInfo from "@/meta/info";
+
 export default {
-  name: "Help"
+  name: "Help",
+  meta: GenerateMetaInfo({
+    page: {
+      title: "FAQ"
+    }
+  })
 };
 </script>
 

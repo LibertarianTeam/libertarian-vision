@@ -1,6 +1,14 @@
 <script>
+import GenerateMetaInfo from "@/meta/info";
+
 export default {
-  name: "Register"
+  name: "Register",
+  meta: GenerateMetaInfo({
+    page: {
+      title: "Criar Conta",
+      description: "Crie já a sua conta na plataforma AncapSU!"
+    }
+  })
 };
 </script>
 
