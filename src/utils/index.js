@@ -1,5 +1,8 @@
-export function getAsset(img) {
-  return img.includes("https") ? img : require(`@/assets/${img}`);
+export function getAsset(src, { fullURL = false } = {}) {
+  const external = src.includes("https");
+  const url = external ? src : require(`@/assets/${src}`);
+
+  return fullURL ? `${process.env.VUE_APP_PRODUCTION_URL}${url}` : url;
 }
 
 export function buildClass(initial = "", items, source) {
