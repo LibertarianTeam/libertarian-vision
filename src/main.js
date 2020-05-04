@@ -12,5 +12,10 @@ Vue.config.productionTip = false;
 new Vue({
   store,
   router,
-  render: h => h(App)
+  render(h) {
+    return h(App);
+  },
+  mounted() {
+    return document.dispatchEvent(new Event("x-app-rendered"));
+  }
 }).$mount("#app");

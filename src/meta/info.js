@@ -4,12 +4,12 @@ const defaultMetaInfo = {
   title: "AncapSU",
   description: "Plataforma oficial do canal Ancap.SU",
   figure: {
-    url: getAsset("logov1.svg"),
+    url: getAsset("logov1.svg", { fullURL: true }),
     alt: "AncapSU"
   },
   card: "summary_large_imag",
   date: "Apr 15, 2020",
-  url: "https://ancapsu.herokuapp.com",
+  url: process.env.VUE_APP_PRODUCTION_URL,
   author: {
     site: "Paulo Ricardo, https://github.com/paulloclara",
     social: "@AncapSU"
@@ -56,7 +56,7 @@ export function GenerateFacebookMetaInfo(metaInfo) {
         property: "og:image",
         metaid: "og:image",
         content: metaInfo.figure
-          ? getAsset(metaInfo.figure.src)
+          ? getAsset(metaInfo.figure.src, { fullURL: true })
           : defaultMetaInfo.figure.url
       },
       {
@@ -105,7 +105,7 @@ export function GenerateTwitterMetaInfo(metaInfo) {
         name: "twitter:image",
         metaid: "twitter:image",
         content: metaInfo.figure
-          ? getAsset(metaInfo.figure.src)
+          ? getAsset(metaInfo.figure.src, { fullURL: true })
           : defaultMetaInfo.figure.url
       },
       {
@@ -137,7 +137,7 @@ export function GenerateSchemaAndWebchatMetaInfo(metaInfo) {
       {
         itemprop: "image",
         content: metaInfo.figure
-          ? getAsset(metaInfo.figure.src)
+          ? getAsset(metaInfo.figure.src, { fullURL: true })
           : defaultMetaInfo.figure.url
       },
       {

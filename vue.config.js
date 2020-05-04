@@ -14,5 +14,14 @@ module.exports = {
       description: "Imposto é roubo e sonegar é legitima defesa.",
       background_color: "#000"
     }
+  },
+  pluginOptions: {
+    prerenderSpa: {
+      registry: undefined,
+      renderRoutes: ["/"],
+      useRenderEvent: true,
+      headless: true,
+      onlyProduction: true
+    }
   }
 };
