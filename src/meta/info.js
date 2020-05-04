@@ -2,9 +2,10 @@ import { getAsset } from "@/utils";
 
 const defaultMetaInfo = {
   title: "AncapSU",
-  description: "Plataforma oficial do canal Ancap.SU",
+  description:
+    "Plataforma do canal Ancap.SU cuje o objetivo é divulgar o libertarianismo através de vídeos teóricos, cômicos e o jornal diário Visão Libertária.",
   figure: {
-    url: getAsset("logov1.svg", { fullURL: true }),
+    url: getAsset("imgs/home.jpg", { fullURL: true }),
     alt: "AncapSU"
   },
   card: "summary_large_imag",
@@ -12,7 +13,8 @@ const defaultMetaInfo = {
   url: process.env.VUE_APP_PRODUCTION_URL,
   author: {
     site: "Paulo Ricardo, https://github.com/paulloclara",
-    social: "@AncapSU"
+    twitter: "@ancapsu",
+    facebook: "@pageancapsu"
   }
 };
 
@@ -23,8 +25,8 @@ export function GenerateInitialMetaInfo() {
       { name: "application-name", content: defaultMetaInfo.title },
       { name: "author", content: defaultMetaInfo.author.site },
       { name: "generator", content: "VueCLI4" },
-      { name: "robots", content: "index,follow" },
-      { name: "googlebot", content: "index,follow" },
+      { name: "robots", content: "index, nofollow" },
+      { name: "googlebot", content: "index, nofollow" },
       { name: "imagemode", content: "force" },
       { name: "full-screen", content: "yes" },
       { name: "wap-font-scale", content: "no" },
@@ -73,11 +75,17 @@ export function GenerateFacebookMetaInfo(metaInfo) {
       },
       { property: "og:type", metaid: "og:type", content: "website" },
       { property: "og:locale", metaid: "og:locale", content: "pt_BR" },
-      { property: "og:site_name", metaid: "og:site_name", content: "AncapSU" },
+      {
+        property: "og:site_name",
+        metaid: "og:site_name",
+        content: defaultMetaInfo.author.facebook
+      },
       {
         property: "article:author",
         metaid: "article:author",
-        content: metaInfo.author || defaultMetaInfo.author.social
+        content: metaInfo.author
+          ? metaInfo.athor.facebook
+          : defaultMetaInfo.author.facebook
       }
     ]
   };
@@ -120,11 +128,17 @@ export function GenerateTwitterMetaInfo(metaInfo) {
         metaid: "twitter:description",
         content: metaInfo.description || defaultMetaInfo.description
       },
-      { name: "twitter:site", metaid: "twitter:site", content: "@AncapSU" },
+      {
+        name: "twitter:site",
+        metaid: "twitter:site",
+        content: defaultMetaInfo.author.twitter
+      },
       {
         name: "twitter:creator",
         metaid: "twitter:creator",
-        content: metaInfo.author || defaultMetaInfo.author.social
+        content: metaInfo.author
+          ? metaInfo.author.twitter
+          : defaultMetaInfo.author.twitter
       }
     ]
   };
@@ -151,6 +165,7 @@ export function GenerateSchemaAndWebchatMetaInfo(metaInfo) {
 export function GeneratePageMetaInfo(metaInfo) {
   return {
     title: metaInfo.title,
+    link: [{ rel: "canonical", href: metaInfo.url || defaultMetaInfo.url }],
     meta: [
       {
         name: "date",
