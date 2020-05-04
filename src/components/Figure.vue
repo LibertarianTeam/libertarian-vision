@@ -8,6 +8,10 @@ export default {
     src: {
       type: String,
       required: true
+    },
+    description: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -22,6 +26,10 @@ export default {
 <template lang="html">
   <figure class="gc-figure">
     <img :src="getAsset(src)" @load="handleOnLoad($event)" />
+
+    <figcaption v-if="description">
+      <slot name="default"></slot>
+    </figcaption>
   </figure>
 </template>
 
