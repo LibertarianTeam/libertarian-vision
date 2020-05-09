@@ -5,6 +5,7 @@ import store from "@/store";
 import router from "@/router";
 
 import "@/meta";
+import "@/global.css";
 import "@/registerServiceWorker";
 
 Vue.config.productionTip = false;
