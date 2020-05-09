@@ -5,7 +5,7 @@ import Button from "@/components/Button";
 export default {
   name: "Dropdown",
   components: {
-    "gc-button": Button
+    "c-button": Button
   },
   props: {
     items: {
@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     classDropdown() {
-      return buildClass("gc-dropdown", ["contained"], this.$props);
+      return buildClass("c-dropdown", ["contained"], this.$props);
     }
   },
   methods: {
@@ -36,25 +36,25 @@ export default {
 
 <template lang="html">
   <div :class="classDropdown">
-    <gc-button class="root-button" :to="to" @click="emitEvent('click', $event)">
+    <c-button class="root-button" :to="to" @click="emitEvent('click', $event)">
       <slot name="default"></slot>
-    </gc-button>
+    </c-button>
 
     <div class="items">
-      <gc-button
+      <c-button
         v-for="(item, index) in items"
         :key="index"
         :to="item.to"
         @click="emitEvent('clickOnItem', $event)"
       >
         {{ item.text }}
-      </gc-button>
+      </c-button>
     </div>
   </div>
 </template>
 
 <style lang="css" scoped>
-.gc-dropdown {
+.c-dropdown {
   display: inline-block;
   position: relative;
 }
@@ -73,7 +73,7 @@ export default {
   border-radius: 0;
 }
 
-.gc-dropdown:hover .root-button {
+.c-dropdown:hover .root-button {
   filter: brightness(96%);
 }
 
@@ -85,7 +85,7 @@ export default {
   min-width: 160px;
 }
 
-.gc-dropdown:hover .items {
+.c-dropdown:hover .items {
   display: block;
 }
 
@@ -93,14 +93,14 @@ export default {
   position: relative;
 }
 
-.items > .gc-button {
+.items > .c-button {
   display: block;
 
   margin: 0;
   padding: 10px 14px;
 }
 
-.items > .gc-button + .gc-button {
+.items > .c-button + .c-button {
   border-top: none;
 }
 </style>

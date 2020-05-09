@@ -5,7 +5,7 @@ import Divider from "@/components/Divider";
 export default {
   name: "Title",
   components: {
-    "gc-divider": Divider
+    "c-divider": Divider
   },
   props: {
     double: {
@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     classTitle() {
-      return buildClass("gc-title", ["double"], this.$props);
+      return buildClass("c-title", ["double"], this.$props);
     }
   }
 };
@@ -23,23 +23,23 @@ export default {
 
 <template lang="html">
   <div :class="classTitle">
-    <gc-divider></gc-divider>
+    <c-divider></c-divider>
 
     <h3>
       <slot name="default"></slot>
     </h3>
 
-    <gc-divider v-if="double"></gc-divider>
+    <c-divider v-if="double"></c-divider>
   </div>
 </template>
 
 <style lang="css" scoped>
-.gc-title {
+.c-title {
   margin-bottom: 20px;
   font: bold 24px caption;
 }
 
-.double .gc-divider {
+.double .c-divider {
   margin: 8px 0;
 }
 </style>

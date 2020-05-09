@@ -7,8 +7,8 @@ import Button from "@/components/Button";
 export default {
   name: "Carousel",
   components: {
-    "gc-card": Card,
-    "gc-button": Button
+    "c-card": Card,
+    "c-button": Button
   },
   props: {
     items: {
@@ -74,8 +74,8 @@ export default {
 </script>
 
 <template lang="html">
-  <section class="gc-carousel">
-    <gc-button
+  <section class="c-carousel">
+    <c-button
       class="arrow"
       title="Anterior"
       icon
@@ -84,10 +84,10 @@ export default {
       @click="handlePrev"
     >
       <img alt="Anterior" src="@/assets/icons/arrow-prev.svg" />
-    </gc-button>
+    </c-button>
 
     <div class="list">
-      <gc-card
+      <c-card
         v-for="(item, index) in items"
         :key="index"
         :class="classCard(index)"
@@ -96,10 +96,10 @@ export default {
         :img="item.img"
       >
         {{ item.title }}
-      </gc-card>
+      </c-card>
     </div>
 
-    <gc-button
+    <c-button
       class="arrow"
       title="Próximo"
       icon
@@ -108,12 +108,12 @@ export default {
       @click="handleNext"
     >
       <img alt="Próximo" src="@/assets/icons/arrow-next.svg" />
-    </gc-button>
+    </c-button>
   </section>
 </template>
 
 <style lang="css" scoped>
-.gc-carousel {
+.c-carousel {
   display: inline-flex;
 
   align-items: center;
@@ -162,7 +162,7 @@ export default {
   margin-left: 4px;
 }
 
-.gc-card {
+.c-card {
   width: 0;
 
   overflow: hidden;
@@ -171,19 +171,19 @@ export default {
   background-size: auto;
 }
 
-.show.gc-card {
+.show.c-card {
   width: 100%;
   height: inherit;
 
   background-size: cover;
 }
 
-.show.gc-card + .show.gc-card {
+.show.c-card + .show.c-card {
   margin-left: 6px;
 }
 
 @media only screen and (max-width: 640px) {
-  .gc-carousel {
+  .c-carousel {
     align-items: flex-start;
   }
 

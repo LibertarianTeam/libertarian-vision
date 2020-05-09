@@ -5,28 +5,28 @@ import Title from "@/components/Title";
 export default {
   name: "HomeHelp",
   components: {
-    "gc-card": Card,
-    "gc-title": Title
+    "c-card": Card,
+    "c-title": Title
   }
 };
 </script>
 
 <template lang="html">
-  <div class="sc-help">
-    <gc-title>Quer Ajudar?</gc-title>
+  <div class="s-help">
+    <c-title>Quer Ajudar?</c-title>
 
     <div class="list">
-      <gc-card :dark="false" img="imgs/news.png">
+      <c-card :dark="false" img="imgs/news.png">
         <span>Sugerir Noticia</span>
-      </gc-card>
+      </c-card>
 
-      <gc-card :dark="false" img="imgs/typewriter.png">
+      <c-card :dark="false" img="imgs/typewriter.png">
         <span>Escrever Matéria</span>
-      </gc-card>
+      </c-card>
 
-      <gc-card :dark="false" img="imgs/mic.png">
+      <c-card :dark="false" img="imgs/mic.png">
         <span>Narrar Matéria</span>
-      </gc-card>
+      </c-card>
     </div>
   </div>
 </template>
@@ -37,18 +37,18 @@ export default {
   width: 100%;
 }
 
-.gc-card {
+.c-card {
   align-items: flex-start;
 
   width: 120px;
   height: 240px;
 }
 
-.gc-card + .gc-card {
+.c-card + .c-card {
   margin-left: 6px;
 }
 
-.gc-card span {
+.c-card span {
   transition: color 0.4s;
 
   color: var(--text-tertiary);
@@ -56,7 +56,7 @@ export default {
   font-weight: bolder;
 }
 
-.gc-card:hover span {
+.c-card:hover span {
   color: var(--text-secondary);
 }
 
@@ -65,7 +65,7 @@ export default {
     justify-content: center;
   }
 
-  .gc-card {
+  .c-card {
     width: 180px;
   }
 }
@@ -76,16 +76,16 @@ export default {
     align-items: center;
   }
 
-  .gc-card {
+  .c-card {
     width: 100%;
     height: 140px;
   }
 
-  .gc-card span {
+  .c-card span {
     font-size: 28px;
   }
 
-  .gc-card + .gc-card {
+  .c-card + .c-card {
     margin: 8px 0 0;
   }
 }

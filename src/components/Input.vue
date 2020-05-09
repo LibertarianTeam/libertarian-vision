@@ -22,7 +22,7 @@ export default {
 
 <template lang="html">
   <input
-    class="gc-input"
+    class="c-input"
     :type="type"
     @input="emitInput($event)"
     @change="emitInput($event)"
@@ -30,7 +30,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.gc-input {
+.c-input {
   width: 100%;
   min-width: 160px;
 
@@ -45,7 +45,7 @@ export default {
   font: lighter 16px caption;
 }
 
-.gc-input:focus {
+.c-input:focus {
   outline: 1px solid var(--primary);
   box-shadow: 0 0 4px var(--primary);
 }

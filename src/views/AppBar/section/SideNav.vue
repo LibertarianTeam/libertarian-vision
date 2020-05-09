@@ -8,12 +8,12 @@ import Dropdown from "@/components/Dropdown";
 export default {
   name: "AppBarSideNav",
   components: {
-    "gc-button": Button,
-    "gc-dropdown": Dropdown
+    "c-button": Button,
+    "c-dropdown": Dropdown
   },
   computed: {
     classAppBarSideNav() {
-      return buildClass("sc-side-nav", ["show"], {
+      return buildClass("s-side-nav", ["show"], {
         show: this.$store.state.appBar.sideNav.visible
       });
     },
@@ -31,17 +31,17 @@ export default {
 <template lang="html">
   <nav :class="classAppBarSideNav" @click="handleSideNavClick('hide')">
     <div class="content" @click.stop="handleSideNavClick('continue')">
-      <gc-button
+      <c-button
         class="home"
-        :to="{ name: 'Home' }"
         title="Home"
+        :to="{ name: 'Home' }"
         icon
         @click.native.stop="handleSideNavClick('hide')"
       >
         <img alt="Home" src="@/assets/icons/home.svg" />
-      </gc-button>
+      </c-button>
 
-      <gc-dropdown
+      <c-dropdown
         v-for="(sideNavItem, index) in sideNavItems"
         :key="index"
         :items="sideNavItem.items"
@@ -49,13 +49,13 @@ export default {
         @clickOnItem.stop="handleSideNavClick('hide')"
       >
         {{ sideNavItem.text }}
-      </gc-dropdown>
+      </c-dropdown>
     </div>
   </nav>
 </template>
 
 <style lang="css" scoped>
-.sc-side-nav {
+.s-side-nav {
   position: fixed;
 
   width: 0;

@@ -16,6 +16,10 @@ export default {
       type: Boolean,
       default: false
     },
+    text: {
+      type: Boolean,
+      default: false
+    },
     fab: {
       type: Boolean,
       default: false
@@ -36,7 +40,11 @@ export default {
       return this.to && !this.to.name;
     },
     classButton() {
-      return buildClass("gc-button", ["icon", "fab", "disabled"], this.$props);
+      return buildClass(
+        "c-button",
+        ["icon", "text", "fab", "disabled"],
+        this.$props
+      );
     }
   },
   methods: {
@@ -82,7 +90,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.gc-button {
+.c-button {
   display: inline-block;
 
   padding: 4px 8px;
@@ -102,7 +110,7 @@ export default {
   background-color: var(--primary);
 }
 
-.gc-button:hover {
+.c-button:hover {
   filter: brightness(96%);
   border-color: transparent;
 }
@@ -121,6 +129,19 @@ export default {
 
 .icon:hover {
   filter: invert(28%);
+}
+
+.text {
+  padding: 0;
+
+  border: none;
+  text-align: center;
+
+  background-color: transparent;
+}
+
+.text:hover {
+  filter: opacity(80%);
 }
 
 .fab {

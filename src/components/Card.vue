@@ -5,7 +5,7 @@ import { getAsset, buildClass } from "@/utils";
 export default {
   name: "Card",
   components: {
-    "gc-button": Button
+    "c-button": Button
   },
   props: {
     tag: {
@@ -37,7 +37,7 @@ export default {
       return { backgroundImage: `url("${getAsset(this.img)}")` };
     },
     classCard() {
-      return buildClass("gc-card", ["dark", "compact", "center"], this.$props);
+      return buildClass("c-card", ["dark", "compact", "center"], this.$props);
     }
   }
 };
@@ -46,21 +46,21 @@ export default {
 <template lang="html">
   <div :class="classCard" :style="imgURL">
     <div class="content">
-      <gc-button v-if="tag" class="tag" :to="{ name: 'Home' }">
+      <c-button v-if="tag" class="tag" :to="{ name: 'Home' }">
         {{ tag }}
-      </gc-button>
+      </c-button>
 
-      <gc-button class="title" :title="title" :to="{ name: 'Home' }">
+      <c-button class="title" :title="title" :to="{ name: 'Home' }">
         <h5>
           <slot name="default"></slot>
         </h5>
-      </gc-button>
+      </c-button>
     </div>
   </div>
 </template>
 
 <style lang="css" scoped>
-.gc-card {
+.c-card {
   display: flex;
 
   align-items: flex-end;
@@ -78,15 +78,15 @@ export default {
   background-size: cover;
 }
 
-.gc-card:hover {
+.c-card:hover {
   box-shadow: inset 0 0 24px 4px var(--bx-tertiary);
 }
 
-.center.gc-card {
+.center.c-card {
   background-position: center;
 }
 
-.compact.gc-card {
+.compact.c-card {
   height: 220px;
   overflow: hidden;
 }
@@ -124,22 +124,22 @@ h5 {
   text-shadow: 2px 2px 8px var(--bx-tertiary);
 }
 
-.dark.gc-card .title {
+.dark.c-card .title {
   padding: 6px 8px;
   background-color: var(--bx-tertiary);
 }
 
-.dark.gc-card:hover .title {
+.dark.c-card:hover .title {
   background-color: var(--bd-primary);
 }
 
-.dark.gc-card .title:hover {
+.dark.c-card .title:hover {
   background-color: var(--bd-secondary);
 }
-.compact.gc-card .title {
+.compact.c-card .title {
   min-height: 80px;
 }
-.compact.gc-card h5 {
+.compact.c-card h5 {
   font-size: 18px;
   line-height: 22px;
 }

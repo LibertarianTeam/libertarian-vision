@@ -5,7 +5,7 @@ import Button from "@/components/Button";
 export default {
   name: "Form",
   components: {
-    "gc-button": Button
+    "c-button": Button
   },
   props: {
     inline: {
@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     classForm() {
-      return buildClass("gc-form", ["inline"], this.$props);
+      return buildClass("c-form", ["inline"], this.$props);
     }
   },
   methods: {
@@ -32,9 +32,9 @@ export default {
       <slot name="default"></slot>
     </div>
 
-    <gc-button type="submit">
+    <c-button type="submit">
       Cadastrar
-    </gc-button>
+    </c-button>
   </form>
 </template>
 
@@ -53,7 +53,7 @@ export default {
   padding-right: 12px;
 }
 
-.gc-button {
+.c-button {
   padding: 0 36px;
   border-radius: 8px;
 
@@ -70,7 +70,7 @@ export default {
     padding: 0 0 12px;
   }
 
-  .gc-button {
+  .c-button {
     padding: 12px;
   }
 }

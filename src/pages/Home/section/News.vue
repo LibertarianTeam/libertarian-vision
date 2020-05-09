@@ -5,18 +5,18 @@ import Title from "@/components/Title";
 export default {
   name: "HomeNews",
   components: {
-    "gc-card": Card,
-    "gc-title": Title
+    "c-card": Card,
+    "c-title": Title
   }
 };
 </script>
 
 <template lang="html">
-  <div class="sc-news">
-    <gc-title>Últimas Notícias Veiculadas</gc-title>
+  <div class="s-news">
+    <c-title>Últimas Notícias Veiculadas</c-title>
 
     <div class="list">
-      <gc-card
+      <c-card
         v-for="i in 9"
         :key="i"
         tag="Crônica"
@@ -25,7 +25,7 @@ export default {
       >
         Burger King e Ambev capitalistas malvados dando um empurrãozinho no
         sistema estatal.
-      </gc-card>
+      </c-card>
     </div>
   </div>
 </template>
@@ -38,7 +38,7 @@ export default {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.gc-card {
+.c-card {
   width: 100%;
 }
 
@@ -47,7 +47,7 @@ export default {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .gc-card:last-child {
+  .c-card:last-child {
     grid-column: 1/3;
   }
 }
@@ -57,7 +57,7 @@ export default {
     grid-template-columns: auto;
   }
 
-  .gc-card:last-child {
+  .c-card:last-child {
     grid-column: 1/2;
   }
 }

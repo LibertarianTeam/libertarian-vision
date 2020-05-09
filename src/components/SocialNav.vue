@@ -1,11 +1,14 @@
 <script>
 import Button from "@/components/Button";
-import { getAsset, buildClass } from "@/utils";
+import Figure from "@/components/Figure";
+
+import { buildClass } from "@/utils";
 
 export default {
   name: "SocialNav",
   components: {
-    "gc-button": Button
+    "c-button": Button,
+    "c-figure": Figure
   },
   props: {
     vertical: {
@@ -35,36 +38,45 @@ export default {
       return this.$store.state.static.links;
     },
     classSocialNav() {
-      return buildClass("gc-social-nav", ["vertical", "invert"], this.$props);
+      return buildClass("c-social-nav", ["vertical", "invert"], this.$props);
     }
-  },
-  methods: {
-    getAsset
   }
 };
 </script>
 
 <template lang="html">
-  <div :class="classSocialNav">
-    <gc-button
-      v-for="(item, index) in items"
+  <nav :class="classSocialNav">
+    <c-button
+      v-for="(item, index) in $data.items"
       :key="index"
       :title="item"
       :to="links[item.toLowerCase()]"
       icon
     >
-      <img :alt="item" :src="getAsset(`icons/${item.toLowerCase()}.svg`)" />
+      <c-figure :src="`icons/${item.toLowerCase()}.svg`"></c-figure>
 
-      <h6 v-if="vertical">
+      <h5 v-if="$props.vertical" class="text">
         <slot :name="item.toLowerCase()"></slot>
-      </h6>
-    </gc-button>
-  </div>
+      </h5>
+    </c-button>
+  </nav>
 </template>
 
 <style lang="css" scoped>
-.gc-social-nav {
+.c-social-nav {
   text-align: center;
+}
+
+.c-figure {
+  width: 18px;
+  height: 18px;
+
+  padding: 1px;
+  box-sizing: content-box;
+}
+
+.c-button.icon + .c-button.icon {
+  margin-left: 18px;
 }
 
 .vertical {
@@ -74,11 +86,11 @@ export default {
   width: 100%;
 }
 
-.gc-button.icon + .gc-button.icon {
-  margin-left: 18px;
+.vertical .c-figure {
+  padding: 0 8px;
 }
 
-.vertical .gc-button.icon {
+.vertical .c-button.icon {
   align-items: center;
   justify-content: flex-start;
 
@@ -88,27 +100,27 @@ export default {
   background-color: transparent;
 }
 
-.vertical .gc-button.icon + .gc-button.icon {
+.vertical .c-button.icon + .c-button.icon {
   margin: 6px 0 0;
 }
 
-img {
-  width: 18px;
-  height: 18px;
-
-  padding: 1px;
-  box-sizing: content-box;
+.text {
+  font: bold 12px menu;
 }
 
-.vertical img {
-  padding: 0 8px;
-}
-
-.invert img {
+.invert .c-figure {
   filter: invert(100%);
 }
 
-h6 {
-  font: bold 12px menu;
+@media only screen and (max-width: 480px) {
+  .c-button.icon + .c-button.icon {
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .c-button.icon + .c-button.icon {
+    margin-left: 12px;
+  }
 }
 </style>

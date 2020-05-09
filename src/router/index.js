@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Home from "@/views/Home";
-import Category from "@/views/Category";
+import Home from "@/pages/Home";
+import Category from "@/pages/Category";
 
 Vue.use(VueRouter);
 
@@ -24,27 +24,27 @@ export default new VueRouter({
     {
       path: "/login",
       name: "Login",
-      component: () => import("@/views/Login")
+      component: () => import("@/pages/Login")
     },
     {
       path: "/register",
       name: "Register",
-      component: () => import("@/views/Register")
+      component: () => import("@/pages/Register")
     },
     {
       path: "/about",
       name: "About",
-      component: () => import("@/views/About")
+      component: () => import("@/pages/About")
     },
     {
       path: "/help",
       name: "Help",
-      component: () => import("@/views/Help")
+      component: () => import("@/pages/Help")
     },
     {
       path: "*",
       name: "NotFound",
-      component: () => import("@/views/NotFound")
+      component: () => import("@/pages/NotFound")
     }
   ]
 });

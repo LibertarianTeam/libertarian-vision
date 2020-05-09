@@ -6,28 +6,28 @@ import Title from "@/components/Title";
 export default {
   name: "HomeNewsletter",
   components: {
-    "gc-form": Form,
-    "gc-input": Input,
-    "gc-title": Title
+    "c-form": Form,
+    "c-input": Input,
+    "c-title": Title
   }
 };
 </script>
 
 <template lang="html">
-  <div class="sc-newsletter">
-    <gc-title>Newsletter do Canal</gc-title>
+  <div class="s-newsletter">
+    <c-title>Newsletter do Canal</c-title>
     <span>
       Registre seu email na Newsletter para ser avisado de novos vídeos!
     </span>
 
-    <gc-form inline>
-      <gc-input type="email" placeholder="seu@email.com" lazy></gc-input>
-    </gc-form>
+    <c-form inline>
+      <c-input type="email" placeholder="seu@email.com" lazy></c-input>
+    </c-form>
   </div>
 </template>
 
 <style lang="css" scoped>
-.sc-newsletter {
+.s-newsletter {
   display: flex;
   flex-direction: column;
 }

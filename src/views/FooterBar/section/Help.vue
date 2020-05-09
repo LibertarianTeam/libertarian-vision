@@ -1,12 +1,12 @@
 <script>
 import Title from "@/components/Title";
-import Card from "@/components/Footer/Card";
+import Card from "@/views/FooterBar/section/Card";
 
 export default {
-  name: "FooterHelp",
+  name: "FooterBarHelp",
   components: {
-    "sc-card": Card,
-    "gc-title": Title
+    "s-card": Card,
+    "c-title": Title
   },
   computed: {
     links() {
@@ -17,54 +17,48 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="sc-help">
-    <gc-title double>Ajude nosso projeto</gc-title>
+  <section class="s-help">
+    <c-title double>Ajude nosso projeto</c-title>
 
-    <sc-card
+    <s-card
       title="Nos ajude no Apoiase.se"
       :to="links.apoiase"
       image="imgs/apoiase.png"
     >
       <template #link>Apoia.se</template>
-      <template #default>
-        Oferece todos os modos de pagamento tradicionais no Brasil, inclusive
-        boleto.
-      </template>
-    </sc-card>
+      Oferece todos os modos de pagamento tradicionais no Brasil, inclusive
+      boleto.
+    </s-card>
 
-    <sc-card
+    <s-card
       title="Nos ajude no Padrim"
       :to="links.padrim"
       image="imgs/padrim.png"
     >
       <template #link>Padrim</template>
-      <template #default>
-        Oferece todos os modos de pagamento tradicionais no Brasil, inclusive
-        boleto.
-      </template>
-    </sc-card>
+      Oferece todos os modos de pagamento tradicionais no Brasil, inclusive
+      boleto.
+    </s-card>
 
-    <sc-card
+    <s-card
       title="Nos ajude no Patreon"
       :to="links.patreon"
       image="imgs/patreon.png"
     >
       <template #link>Patreon</template>
-      <template #default>
-        Fácil de ser usado no resto do mundo, aceita qualquer cartão
-        internacional ou paypal.
-      </template>
-    </sc-card>
-  </div>
+      Fácil de ser usado no resto do mundo, aceita qualquer cartão internacional
+      ou paypal.
+    </s-card>
+  </section>
 </template>
 
 <style lang="css" scoped>
-.gc-title {
+.c-title {
   color: var(--text-secondary);
 }
 
 @media only screen and (max-width: 1024px) {
-  .gc-title {
+  .c-title {
     font-size: 20px;
   }
 }

@@ -5,26 +5,26 @@ import Button from "@/components/Button";
 export default {
   name: "HomeFunnel",
   components: {
-    "gc-title": Title,
-    "gc-button": Button
+    "c-title": Title,
+    "c-button": Button
   }
 };
 </script>
 
 <template lang="html">
-  <div class="sc-funnel">
-    <gc-title>Funil de Produção</gc-title>
+  <div class="s-funnel">
+    <c-title>Funil de Produção</c-title>
 
     <div class="content">
-      <gc-button class="schedule" :to="{ name: 'Home' }">
+      <c-button class="schedule" :to="{ name: 'Home' }">
         <h6>138</h6>
         <span>Pautas</span>
-      </gc-button>
+      </c-button>
 
-      <gc-button class="approved" :to="{ name: 'Home' }">
+      <c-button class="approved" :to="{ name: 'Home' }">
         <h6>17</h6>
         <span>Aprovadas</span>
-      </gc-button>
+      </c-button>
     </div>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
   padding: 2px 0;
 }
 
-.gc-button {
+.c-button {
   display: inline-flex;
   flex-direction: column;
 

@@ -1,16 +1,16 @@
 <script>
+import AppBar from "@/views/AppBar";
+import FooterBar from "@/views/FooterBar";
+
 import { mapMutations } from "vuex";
 import { GenerateInitialMetaInfo } from "@/meta/info";
-
-import AppBar from "@/components/AppBar";
-import Footer from "@/components/Footer";
 
 export default {
   name: "App",
   meta: GenerateInitialMetaInfo(),
   components: {
-    "gc-footer": Footer,
-    "gc-app-bar": AppBar
+    "v-app-bar": AppBar,
+    "v-footer-bar": FooterBar
   },
   methods: {
     ...mapMutations(["updateWindowSize"])
@@ -27,9 +27,9 @@ export default {
 
 <template lang="html">
   <div id="app" class="light-theme">
-    <gc-app-bar></gc-app-bar>
+    <v-app-bar></v-app-bar>
     <router-view></router-view>
-    <gc-footer></gc-footer>
+    <v-footer-bar></v-footer-bar>
   </div>
 </template>
 
@@ -54,6 +54,12 @@ export default {
   /*  1620 slg   small  large */
   /*  1920 dlg default  large */
   /* >1920 xlg extreme  large */
+
+  /*   prefixes   */
+  /* p-      page */
+  /* v-      view */
+  /* s-   section */
+  /* c- component */
 }
 
 .light-theme {
@@ -82,6 +88,8 @@ export default {
 }
 
 #app {
+  min-width: 240px;
+
   color: var(--text-primary);
   font-family: Merriweather Sans, Arial, sans-serif;
 
@@ -130,19 +138,19 @@ button:focus {
 }
 
 @media only screen and (max-width: 640px) {
-  #home {
+  main {
     padding: 12px;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  #home {
+  main {
     padding: 6px;
   }
 }
 
 @media only screen and (max-width: 360px) {
-  #home {
+  main {
     padding: 2px;
   }
 }

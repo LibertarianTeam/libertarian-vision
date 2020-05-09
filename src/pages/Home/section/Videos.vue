@@ -5,8 +5,8 @@ import Carousel from "@/components/Carousel";
 export default {
   name: "HomeVídeos",
   components: {
-    "gc-title": Title,
-    "gc-carousel": Carousel
+    "c-title": Title,
+    "c-carousel": Carousel
   },
   data() {
     return {
@@ -60,14 +60,14 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="sc-videos">
-    <gc-title>Últimos Vídeos do Canal</gc-title>
-    <gc-carousel :items="items" :center="false"></gc-carousel>
+  <div class="s-videos">
+    <c-title>Últimos Vídeos do Canal</c-title>
+    <c-carousel :items="items" :center="false"></c-carousel>
   </div>
 </template>
 
 <style lang="css" scoped>
-.gc-carousel {
+.c-carousel {
   width: 100%;
   margin: 0 auto;
 }

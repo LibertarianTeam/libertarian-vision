@@ -5,17 +5,17 @@ import SocialNav from "@/components/SocialNav";
 export default {
   name: "HomeNumber",
   components: {
-    "gc-title": Title,
-    "gc-social-nav": SocialNav
+    "c-title": Title,
+    "c-social-nav": SocialNav
   }
 };
 </script>
 
 <template lang="html">
-  <div class="sc-numbers">
-    <gc-title>Números</gc-title>
+  <div class="s-numbers">
+    <c-title>Números</c-title>
 
-    <gc-social-nav vertical>
+    <c-social-nav vertical>
       <template #youtube>72000 Inscritos</template>
       <template #visaolibertaria>8580 Inscritos</template>
       <template #bitchute>1314 Inscritos</template>
@@ -23,7 +23,7 @@ export default {
       <template #minds>363 Inscritos</template>
       <template #twitter>8836 Inscritos</template>
       <template #gab>151 Inscritos</template>
-    </gc-social-nav>
+    </c-social-nav>
   </div>
 </template>
 

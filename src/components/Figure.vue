@@ -9,6 +9,10 @@ export default {
       type: String,
       required: true
     },
+    alt: {
+      type: String,
+      default: ""
+    },
     description: {
       type: Boolean,
       default: false
@@ -24,13 +28,22 @@ export default {
 </script>
 
 <template lang="html">
-  <figure class="gc-figure">
-    <img :src="getAsset(src)" @load="handleOnLoad($event)" />
+  <figure class="c-figure">
+    <img
+      :alt="$props.alt"
+      :src="getAsset($props.src)"
+      @load="handleOnLoad($event)"
+    />
 
-    <figcaption v-if="description">
+    <figcaption v-if="$props.description">
       <slot name="default"></slot>
     </figcaption>
   </figure>
 </template>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+img {
+  width: inherit;
+  height: inherit;
+}
+</style>
