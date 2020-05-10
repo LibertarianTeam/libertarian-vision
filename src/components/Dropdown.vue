@@ -1,11 +1,13 @@
 <script>
 import { buildClass } from "@/utils";
 import Button from "@/components/Button";
+import Figure from "@/components/Figure";
 
 export default {
   name: "Dropdown",
   components: {
-    "c-button": Button
+    "c-button": Button,
+    "c-figure": Figure
   },
   props: {
     items: {
@@ -21,9 +23,16 @@ export default {
       default: false
     }
   },
+  data: () => ({
+    show: false
+  }),
   computed: {
     classDropdown() {
-      return buildClass("c-dropdown", ["contained"], this.$props);
+      const { show, contained } = this;
+      return buildClass("c-dropdown", ["contained", "show"], {
+        show,
+        contained
+      });
     }
   },
   methods: {
@@ -36,8 +45,18 @@ export default {
 
 <template lang="html">
   <div :class="classDropdown">
-    <c-button class="root-button" :to="to" @click="emitEvent('click', $event)">
-      <slot name="default"></slot>
+    <c-button
+      class="root-button"
+      :to="to"
+      @click.prevent.stop="emitEvent('click', $event)"
+    >
+      <span class="text">
+        <slot name="default"></slot>
+      </span>
+
+      <c-button v-if="contained" icon @click.prevent.stop="show = !show">
+        <c-figure src="icons/arrow-down.svg"></c-figure>
+      </c-button>
     </c-button>
 
     <div class="items">
@@ -73,20 +92,32 @@ export default {
   border-radius: 0;
 }
 
-.c-dropdown:hover .root-button {
-  filter: brightness(96%);
+.contained .root-button .text {
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.root-button .c-button {
+  float: right;
+}
+
+.root-button .c-figure {
+  transform: none;
+  transition: transform 0.4s;
 }
 
 .items {
-  display: none;
+  display: block;
   position: absolute;
 
   z-index: 1;
   min-width: 160px;
-}
 
-.c-dropdown:hover .items {
-  display: block;
+  overflow: hidden;
+  transition: 0.2s 0.1s linear;
+
+  height: 0;
+  opacity: 40%;
 }
 
 .contained .items {
@@ -100,7 +131,27 @@ export default {
   padding: 10px 14px;
 }
 
+.contained .items > .c-button {
+  border: none;
+}
+
 .items > .c-button + .c-button {
   border-top: none;
+}
+
+.c-dropdown.show .root-button .c-figure,
+.c-dropdown:not(.contained):hover .root-button .c-figure {
+  transform: rotate(180deg);
+}
+
+.c-dropdown.show .root-button,
+.c-dropdown:not(.contained):hover .root-button {
+  filter: brightness(96%);
+}
+
+.c-dropdown.show .items,
+.c-dropdown:not(.contained):hover .items {
+  height: auto;
+  opacity: 100%;
 }
 </style>
