@@ -20,7 +20,7 @@ const defaultMetaInfo = {
 
 export function GenerateInitialMetaInfo() {
   return {
-    titleTemplate: `%s | ${defaultMetaInfo.title}`,
+    titleTemplate: `%s - ${defaultMetaInfo.title}`,
     meta: [
       { name: "application-name", content: defaultMetaInfo.title },
       { name: "author", content: defaultMetaInfo.author.site },
