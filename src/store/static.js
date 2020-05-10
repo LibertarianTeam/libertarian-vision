@@ -118,17 +118,5 @@ export default {
       }
     }
   },
-  getters: {
-    sideNavItems({ navItems }) {
-      const customNavItems = JSON.parse(JSON.stringify(navItems));
-
-      Object.keys(navItems).forEach(item => {
-        const { text, to } = navItems[item];
-        customNavItems[item].items.unshift({ text, to });
-      });
-
-      return customNavItems;
-    }
-  },
   namespaced: true
 };

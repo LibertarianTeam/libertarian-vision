@@ -1,14 +1,15 @@
 <script>
-import { mapGetters } from "vuex";
 import { buildClass } from "@/utils";
 
 import Button from "@/components/Button";
+import Figure from "@/components/Figure";
 import Dropdown from "@/components/Dropdown";
 
 export default {
   name: "AppBarSideNav",
   components: {
     "c-button": Button,
+    "c-figure": Figure,
     "c-dropdown": Dropdown
   },
   computed: {
@@ -17,7 +18,9 @@ export default {
         show: this.$store.state.appBar.sideNav.visible
       });
     },
-    ...mapGetters("static", ["sideNavItems"])
+    navItems() {
+      return this.$store.state.static.navItems;
+    }
   },
   methods: {
     handleSideNavClick(evt) {
@@ -29,29 +32,30 @@ export default {
 </script>
 
 <template lang="html">
-  <nav :class="classAppBarSideNav" @click="handleSideNavClick('hide')">
-    <div class="content" @click.stop="handleSideNavClick('continue')">
+  <div :class="classAppBarSideNav" @click="handleSideNavClick('hide')">
+    <nav class="content" @click.stop="handleSideNavClick('continue')">
       <c-button
-        class="home"
         title="Home"
         :to="{ name: 'Home' }"
         icon
         @click.native.stop="handleSideNavClick('hide')"
       >
-        <img alt="Home" src="@/assets/icons/home.svg" />
+        <c-figure src="icons/home.svg"></c-figure>
       </c-button>
 
       <c-dropdown
-        v-for="(sideNavItem, index) in sideNavItems"
+        v-for="(navItem, index) in navItems"
         :key="index"
-        :items="sideNavItem.items"
+        :items="navItem.items"
+        :to="navItem.to"
         contained
+        @click.stop="handleSideNavClick('hide')"
         @clickOnItem.stop="handleSideNavClick('hide')"
       >
-        {{ sideNavItem.text }}
+        {{ navItem.text }}
       </c-dropdown>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 
 <style lang="css" scoped>
@@ -61,43 +65,46 @@ export default {
   width: 0;
   height: 100%;
 
+  opacity: 0;
   overflow-x: hidden;
 
   top: 0;
   left: 0;
 
   z-index: 2;
-  transition: width 0.4s ease-in;
+  transition: 0.4s 0.1s ease-in;
 
   background-color: var(--bd-primary);
 }
 
 .show {
   width: 100%;
+  opacity: 100%;
 }
 
 .content {
   display: flex;
   flex-direction: column;
 
-  overflow-y: hidden;
-
-  width: 60%;
+  width: 74%;
   height: 100%;
   min-width: 180px;
-  max-width: 320px;
+  max-width: 240px;
+
+  overflow: hidden;
+  transition: width 1s;
 
   background-color: var(--bd-secondary);
 }
 
-.home {
+.content > .c-button.icon {
   padding: 12px 0;
 }
 
-.home > img {
+.content > .c-button.icon .c-figure {
   width: 22px;
   height: 22px;
 
-  filter: invert(100%);
+  fill: #fff;
 }
 </style>
