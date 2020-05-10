@@ -5,9 +5,12 @@
 ## :fire: Tecs
 
 - [VueJS] - Framework JavaScript progressivo ❤️.
+- [Vuex] - Padrão de gerenciamento de estado para [VueJS].
+- [VueMeta] - Plugin [VueJS] para gerenciar os metadados do aplicativo.
 - [VueRouter] - Roteador oficial para [VueJS].
 - [CLIPluginPWA] - Plugin da CLI [VueJS] para configuração da PWA (App Web Progressivo).
-- [Vuex] - Padrão de gerenciamento de estado para [VueJS].
+- [PrerenderSPAPlugin] - Pré-renderiza o HTML estático em SPAs.
+- [VueCliPluginPrerenderSPA] - Facilita a configuração do [PrerenderSPAPlugin].
 - [NodeJS] - Ferramenta de magia negra.
 
 ### :wrench: Rode Localmente
@@ -53,6 +56,9 @@ Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE] 
 [paulloclara]: https://github.com/PaulloClara
 [vuejs]: https://vuejs.org
 [vuex]: https://vuex.vuejs.org
+[vuemeta]: https://github.com/nuxt/vue-meta
+[prerenderspaplugin]: https://github.com/chrisvfritz/prerender-spa-plugin
+[vueclipluginprerenderspa]: https://github.com/SolarLiner/vue-cli-plugin-prerender-spa
 [nodejs]: https://nodejs.org/en
 [vuerouter]: https://router.vuejs.org
 [clipluginpwa]: https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-pwa#readme
