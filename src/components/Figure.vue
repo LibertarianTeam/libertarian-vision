@@ -42,7 +42,12 @@ export default {
 </template>
 
 <style lang="css" scoped>
-img {
+.c-figure {
+  display: flex;
+}
+
+img,
+svg {
   width: inherit;
   height: inherit;
 }
