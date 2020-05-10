@@ -15,6 +15,7 @@
 ```shell
   $ git clone https://github.com/PaulloClara/ancapsu.git # Clone o repositório.
   $ cd ancapsu # Navegue ate a pasta.
+  # Crie/Configure o arquivo .env.local de acordo com o .env_example.
   $ yarn -i # Instale as dependencias.
   $ yarn start # Execute o servidor.
 ```
