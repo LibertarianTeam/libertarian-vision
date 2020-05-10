@@ -25,7 +25,7 @@ export default {
   <div :class="classTitle">
     <c-divider></c-divider>
 
-    <h3>
+    <h3 class="text">
       <slot name="default"></slot>
     </h3>
 
@@ -41,5 +41,24 @@ export default {
 
 .double .c-divider {
   margin: 8px 0;
+}
+
+@media only screen and (max-width: 640px) {
+  .c-title {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .c-title {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .c-title {
+    font-size: 18px;
+  }
 }
 </style>
