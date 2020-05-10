@@ -44,7 +44,7 @@ html {
 }
 
 main {
-  min-width: 240px;
+  min-width: 246px; /* + 6px of scroll bar */
   max-width: 1920px;
   min-height: 100vh;
 
@@ -80,6 +80,6 @@ button:focus {
 
 @media only screen and (max-width: 360px) {
   main {
-    padding: 2px;
+    padding: 4px;
   }
 }
