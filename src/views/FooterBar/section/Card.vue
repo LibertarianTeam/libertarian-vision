@@ -81,11 +81,16 @@ export default {
 
 @media only screen and (max-width: 360px) {
   .s-card {
-    height: 120px;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .s-card + .s-card {
+    margin-top: 12px;
   }
 
   .c-figure {
-    margin-right: 6px;
+    margin: 0 0 12px;
   }
 
   .text {

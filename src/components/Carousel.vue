@@ -3,12 +3,14 @@ import { mapGetters } from "vuex";
 
 import Card from "@/components/Card";
 import Button from "@/components/Button";
+import Figure from "@/components/Figure";
 
 export default {
   name: "Carousel",
   components: {
     "c-card": Card,
-    "c-button": Button
+    "c-button": Button,
+    "c-figure": Figure
   },
   props: {
     items: {
@@ -83,7 +85,7 @@ export default {
       :disabled="startOfList"
       @click="handlePrev"
     >
-      <img alt="Anterior" src="@/assets/icons/arrow-prev.svg" />
+      <c-figure src="icons/arrow-prev.svg"></c-figure>
     </c-button>
 
     <div class="list">
@@ -95,7 +97,7 @@ export default {
         :center="center"
         :img="item.img"
       >
-        {{ item.title }}
+        <span class="text"> {{ item.title }}</span>
       </c-card>
     </div>
 
@@ -103,11 +105,10 @@ export default {
       class="arrow"
       title="Próximo"
       icon
-      fab
       :disabled="endOfList"
       @click="handleNext"
     >
-      <img alt="Próximo" src="@/assets/icons/arrow-next.svg" />
+      <c-figure src="icons/arrow-next.svg"></c-figure>
     </c-button>
   </section>
 </template>
@@ -137,17 +138,17 @@ export default {
   opacity: 0%;
 }
 
-.arrow > img {
+.arrow .c-figure {
   width: 48px;
   height: 48px;
 }
 
-.arrow:active > img {
+.arrow:active .c-figure {
   width: 42px;
   height: 42px;
 }
 
-.disabled.arrow:active > img {
+.disabled.arrow:active .c-figure {
   width: 48px;
   height: 48px;
 }
@@ -192,7 +193,17 @@ export default {
   }
 
   .arrow {
-    margin: 24px 0 0;
+    margin: 64px 0 0;
+  }
+
+  .text {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .arrow {
+    margin: 42px 0 0;
   }
 }
 </style>

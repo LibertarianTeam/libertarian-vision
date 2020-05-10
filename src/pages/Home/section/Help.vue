@@ -17,15 +17,15 @@ export default {
 
     <div class="list">
       <c-card :dark="false" img="imgs/news.png">
-        <span>Sugerir Noticia</span>
+        <span class="title">Sugerir Noticia</span>
       </c-card>
 
       <c-card :dark="false" img="imgs/typewriter.png">
-        <span>Escrever Matéria</span>
+        <span class="title">Escrever Matéria</span>
       </c-card>
 
       <c-card :dark="false" img="imgs/mic.png">
-        <span>Narrar Matéria</span>
+        <span class="title">Narrar Matéria</span>
       </c-card>
     </div>
   </div>
@@ -48,15 +48,14 @@ export default {
   margin-left: 6px;
 }
 
-.c-card span {
+.c-card .title {
   transition: color 0.4s;
 
   color: var(--text-tertiary);
-  font-size: 20px;
-  font-weight: bolder;
+  font: bolder 24px caption;
 }
 
-.c-card:hover span {
+.c-card:hover .title {
   color: var(--text-secondary);
 }
 
@@ -70,6 +69,12 @@ export default {
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .c-card .title {
+    font-size: 20px;
+  }
+}
+
 @media only screen and (max-width: 360px) {
   .list {
     flex-direction: column;
@@ -78,11 +83,11 @@ export default {
 
   .c-card {
     width: 100%;
-    height: 140px;
+    height: 96px;
   }
 
-  .c-card span {
-    font-size: 28px;
+  .c-card .title {
+    font-size: 24px;
   }
 
   .c-card + .c-card {

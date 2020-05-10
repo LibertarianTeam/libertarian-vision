@@ -63,6 +63,10 @@ export default {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "s-help s-store" "s-about s-about";
   }
+
+  .s-about {
+    margin-top: 24px;
+  }
 }
 
 @media only screen and (max-width: 640px) {
@@ -71,6 +75,10 @@ export default {
     grid-template-areas: "s-help" "s-store" "s-about";
 
     padding: 12px;
+  }
+
+  .s-about {
+    margin-top: 12px;
   }
 }
 </style>

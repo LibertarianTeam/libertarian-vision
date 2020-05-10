@@ -74,16 +74,12 @@ export default {
 }
 
 @media only screen and (max-width: 480px) {
-  .c-social-nav {
-    width: 80%;
+  .v-app-bar {
+    background-image: url("../../assets/imgs/appbarv3.svg");
   }
 }
 
 @media only screen and (max-width: 360px) {
-  .v-app-bar {
-    background-image: url("../../assets/imgs/appbarv3.svg");
-  }
-
   .c-social-nav {
     width: 100%;
   }

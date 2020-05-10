@@ -27,13 +27,15 @@ export default {
       libertarianismo e o anarcocapitalismo. O canal é composto de vários
       quadros, vídeos teóricos semanais, geralmente liberados as sextas-feiras,
       quadros cômicos ocasionais e nosso jornal diário libertário, o
-      <c-button
-        title="Visite o canal Visão Libertária"
-        :to="links.visaolibertaria"
-        text
-      >
-        visão libertária</c-button
-      >.
+      <span>
+        <c-button
+          title="Visite o canal Visão Libertária"
+          :to="links.visaolibertaria"
+          text
+        >
+          visão libertária</c-button
+        >.
+      </span>
     </h4>
 
     <address class="contact">
@@ -87,10 +89,18 @@ export default {
 }
 
 @media only screen and (max-width: 360px) {
+  .c-figure {
+    width: 180px;
+  }
+
   .contact,
   .c-button,
   .description {
     font-size: 14px;
+  }
+
+  .contact {
+    text-align: center;
   }
 }
 </style>

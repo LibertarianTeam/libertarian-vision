@@ -1,11 +1,13 @@
 <script>
 import Button from "@/components/Button";
+import Figure from "@/components/Figure";
 import Dropdown from "@/components/Dropdown";
 
 export default {
   name: "AppBarMainNav",
   components: {
     "c-button": Button,
+    "c-figure": Figure,
     "c-dropdown": Dropdown
   },
   computed: {
@@ -18,8 +20,8 @@ export default {
 
 <template lang="html">
   <nav class="s-nav">
-    <c-button class="home" title="Home" :to="{ name: 'Home' }" icon>
-      <img alt="Home" src="@/assets/icons/home.svg" />
+    <c-button title="Home" :to="{ name: 'Home' }" icon>
+      <c-figure src="icons/home.svg"></c-figure>
     </c-button>
 
     <c-dropdown
@@ -38,17 +40,17 @@ export default {
   display: inline-flex;
 }
 
-.home {
+.s-nav > .c-button.icon {
   padding: 6px 22px;
 }
 
-.home > img {
+.s-nav > .c-button.icon .c-figure {
   width: 22px;
   height: 22px;
 }
 
-.home::after,
-.c-dropdown::after {
+.c-dropdown::after,
+.s-nav > .c-button.icon::after {
   content: "";
   position: absolute;
 
@@ -65,12 +67,12 @@ export default {
   background-color: var(--bd-primary);
 }
 
-.home::after {
+.s-nav > .c-button.icon::after {
   height: 4px;
 }
 
-.home:hover::after,
-.c-dropdown:hover::after {
+.c-dropdown:hover::after,
+.s-nav > .c-button.icon:hover::after {
   width: 100%;
 }
 </style>

@@ -58,6 +58,8 @@ export default {
   justify-content: space-between;
 
   width: 100%;
+
+  margin-top: 6px;
 }
 
 .account {
@@ -89,7 +91,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 360px) {
   .s-main {
     align-items: flex-start;
   }

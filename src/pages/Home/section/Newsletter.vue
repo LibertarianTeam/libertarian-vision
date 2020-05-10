@@ -16,7 +16,7 @@ export default {
 <template lang="html">
   <div class="s-newsletter">
     <c-title>Newsletter do Canal</c-title>
-    <span>
+    <span class="subtitle">
       Registre seu email na Newsletter para ser avisado de novos vídeos!
     </span>
 
@@ -32,8 +32,15 @@ export default {
   flex-direction: column;
 }
 
-span {
+.subtitle {
   margin-bottom: 24px;
   font-size: 14px;
+}
+
+@media only screen and (max-width: 480px) {
+  .subtitle {
+    margin: 0 12px 12px;
+    text-align: justify;
+  }
 }
 </style>
