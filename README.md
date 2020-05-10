@@ -25,6 +25,7 @@
 - start - Inicia o servidor em modo de desenvolvimento.
 - build - Gera a versão de produção do código.
 - lint - Verifica a qualidade do código.
+- server - Roda o script build e inicia o servidor de produção.
 - submit - Envia a versão de produção do código para a branch heroku no github.
 - deploy - Atalho para build e submit.
 
