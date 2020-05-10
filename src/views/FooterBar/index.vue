@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template lang="html">
-  <footer class="v-footer">
+  <footer class="v-footer-bar">
     <div class="content">
       <s-about></s-about>
       <s-help></s-help>
@@ -24,7 +24,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.v-footer {
+.v-footer-bar {
   background: url("../../assets/imgs/footer.png") no-repeat;
   background-size: cover;
 }
@@ -42,7 +42,7 @@ export default {
   background-color: var(--bx-tertiary);
 }
 
-.v-footer:hover .content {
+.v-footer-bar:hover .content {
   background-color: var(--bd-primary);
 }
 
