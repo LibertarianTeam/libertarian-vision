@@ -149,13 +149,13 @@ export default {
 }
 
 .disabled {
-  opacity: 60%;
   cursor: default;
+  filter: opacity(60%);
 
   border: none;
 }
 
 .disabled:hover {
-  filter: none;
+  filter: opacity(60%);
 }
 </style>
