@@ -127,15 +127,11 @@ export default {
 }
 
 .arrow {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
 
   min-width: 48px;
   min-height: 48px;
-}
-
-.disabled.arrow {
-  opacity: 0%;
 }
 
 .arrow .c-figure {
@@ -148,7 +144,7 @@ export default {
   height: 42px;
 }
 
-.disabled.arrow:active .c-figure {
+.arrow.disabled:active .c-figure {
   width: 48px;
   height: 48px;
 }
@@ -173,7 +169,7 @@ export default {
 }
 
 .show.c-card {
-  width: 100%;
+  width: 100vw;
   height: inherit;
 
   background-size: cover;
