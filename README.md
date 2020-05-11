@@ -2,6 +2,8 @@
 
 [AncapSU] é a plataforma oficial do canal [Ancap.SU] feita em [ReactJS], o código nesse repositório é uma versão de cunho didática desenvolvida em [VueJS].
 
+![Preview][preview]
+
 ## :fire: Tecs
 
 - [VueJS] - Framework JavaScript progressivo ❤️.
@@ -63,4 +65,5 @@ Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE] 
 [vuerouter]: https://router.vuejs.org
 [clipluginpwa]: https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-pwa#readme
 [reactjs]: https://pt-br.reactjs.org
+[preview]: .github/preview.svg
 [license]: LICENSE
