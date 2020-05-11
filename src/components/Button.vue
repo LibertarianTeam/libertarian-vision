@@ -105,7 +105,7 @@ export default {
   text-decoration: none;
 
   cursor: pointer;
-  transition: filter 0.2s linear, border-color 0.2s linear;
+  transition: filter 0.2s linear, border-color 0.2s linear, transform 0.1s;
 
   background-color: var(--primary);
 }
@@ -113,6 +113,10 @@ export default {
 .c-button:hover {
   filter: brightness(96%);
   border-color: transparent;
+}
+
+.c-button:active {
+  transform: translate(1px, 2px);
 }
 
 .icon {
