@@ -13,7 +13,7 @@ export default {
     "s-hamburger": Hamburger
   },
   computed: {
-    ...mapGetters(["lsmWindow"])
+    ...mapGetters(["smdWindow"])
   }
 };
 </script>
@@ -34,7 +34,7 @@ export default {
         </c-button>
       </div>
 
-      <s-hamburger v-if="lsmWindow"></s-hamburger>
+      <s-hamburger v-if="smdWindow"></s-hamburger>
     </div>
   </div>
 </template>
@@ -75,7 +75,7 @@ export default {
   margin-left: 6px;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 800px) {
   .s-main {
     flex-direction: column;
     align-items: center;

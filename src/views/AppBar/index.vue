@@ -18,7 +18,7 @@ export default {
     showSideNav() {
       return this.$store.state.appBar.sideNav.visible;
     },
-    ...mapGetters(["lsmWindow"])
+    ...mapGetters(["smdWindow"])
   }
 };
 </script>
@@ -30,7 +30,7 @@ export default {
 
       <s-main></s-main>
 
-      <s-side-nav v-if="lsmWindow"></s-side-nav>
+      <s-side-nav v-if="smdWindow"></s-side-nav>
       <s-main-nav v-else></s-main-nav>
     </div>
   </header>
@@ -61,9 +61,7 @@ export default {
   .v-app-bar {
     background-image: url("../../assets/imgs/appbarv2.svg");
   }
-}
 
-@media only screen and (max-width: 640px) {
   .content {
     padding: 0 6px;
   }
