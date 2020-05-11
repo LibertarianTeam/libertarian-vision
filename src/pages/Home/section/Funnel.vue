@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="s-funnel">
+  <section class="s-funnel">
     <c-title>Funil de Produção</c-title>
 
     <div class="content">
@@ -26,7 +26,7 @@ export default {
         <span>Aprovadas</span>
       </c-button>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="css" scoped>

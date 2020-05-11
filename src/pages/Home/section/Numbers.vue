@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="s-numbers">
+  <section class="s-numbers">
     <c-title>Números</c-title>
 
     <c-social-nav vertical>
@@ -24,7 +24,7 @@ export default {
       <template #twitter>8836 Inscritos</template>
       <template #gab>151 Inscritos</template>
     </c-social-nav>
-  </div>
+  </section>
 </template>
 
 <style lang="css" scoped></style>

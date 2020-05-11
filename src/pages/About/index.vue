@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template lang="html">
-  <main id="about">
+  <main id="p-about">
     About
   </main>
 </template>

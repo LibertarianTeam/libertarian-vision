@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template lang="html">
-  <main id="not-found">
+  <main id="p-not-found">
     Not Found
   </main>
 </template>

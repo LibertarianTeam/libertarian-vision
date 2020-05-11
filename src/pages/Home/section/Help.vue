@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="s-help">
+  <section class="s-help">
     <c-title>Quer Ajudar?</c-title>
 
     <div class="list">
@@ -28,7 +28,7 @@ export default {
         <span class="title">Narrar Matéria</span>
       </c-card>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="css" scoped>

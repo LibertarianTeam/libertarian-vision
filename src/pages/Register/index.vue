@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template lang="html">
-  <main id="register">
+  <main id="p-register">
     Register
   </main>
 </template>

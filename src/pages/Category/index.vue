@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template lang="html">
-  <main id="category">
+  <main id="p-category">
     {{ $route.params }}
   </main>
 </template>

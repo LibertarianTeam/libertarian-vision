@@ -60,10 +60,10 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="s-videos">
+  <section class="s-videos">
     <c-title>Últimos Vídeos do Canal</c-title>
     <c-carousel :items="items" :center="false"></c-carousel>
-  </div>
+  </section>
 </template>
 
 <style lang="css" scoped>

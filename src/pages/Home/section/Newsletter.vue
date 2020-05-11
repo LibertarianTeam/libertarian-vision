@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="s-newsletter">
+  <section class="s-newsletter">
     <c-title>Newsletter do Canal</c-title>
     <span class="subtitle">
       Registre seu email na Newsletter para ser avisado de novos vídeos!
@@ -23,7 +23,7 @@ export default {
     <c-form inline>
       <c-input type="email" placeholder="seu@email.com" lazy></c-input>
     </c-form>
-  </div>
+  </section>
 </template>
 
 <style lang="css" scoped>

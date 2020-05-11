@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template lang="html">
-  <main id="help">
+  <main id="p-help">
     Help
   </main>
 </template>

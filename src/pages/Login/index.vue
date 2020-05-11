@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template lang="html">
-  <main id="login">
+  <main id="p-login">
     Login
   </main>
 </template>

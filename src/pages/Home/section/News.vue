@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="s-news">
+  <section class="s-news">
     <c-title>Últimas Notícias Veiculadas</c-title>
 
     <div class="list">
@@ -27,7 +27,7 @@ export default {
         sistema estatal.
       </c-card>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="css" scoped>
