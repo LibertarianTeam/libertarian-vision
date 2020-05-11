@@ -39,7 +39,7 @@ export default {
 
 @media only screen and (max-width: 480px) {
   .subtitle {
-    margin: 0 12px 12px;
+    margin: 0 6px 6px;
     text-align: justify;
   }
 }

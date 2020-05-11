@@ -66,7 +66,7 @@ span {
   font-size: 12px;
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 480px) {
   .content {
     display: flex;
     justify-content: center;

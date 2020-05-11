@@ -60,13 +60,14 @@ export default {
   font-weight: bold;
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 480px) {
   .inline {
     flex-direction: column;
-    padding: 12px;
+    padding: 6px;
   }
 
   .inline .fields {
+    max-width: 480px;
     padding: 0 0 12px;
   }
 
