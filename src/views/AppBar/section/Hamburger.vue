@@ -30,25 +30,13 @@ export default {
 
 <style lang="css" scoped>
 .s-hamburger {
-  /* display: inline-block; */
-
-  /* position: absolute; */
-  /* right: 20px; */
-  /* bottom: 20px; */
-
-  justify-self: flex-end;
-  align-self: flex-end;
-
-  /* width: 100%; */
-  /* text-align: right; */
+  padding: 2px;
 }
 
 .c-figure {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 
-  padding: 2px;
-
-  filter: invert(100%);
+  fill: #fff;
 }
 </style>
