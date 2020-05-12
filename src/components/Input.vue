@@ -42,7 +42,8 @@ export default {
   outline: transparent;
   transition: all 0.2s linear;
 
-  font: lighter 16px caption;
+  font-size: 16px;
+  font-weight: lighter;
 }
 
 .c-input:focus {

@@ -12,14 +12,14 @@ export default {
     return {
       items: [
         {
-          title:
-            "Presidente das Filipinas manda matar quem descumprir quarentena.",
-          img: "https://i.ibb.co/n0PJpgL/image.png",
+          title: "Estão faltando mortos nessa conta.",
+          img: "https://i.ibb.co/WFhvVym/image.png",
           tag: "Vídeo"
         },
         {
-          title: "Estão faltando mortos nessa conta.",
-          img: "https://i.ibb.co/WFhvVym/image.png",
+          title:
+            "Presidente das Filipinas manda matar quem descumprir quarentena.",
+          img: "https://i.ibb.co/n0PJpgL/image.png",
           tag: "Vídeo"
         },
         {

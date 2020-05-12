@@ -15,7 +15,7 @@ export default {
   <section class="s-help">
     <c-title>Quer Ajudar?</c-title>
 
-    <div class="list">
+    <div class="cards">
       <c-card :dark="false" img="imgs/news.png">
         <span class="title">Sugerir Noticia</span>
       </c-card>
@@ -32,7 +32,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.list {
+.cards {
   display: inline-flex;
   width: 100%;
 }
@@ -52,7 +52,8 @@ export default {
   transition: color 0.4s;
 
   color: var(--text-tertiary);
-  font: bolder 24px caption;
+  font-size: 20px;
+  font-weight: bolder;
 }
 
 .c-card:hover .title {
@@ -60,12 +61,12 @@ export default {
 }
 
 @media only screen and (max-width: 800px) {
-  .list {
+  .cards {
     justify-content: center;
   }
 
   .c-card {
-    width: 180px;
+    width: 100%;
   }
 }
 
@@ -76,18 +77,13 @@ export default {
 }
 
 @media only screen and (max-width: 360px) {
-  .list {
-    flex-direction: column;
+  .cards {
     align-items: center;
+    flex-direction: column;
   }
 
   .c-card {
-    width: 100%;
     height: 96px;
-  }
-
-  .c-card .title {
-    font-size: 24px;
   }
 
   .c-card + .c-card {

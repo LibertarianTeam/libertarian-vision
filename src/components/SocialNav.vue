@@ -105,7 +105,8 @@ export default {
 }
 
 .text {
-  font: bold 12px menu;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .invert .c-figure {

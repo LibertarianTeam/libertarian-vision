@@ -82,7 +82,8 @@ export default {
   padding: 8px 22px;
 
   border: none;
-  font: bold 16px menu;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .contained .root-button {

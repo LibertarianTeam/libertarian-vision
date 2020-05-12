@@ -98,14 +98,15 @@ export default {
   border: 1px solid var(--bd-primary);
   border-radius: 2px;
 
+  cursor: pointer;
+  transition: filter 0.2s linear, border-color 0.2s linear, transform 0.1s;
+
   color: var(--text-primary);
-  font: normal 14px caption;
+  font-size: 14px;
+  font-weight: normal;
 
   text-align: center;
   text-decoration: none;
-
-  cursor: pointer;
-  transition: filter 0.2s linear, border-color 0.2s linear, transform 0.1s;
 
   background-color: var(--primary);
 }
@@ -153,13 +154,17 @@ export default {
 }
 
 .disabled {
+  border: none;
+
   cursor: default;
   filter: opacity(60%);
-
-  border: none;
 }
 
 .disabled:hover {
   filter: opacity(60%);
+}
+
+.disabled:active {
+  transform: none;
 }
 </style>

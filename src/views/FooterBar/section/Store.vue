@@ -47,15 +47,29 @@ export default {
   color: var(--text-secondary);
 }
 
+.s-card + .s-card {
+  margin-top: 42px;
+}
+
 @media only screen and (max-width: 1024px) {
   .c-title {
     font-size: 20px;
+  }
+
+  .s-card + .s-card {
+    margin-top: 36px;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .c-title {
     font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .s-card + .s-card {
+    margin-top: 0;
   }
 }
 </style>

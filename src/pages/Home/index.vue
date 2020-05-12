@@ -74,7 +74,7 @@ export default {
   grid-area: s-numbers;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1366px) {
   #p-home {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:

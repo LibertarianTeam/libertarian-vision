@@ -36,7 +36,9 @@ export default {
 <style lang="css" scoped>
 .c-title {
   margin-bottom: 20px;
-  font: bold 24px caption;
+
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .double .c-divider {
@@ -45,20 +47,14 @@ export default {
 
 @media only screen and (max-width: 640px) {
   .c-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .c-title {
-    font-size: 20px;
-    text-align: center;
-  }
-}
-
-@media only screen and (max-width: 360px) {
-  .c-title {
     font-size: 18px;
+    text-align: center;
   }
 }
 </style>

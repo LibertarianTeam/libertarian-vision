@@ -60,13 +60,13 @@ export default {
   color: var(--text-secondary);
 }
 
-.text {
-  font: normal 16px small-caption;
-}
-
 .c-button.text {
   font-size: 20px;
   color: var(--text-tertiary);
+}
+
+.text {
+  font-size: 16px;
 }
 
 @media only screen and (max-width: 800px) {

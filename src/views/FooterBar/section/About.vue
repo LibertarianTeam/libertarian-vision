@@ -58,10 +58,10 @@ export default {
 }
 
 .c-figure {
-  fill: var(--primary);
   width: 220px;
-
   padding: 0 0 22px;
+
+  fill: var(--primary);
 }
 
 .contact,
@@ -73,19 +73,11 @@ export default {
 .contact,
 .c-button,
 .description {
-  font: small-caps bold 22px/1 cursive;
+  font: italic bold 22px/1.2 cursive;
 }
 
 .c-button {
   color: var(--text-tertiary);
-}
-
-@media only screen and (max-width: 1366px) {
-  .contact,
-  .c-button,
-  .description {
-    font-size: 18px;
-  }
 }
 
 @media only screen and (max-width: 360px) {
@@ -96,7 +88,7 @@ export default {
   .contact,
   .c-button,
   .description {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .contact {

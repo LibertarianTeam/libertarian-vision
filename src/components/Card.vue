@@ -51,9 +51,7 @@ export default {
       </c-button>
 
       <c-button class="title" :title="title" :to="{ name: 'Home' }">
-        <h5>
-          <slot name="default"></slot>
-        </h5>
+        <slot name="default"></slot>
       </c-button>
     </div>
   </div>
@@ -69,10 +67,10 @@ export default {
   width: 260px;
   height: 360px;
 
-  border-radius: 8px;
-  transition: box-shadow 0.2s linear;
-
   box-shadow: inset 0 0 18px 6px var(--bx-secondary);
+  border-radius: 8px;
+
+  transition: box-shadow 0.2s linear;
 
   background: var(--primary) no-repeat;
   background-size: cover;
@@ -97,35 +95,35 @@ export default {
 
 .tag {
   margin: 8px;
-
   border-radius: 4px;
-  text-shadow: 2px 2px 2px var(--bx-secondary);
 
-  font: normal bold 14px caption;
   color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: bold;
+
+  text-shadow: 2px 2px 2px var(--bx-secondary);
 }
 
 .title {
   width: 100%;
-  min-height: 100px;
-
   padding: 8px 12px;
-  border: none;
 
+  border: none;
   transition: background-color 0.4s;
+
+  color: var(--text-secondary);
+  font-size: 20px;
+  font-weight: bold;
+
+  text-shadow: 2px 2px 8px var(--bx-tertiary);
 
   background-color: transparent;
 }
 
-h5 {
-  font: bold 24px caption;
-  color: var(--text-secondary);
-
-  text-shadow: 2px 2px 8px var(--bx-tertiary);
-}
-
 .dark.c-card .title {
   padding: 6px 8px;
+  min-height: 100px;
+
   background-color: var(--bx-tertiary);
 }
 
@@ -136,10 +134,10 @@ h5 {
 .dark.c-card .title:hover {
   background-color: var(--bd-secondary);
 }
+
 .compact.c-card .title {
   min-height: 80px;
-}
-.compact.c-card h5 {
+
   font-size: 18px;
   line-height: 22px;
 }
