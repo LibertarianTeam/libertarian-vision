@@ -56,8 +56,8 @@ export default {
   },
   methods: {
     updateItemsOnScreen(end) {
-      this.start = 1;
       this.end = end;
+      this.start = 1;
     },
     handleNext() {
       if (this.endOfList) return;
@@ -76,28 +76,27 @@ export default {
 </script>
 
 <template lang="html">
-  <section class="c-carousel">
+  <div class="c-carousel">
     <c-button
       class="arrow"
       title="Anterior"
       icon
-      fab
       :disabled="startOfList"
       @click="handlePrev"
     >
       <c-figure src="icons/arrow-prev.svg"></c-figure>
     </c-button>
 
-    <div class="list">
+    <div class="items">
       <c-card
         v-for="(item, index) in items"
         :key="index"
         :class="classCard(index)"
+        :img="item.img"
         :tag="item.tag"
         :center="center"
-        :img="item.img"
       >
-        <span class="text"> {{ item.title }}</span>
+        <h4 class="title">{{ item.title }}</h4>
       </c-card>
     </div>
 
@@ -110,7 +109,7 @@ export default {
     >
       <c-figure src="icons/arrow-next.svg"></c-figure>
     </c-button>
-  </section>
+  </div>
 </template>
 
 <style lang="css" scoped>
@@ -121,7 +120,7 @@ export default {
   justify-content: center;
 }
 
-.list {
+.items {
   display: inherit;
   overflow: hidden;
 }
@@ -169,7 +168,7 @@ export default {
 }
 
 .show.c-card {
-  width: 100vw;
+  width: 100%;
   height: inherit;
 
   background-size: cover;
@@ -179,21 +178,21 @@ export default {
   margin-left: 6px;
 }
 
+.title {
+  font-size: 20px;
+}
+
 @media only screen and (max-width: 640px) {
   .c-carousel {
     align-items: flex-start;
   }
 
-  .list {
+  .items {
     height: 280px;
   }
 
   .arrow {
     margin: 64px 0 0;
-  }
-
-  .text {
-    font-size: 20px;
   }
 }
 
