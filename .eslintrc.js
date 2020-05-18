@@ -1,15 +1,22 @@
 module.exports = {
   root: true,
   env: {
+    browser: true,
     node: true
   },
-  extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
   parserOptions: {
-    ecmaVersion: 2020
+    parser: 'babel-eslint'
   },
+  extends: [
+    '@nuxtjs',
+    'prettier',
+    'prettier/vue',
+    'plugin:prettier/recommended',
+    'plugin:nuxt/recommended'
+  ],
+  plugins: ['prettier'],
   rules: {
-    "no-console": "warn",
-    "no-debugger": "warn",
-    "vue/return-in-computed-property": "off"
+    'vue/no-v-html': 'off',
+    'vue/return-in-computed-property': 'off'
   }
-};
+}

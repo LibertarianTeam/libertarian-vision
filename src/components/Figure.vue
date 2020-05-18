@@ -1,9 +1,6 @@
 <script>
-import { getAsset } from "@/utils";
-import SVGInject from "@iconfu/svg-inject";
-
 export default {
-  name: "Figure",
+  name: 'Figure',
   props: {
     src: {
       type: String,
@@ -11,29 +8,25 @@ export default {
     },
     alt: {
       type: String,
-      default: ""
+      default: ''
     },
     description: {
       type: Boolean,
       default: false
     }
-  },
-  methods: {
-    getAsset,
-    handleOnLoad({ target: image }) {
-      if (this.src.includes(".svg")) SVGInject(image);
-    }
   }
-};
+}
 </script>
 
 <template lang="html">
-  <figure class="c-figure">
-    <img
-      :alt="$props.alt"
-      :src="getAsset($props.src)"
-      @load="handleOnLoad($event)"
-    />
+  <figure
+    v-if="$props.src.includes('.svg')"
+    class="c-figure"
+    v-html="require(`~/assets/${$props.src}?raw`)"
+  ></figure>
+
+  <figure v-else class="c-figure">
+    <img :alt="$props.alt" :src="require(`~/assets/${$props.src}`)" />
 
     <figcaption v-if="$props.description">
       <slot name="default"></slot>
@@ -44,11 +37,5 @@ export default {
 <style lang="css" scoped>
 .c-figure {
   display: flex;
-}
-
-img,
-svg {
-  width: inherit;
-  height: inherit;
 }
 </style>

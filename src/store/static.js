@@ -1,122 +1,133 @@
-export default {
-  state: {
+export function state() {
+  return {
     links: {
-      gab: "https://gab.ai/ancapsu",
-      minds: "https://minds.com/ancapsu",
-      apoiase: "https://apoia.se/ancapsu",
-      twitter: "https://twitter.com/ancapsu",
-      youtube: "https://youtube.com/ancapsu",
-      bitchute: "https://bitchute.com/ancapsu",
-      patreon: "https://www.patreon.com/ancapsu",
-      padrim: "https://www.padrim.com.br/ancapsu",
-      facebook: "https://facebook.com/pageancapsu",
-      mug: "https://apoio.ancap.su/caneca-ancapsu",
-      shirt: "https://apoio.ancap.su/camiseta-ancapsu",
-      visaolibertaria: "https://www.youtube.com/visaolibertaria"
+      gab: 'https://gab.ai/ancapsu',
+      minds: 'https://minds.com/ancapsu',
+      apoiase: 'https://apoia.se/ancapsu',
+      twitter: 'https://twitter.com/ancapsu',
+      youtube: 'https://youtube.com/ancapsu',
+      bitchute: 'https://bitchute.com/ancapsu',
+      patreon: 'https://www.patreon.com/ancapsu',
+      padrim: 'https://www.padrim.com.br/ancapsu',
+      facebook: 'https://facebook.com/pageancapsu',
+      mug: 'https://apoio.ancap.su/caneca-ancapsu',
+      shirt: 'https://apoio.ancap.su/camiseta-ancapsu',
+      visaolibertaria: 'https://www.youtube.com/visaolibertaria'
     },
     navItems: {
       video: {
-        text: "Vídeos",
-        to: { name: "Category", params: { category: "video", filter: "all" } },
+        text: 'Vídeos',
+        to: {
+          name: 'category-filter',
+          params: { category: 'video', filter: 'all' }
+        },
         items: [
           {
-            text: "Teoria libertária",
+            text: 'Teoria libertária',
             to: {
-              name: "Category",
-              params: { category: "video", filter: "theory" }
+              name: 'category-filter',
+              params: { category: 'video', filter: 'theory' }
             }
           },
           {
-            text: "Visão libertária",
+            text: 'Visão libertária',
             to: {
-              name: "Category",
-              params: { category: "video", filter: "news" }
+              name: 'category-filter',
+              params: { category: 'video', filter: 'news' }
             }
           },
           {
-            text: "Cômicos",
+            text: 'Cômicos',
             to: {
-              name: "Category",
-              params: { category: "video", filter: "comic" }
+              name: 'category-filter',
+              params: { category: 'video', filter: 'comic' }
             }
           },
           {
-            text: "Procurar",
+            text: 'Procurar',
             to: {
-              name: "Category",
-              params: { category: "video", filter: "search" }
+              name: 'category-filter',
+              params: { category: 'video', filter: 'search' }
             }
           }
         ]
       },
       matter: {
-        text: "Metérias",
-        to: { name: "Category", params: { category: "matter", filter: "all" } },
+        text: 'Metérias',
+        to: {
+          name: 'category-filter',
+          params: { category: 'matter', filter: 'all' }
+        },
         items: [
           {
-            text: "Artigos",
+            text: 'Artigos',
             to: {
-              name: "Category",
-              params: { category: "matter", filter: "article" }
+              name: 'category-filter',
+              params: { category: 'matter', filter: 'article' }
             }
           },
           {
-            text: "Tapas",
+            text: 'Tapas',
             to: {
-              name: "Category",
-              params: { category: "matter", filter: "shortnote" }
+              name: 'category-filter',
+              params: { category: 'matter', filter: 'shortnote' }
             }
           },
           {
-            text: "Crônicas",
+            text: 'Crônicas',
             to: {
-              name: "Category",
-              params: { category: "matter", filter: "chronicle" }
+              name: 'category-filter',
+              params: { category: 'matter', filter: 'chronicle' }
             }
           },
           {
-            text: "Procurar",
+            text: 'Procurar',
             to: {
-              name: "Category",
-              params: { category: "matter", filter: "search" }
+              name: 'category-filter',
+              params: { category: 'matter', filter: 'search' }
             }
           }
         ]
       },
       schedule: {
-        text: "Pautas",
+        text: 'Pautas',
         to: {
-          name: "Category",
-          params: { category: "schedule", filter: "all" }
+          name: 'category-filter',
+          params: { category: 'schedule', filter: 'all' }
         },
         items: [
           {
-            text: "Últimas pautas",
+            text: 'Últimas pautas',
             to: {
-              name: "Category",
-              params: { category: "schedule", filter: "news" }
+              name: 'category-filter',
+              params: { category: 'schedule', filter: 'news' }
             }
           },
           {
-            text: "Procurar",
+            text: 'Procurar',
             to: {
-              name: "Category",
-              params: { category: "schedule", filter: "search" }
+              name: 'category-filter',
+              params: { category: 'schedule', filter: 'search' }
             }
           }
         ]
       },
       other: {
-        text: "Sobre",
-        to: { name: "About" },
+        text: 'Sobre',
+        to: { name: 'about' },
         items: [
           {
-            text: "Ajuda",
-            to: { name: "Help" }
+            text: 'Ajuda',
+            to: { name: 'help' }
           }
         ]
       }
     }
-  },
-  namespaced: true
-};
+  }
+}
+
+export const getters = {}
+
+export const mutations = {}
+
+export const actions = {}

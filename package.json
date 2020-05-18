@@ -1,38 +1,38 @@
 {
   "name": "ancapsu",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "description": "AncapSU é a plataforma oficial do canal Ancap.SU feita em ReactJS, o código nesse repositório é uma versão de cunho didática desenvolvida em VueJS.",
   "author": "paulloclara <paulloclara@gmail.com>",
+  "config": {
+    "nuxt": {
+      "port": "8080"
+    }
+  },
   "scripts": {
-    "start": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "server": "yarn build && node production/server.js",
+    "start": "nuxt",
+    "build": "nuxt build",
+    "devServer": "yarn build && nuxt start",
+    "generate": "nuxt generate",
+    "proServer": "yarn generate && node production/server.js",
     "deploy": "yarn build && yarn submit",
-    "submit": "git-directory-deploy --directory production --branch heroku"
+    "submit": "git-directory-deploy --directory production --branch heroku",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@iconfu/svg-inject": "^1.2.3",
-    "register-service-worker": "^1.7.1",
-    "vue": "^2.6.11",
-    "vue-meta": "^2.3.3",
-    "vue-router": "^3.1.6",
-    "vuex": "^3.1.3"
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "@nuxtjs/svg": "^0.1.11",
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-eslint": "~4.3.0",
-    "@vue/cli-plugin-pwa": "~4.3.0",
-    "@vue/cli-plugin-router": "~4.3.0",
-    "@vue/cli-plugin-vuex": "~4.3.0",
-    "@vue/cli-service": "~4.3.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "git-directory-deploy": "^1.5.1",
-    "prerender-spa-plugin": "^3.2.1",
-    "prettier": "^1.19.1",
-    "vue-cli-plugin-prerender-spa": "~1.1.6",
-    "vue-template-compiler": "^2.6.11"
+    "@nuxtjs/eslint-config": "^2.0.0",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
   },
   "license": "MIT"
 }

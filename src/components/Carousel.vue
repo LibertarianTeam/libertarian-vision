@@ -1,16 +1,16 @@
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex'
 
-import Card from "@/components/Card";
-import Button from "@/components/Button";
-import Figure from "@/components/Figure";
+import Card from '@/components/Card'
+import Button from '@/components/Button'
+import Figure from '@/components/Figure'
 
 export default {
-  name: "Carousel",
+  name: 'Carousel',
   components: {
-    "c-card": Card,
-    "c-button": Button,
-    "c-figure": Figure
+    'c-card': Card,
+    'c-button': Button,
+    'c-figure': Figure
   },
   props: {
     items: {
@@ -26,28 +26,29 @@ export default {
     return {
       end: 1,
       start: 1
-    };
+    }
   },
   computed: {
     startOfList() {
-      return this.start <= 1;
+      return this.start <= 1
     },
     endOfList() {
-      return this.end >= this.items.length;
+      return this.end >= this.items.length
     },
     itemsOnScreen() {
-      const { dsmWindow, smdWindow, dmdWindow, lmdWindow } = this;
+      const { dsmWindow, smdWindow, dmdWindow, lmdWindow } = this
 
       this.updateItemsOnScreen(
         dsmWindow ? 1 : smdWindow ? 2 : dmdWindow ? 3 : lmdWindow ? 4 : 5
-      );
+      )
     },
     classCard() {
-      const { start, end } = this;
+      const { start, end } = this
 
-      return index => `${index + 1 >= start && index + 1 <= end ? "show" : ""}`;
+      return (index) =>
+        `${index + 1 >= start && index + 1 <= end ? 'show' : ''}`
     },
-    ...mapGetters(["dsmWindow", "smdWindow", "dmdWindow", "lmdWindow"])
+    ...mapGetters(['dsmWindow', 'smdWindow', 'dmdWindow', 'lmdWindow'])
   },
   watch: {
     itemsOnScreen() {
@@ -56,23 +57,23 @@ export default {
   },
   methods: {
     updateItemsOnScreen(end) {
-      this.end = end;
-      this.start = 1;
+      this.end = end
+      this.start = 1
     },
     handleNext() {
-      if (this.endOfList) return;
+      if (this.endOfList) return
 
-      this.end += 1;
-      this.start += 1;
+      this.end += 1
+      this.start += 1
     },
     handlePrev() {
-      if (this.startOfList) return;
+      if (this.startOfList) return
 
-      this.end -= 1;
-      this.start -= 1;
+      this.end -= 1
+      this.start -= 1
     }
   }
-};
+}
 </script>
 
 <template lang="html">
@@ -92,6 +93,7 @@ export default {
         v-for="(item, index) in items"
         :key="index"
         :class="classCard(index)"
+        style="width: 0;"
         :img="item.img"
         :tag="item.tag"
         :center="center"
@@ -114,7 +116,7 @@ export default {
 
 <style lang="css" scoped>
 .c-carousel {
-  display: inline-flex;
+  display: flex;
 
   align-items: center;
   justify-content: center;
@@ -160,21 +162,19 @@ export default {
 
 .c-card {
   width: 0;
-
-  overflow: hidden;
   transition: all 0.2s;
 
   background-size: auto;
 }
 
-.show.c-card {
-  width: 100%;
+.c-card.show {
+  width: 100% !important;
   height: inherit;
 
   background-size: cover;
 }
 
-.show.c-card + .show.c-card {
+.c-card.show + .c-card.show {
   margin-left: 6px;
 }
 

@@ -1,10 +1,10 @@
 <script>
 export default {
-  name: "Input",
+  name: 'Input',
   props: {
     type: {
       type: String,
-      default: "text"
+      default: 'text'
     },
     lazy: {
       type: Boolean,
@@ -13,11 +13,11 @@ export default {
   },
   methods: {
     emitInput({ type, target }) {
-      if (this.lazy && type !== "change") return;
-      this.$emit("input", target.value);
+      if (this.lazy && type !== 'change') return
+      this.$emit('input', target.value)
     }
   }
-};
+}
 </script>
 
 <template lang="html">

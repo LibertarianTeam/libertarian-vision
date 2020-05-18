@@ -1,11 +1,11 @@
 <script>
-import { buildClass } from "@/utils";
-import Divider from "@/components/Divider";
+import { buildClass } from '@/utils'
+import Divider from '@/components/Divider'
 
 export default {
-  name: "Title",
+  name: 'Title',
   components: {
-    "c-divider": Divider
+    'c-divider': Divider
   },
   props: {
     double: {
@@ -15,10 +15,10 @@ export default {
   },
   computed: {
     classTitle() {
-      return buildClass("c-title", ["double"], this.$props);
+      return buildClass('c-title', ['double'], this.$props)
     }
   }
-};
+}
 </script>
 
 <template lang="html">

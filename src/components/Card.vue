@@ -1,20 +1,20 @@
 <script>
-import Button from "@/components/Button";
-import { getAsset, buildClass } from "@/utils";
+import Button from '@/components/Button'
+import { buildClass } from '@/utils'
 
 export default {
-  name: "Card",
+  name: 'Card',
   components: {
-    "c-button": Button
+    'c-button': Button
   },
   props: {
     tag: {
       type: String,
-      default: ""
+      default: ''
     },
     img: {
       type: String,
-      default: "icons/broken.svg"
+      default: 'icons/broken.svg'
     },
     dark: {
       type: Boolean,
@@ -31,26 +31,29 @@ export default {
   },
   computed: {
     title() {
-      return this.$attrs.title || "";
+      return this.$attrs.title || ''
     },
     imgURL() {
-      return { backgroundImage: `url("${getAsset(this.img)}")` };
+      const { img } = this.$props
+      const url = img.includes('https') ? img : require('~/assets/' + img)
+
+      return { backgroundImage: `url("${url}")` }
     },
     classCard() {
-      return buildClass("c-card", ["dark", "compact", "center"], this.$props);
+      return buildClass('c-card', ['dark', 'compact', 'center'], this.$props)
     }
   }
-};
+}
 </script>
 
 <template lang="html">
   <div :class="classCard" :style="imgURL">
     <div class="content">
-      <c-button v-if="tag" class="tag" :to="{ name: 'Home' }">
+      <c-button v-if="tag" class="tag" :to="{ name: 'index' }">
         {{ tag }}
       </c-button>
 
-      <c-button class="title" :title="title" :to="{ name: 'Home' }">
+      <c-button class="title" :title="title" :to="{ name: 'index' }">
         <slot name="default"></slot>
       </c-button>
     </div>

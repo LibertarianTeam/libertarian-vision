@@ -1,26 +1,26 @@
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex'
 
-import SocialNav from "@/components/SocialNav";
-import Main from "@/views/AppBar/section/Main";
-import MainNav from "@/views/AppBar/section/MainNav";
-import SideNav from "@/views/AppBar/section/SideNav";
+import SocialNav from '@/components/SocialNav'
+import Main from '@/views/AppBar/Main'
+import MainNav from '@/views/AppBar/MainNav'
+import SideNav from '@/views/AppBar/SideNav'
 
 export default {
-  name: "AppBar",
+  name: 'AppBar',
   components: {
-    "s-main": Main,
-    "s-main-nav": MainNav,
-    "s-side-nav": SideNav,
-    "c-social-nav": SocialNav
+    'v-main': Main,
+    'v-main-nav': MainNav,
+    'v-side-nav': SideNav,
+    'c-social-nav': SocialNav
   },
   computed: {
     showSideNav() {
-      return this.$store.state.appBar.sideNav.visible;
+      return this.$store.state.appBar.sideNav.visible
     },
-    ...mapGetters(["smdWindow"])
+    ...mapGetters(['smdWindow'])
   }
-};
+}
 </script>
 
 <template lang="html">
@@ -28,17 +28,17 @@ export default {
     <div class="content">
       <c-social-nav></c-social-nav>
 
-      <s-main></s-main>
+      <v-main></v-main>
 
-      <s-side-nav v-if="smdWindow"></s-side-nav>
-      <s-main-nav v-else></s-main-nav>
+      <v-side-nav v-if="smdWindow"></v-side-nav>
+      <v-main-nav v-else></v-main-nav>
     </div>
   </header>
 </template>
 
 <style lang="css" scoped>
 .v-app-bar {
-  background: url("../../assets/imgs/appbarv1.svg") no-repeat right;
+  background: url('~assets/imgs/appbarv1.svg') no-repeat right;
   background-color: var(--primary);
 }
 
@@ -53,27 +53,27 @@ export default {
   padding-top: 2px;
 }
 
-.s-main {
+.v-main {
   margin-bottom: 18px;
 }
 
 @media only screen and (max-width: 800px) {
   .v-app-bar {
-    background-image: url("../../assets/imgs/appbarv2.svg");
+    background-image: url('~assets/imgs/appbarv2.svg');
   }
 
   .content {
     padding: 0 6px;
   }
 
-  .s-main {
+  .v-main {
     margin: 12px 0 6px;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .v-app-bar {
-    background-image: url("../../assets/imgs/appbarv3.svg");
+    background-image: url('~assets/imgs/appbarv3.svg');
   }
 }
 

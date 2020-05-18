@@ -1,31 +1,31 @@
 <script>
-import Help from "@/views/FooterBar/section/Help";
-import About from "@/views/FooterBar/section/About";
-import Store from "@/views/FooterBar/section/Store";
+import Help from '@/views/FooterBar/Help'
+import About from '@/views/FooterBar/About'
+import Store from '@/views/FooterBar/Store'
 
 export default {
-  name: "FooterBar",
+  name: 'FooterBar',
   components: {
-    "s-help": Help,
-    "s-about": About,
-    "s-store": Store
+    'v-help': Help,
+    'v-about': About,
+    'v-store': Store
   }
-};
+}
 </script>
 
 <template lang="html">
   <footer class="v-footer-bar">
     <div class="content">
-      <s-about></s-about>
-      <s-help></s-help>
-      <s-store></s-store>
+      <v-about></v-about>
+      <v-help></v-help>
+      <v-store></v-store>
     </div>
   </footer>
 </template>
 
 <style lang="css" scoped>
 .v-footer-bar {
-  background: url("../../assets/imgs/footer.png") no-repeat;
+  background: url('~assets/imgs/footer.png') no-repeat;
   background-size: cover;
 }
 
@@ -34,7 +34,7 @@ export default {
 
   grid-gap: 6px 12px;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: "s-about s-help s-store";
+  grid-template-areas: 'v-about v-help v-store';
 
   padding: 12px 24px;
 
@@ -46,25 +46,25 @@ export default {
   background-color: var(--bd-primary);
 }
 
-.s-help {
-  grid-area: s-help;
+.v-help {
+  grid-area: v-help;
 }
 
-.s-about {
-  grid-area: s-about;
+.v-about {
+  grid-area: v-about;
 }
 
-.s-store {
-  grid-area: s-store;
+.v-store {
+  grid-area: v-store;
 }
 
 @media only screen and (max-width: 1024px) {
   .content {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "s-help s-store" "s-about s-about";
+    grid-template-areas: 'v-help v-store' 'v-about v-about';
   }
 
-  .s-about {
+  .v-about {
     margin-top: 24px;
   }
 }
@@ -72,12 +72,12 @@ export default {
 @media only screen and (max-width: 640px) {
   .content {
     grid-template-columns: 1fr;
-    grid-template-areas: "s-help" "s-store" "s-about";
+    grid-template-areas: 'v-help' 'v-store' 'v-about';
 
     padding: 12px;
   }
 
-  .s-about {
+  .v-about {
     margin-top: 12px;
   }
 }

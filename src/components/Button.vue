@@ -1,16 +1,16 @@
 <script>
-import { buildClass } from "@/utils";
+import { buildClass } from '@/utils'
 
 export default {
-  name: "Button",
+  name: 'Button',
   props: {
     type: {
       type: String,
-      default: "button"
+      default: 'button'
     },
     to: {
       type: [Object, String],
-      default: () => ""
+      default: () => ''
     },
     icon: {
       type: Boolean,
@@ -31,32 +31,32 @@ export default {
   },
   computed: {
     title() {
-      return this.disabled ? "" : this.$attrs.title;
+      return this.disabled ? '' : this.$attrs.title
     },
     internalLink() {
-      return this.to && this.to.name;
+      return this.to && this.to.name
     },
     externalLink() {
-      return this.to && !this.to.name;
+      return this.to && !this.to.name
     },
     classButton() {
       return buildClass(
-        "c-button",
-        ["icon", "text", "fab", "disabled"],
+        'c-button',
+        ['icon', 'text', 'fab', 'disabled'],
         this.$props
-      );
+      )
     }
   },
   methods: {
     emitClick(evt) {
-      this.$emit("click", evt);
+      this.$emit('click', evt)
     }
   }
-};
+}
 </script>
 
 <template lang="html">
-  <router-link
+  <nuxt-link
     v-if="internalLink"
     :class="classButton"
     :title="title"
@@ -64,7 +64,7 @@ export default {
     @click.native="emitClick($event)"
   >
     <slot name="default"></slot>
-  </router-link>
+  </nuxt-link>
 
   <a
     v-else-if="externalLink"

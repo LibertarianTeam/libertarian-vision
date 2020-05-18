@@ -1,14 +1,14 @@
 <script>
-import Button from "@/components/Button";
-import Figure from "@/components/Figure";
+import Button from '@/components/Button'
+import Figure from '@/components/Figure'
 
-import { buildClass } from "@/utils";
+import { buildClass } from '@/utils'
 
 export default {
-  name: "SocialNav",
+  name: 'SocialNav',
   components: {
-    "c-button": Button,
-    "c-figure": Figure
+    'c-button': Button,
+    'c-figure': Figure
   },
   props: {
     vertical: {
@@ -23,25 +23,25 @@ export default {
   data() {
     return {
       items: [
-        "Youtube",
-        "VisaoLibertaria",
-        "Bitchute",
-        "Facebook",
-        "Minds",
-        "Twitter",
-        "Gab"
+        'Youtube',
+        'VisaoLibertaria',
+        'Bitchute',
+        'Facebook',
+        'Minds',
+        'Twitter',
+        'Gab'
       ]
-    };
+    }
   },
   computed: {
     links() {
-      return this.$store.state.static.links;
+      return this.$store.state.static.links
     },
     classSocialNav() {
-      return buildClass("c-social-nav", ["vertical", "invert"], this.$props);
+      return buildClass('c-social-nav', ['vertical', 'invert'], this.$props)
     }
   }
-};
+}
 </script>
 
 <template lang="html">

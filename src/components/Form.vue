@@ -1,11 +1,11 @@
 <script>
-import { buildClass } from "@/utils";
-import Button from "@/components/Button";
+import { buildClass } from '@/utils'
+import Button from '@/components/Button'
 
 export default {
-  name: "Form",
+  name: 'Form',
   components: {
-    "c-button": Button
+    'c-button': Button
   },
   props: {
     inline: {
@@ -15,15 +15,15 @@ export default {
   },
   computed: {
     classForm() {
-      return buildClass("c-form", ["inline"], this.$props);
+      return buildClass('c-form', ['inline'], this.$props)
     }
   },
   methods: {
     emitSubmit(evt) {
-      this.$emit("submit", evt);
+      this.$emit('submit', evt)
     }
   }
-};
+}
 </script>
 
 <template lang="html">

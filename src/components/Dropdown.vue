@@ -1,13 +1,13 @@
 <script>
-import { buildClass } from "@/utils";
-import Button from "@/components/Button";
-import Figure from "@/components/Figure";
+import { buildClass } from '@/utils'
+import Button from '@/components/Button'
+import Figure from '@/components/Figure'
 
 export default {
-  name: "Dropdown",
+  name: 'Dropdown',
   components: {
-    "c-button": Button,
-    "c-figure": Figure
+    'c-button': Button,
+    'c-figure': Figure
   },
   props: {
     items: {
@@ -16,7 +16,7 @@ export default {
     },
     to: {
       type: [Object, String],
-      default: () => ""
+      default: () => ''
     },
     contained: {
       type: Boolean,
@@ -28,19 +28,19 @@ export default {
   }),
   computed: {
     classDropdown() {
-      const { show, contained } = this;
-      return buildClass("c-dropdown", ["contained", "show"], {
+      const { show, contained } = this
+      return buildClass('c-dropdown', ['contained', 'show'], {
         show,
         contained
-      });
+      })
     }
   },
   methods: {
     emitEvent(name, evt) {
-      this.$emit(name, evt);
+      this.$emit(name, evt)
     }
   }
-};
+}
 </script>
 
 <template lang="html">
@@ -118,7 +118,7 @@ export default {
   transition: 0.2s 0.1s linear;
 
   height: 0;
-  opacity: 40%;
+  filter: opacity(40%);
 }
 
 .contained .items {
@@ -153,6 +153,6 @@ export default {
 .c-dropdown.show .items,
 .c-dropdown:not(.contained):hover .items {
   height: auto;
-  opacity: 100%;
+  filter: opacity(100%);
 }
 </style>
