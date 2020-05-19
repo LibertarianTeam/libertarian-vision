@@ -1,26 +1,25 @@
 # AncapSU
 
-[AncapSU] é a plataforma oficial do canal [Ancap.SU] feita em [ReactJS], o código nesse repositório é uma versão de cunho didática desenvolvida em [VueJS].
+[AncapSU] é a plataforma oficial do canal [Ancap.SU] feita em [ReactJS], o código nesse repositório é uma versão de cunho didática desenvolvida em [VueJS]/[NuxtJS].
 
 ![Preview][preview]
 
 ## :fire: Tecs
 
 - [VueJS] - Framework JavaScript progressivo ❤️.
+- [NuxtJS] - Solução SSR(Server Side Rendered) para [VueJS].
 - [Vuex] - Padrão de gerenciamento de estado para [VueJS].
-- [VueMeta] - Plugin [VueJS] para gerenciar os metadados do aplicativo.
+- [VueMeta] - Plugin [NuxtJS] para gerenciar os metadados do aplicativo.
 - [VueRouter] - Roteador oficial para [VueJS].
-- [CLIPluginPWA] - Plugin da CLI [VueJS] para configuração da PWA (App Web Progressivo).
-- [PrerenderSPAPlugin] - Pré-renderiza o HTML estático em SPAs.
-- [VueCliPluginPrerenderSPA] - Facilita a configuração do [PrerenderSPAPlugin].
+- [NuxtPWA] - Solução PWA(Progressive Web App) altamente testada, atualizada e estável.
 - [NodeJS] - Ferramenta de magia negra.
 
 ### :wrench: Rode Localmente
 
 ```shell
-  $ git clone https://github.com/PaulloClara/ancapsu.git # Clone o repositório.
+  $ git clone https://github.com/LibertarianTeam/ancapsu.git # Clone o repositório.
   $ cd ancapsu # Navegue ate a pasta.
-  # Crie/Configure o arquivo .env.local de acordo com o .env_example.
+  # Crie/Configure o arquivo src/.env de acordo com o .env_example.
   $ yarn -i # Instale as dependencias.
   $ yarn start # Execute o servidor.
 ```
@@ -28,9 +27,11 @@
 ### :scroll: Scripts
 
 - start - Inicia o servidor em modo de desenvolvimento.
-- build - Gera a versão de produção do código.
+- build - Gera a versão dinâmica de produção do código.
+- devServer - Roda o script build e inicia o servidor de produção dinâmico.
+- generate - Gera a versão estática de produção do código.
+- proServer - Roda o script generate e inicia o servidor de produção estático.
 - lint - Verifica a qualidade do código.
-- server - Roda o script build e inicia o servidor de produção.
 - submit - Envia a versão de produção do código para a branch heroku no github.
 - deploy - Atalho para build e submit.
 
@@ -57,13 +58,12 @@ Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE] 
 [trello]: https://trello.com/b/eOBZHJ5j/ancapsu
 [paulloclara]: https://github.com/PaulloClara
 [vuejs]: https://vuejs.org
+[nuxtjs]: https://nuxtjs.org
 [vuex]: https://vuex.vuejs.org
 [vuemeta]: https://github.com/nuxt/vue-meta
-[prerenderspaplugin]: https://github.com/chrisvfritz/prerender-spa-plugin
-[vueclipluginprerenderspa]: https://github.com/SolarLiner/vue-cli-plugin-prerender-spa
 [nodejs]: https://nodejs.org/en
 [vuerouter]: https://router.vuejs.org
-[clipluginpwa]: https://github.com/vuejs/vue-cli/tree/dev/packages/@vue/cli-plugin-pwa#readme
+[nuxtpwa]: https://pwa.nuxtjs.org
 [reactjs]: https://pt-br.reactjs.org
 [preview]: .github/preview.svg
 [license]: LICENSE
