@@ -32,8 +32,6 @@
 - generate - Gera a versão estática de produção do código.
 - proServer - Roda o script generate e inicia o servidor de produção estático.
 - lint - Verifica a qualidade do código.
-- submit - Envia a versão de produção do código para a branch heroku no github.
-- deploy - Atalho para build e submit.
 
 #### :muscle: Progresso
 

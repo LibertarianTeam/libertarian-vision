@@ -14,8 +14,6 @@
     "devServer": "yarn build && nuxt start",
     "generate": "nuxt generate",
     "proServer": "yarn generate && node production/server.js",
-    "submit": "git push origin master",
-    "deploy": "yarn generate && yarn submit",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
