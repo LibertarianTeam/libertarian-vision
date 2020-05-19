@@ -59,14 +59,20 @@ button::-moz-focus-inner {
   border: none !important;
 }
 
-button:focus {
-  outline: none !important;
-}
-
 a:focus,
 a:active,
 button:focus {
   outline: none !important;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.2s !important;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0 !important;
 }
 
 img,
