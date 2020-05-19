@@ -6,7 +6,12 @@ import {
 export default {
   mode: 'universal',
   srcDir: 'src/',
+  loading: { color: '#fff' },
   head: GenerateInitialMetaInfo(),
+  css: ['@/assets/styles/main.css'],
+  plugins: [],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/dotenv'],
+  buildModules: ['@nuxtjs/svg', '@nuxtjs/eslint-module'],
   router: {
     extendRoutes(routes, resolve) {
       routes.forEach((route) => {
@@ -14,11 +19,6 @@ export default {
       })
     }
   },
-  loading: { color: '#fff' },
-  css: ['@/assets/styles/main.css'],
-  plugins: [],
-  buildModules: ['@nuxtjs/svg', '@nuxtjs/eslint-module'],
-  modules: ['@nuxtjs/pwa', '@nuxtjs/dotenv'],
   build: {
     extend(config, ctx) {}
   },
