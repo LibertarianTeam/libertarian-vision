@@ -25,7 +25,7 @@ export default {
     <h4 class="description">
       Ancap.su é um canal no youtube com o objetivo de divulgar o
       libertarianismo e o anarcocapitalismo. O canal é composto de vários
-      quadros, vídeos teóricos semanais, geralmente liberados as sextav-feiras,
+      quadros, vídeos teóricos semanais, geralmente liberados as sextas-feiras,
       quadros cômicos ocasionais e nosso jornal diário libertário, o
       <span>
         <c-button
