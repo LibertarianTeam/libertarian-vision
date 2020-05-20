@@ -28,7 +28,6 @@ export default {
   pwa: {
     meta: {
       lang: 'pt-BR',
-      display: 'standalone',
       name: defaultMetaInfo.title,
       author: defaultMetaInfo.author.site,
       theme_color: defaultMetaInfo.themeColor,
@@ -36,12 +35,13 @@ export default {
       appleStatusBarStyle: defaultMetaInfo.themeColor
     },
     manifest: {
-      name: 'AncapSU',
-      start_url: '.',
+      display: 'standalone',
+      name: defaultMetaInfo.title,
+      short_name: defaultMetaInfo.title,
       lang: 'pt-BR',
-      short_name: 'AncapSU',
-      description: 'Imposto é roubo e sonegar é legitima defesa.',
-      background_color: '#000'
+      start_url: '.',
+      description: defaultMetaInfo.description,
+      background_color: defaultMetaInfo.themeColor
     }
   }
 }
