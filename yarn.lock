@@ -1930,6 +1930,11 @@ buffer@^4.3.0:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
+build-css-class@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/build-css-class/-/build-css-class-1.0.1.tgz#203204e3fae6122326918a75e5954e3c91192fdc"
+  integrity sha512-/UzKwQ6trL1djB+frbXUq5XA8nbxSJkpCXEngzUD/zt7Ziv8sGLV2tZ/6rzg7EHvy1yam0dv4lJQdEQ3F7CpGw==
+
 builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
