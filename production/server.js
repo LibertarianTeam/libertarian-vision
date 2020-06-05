@@ -11,5 +11,6 @@ server.use(history())
 server.use(serveStatic(join(__dirname, 'dist')))
 
 server.listen(port, () => {
+  /* eslint no-console: "off" */
   console.log(`\n\t🚀 Running on port ${port}\n`)
 })
