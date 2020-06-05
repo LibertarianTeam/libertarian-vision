@@ -37,8 +37,16 @@ export default {
     links() {
       return this.$store.state.static.links
     },
+    isDark() {
+      return this.$store.state.theme === 'dark'
+    },
     classSocialNav() {
-      return buildClass('c-social-nav', ['vertical', 'invert'], this.$props)
+      const { vertical, invert } = this.$props
+      return buildClass('c-social-nav', ['vertical', 'invert', 'dark'], {
+        vertical,
+        invert,
+        dark: this.isDark
+      })
     }
   }
 }
@@ -110,7 +118,11 @@ export default {
 }
 
 .invert .c-figure {
-  filter: invert(100%);
+  fill: #fff;
+}
+
+.c-social-nav.dark .c-figure {
+  fill: #fff !important;
 }
 
 @media only screen and (max-width: 480px) {

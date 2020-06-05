@@ -59,6 +59,10 @@ button::-moz-focus-inner {
   border: none !important;
 }
 
+a {
+  text-decoration: none;
+}
+
 a:focus,
 a:active,
 button:focus {

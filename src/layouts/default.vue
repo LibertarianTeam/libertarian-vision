@@ -1,7 +1,9 @@
 <script>
-import AppBar from '@/views/AppBar'
-import FooterBar from '@/views/FooterBar'
-import Loading from '@/components/Loading'
+import { buildClass } from '~/utils'
+
+import AppBar from '~/views/AppBar'
+import FooterBar from '~/views/FooterBar'
+import Loading from '~/components/Loading'
 
 export default {
   name: 'DefaultLayout',
@@ -16,8 +18,11 @@ export default {
     }
   },
   computed: {
+    theme() {
+      return this.$store.state.theme
+    },
     appClass() {
-      return `light-theme${this.$data.show ? ' show' : ''}`
+      return buildClass(this.theme, ['show'], this.$data)
     }
   },
   mounted() {
@@ -26,6 +31,9 @@ export default {
     window.addEventListener('resize', () => {
       this.$store.commit('updateWindowSize')
     })
+
+    const theme = localStorage.getItem('theme')
+    if (theme) this.$store.commit('updateTheme', { theme })
 
     this.$data.show = true
   },
@@ -50,6 +58,7 @@ export default {
 <style lang="css" scoped>
 #app {
   color: var(--text-primary);
+  font-size: 16px;
   word-spacing: 1px;
   font-family: Merriweather Sans, Arial, sans-serif;
 
@@ -57,6 +66,9 @@ export default {
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+
+  transition: color 0.2s linear, background-color 0.2s linear;
+  background-color: var(--bg-primary);
 }
 
 #app > *:not(.c-loading) {
@@ -68,7 +80,7 @@ export default {
   opacity: 1;
 }
 
-.light-theme {
+.light {
   --primary: #fc0;
   --secondary: #03a9f4;
   --tertiary: #e1e1e1;
@@ -93,5 +105,34 @@ export default {
   --bx-tertiary: #0008;
 
   --bg-primary: #fff;
+  --bg-secondary: #000c;
+}
+
+.dark {
+  --primary: #fc0;
+  --secondary: #03a9f4;
+  --tertiary: #666;
+
+  --error: #f44336;
+  --warning: #ffeb3b;
+  --success: #4caf50;
+
+  --info: #ffc107;
+  --accent: #607d8b;
+
+  --text-primary: #fff;
+  --text-secondary: #fff;
+  --text-tertiary: #fc0;
+
+  --bd-primary: #0006;
+  --bd-secondary: #000e;
+  --bd-tertiary: #fc06;
+
+  --bx-primary: #0002;
+  --bx-secondary: #0004;
+  --bx-tertiary: #0008;
+
+  --bg-primary: #181a1b;
+  --bg-secondary: #000c;
 }
 </style>

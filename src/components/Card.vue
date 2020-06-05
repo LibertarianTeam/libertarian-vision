@@ -1,6 +1,6 @@
 <script>
-import Button from '@/components/Button'
-import { buildClass } from '@/utils'
+import { buildClass } from '~/utils'
+import Button from '~/components/Button'
 
 export default {
   name: 'Card',
@@ -131,7 +131,7 @@ export default {
 }
 
 .dark.c-card:hover .title {
-  background-color: var(--bd-primary);
+  background-color: var(--bg-secondary);
 }
 
 .dark.c-card .title:hover {

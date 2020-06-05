@@ -21,7 +21,7 @@ export default {
   <c-button
     class="v-hamburger"
     title="Menu de Navegação"
-    icon
+    img
     @click="handleHamburgerClick"
   >
     <c-figure src="icons/hamburger.svg"></c-figure>

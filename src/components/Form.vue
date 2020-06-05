@@ -1,6 +1,6 @@
 <script>
-import { buildClass } from '@/utils'
-import Button from '@/components/Button'
+import { buildClass } from '~/utils'
+import Button from '~/components/Button'
 
 export default {
   name: 'Form',

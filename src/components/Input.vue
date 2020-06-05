@@ -44,6 +44,8 @@ export default {
 
   font-size: 16px;
   font-weight: lighter;
+
+  background-color: var(--bg-primary);
 }
 
 .c-input:focus {

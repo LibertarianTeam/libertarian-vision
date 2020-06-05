@@ -43,7 +43,7 @@ export default {
 }
 
 .v-footer-bar:hover .content {
-  background-color: var(--bd-primary);
+  background-color: var(--bg-secondary);
 }
 
 .v-help {

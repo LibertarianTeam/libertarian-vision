@@ -1,5 +1,6 @@
 export function state() {
   return {
+    theme: 'light',
     appBar: {
       sideNav: {
         visible: false
@@ -43,6 +44,14 @@ export const getters = {
 }
 
 export const mutations = {
+  updateTheme(state, { theme } = { theme: 'next' }) {
+    if (theme !== 'next') return (state.theme = theme)
+
+    if (state.theme === 'light') state.theme = 'dark'
+    else state.theme = 'light'
+
+    localStorage.setItem('theme', state.theme)
+  },
   updateAppBarSideNavStatus(state, { visible }) {
     state.appBar.sideNav.visible = visible
   },

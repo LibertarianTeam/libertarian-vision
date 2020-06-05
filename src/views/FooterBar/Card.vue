@@ -27,7 +27,7 @@ export default {
 
 <template lang="html">
   <div class="v-card">
-    <c-button :title="$props.title" :to="to" icon>
+    <c-button :title="$props.title" :to="to" img>
       <c-figure :src="image"></c-figure>
     </c-button>
 

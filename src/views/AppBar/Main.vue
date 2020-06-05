@@ -1,9 +1,9 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import Button from '@/components/Button'
-import Figure from '@/components/Figure'
-import Hamburger from '@/views/AppBar/Hamburger'
+import Button from '~/components/Button'
+import Figure from '~/components/Figure'
+import Hamburger from '~/views/AppBar/Hamburger'
 
 export default {
   name: 'AppBarMain',
@@ -20,7 +20,7 @@ export default {
 
 <template lang="html">
   <div class="v-main">
-    <c-button title="Home" :to="{ name: 'index' }" text>
+    <c-button class="logo" title="Home" :to="{ name: 'index' }" img>
       <c-figure src="logov1.svg"></c-figure>
     </c-button>
 
@@ -47,7 +47,7 @@ export default {
   width: 100%;
 }
 
-.c-figure {
+.logo .c-figure {
   width: 220px;
 }
 
@@ -81,7 +81,7 @@ export default {
     align-items: center;
   }
 
-  .c-figure {
+  .logo .c-figure {
     width: 180px;
   }
 

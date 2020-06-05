@@ -1,6 +1,7 @@
 <script>
 import { buildClass } from '@/utils'
 
+import Theme from '@/components/Theme'
 import Button from '@/components/Button'
 import Figure from '@/components/Figure'
 import Dropdown from '@/components/Dropdown'
@@ -8,6 +9,7 @@ import Dropdown from '@/components/Dropdown'
 export default {
   name: 'AppBarSideNav',
   components: {
+    'c-theme': Theme,
     'c-button': Button,
     'c-figure': Figure,
     'c-dropdown': Dropdown
@@ -54,6 +56,8 @@ export default {
       >
         {{ navItem.text }}
       </c-dropdown>
+
+      <c-theme></c-theme>
     </nav>
   </div>
 </template>
@@ -74,7 +78,14 @@ export default {
   z-index: 4;
   transition: 0.4s 0.1s ease-in;
 
-  background-color: var(--bd-primary);
+  background-color: var(--bg-secondary);
+}
+
+.c-theme {
+  width: 100%;
+  height: 48px;
+
+  margin: auto 0 0;
 }
 
 .show {

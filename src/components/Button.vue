@@ -1,5 +1,5 @@
 <script>
-import { buildClass } from '@/utils'
+import { buildClass } from '~/utils'
 
 export default {
   name: 'Button',
@@ -13,6 +13,10 @@ export default {
       default: () => ''
     },
     icon: {
+      type: Boolean,
+      default: false
+    },
+    img: {
       type: Boolean,
       default: false
     },
@@ -31,25 +35,20 @@ export default {
   },
   computed: {
     title() {
-      return this.disabled ? '' : this.$attrs.title
+      return this.$props.disabled ? '' : this.$attrs.title
     },
-    internalLink() {
-      return this.to && this.to.name
+    isInternalLink() {
+      return this.$props.to && this.$props.to.name
     },
-    externalLink() {
-      return this.to && !this.to.name
+    isExternalLink() {
+      return this.$props.to && !this.$props.to.name
     },
-    classButton() {
+    buttonClass() {
       return buildClass(
         'c-button',
-        ['icon', 'text', 'fab', 'disabled'],
+        ['icon', 'img', 'text', 'fab', 'disabled'],
         this.$props
       )
-    }
-  },
-  methods: {
-    emitClick(evt) {
-      this.$emit('click', evt)
     }
   }
 }
@@ -57,33 +56,33 @@ export default {
 
 <template lang="html">
   <nuxt-link
-    v-if="internalLink"
-    :class="classButton"
+    v-if="isInternalLink"
+    :class="buttonClass"
     :title="title"
-    :to="to"
-    @click.native="emitClick($event)"
+    :to="$props.to"
+    @click.native="$emit('click', $event)"
   >
     <slot name="default"></slot>
   </nuxt-link>
 
   <a
-    v-else-if="externalLink"
-    :class="classButton"
+    v-else-if="isExternalLink"
+    :class="buttonClass"
     :title="title"
-    :href="to"
+    :href="$props.to"
     target="_blank"
-    @click="emitClick($event)"
+    @click="$emit('click', $event)"
   >
     <slot name="default"></slot>
   </a>
 
   <button
     v-else
-    :class="classButton"
-    :type="type"
+    :class="buttonClass"
     :title="title"
-    :disabled="disabled"
-    @click="emitClick($event)"
+    :type="$props.type"
+    :disabled="$props.disabled"
+    @click="$emit('click', $event)"
   >
     <slot name="default"></slot>
   </button>
@@ -102,11 +101,9 @@ export default {
   transition: filter 0.2s linear, border-color 0.2s linear, transform 0.1s;
 
   color: var(--text-primary);
-  font-size: 14px;
-  font-weight: normal;
-
+  font-size: 1rem;
   text-align: center;
-  text-decoration: none;
+  font-weight: normal;
 
   background-color: var(--primary);
 }
@@ -120,7 +117,8 @@ export default {
   transform: translate(1px, 2px);
 }
 
-.icon {
+.c-button.img,
+.c-button.icon {
   display: inline-flex;
 
   align-items: center;
@@ -132,11 +130,15 @@ export default {
   background-color: transparent;
 }
 
-.icon:hover {
-  filter: invert(28%);
+.c-button.icon:hover {
+  filter: invert(100%);
 }
 
-.text {
+.c-button.img:hover {
+  filter: invert(12%);
+}
+
+.c-button.text {
   padding: 0;
 
   border: none;
@@ -145,26 +147,26 @@ export default {
   background-color: transparent;
 }
 
-.text:hover {
-  filter: opacity(80%);
+.c-button.text:hover {
+  filter: opacity(60%);
 }
 
-.fab {
+.c-button.fab {
   border-radius: 50%;
 }
 
-.disabled {
+.c-button.disabled {
   border: none;
 
   cursor: default;
   filter: opacity(60%);
 }
 
-.disabled:hover {
+.c-button.disabled:hover {
   filter: opacity(60%);
 }
 
-.disabled:active {
+.c-button.disabled:active {
   transform: none;
 }
 </style>
