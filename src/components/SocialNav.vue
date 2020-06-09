@@ -1,8 +1,8 @@
 <script>
-import Button from '@/components/Button'
-import Figure from '@/components/Figure'
+import buildClass from 'build-css-class'
 
-import { buildClass } from '@/utils'
+import Button from '~/components/Button'
+import Figure from '~/components/Figure'
 
 export default {
   name: 'SocialNav',
@@ -20,31 +20,16 @@ export default {
       default: false
     }
   },
-  data() {
-    return {
-      items: [
-        'Youtube',
-        'VisaoLibertaria',
-        'Bitchute',
-        'Facebook',
-        'Minds',
-        'Twitter',
-        'Gab'
-      ]
-    }
-  },
   computed: {
-    links() {
-      return this.$store.state.static.links
+    socialLinks() {
+      return this.$store.state.static.links.social
     },
     isDark() {
       return this.$store.state.theme === 'dark'
     },
-    classSocialNav() {
-      const { vertical, invert } = this.$props
-      return buildClass('c-social-nav', ['vertical', 'invert', 'dark'], {
-        vertical,
-        invert,
+    socialNavClass() {
+      return buildClass('c-social-nav', {
+        ...this.$props,
         dark: this.isDark
       })
     }
@@ -53,18 +38,18 @@ export default {
 </script>
 
 <template lang="html">
-  <nav :class="classSocialNav">
+  <nav :class="socialNavClass">
     <c-button
-      v-for="(item, index) in $data.items"
+      v-for="(link, item, index) in socialLinks"
       :key="index"
       :title="item"
-      :to="links[item.toLowerCase()]"
+      :to="link"
       icon
     >
-      <c-figure :src="`icons/${item.toLowerCase()}.svg`"></c-figure>
+      <c-figure :src="`icons/${item}.svg`"></c-figure>
 
       <h5 v-if="$props.vertical" class="text">
-        <slot :name="item.toLowerCase()"></slot>
+        <slot :name="item"></slot>
       </h5>
     </c-button>
   </nav>
@@ -83,22 +68,27 @@ export default {
   box-sizing: content-box;
 }
 
+.text {
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .c-button.icon + .c-button.icon {
   margin-left: 18px;
 }
 
-.vertical {
+.c-social-nav.vertical {
   display: inline-flex;
   flex-direction: column;
 
   width: 100%;
 }
 
-.vertical .c-figure {
+.c-social-nav.vertical .c-figure {
   padding: 0 8px;
 }
 
-.vertical .c-button.icon {
+.c-social-nav.vertical .c-button.icon {
   align-items: center;
   justify-content: flex-start;
 
@@ -108,21 +98,20 @@ export default {
   background-color: transparent;
 }
 
-.vertical .c-button.icon + .c-button.icon {
+.c-social-nav.vertical .c-button.icon:hover {
+  filter: opacity(60%);
+}
+
+.c-social-nav.vertical .c-button.icon + .c-button.icon {
   margin: 6px 0 0;
-}
-
-.text {
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.invert .c-figure {
-  fill: #fff;
 }
 
 .c-social-nav.dark .c-figure {
   fill: #fff !important;
+}
+
+.c-social-nav.invert .c-figure {
+  fill: #fff;
 }
 
 @media only screen and (max-width: 480px) {

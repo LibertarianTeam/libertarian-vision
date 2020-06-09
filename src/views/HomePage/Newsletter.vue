@@ -1,7 +1,7 @@
 <script>
-import Form from '@/components/Form'
-import Input from '@/components/Input'
-import Title from '@/components/Title'
+import Form from '~/components/Form'
+import Input from '~/components/Input'
+import Title from '~/components/Title'
 
 export default {
   name: 'HomeNewsletter',
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template lang="html">
-  <section class="v-newsletter">
+  <section class="v-home-newsletter">
     <c-title>Newsletter do Canal</c-title>
     <span class="subtitle">
       Registre seu email na Newsletter para ser avisado de novos vídeos!
@@ -27,14 +27,14 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.v-newsletter {
+.v-home-newsletter {
   display: flex;
   flex-direction: column;
 }
 
 .subtitle {
   margin-bottom: 24px;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 @media only screen and (max-width: 480px) {

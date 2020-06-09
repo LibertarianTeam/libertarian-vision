@@ -1,7 +1,8 @@
 <script>
-import { buildClass } from '@/utils'
-import Button from '@/components/Button'
-import Figure from '@/components/Figure'
+import buildClass from 'build-css-class'
+
+import Button from '~/components/Button'
+import Figure from '~/components/Figure'
 
 export default {
   name: 'Dropdown',
@@ -27,29 +28,19 @@ export default {
     show: false
   }),
   computed: {
-    classDropdown() {
-      const { show, contained } = this
-      return buildClass('c-dropdown', ['contained', 'show'], {
-        show,
-        contained
+    dropdownClass() {
+      return buildClass('c-dropdown', {
+        show: this.$data.show,
+        contained: this.$props.contained
       })
-    }
-  },
-  methods: {
-    emitEvent(name, evt) {
-      this.$emit(name, evt)
     }
   }
 }
 </script>
 
 <template lang="html">
-  <div :class="classDropdown">
-    <c-button
-      class="root-button"
-      :to="to"
-      @click.prevent.stop="emitEvent('click', $event)"
-    >
+  <div :class="dropdownClass">
+    <c-button class="main" :to="to" @click="$emit('click:main', $event)">
       <span class="text">
         <slot name="default"></slot>
       </span>
@@ -64,7 +55,7 @@ export default {
         v-for="(item, index) in items"
         :key="index"
         :to="item.to"
-        @click="emitEvent('clickOnItem', $event)"
+        @click="$emit('click:item', $event)"
       >
         {{ item.text }}
       </c-button>
@@ -78,31 +69,31 @@ export default {
   position: relative;
 }
 
-.root-button {
+.c-button.main {
   padding: 8px 22px;
 
   border: none;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
 }
 
-.contained .root-button {
+.c-dropdown.contained .c-button.main {
   width: 100%;
 
   padding: 14px 22px;
   border-radius: 0;
 }
 
-.contained .root-button .text {
+.c-dropdown.contained .c-button.main .text {
   display: inline-block;
   margin-top: 2px;
 }
 
-.root-button .c-button {
+.c-button.main .c-button {
   float: right;
 }
 
-.root-button .c-figure {
+.c-button.main .c-figure {
   transform: none;
   transition: transform 0.4s;
 }
@@ -121,7 +112,7 @@ export default {
   filter: opacity(40%);
 }
 
-.contained .items {
+.c-dropdown.contained .items {
   position: relative;
 }
 
@@ -132,7 +123,7 @@ export default {
   padding: 10px 14px;
 }
 
-.contained .items > .c-button {
+.c-dropdown.contained .items > .c-button {
   border: none;
 }
 
@@ -140,13 +131,13 @@ export default {
   border-top: none;
 }
 
-.c-dropdown.show .root-button .c-figure,
-.c-dropdown:not(.contained):hover .root-button .c-figure {
+.c-dropdown.show .c-button.main .c-figure,
+.c-dropdown:not(.contained):hover .c-button.main .c-figure {
   transform: rotate(180deg);
 }
 
-.c-dropdown.show .root-button,
-.c-dropdown:not(.contained):hover .root-button {
+.c-dropdown.show .c-button.main,
+.c-dropdown:not(.contained):hover .c-button.main {
   filter: brightness(96%);
 }
 

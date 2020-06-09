@@ -1,74 +1,68 @@
 <script>
-import Title from '@/components/Title'
-import Card from '@/views/FooterBar/Card'
+import Card from './Card'
+import Title from '~/components/Title'
 
 export default {
   name: 'FooterBarStore',
   components: {
-    'v-card': Card,
-    'c-title': Title
+    'c-title': Title,
+    'c-footer-bar-card': Card
   },
   computed: {
-    links() {
-      return this.$store.state.static.links
+    storeLinks() {
+      return this.$store.state.static.links.store
     }
   }
 }
 </script>
 
 <template lang="html">
-  <section class="v-store">
+  <section class="c-footer-bar-store">
     <c-title double>Compre em nossa loja!</c-title>
 
-    <v-card
+    <c-footer-bar-card
       title="Garanta já a sua Caneca!"
-      :to="links.mug"
-      image="imgs/mug.png"
+      :to="storeLinks.mug"
+      img="imgs/mug.png"
     >
       <template #link>Caneca ANCAP.SU</template>
       Tire onda com uma caneca exclusiva do canal, ideal para todo tipo de
       café... cara, a substância você decide.
-    </v-card>
+    </c-footer-bar-card>
 
-    <v-card
+    <c-footer-bar-card
       title="Garanta já a sua Camisa!"
-      :to="links.shirt"
-      image="imgs/shirt.png"
+      :to="storeLinks.shirt"
+      img="imgs/shirt.png"
     >
       <template #link>Camisa ANCAP.SU</template>
       Quer arrumar confusão na escola? ou causar problema na repartição? essa é
       a camisa certa para isso.
-    </v-card>
+    </c-footer-bar-card>
   </section>
 </template>
 
 <style lang="css" scoped>
 .c-title {
+  margin-bottom: 40px;
+
   color: var(--text-secondary);
+  font-size: 1.2rem;
 }
 
-.v-card + .v-card {
-  margin-top: 42px;
-}
-
-@media only screen and (max-width: 1024px) {
-  .c-title {
-    font-size: 20px;
-  }
-
-  .v-card + .v-card {
-    margin-top: 36px;
-  }
+.c-footer-bar-card + .c-footer-bar-card {
+  margin-top: 38px;
 }
 
 @media only screen and (max-width: 800px) {
   .c-title {
-    font-size: 18px;
+    font-size: 1.1rem;
+    text-align: center;
   }
 }
 
 @media only screen and (max-width: 640px) {
-  .v-card + .v-card {
+  .c-footer-bar-card + .c-footer-bar-card {
     margin-top: 0;
   }
 }

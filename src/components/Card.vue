@@ -1,5 +1,5 @@
 <script>
-import { buildClass } from '~/utils'
+import buildClass from 'build-css-class'
 import Button from '~/components/Button'
 
 export default {
@@ -16,42 +16,49 @@ export default {
       type: String,
       default: 'icons/broken.svg'
     },
-    dark: {
+    transparent: {
       type: Boolean,
-      default: true
+      default: false
     },
     compact: {
       type: Boolean,
       default: false
     },
-    center: {
+    centered: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   computed: {
     title() {
       return this.$attrs.title || ''
     },
-    imgURL() {
+    cardStyle() {
       const { img } = this.$props
       const url = img.includes('https') ? img : require('~/assets/' + img)
 
       return { backgroundImage: `url("${url}")` }
     },
-    classCard() {
-      return buildClass('c-card', ['dark', 'compact', 'center'], this.$props)
+    cardClass() {
+      return buildClass('c-card', {
+        compact: this.$props.compact,
+        centered: this.$props.centered,
+        transparent: this.$props.transparent
+      })
     }
   }
 }
 </script>
 
 <template lang="html">
-  <div :class="classCard" :style="imgURL">
+  <div :class="cardClass" :style="cardStyle">
     <div class="content">
-      <c-button v-if="tag" class="tag" :to="{ name: 'index' }">
-        {{ tag }}
-      </c-button>
+      <c-button
+        v-if="tag"
+        class="tag"
+        :to="{ name: 'index' }"
+        v-text="tag"
+      ></c-button>
 
       <c-button class="title" :title="title" :to="{ name: 'index' }">
         <slot name="default"></slot>
@@ -70,7 +77,7 @@ export default {
   width: 260px;
   height: 360px;
 
-  box-shadow: inset 0 0 18px 6px var(--bx-secondary);
+  box-shadow: inset 0 0 18px 6px var(--sw-secondary);
   border-radius: 8px;
 
   transition: box-shadow 0.2s linear;
@@ -80,34 +87,34 @@ export default {
 }
 
 .c-card:hover {
-  box-shadow: inset 0 0 24px 4px var(--bx-tertiary);
+  box-shadow: inset 0 0 24px 4px var(--sw-tertiary);
 }
 
-.center.c-card {
-  background-position: center;
-}
-
-.compact.c-card {
+.c-card.compact {
   height: 220px;
   overflow: hidden;
 }
 
-.content {
+.c-card.centered {
+  background-position: center;
+}
+
+.c-card > .content {
   width: 100%;
 }
 
-.tag {
+.c-card > .content .tag {
   margin: 8px;
   border-radius: 4px;
 
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: bold;
 
-  text-shadow: 2px 2px 2px var(--bx-secondary);
+  text-shadow: 2px 2px 2px var(--sw-secondary);
 }
 
-.title {
+.c-card > .content .title {
   width: 100%;
   padding: 8px 12px;
 
@@ -115,33 +122,33 @@ export default {
   transition: background-color 0.4s;
 
   color: var(--text-secondary);
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: bold;
 
-  text-shadow: 2px 2px 8px var(--bx-tertiary);
+  text-shadow: 2px 2px 8px var(--sw-tertiary);
 
   background-color: transparent;
 }
 
-.dark.c-card .title {
+.c-card:not(.transparent) > .content .title {
   padding: 6px 8px;
   min-height: 100px;
 
-  background-color: var(--bx-tertiary);
+  background-color: var(--sw-tertiary);
 }
 
-.dark.c-card:hover .title {
+.c-card:not(.transparent):hover > .content .title {
+  background-color: var(--bg-tertiary);
+}
+
+.c-card:not(.transparent) > .content .title:hover {
   background-color: var(--bg-secondary);
 }
 
-.dark.c-card .title:hover {
-  background-color: var(--bd-secondary);
-}
+.c-card.compact > .content .title {
+  min-height: 82px;
 
-.compact.c-card .title {
-  min-height: 80px;
-
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
 }
 </style>

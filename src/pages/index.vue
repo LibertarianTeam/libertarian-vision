@@ -1,24 +1,24 @@
 <script>
-import GenerateMetaInfo from '@/plugins/vue-meta'
+import metaInfo from '~/plugins/vue-meta'
 
-import Help from '@/views/HomePage/Help'
-import News from '@/views/HomePage/News'
-import Funnel from '@/views/HomePage/Funnel'
-import Videos from '@/views/HomePage/Videos'
-import Numbers from '@/views/HomePage/Numbers'
-import Newsletter from '@/views/HomePage/Newsletter'
+import News from '~/views/HomePage/News'
+import Funnel from '~/views/HomePage/Funnel'
+import Videos from '~/views/HomePage/Videos'
+import Numbers from '~/views/HomePage/Numbers'
+import Contribute from '~/views/HomePage/Contribute'
+import Newsletter from '~/views/HomePage/Newsletter'
 
 export default {
   name: 'Home',
   components: {
-    'v-help': Help,
-    'v-news': News,
-    'v-funnel': Funnel,
-    'v-videos': Videos,
-    'v-numbers': Numbers,
-    'v-newsletter': Newsletter
+    'v-home-news': News,
+    'v-home-funnel': Funnel,
+    'v-home-videos': Videos,
+    'v-home-numbers': Numbers,
+    'v-home-contribute': Contribute,
+    'v-home-newsletter': Newsletter
   },
-  head: GenerateMetaInfo({
+  head: metaInfo({
     page: {
       title: 'Home'
     }
@@ -28,12 +28,12 @@ export default {
 
 <template>
   <main id="p-home">
-    <v-newsletter></v-newsletter>
-    <v-funnel></v-funnel>
-    <v-videos></v-videos>
-    <v-help></v-help>
-    <v-news></v-news>
-    <v-numbers></v-numbers>
+    <v-home-newsletter></v-home-newsletter>
+    <v-home-funnel></v-home-funnel>
+    <v-home-videos></v-home-videos>
+    <v-home-contribute></v-home-contribute>
+    <v-home-news></v-home-news>
+    <v-home-numbers></v-home-numbers>
   </main>
 </template>
 
@@ -44,56 +44,56 @@ export default {
   grid-gap: 24px 12px;
   grid-template-columns: repeat(6, 1fr);
   grid-template-areas:
-    'v-newsletter v-newsletter v-newsletter v-funnel v-funnel v-funnel'
-    'v-videos v-videos v-videos v-videos v-videos v-videos'
-    'v-help v-help v-news v-news v-news v-news'
-    'v-numbers v-numbers v-news v-news v-news v-news';
+    'v-home-newsletter v-home-newsletter v-home-newsletter v-home-funnel v-home-funnel v-home-funnel'
+    'v-home-videos v-home-videos v-home-videos v-home-videos v-home-videos v-home-videos'
+    'v-home-contribute v-home-contribute v-home-news v-home-news v-home-news v-home-news'
+    'v-home-numbers v-home-numbers v-home-news v-home-news v-home-news v-home-news';
 }
 
-.v-newsletter {
-  grid-area: v-newsletter;
+.v-home-newsletter {
+  grid-area: v-home-newsletter;
 }
 
-.v-funnel {
-  grid-area: v-funnel;
+.v-home-funnel {
+  grid-area: v-home-funnel;
 }
 
-.v-videos {
-  grid-area: v-videos;
+.v-home-videos {
+  grid-area: v-home-videos;
 }
 
-.v-help {
-  grid-area: v-help;
+.v-home-contribute {
+  grid-area: v-home-contribute;
 }
 
-.v-news {
-  grid-area: v-news;
+.v-home-news {
+  grid-area: v-home-news;
 }
 
-.v-numbers {
-  grid-area: v-numbers;
+.v-home-numbers {
+  grid-area: v-home-numbers;
 }
 
 @media only screen and (max-width: 1366px) {
   #p-home {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-      'v-newsletter v-funnel'
-      'v-videos v-videos'
-      'v-news v-news'
-      'v-numbers v-help';
+      'v-home-newsletter v-home-funnel'
+      'v-home-videos v-home-videos'
+      'v-home-news v-home-news'
+      'v-home-numbers v-home-contribute';
   }
 }
 
 @media only screen and (max-width: 800px) {
   #p-home {
     grid-template-areas:
-      'v-newsletter v-newsletter'
-      'v-funnel v-funnel'
-      'v-videos v-videos'
-      'v-news v-news'
-      'v-numbers v-numbers'
-      'v-help v-help';
+      'v-home-newsletter v-home-newsletter'
+      'v-home-funnel v-home-funnel'
+      'v-home-videos v-home-videos'
+      'v-home-news v-home-news'
+      'v-home-numbers v-home-numbers'
+      'v-home-contribute v-home-contribute';
   }
 }
 </style>

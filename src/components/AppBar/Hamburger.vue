@@ -1,35 +1,29 @@
 <script>
-import Button from '@/components/Button'
-import Figure from '@/components/Figure'
+import Button from '~/components/Button'
+import Figure from '~/components/Figure'
 
 export default {
   name: 'AppBarHamburger',
   components: {
     'c-button': Button,
     'c-figure': Figure
-  },
-  methods: {
-    handleHamburgerClick() {
-      const { visible } = this.$store.state.appBar.sideNav
-      this.$store.commit('updateAppBarSideNavStatus', { visible: !visible })
-    }
   }
 }
 </script>
 
 <template lang="html">
   <c-button
-    class="v-hamburger"
+    class="c-app-bar-hamburger"
     title="Menu de Navegação"
     img
-    @click="handleHamburgerClick"
+    @click="$emit('click', $event)"
   >
     <c-figure src="icons/hamburger.svg"></c-figure>
   </c-button>
 </template>
 
 <style lang="css" scoped>
-.v-hamburger {
+.c-app-bar-hamburger {
   padding: 2px;
 }
 

@@ -1,7 +1,7 @@
 <script>
-import Button from '@/components/Button'
-import Figure from '@/components/Figure'
-import SocialNav from '@/components/SocialNav'
+import Button from '~/components/Button'
+import Figure from '~/components/Figure'
+import SocialNav from '~/components/SocialNav'
 
 export default {
   name: 'FooterBarAbout',
@@ -11,15 +11,21 @@ export default {
     'c-social-nav': SocialNav
   },
   computed: {
-    links() {
-      return this.$store.state.static.links
+    emailAddress() {
+      return this.$store.state.static.links.emails.primary
+    },
+    emailLink() {
+      return this.$store.getters['static/email'](this.emailAddress)
+    },
+    visaolibertariaLink() {
+      return this.$store.state.static.links.social.visaolibertaria
     }
   }
 }
 </script>
 
 <template lang="html">
-  <section class="v-about">
+  <section class="c-footer-bar-about">
     <c-figure src="logov1.svg"></c-figure>
 
     <h4 class="description">
@@ -30,18 +36,18 @@ export default {
       <span>
         <c-button
           title="Visite o canal Visão Libertária"
-          :to="links.visaolibertaria"
+          :to="visaolibertariaLink"
           text
         >
-          visão libertária</c-button
+          visão libertária </c-button
         >.
       </span>
     </h4>
 
     <address class="contact">
       Entre em contato:
-      <c-button title="Entre em contato conosco!" :to="links.email" text>
-        ancapsu@gmail.com
+      <c-button title="Entre em contato conosco!" :to="emailLink" text>
+        {{ emailAddress }}
       </c-button>
     </address>
 
@@ -50,11 +56,11 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.v-about {
+.c-footer-bar-about {
   display: flex;
-  flex-direction: column;
 
   text-align: justify;
+  flex-direction: column;
 }
 
 .c-figure {
@@ -73,11 +79,19 @@ export default {
 .contact,
 .c-button,
 .description {
-  font: italic bold 22px/1.2 cursive;
+  font: italic bold 1.3rem/1.2 cursive;
 }
 
 .c-button {
   color: var(--text-tertiary);
+}
+
+@media only screen and (max-width: 1366px) {
+  .contact,
+  .c-button,
+  .description {
+    font-size: 1.2rem;
+  }
 }
 
 @media only screen and (max-width: 360px) {
@@ -88,7 +102,7 @@ export default {
   .contact,
   .c-button,
   .description {
-    font-size: 20px;
+    font-size: 1.2rem;
   }
 
   .contact {

@@ -1,28 +1,26 @@
 <script>
-import { buildClass } from '~/utils'
+import buildClass from 'build-css-class'
 
-import AppBar from '~/views/AppBar'
-import FooterBar from '~/views/FooterBar'
 import Loading from '~/components/Loading'
+import AppBar from '~/components/AppBar'
+import FooterBar from '~/components/FooterBar'
 
 export default {
   name: 'DefaultLayout',
   components: {
-    'v-app-bar': AppBar,
     'c-loading': Loading,
-    'v-footer-bar': FooterBar
-  },
-  data() {
-    return {
-      show: false
-    }
+    'c-app-bar': AppBar,
+    'c-footer-bar': FooterBar
   },
   computed: {
+    showApp() {
+      return this.$store.state.showApp
+    },
     theme() {
       return this.$store.state.theme
     },
     appClass() {
-      return buildClass(this.theme, ['show'], this.$data)
+      return buildClass(this.theme, { show: this.showApp })
     }
   },
   mounted() {
@@ -35,7 +33,7 @@ export default {
     const theme = localStorage.getItem('theme')
     if (theme) this.$store.commit('updateTheme', { theme })
 
-    this.$data.show = true
+    this.$store.commit('updateShowAppStatus', { show: true })
   },
   destroyed() {
     window.removeEventListener('resize', () => {
@@ -47,11 +45,11 @@ export default {
 
 <template lang="html">
   <div id="app" :class="appClass">
-    <c-loading v-if="!$data.show"></c-loading>
+    <c-loading v-if="!showApp"></c-loading>
 
-    <v-app-bar></v-app-bar>
+    <c-app-bar></c-app-bar>
     <nuxt></nuxt>
-    <v-footer-bar></v-footer-bar>
+    <c-footer-bar></c-footer-bar>
   </div>
 </template>
 
@@ -78,61 +76,5 @@ export default {
 
 #app.show > * {
   opacity: 1;
-}
-
-.light {
-  --primary: #fc0;
-  --secondary: #03a9f4;
-  --tertiary: #e1e1e1;
-
-  --error: #f44336;
-  --warning: #ffeb3b;
-  --success: #4caf50;
-
-  --info: #ffc107;
-  --accent: #607d8b;
-
-  --text-primary: #000;
-  --text-secondary: #fff;
-  --text-tertiary: #fc0;
-
-  --bd-primary: #000c;
-  --bd-secondary: #000e;
-  --bd-tertiary: #fc06;
-
-  --bx-primary: #0002;
-  --bx-secondary: #0004;
-  --bx-tertiary: #0008;
-
-  --bg-primary: #fff;
-  --bg-secondary: #000c;
-}
-
-.dark {
-  --primary: #fc0;
-  --secondary: #03a9f4;
-  --tertiary: #666;
-
-  --error: #f44336;
-  --warning: #ffeb3b;
-  --success: #4caf50;
-
-  --info: #ffc107;
-  --accent: #607d8b;
-
-  --text-primary: #fff;
-  --text-secondary: #fff;
-  --text-tertiary: #fc0;
-
-  --bd-primary: #0006;
-  --bd-secondary: #000e;
-  --bd-tertiary: #fc06;
-
-  --bx-primary: #0002;
-  --bx-secondary: #0004;
-  --bx-tertiary: #0008;
-
-  --bg-primary: #181a1b;
-  --bg-secondary: #000c;
 }
 </style>

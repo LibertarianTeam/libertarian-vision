@@ -1,11 +1,11 @@
 <script>
-import Theme from '@/components/Theme'
-import Button from '@/components/Button'
-import Figure from '@/components/Figure'
-import Dropdown from '@/components/Dropdown'
+import Theme from '~/components/Theme'
+import Button from '~/components/Button'
+import Figure from '~/components/Figure'
+import Dropdown from '~/components/Dropdown'
 
 export default {
-  name: 'AppBarMainNav',
+  name: 'AppBarNav',
   components: {
     'c-theme': Theme,
     'c-button': Button,
@@ -14,14 +14,14 @@ export default {
   },
   computed: {
     navItems() {
-      return this.$store.state.static.navItems
+      return this.$store.state.static.internalNavItems
     }
   }
 }
 </script>
 
 <template lang="html">
-  <nav class="v-nav">
+  <nav class="c-app-bar-nav">
     <div class="content">
       <c-button title="Home" :to="{ name: 'index' }" icon>
         <c-figure src="icons/home.svg"></c-figure>
@@ -42,14 +42,14 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.v-nav {
+.c-app-bar-nav {
   display: flex;
 
   align-items: flex-end;
   justify-content: space-between;
 }
 
-.v-nav .content {
+.c-app-bar-nav > .content {
   display: flex;
   align-items: flex-end;
 }
@@ -61,21 +61,21 @@ export default {
   margin: 0 0 12px;
 }
 
-.v-nav .content > .c-button.icon {
+.c-app-bar-nav > .content > .c-button.icon {
   padding: 6px 22px;
 }
 
-.v-nav .content > .c-button.icon .c-figure {
+.c-app-bar-nav > .content > .c-button.icon .c-figure {
   width: 22px;
   height: 22px;
 }
 
-.dark .v-nav .content > .c-button.icon .c-figure {
+.dark .c-app-bar-nav > .content > .c-button.icon .c-figure {
   fill: #fff;
 }
 
 .c-dropdown::after,
-.v-nav .content > .c-button.icon::after {
+.c-app-bar-nav > .content > .c-button.icon::after {
   content: '';
   position: absolute;
 
@@ -89,11 +89,11 @@ export default {
   bottom: 0;
 
   transition: width 0.2s;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-tertiary);
 }
 
 .c-dropdown:hover::after,
-.v-nav .content > .c-button.icon:hover::after {
+.c-app-bar-nav > .content > .c-button.icon:hover::after {
   width: 100%;
 }
 </style>

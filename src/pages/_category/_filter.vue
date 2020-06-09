@@ -1,5 +1,5 @@
 <script>
-import GenerateMetaInfo from '@/plugins/vue-meta'
+import GenerateMetaInfo from '~/plugins/vue-meta'
 
 export default {
   name: 'Category',

@@ -1,17 +1,11 @@
-export function state() {
-  return {
-    theme: 'light',
-    appBar: {
-      sideNav: {
-        visible: false
-      }
-    },
-    window: {
-      width: 0,
-      height: 0
-    }
+export const state = () => ({
+  theme: 'light',
+  showApp: false,
+  window: {
+    width: 0,
+    height: 0
   }
-}
+})
 
 export const getters = {
   xsmWindow(state) {
@@ -52,8 +46,8 @@ export const mutations = {
 
     localStorage.setItem('theme', state.theme)
   },
-  updateAppBarSideNavStatus(state, { visible }) {
-    state.appBar.sideNav.visible = visible
+  updateShowAppStatus(state, { show }) {
+    state.showApp = show
   },
   updateWindowSize(state) {
     state.window.width = window.innerWidth

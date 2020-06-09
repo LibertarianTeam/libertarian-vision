@@ -1,6 +1,6 @@
 <script>
-import Button from '@/components/Button'
-import Figure from '@/components/Figure'
+import Button from '~/components/Button'
+import Figure from '~/components/Figure'
 
 export default {
   name: 'Theme',

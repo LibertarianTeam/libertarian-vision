@@ -1,9 +1,10 @@
 <script>
 import { mapGetters } from 'vuex'
+import buildClass from 'build-css-class'
 
-import Card from '@/components/Card'
-import Button from '@/components/Button'
-import Figure from '@/components/Figure'
+import Card from '~/components/Card'
+import Button from '~/components/Button'
+import Figure from '~/components/Figure'
 
 export default {
   name: 'Carousel',
@@ -17,23 +18,21 @@ export default {
       type: Array,
       default: () => []
     },
-    center: {
+    centered: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
-  data() {
-    return {
-      end: 1,
-      start: 1
-    }
-  },
+  data: () => ({
+    end: 1,
+    start: 1
+  }),
   computed: {
     startOfList() {
-      return this.start <= 1
+      return this.$data.start <= 1
     },
     endOfList() {
-      return this.end >= this.items.length
+      return this.$data.end >= this.$props.items.length
     },
     itemsOnScreen() {
       const { dsmWindow, smdWindow, dmdWindow, lmdWindow } = this
@@ -42,11 +41,11 @@ export default {
         dsmWindow ? 1 : smdWindow ? 2 : dmdWindow ? 3 : lmdWindow ? 4 : 5
       )
     },
-    classCard() {
-      const { start, end } = this
+    cardClass() {
+      const { start, end } = this.$data
 
       return (index) =>
-        `${index + 1 >= start && index + 1 <= end ? 'show' : ''}`
+        buildClass('', { show: index + 1 >= start && index + 1 <= end })
     },
     ...mapGetters(['dsmWindow', 'smdWindow', 'dmdWindow', 'lmdWindow'])
   },
@@ -57,20 +56,20 @@ export default {
   },
   methods: {
     updateItemsOnScreen(end) {
-      this.end = end
-      this.start = 1
+      this.$data.end = end
+      this.$data.start = 1
     },
     handleNext() {
-      if (this.endOfList) return
+      if (this.$data.endOfList) return
 
-      this.end += 1
-      this.start += 1
+      this.$data.end += 1
+      this.$data.start += 1
     },
     handlePrev() {
-      if (this.startOfList) return
+      if (this.$data.startOfList) return
 
-      this.end -= 1
-      this.start -= 1
+      this.$data.end -= 1
+      this.$data.start -= 1
     }
   }
 }
@@ -81,8 +80,8 @@ export default {
     <c-button
       class="arrow"
       title="Anterior"
-      icon
       :disabled="startOfList"
+      icon
       @click="handlePrev"
     >
       <c-figure src="icons/arrow-prev.svg"></c-figure>
@@ -90,13 +89,12 @@ export default {
 
     <div class="items">
       <c-card
-        v-for="(item, index) in items"
+        v-for="(item, index) in $props.items"
         :key="index"
-        :class="classCard(index)"
-        style="width: 0;"
+        :class="cardClass(index)"
         :img="item.img"
         :tag="item.tag"
-        :center="center"
+        :centered="$props.centered"
       >
         <h4 class="title">{{ item.title }}</h4>
       </c-card>
@@ -105,8 +103,8 @@ export default {
     <c-button
       class="arrow"
       title="Próximo"
-      icon
       :disabled="endOfList"
+      icon
       @click="handleNext"
     >
       <c-figure src="icons/arrow-next.svg"></c-figure>
@@ -168,7 +166,7 @@ export default {
 }
 
 .c-card.show {
-  width: 100% !important;
+  width: 100%;
   height: inherit;
 
   background-size: cover;
@@ -179,7 +177,7 @@ export default {
 }
 
 .title {
-  font-size: 20px;
+  font-size: 1.2rem;
 }
 
 @media only screen and (max-width: 640px) {

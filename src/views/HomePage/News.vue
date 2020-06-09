@@ -1,6 +1,6 @@
 <script>
-import Card from '@/components/Card'
-import Title from '@/components/Title'
+import Card from '~/components/Card'
+import Title from '~/components/Title'
 
 export default {
   name: 'HomeNews',
@@ -12,10 +12,10 @@ export default {
 </script>
 
 <template lang="html">
-  <section class="v-news">
+  <section class="v-home-news">
     <c-title>Últimas Notícias Veiculadas</c-title>
 
-    <div class="list">
+    <div class="news">
       <c-card
         v-for="i in 9"
         :key="i"
@@ -31,7 +31,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.list {
+.news {
   display: grid;
 
   grid-gap: 8px;
@@ -43,7 +43,7 @@ export default {
 }
 
 @media only screen and (max-width: 800px) {
-  .list {
+  .news {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -53,7 +53,7 @@ export default {
 }
 
 @media only screen and (max-width: 640px) {
-  .list {
+  .news {
     grid-template-columns: auto;
   }
 

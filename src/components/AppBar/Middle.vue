@@ -1,16 +1,16 @@
 <script>
 import { mapGetters } from 'vuex'
 
+import Hamburger from './Hamburger'
 import Button from '~/components/Button'
 import Figure from '~/components/Figure'
-import Hamburger from '~/views/AppBar/Hamburger'
 
 export default {
-  name: 'AppBarMain',
+  name: 'AppBarMiddle',
   components: {
     'c-button': Button,
     'c-figure': Figure,
-    'v-hamburger': Hamburger
+    'c-app-bar-hamburger': Hamburger
   },
   computed: {
     ...mapGetters(['smdWindow'])
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="v-main">
+  <div class="c-app-bar-middle">
     <c-button class="logo" title="Home" :to="{ name: 'index' }" img>
       <c-figure src="logov1.svg"></c-figure>
     </c-button>
@@ -34,13 +34,16 @@ export default {
         </c-button>
       </div>
 
-      <v-hamburger v-if="smdWindow"></v-hamburger>
+      <c-app-bar-hamburger
+        v-if="smdWindow"
+        @click="$emit('click:hamburger', $event)"
+      ></c-app-bar-hamburger>
     </div>
   </div>
 </template>
 
 <style lang="css" scoped>
-.v-main {
+.c-app-bar-middle {
   display: inline-flex;
   align-items: flex-end;
 
@@ -51,7 +54,7 @@ export default {
   width: 220px;
 }
 
-.content {
+.c-app-bar-middle > .content {
   display: inline-flex;
 
   align-items: center;
@@ -68,7 +71,7 @@ export default {
 }
 
 .account .c-button {
-  font-size: 12px;
+  font-size: 0.8rem;
 }
 
 .account .c-button + .c-button {
@@ -76,7 +79,7 @@ export default {
 }
 
 @media only screen and (max-width: 800px) {
-  .v-main {
+  .c-app-bar-middle {
     flex-direction: column;
     align-items: center;
   }
@@ -92,7 +95,7 @@ export default {
 }
 
 @media only screen and (max-width: 360px) {
-  .v-main {
+  .c-app-bar-middle {
     align-items: flex-start;
   }
 }

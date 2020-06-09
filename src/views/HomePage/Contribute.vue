@@ -1,9 +1,9 @@
 <script>
-import Card from '@/components/Card'
-import Title from '@/components/Title'
+import Card from '~/components/Card'
+import Title from '~/components/Title'
 
 export default {
-  name: 'HomeHelp',
+  name: 'HomeContribute',
   components: {
     'c-card': Card,
     'c-title': Title
@@ -12,19 +12,19 @@ export default {
 </script>
 
 <template lang="html">
-  <section class="v-help">
+  <section class="v-home-contribute">
     <c-title>Quer Ajudar?</c-title>
 
     <div class="cards">
-      <c-card :dark="false" img="imgs/news.png">
+      <c-card img="imgs/news.png" transparent>
         <span class="title">Sugerir Noticia</span>
       </c-card>
 
-      <c-card :dark="false" img="imgs/typewriter.png">
+      <c-card img="imgs/typewriter.png" transparent>
         <span class="title">Escrever Matéria</span>
       </c-card>
 
-      <c-card :dark="false" img="imgs/mic.png">
+      <c-card img="imgs/mic.png" transparent>
         <span class="title">Narrar Matéria</span>
       </c-card>
     </div>
@@ -52,7 +52,7 @@ export default {
   transition: color 0.4s;
 
   color: var(--text-tertiary);
-  font-size: 20px;
+  font-size: 1.3rem;
   font-weight: bolder;
 }
 
@@ -67,12 +67,6 @@ export default {
 
   .c-card {
     width: 100%;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .c-card .title {
-    font-size: 20px;
   }
 }
 

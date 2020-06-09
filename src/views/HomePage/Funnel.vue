@@ -1,6 +1,6 @@
 <script>
-import Title from '@/components/Title'
-import Button from '@/components/Button'
+import Title from '~/components/Title'
+import Button from '~/components/Button'
 
 export default {
   name: 'HomeFunnel',
@@ -12,18 +12,18 @@ export default {
 </script>
 
 <template lang="html">
-  <section class="v-funnel">
+  <section class="v-home-funnel">
     <c-title>Funil de Produção</c-title>
 
     <div class="content">
       <c-button class="schedule" :to="{ name: 'index' }">
-        <h6>138</h6>
-        <span>Pautas</span>
+        <h6 class="counter">138</h6>
+        <span class="text">Pautas</span>
       </c-button>
 
       <c-button class="approved" :to="{ name: 'index' }">
-        <h6>17</h6>
-        <span>Aprovadas</span>
+        <h6 class="counter">17</h6>
+        <span class="text">Aprovadas</span>
       </c-button>
     </div>
   </section>
@@ -34,7 +34,8 @@ export default {
   padding: 2px 0;
 }
 
-.c-button {
+.schedule,
+.approved {
   display: inline-flex;
   flex-direction: column;
 
@@ -44,9 +45,8 @@ export default {
   width: 80px;
   height: 80px;
 
-  border-radius: 8px;
-
   color: var(--text-secondary);
+  border-radius: 8px;
 }
 
 .schedule {
@@ -58,15 +58,16 @@ export default {
   background-color: var(--success);
 }
 
-h6 {
-  font-size: 20px;
+.counter {
+  font-size: 1.2rem;
 }
 
-span {
-  font-size: 12px;
+.text {
+  font-size: 0.8rem;
+  margin-top: 4px;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 640px) {
   .content {
     display: flex;
     justify-content: center;

@@ -1,5 +1,5 @@
 <script>
-import { buildClass } from '~/utils'
+import buildClass from 'build-css-class'
 import Button from '~/components/Button'
 
 export default {
@@ -14,20 +14,15 @@ export default {
     }
   },
   computed: {
-    classForm() {
-      return buildClass('c-form', ['inline'], this.$props)
-    }
-  },
-  methods: {
-    emitSubmit(evt) {
-      this.$emit('submit', evt)
+    formClass() {
+      return buildClass('c-form', this.$props)
     }
   }
 }
 </script>
 
 <template lang="html">
-  <form :class="classForm" @submit.prevent="emitSubmit($event)">
+  <form :class="formClass" @submit.prevent="$emit('submit', $event)">
     <div class="fields">
       <slot name="default"></slot>
     </div>

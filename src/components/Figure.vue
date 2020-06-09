@@ -1,5 +1,5 @@
 <script>
-import { buildClass } from '~/utils'
+import buildClass from 'build-css-class'
 
 export default {
   name: 'Figure',
@@ -22,7 +22,7 @@ export default {
       return this.$props.src.includes('.svg')
     },
     figureClass() {
-      return buildClass('c-figure', ['svg', 'description'], {
+      return buildClass('c-figure', {
         svg: this.isSvg,
         description: this.description
       })

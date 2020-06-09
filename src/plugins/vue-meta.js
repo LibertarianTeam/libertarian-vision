@@ -17,7 +17,7 @@ export const defaultMetaInfo = {
   themeColor: '#fc0'
 }
 
-export function GenerateInitialMetaInfo() {
+export function generateInitialMetaInfo() {
   return {
     htmlAttrs: { lang: 'pt-BR', dir: 'ltr' },
     titleTemplate: `%s - ${defaultMetaInfo.title}`,
@@ -51,7 +51,7 @@ export function GenerateInitialMetaInfo() {
   }
 }
 
-export function GenerateFacebookMetaInfo(metaInfo) {
+export function generateFacebookMetaInfo(metaInfo) {
   return {
     meta: [
       {
@@ -101,7 +101,7 @@ export function GenerateFacebookMetaInfo(metaInfo) {
   }
 }
 
-export function GenerateTwitterMetaInfo(metaInfo) {
+export function generateTwitterMetaInfo(metaInfo) {
   return {
     meta: [
       {
@@ -154,7 +154,7 @@ export function GenerateTwitterMetaInfo(metaInfo) {
   }
 }
 
-export function GenerateSchemaAndWebchatMetaInfo(metaInfo) {
+export function generateSchemaAndWebchatMetaInfo(metaInfo) {
   return {
     meta: [
       { itemprop: 'name', content: metaInfo.title || defaultMetaInfo.title },
@@ -172,7 +172,7 @@ export function GenerateSchemaAndWebchatMetaInfo(metaInfo) {
   }
 }
 
-export function GeneratePageMetaInfo(metaInfo) {
+export function generatePageMetaInfo(metaInfo) {
   return {
     title: metaInfo.title,
     link: [{ rel: 'canonical', href: metaInfo.url || defaultMetaInfo.url }],
@@ -196,11 +196,11 @@ export function GeneratePageMetaInfo(metaInfo) {
   }
 }
 
-export default function GenerateMetaInfo({ page = {}, social = {} }) {
-  const pageMetaInfo = GeneratePageMetaInfo(page)
-  const twitterMetaInfo = GenerateTwitterMetaInfo(social)
-  const facebookMetaInfo = GenerateFacebookMetaInfo(social)
-  const schemaAndWebChatMetaInfo = GenerateSchemaAndWebchatMetaInfo(social)
+export default ({ page = {}, social = {} }) => {
+  const pageMetaInfo = generatePageMetaInfo(page)
+  const twitterMetaInfo = generateTwitterMetaInfo(social)
+  const facebookMetaInfo = generateFacebookMetaInfo(social)
+  const schemaAndWebChatMetaInfo = generateSchemaAndWebchatMetaInfo(social)
 
   return {
     title: pageMetaInfo.title,

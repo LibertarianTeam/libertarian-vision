@@ -1,6 +1,6 @@
 <script>
-import Button from '@/components/Button'
-import Figure from '@/components/Figure'
+import Button from '~/components/Button'
+import Figure from '~/components/Figure'
 
 export default {
   name: 'FooterBarCard',
@@ -17,7 +17,7 @@ export default {
       type: String,
       required: true
     },
-    image: {
+    img: {
       type: String,
       required: true
     }
@@ -26,9 +26,9 @@ export default {
 </script>
 
 <template lang="html">
-  <div class="v-card">
+  <div class="c-footer-bar-card">
     <c-button :title="$props.title" :to="to" img>
-      <c-figure :src="image"></c-figure>
+      <c-figure :src="img"></c-figure>
     </c-button>
 
     <aside class="content">
@@ -44,7 +44,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.v-card {
+.c-footer-bar-card {
   display: inline-flex;
   align-items: center;
 
@@ -61,12 +61,18 @@ export default {
 }
 
 .c-button.text {
-  font-size: 20px;
   color: var(--text-tertiary);
+  font-size: 1.1rem;
 }
 
 .text {
-  font-size: 16px;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 1366px) {
+  .text {
+    font-size: 0.9rem;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -75,26 +81,22 @@ export default {
   }
 
   .c-button.text {
-    font-size: 18px;
+    font-size: 1rem;
   }
 }
 
 @media only screen and (max-width: 360px) {
-  .v-card {
-    flex-direction: column;
+  .c-footer-bar-card {
     height: auto;
+    flex-direction: column;
   }
 
-  .v-card + .v-card {
+  .c-footer-bar-card + .c-footer-bar-card {
     margin-top: 12px;
   }
 
   .c-figure {
     margin: 0 0 12px;
-  }
-
-  .text {
-    font-size: 14px;
   }
 }
 </style>

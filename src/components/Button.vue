@@ -1,5 +1,5 @@
 <script>
-import { buildClass } from '~/utils'
+import buildClass from 'build-css-class'
 
 export default {
   name: 'Button',
@@ -44,11 +44,13 @@ export default {
       return this.$props.to && !this.$props.to.name
     },
     buttonClass() {
-      return buildClass(
-        'c-button',
-        ['icon', 'img', 'text', 'fab', 'disabled'],
-        this.$props
-      )
+      return buildClass('c-button', this.$props, [
+        'icon',
+        'img',
+        'text',
+        'fab',
+        'disabled'
+      ])
     }
   }
 }

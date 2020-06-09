@@ -10,12 +10,6 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  methods: {
-    emitInput({ type, target }) {
-      if (this.lazy && type !== 'change') return
-      this.$emit('input', target.value)
-    }
   }
 }
 </script>
@@ -24,8 +18,8 @@ export default {
   <input
     class="c-input"
     :type="type"
-    @input="emitInput($event)"
-    @change="emitInput($event)"
+    @input="$props.lazy ? null : $emit('input', $event.target.value)"
+    @change="$emit('input', $event.target.value)"
   />
 </template>
 
@@ -42,7 +36,7 @@ export default {
   outline: transparent;
   transition: all 0.2s linear;
 
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: lighter;
 
   background-color: var(--bg-primary);

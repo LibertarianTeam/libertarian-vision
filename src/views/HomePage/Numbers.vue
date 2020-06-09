@@ -1,6 +1,6 @@
 <script>
-import Title from '@/components/Title'
-import SocialNav from '@/components/SocialNav'
+import Title from '~/components/Title'
+import SocialNav from '~/components/SocialNav'
 
 export default {
   name: 'HomeNumber',
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template lang="html">
-  <section class="v-numbers">
+  <section class="v-home-numbers">
     <c-title>Números</c-title>
 
     <c-social-nav vertical>

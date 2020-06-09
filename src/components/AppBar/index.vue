@@ -1,50 +1,53 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import SocialNav from '@/components/SocialNav'
-import Main from '@/views/AppBar/Main'
-import MainNav from '@/views/AppBar/MainNav'
-import SideNav from '@/views/AppBar/SideNav'
+import Nav from './Nav'
+import Middle from './Middle'
+import SideNav from './SideNav'
+import SocialNav from '~/components/SocialNav'
 
 export default {
   name: 'AppBar',
   components: {
-    'v-main': Main,
-    'v-main-nav': MainNav,
-    'v-side-nav': SideNav,
-    'c-social-nav': SocialNav
+    'c-social-nav': SocialNav,
+    'c-app-bar-nav': Nav,
+    'c-app-bar-middle': Middle,
+    'c-app-bar-side-nav': SideNav
   },
+  data: () => ({
+    showSideNav: false
+  }),
   computed: {
-    showSideNav() {
-      return this.$store.state.appBar.sideNav.visible
-    },
     ...mapGetters(['smdWindow'])
   }
 }
 </script>
 
 <template lang="html">
-  <header class="v-app-bar">
+  <header class="c-app-bar">
     <div class="content">
       <c-social-nav></c-social-nav>
 
-      <v-main></v-main>
+      <c-app-bar-middle
+        @click:hamburger="$data.showSideNav = true"
+      ></c-app-bar-middle>
 
-      <v-side-nav v-if="smdWindow"></v-side-nav>
-      <v-main-nav v-else></v-main-nav>
+      <c-app-bar-side-nav
+        v-if="smdWindow"
+        :show="$data.showSideNav"
+        @hide="$data.showSideNav = false"
+      ></c-app-bar-side-nav>
+      <c-app-bar-nav v-else></c-app-bar-nav>
     </div>
   </header>
 </template>
 
 <style lang="css" scoped>
-.v-app-bar {
-  background: url('~assets/imgs/appbarv1.svg') no-repeat right;
-  background-color: var(--primary);
+.c-app-bar {
+  background: var(--primary) url('~assets/imgs/appbarv1.svg') no-repeat right;
 }
 
 .content {
-  max-width: 1366px;
-
   margin: 0 auto;
   padding: 0 48px;
 }
@@ -53,12 +56,12 @@ export default {
   padding-top: 2px;
 }
 
-.v-main {
+.c-app-bar-middle {
   margin-bottom: 18px;
 }
 
 @media only screen and (max-width: 800px) {
-  .v-app-bar {
+  .c-app-bar {
     background-image: url('~assets/imgs/appbarv2.svg');
   }
 
@@ -66,13 +69,13 @@ export default {
     padding: 0 6px;
   }
 
-  .v-main {
+  .c-app-bar-middle {
     margin: 12px 0 6px;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .v-app-bar {
+  .c-app-bar {
     background-image: url('~assets/imgs/appbarv3.svg');
   }
 }
