@@ -87,7 +87,7 @@ export default {
       <c-figure src="icons/arrow-prev.svg"></c-figure>
     </c-button>
 
-    <div class="items">
+    <div class="cards">
       <c-card
         v-for="(item, index) in $props.items"
         :key="index"
@@ -120,7 +120,7 @@ export default {
   justify-content: center;
 }
 
-.items {
+.cards {
   display: inherit;
   overflow: hidden;
 }
@@ -158,14 +158,14 @@ export default {
   margin-left: 4px;
 }
 
-.c-card {
+.cards > .c-card {
   width: 0;
   transition: all 0.2s;
 
   background-size: auto;
 }
 
-.c-card.show {
+.cards > .c-card.show {
   width: 100%;
   height: inherit;
 
@@ -185,7 +185,7 @@ export default {
     align-items: flex-start;
   }
 
-  .items {
+  .cards {
     height: 280px;
   }
 
