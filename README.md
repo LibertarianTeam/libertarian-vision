@@ -21,7 +21,10 @@
   $ cd ancapsu # Navegue ate a pasta.
   # Crie/Configure o arquivo src/.env de acordo com o .env_example.
   $ yarn -i # Instale as dependencias.
-  $ yarn start # Execute o servidor.
+  $ cd production # Navegue ate a pasta do servidor de produção.
+  $ yarn -i # Instale as dependencias do servidor de produção.
+  $ cd .. # Volte para a pasta raiz do projeto.
+  $ yarn start # Execute o servidor de desenvolvimento.
 ```
 
 ### :scroll: Scripts
