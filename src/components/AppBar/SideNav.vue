@@ -57,7 +57,7 @@ export default {
         {{ navItem.text }}
       </c-dropdown>
 
-      <c-theme></c-theme>
+      <c-theme outlined></c-theme>
     </nav>
   </div>
 </template>
@@ -118,8 +118,9 @@ export default {
 
 .c-theme {
   width: 100%;
-  height: 42px;
+  height: 48px;
 
-  margin: auto 0 0;
+  margin: auto 0 1px;
+  padding: 6px 0;
 }
 </style>

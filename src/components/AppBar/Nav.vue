@@ -55,8 +55,8 @@ export default {
 }
 
 .c-theme {
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
 
   margin: 0 0 12px;
 }

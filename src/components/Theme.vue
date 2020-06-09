@@ -12,6 +12,10 @@ export default {
     fab: {
       type: Boolean,
       default: false
+    },
+    outlined: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -32,6 +36,7 @@ export default {
     class="c-theme"
     :title="`Mudar para tema ${isDark ? 'Light' : 'Dark'}`"
     :fab="$props.fab"
+    :outlined="$props.outlined"
     @click="handleClick"
   >
     <c-figure :src="`icons/${isDark ? 'sun' : 'moon'}.svg`"></c-figure>
@@ -39,6 +44,10 @@ export default {
 </template>
 
 <style lang="css" scoped>
+.c-theme {
+  border-color: var(--primary);
+}
+
 .c-figure {
   width: 100%;
   height: 100%;
