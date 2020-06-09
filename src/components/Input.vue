@@ -36,6 +36,7 @@ export default {
   outline: transparent;
   transition: all 0.2s linear;
 
+  color: var(--text-primary);
   font-size: 1rem;
   font-weight: lighter;
 
