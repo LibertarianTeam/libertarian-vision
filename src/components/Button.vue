@@ -12,11 +12,15 @@ export default {
       type: [Object, String],
       default: () => ''
     },
-    icon: {
+    img: {
       type: Boolean,
       default: false
     },
-    img: {
+    fab: {
+      type: Boolean,
+      default: false
+    },
+    icon: {
       type: Boolean,
       default: false
     },
@@ -24,7 +28,7 @@ export default {
       type: Boolean,
       default: false
     },
-    fab: {
+    outlined: {
       type: Boolean,
       default: false
     },
@@ -45,10 +49,11 @@ export default {
     },
     buttonClass() {
       return buildClass('c-button', this.$props, [
-        'icon',
-        'img',
-        'text',
         'fab',
+        'img',
+        'icon',
+        'text',
+        'outlined',
         'disabled'
       ])
     }
@@ -119,6 +124,10 @@ export default {
   transform: translate(1px, 2px);
 }
 
+.c-button.fab {
+  border-radius: 50%;
+}
+
 .c-button.img,
 .c-button.icon {
   display: inline-flex;
@@ -153,8 +162,13 @@ export default {
   filter: opacity(60%);
 }
 
-.c-button.fab {
-  border-radius: 50%;
+.c-button.outlined {
+  transition: background-color 0.2s;
+  background-color: transparent;
+}
+
+.c-button.outlined:hover {
+  background-color: var(--primary);
 }
 
 .c-button.disabled {
