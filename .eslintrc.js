@@ -1,3 +1,5 @@
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 module.exports = {
   root: true,
   env: {
@@ -16,6 +18,8 @@ module.exports = {
   ],
   plugins: ['prettier'],
   rules: {
+    'no-console': isDevelopment ? 'off' : 'warn',
+    'no-unused-vars': isDevelopment ? 'off' : 'error',
     'vue/no-v-html': 'off',
     'vue/return-in-computed-property': 'off'
   }
