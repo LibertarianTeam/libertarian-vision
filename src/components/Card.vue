@@ -8,9 +8,17 @@ export default {
     'c-button': Button
   },
   props: {
+    to: {
+      type: [String, Object],
+      default: () => ({ name: 'index' })
+    },
     tag: {
       type: String,
       default: ''
+    },
+    toTag: {
+      type: [String, Object],
+      default: () => ({ name: 'index' })
     },
     img: {
       type: String,
@@ -54,13 +62,14 @@ export default {
   <div :class="cardClass" :style="cardStyle">
     <div class="content">
       <c-button
-        v-if="tag"
+        v-if="$props.tag"
         class="tag"
-        :to="{ name: 'index' }"
-        v-text="tag"
+        :title="`Acessar a categoria ${$props.tag}`"
+        :to="$props.toTag"
+        v-text="$props.tag"
       ></c-button>
 
-      <c-button class="title" :title="title" :to="{ name: 'index' }">
+      <c-button class="title" :title="title" :to="$props.to">
         <slot name="default"></slot>
       </c-button>
     </div>

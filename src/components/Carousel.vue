@@ -92,11 +92,14 @@ export default {
         v-for="(item, index) in $props.items"
         :key="index"
         :class="cardClass(index)"
-        :img="item.img"
-        :tag="item.tag"
+        :title="item.title"
+        :to="item.to"
+        :img="item.image"
+        :tag="item.category.label"
+        :to-tag="item.toTag"
         :centered="$props.centered"
       >
-        <h4 class="title">{{ item.title }}</h4>
+        <h4 class="title" v-text="item.title"></h4>
       </c-card>
     </div>
 

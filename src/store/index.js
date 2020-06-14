@@ -1,6 +1,9 @@
 export const state = () => ({
   theme: 'light',
   showApp: false,
+  video: {
+    list: []
+  },
   window: {
     width: 0,
     height: 0
@@ -49,10 +52,35 @@ export const mutations = {
   updateShowAppStatus(state, { show }) {
     state.showApp = show
   },
+  updateVideoList(state, { videoList }) {
+    state.video.list = videoList
+  },
   updateWindowSize(state) {
     state.window.width = window.innerWidth
     state.window.height = window.innerHeight
   }
 }
 
-export const actions = {}
+export const actions = {
+  async getVideoList({ commit }) {
+    const { videoList } = (
+      await this.$axios.$post('', {
+        query: `
+          query {
+            videoList {
+              id
+              title
+              image
+              category {
+                name
+                label
+              }
+            }
+          }
+        `
+      })
+    ).data
+
+    commit('updateVideoList', { videoList })
+  }
+}

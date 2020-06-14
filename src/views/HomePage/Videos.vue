@@ -8,52 +8,26 @@ export default {
     'c-title': Title,
     'c-carousel': Carousel
   },
-  data: () => ({
-    items: [
-      {
-        title: 'Estão faltando mortos nessa conta.',
-        img: 'https://i.ibb.co/WFhvVym/image.png',
-        tag: 'Vídeo'
-      },
-      {
-        title:
-          'Presidente das Filipinas manda matar quem descumprir quarentena.',
-        img: 'https://i.ibb.co/n0PJpgL/image.png',
-        tag: 'Vídeo'
-      },
-      {
-        title: 'Chegou a hora de o Brasil ter um Banco Central independente?',
-        img: 'https://i.ibb.co/DLdmLWW/image.png',
-        tag: 'Vídeo'
-      },
-      {
-        title: 'Venezuela está afundando seus próprios navios.',
-        img: 'https://i.ibb.co/LpHFy7n/image.png',
-        tag: 'Vídeo'
-      },
-      {
-        title:
-          'Presidente das Filipinas manda matar quem descumprir quarentena.',
-        img: 'https://i.ibb.co/n0PJpgL/image.png',
-        tag: 'Vídeo'
-      },
-      {
-        title: 'Estão faltando mortos nessa conta.',
-        img: 'https://i.ibb.co/WFhvVym/image.png',
-        tag: 'Vídeo'
-      },
-      {
-        title: 'Chegou a hora de o Brasil ter um Banco Central independente?',
-        img: 'https://i.ibb.co/DLdmLWW/image.png',
-        tag: 'Vídeo'
-      },
-      {
-        title: 'Venezuela está afundando seus próprios navios.',
-        img: 'https://i.ibb.co/LpHFy7n/image.png',
-        tag: 'Vídeo'
-      }
-    ]
-  })
+  computed: {
+    items() {
+      return this.$store.state.video.list.map((video) => {
+        video.to = {
+          name: 'read-id',
+          params: { read: video.category.name, id: video.id }
+        }
+
+        video.toTag = {
+          name: 'category-filter',
+          params: { category: video.category.name, filter: 'news' }
+        }
+
+        return video
+      })
+    }
+  },
+  mounted() {
+    this.$store.dispatch('getVideoList')
+  }
 }
 </script>
 
