@@ -116,8 +116,7 @@ export default {
           :title="item.title"
           :to="item.to"
           :img="item.image"
-          :tag="item.tag"
-          :to-tag="item.toTag"
+          :tags="item.tags"
           :centered="$props.centered"
         >
           <h4 class="title" v-text="item.title"></h4>

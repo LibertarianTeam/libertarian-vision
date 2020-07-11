@@ -16,9 +16,8 @@ export default {
           params: { read: video.category.name, id: video.id }
         }
 
-        video.tag = video.category.label
-
-        video.toTag = {
+        video.tags = [video.category]
+        video.tags[0].to = {
           name: 'category-filter',
           params: { category: video.category.name, filter: 'news' }
         }

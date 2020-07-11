@@ -50,7 +50,7 @@ export default {
         <c-card
           v-for="(article, index) of articles"
           :key="index"
-          :tag="article.tags[0].label"
+          :tags="article.tags"
           :img="article.image"
           compact
         >

@@ -15,13 +15,9 @@ export default {
       type: [String, Object],
       default: () => ({ name: 'index' })
     },
-    tag: {
-      type: String,
-      default: ''
-    },
-    toTag: {
-      type: [String, Object],
-      default: () => ({ name: 'index' })
+    tags: {
+      type: Array,
+      default: () => []
     },
     img: {
       type: String,
@@ -70,13 +66,16 @@ export default {
 
   <div v-else :style="cardStyle" :class="cardClass">
     <div class="content">
-      <c-button
-        v-if="$props.tag"
-        class="tag"
-        :title="`Acessar a categoria ${$props.tag}`"
-        :to="$props.toTag"
-        v-text="$props.tag"
-      ></c-button>
+      <template v-if="$props.tags !== []">
+        <c-button
+          v-for="(tag, index) of $props.tags"
+          :key="index"
+          class="tag"
+          :title="`Acessar a categoria ${tag.label}`"
+          :to="tag.to"
+          v-text="tag.label"
+        ></c-button>
+      </template>
 
       <c-button class="title" :title="title" :to="$props.to">
         <slot name="default"></slot>
@@ -129,7 +128,7 @@ export default {
 }
 
 .c-card .content .tag {
-  margin: 8px;
+  margin: 4px;
   border-radius: 4px;
 
   color: var(--text-secondary);
