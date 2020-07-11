@@ -26,7 +26,7 @@ export default {
 
 <template lang="html">
   <section class="c-footer-bar-about">
-    <c-figure src="logov1.svg"></c-figure>
+    <c-figure src="full-logo.svg"></c-figure>
 
     <h4 class="description">
       Ancap.su é um canal no youtube com o objetivo de divulgar o

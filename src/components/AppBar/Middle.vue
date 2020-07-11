@@ -21,7 +21,7 @@ export default {
 <template lang="html">
   <div class="c-app-bar-middle">
     <c-button class="logo" title="Home" :to="{ name: 'index' }" img>
-      <c-figure src="logov1.svg"></c-figure>
+      <c-figure src="full-logo.svg"></c-figure>
     </c-button>
 
     <div class="content">
