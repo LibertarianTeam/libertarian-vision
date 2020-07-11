@@ -7,7 +7,15 @@ export default {
   components: {
     'c-card': Card,
     'c-title': Title
-  }
+  },
+  data: () => ({
+    cards: [
+      { title: 'Sugerir Noticia', to: 'news', image: 'news.png' },
+      { title: 'Escrever Matéria', to: 'article', image: 'typewriter.png' },
+      { title: 'Traduzir Matéria', to: 'translate', image: 'glasses.png' },
+      { title: 'Narrar Matéria', to: 'narrate', image: 'mic.png' }
+    ]
+  })
 }
 </script>
 
@@ -16,16 +24,14 @@ export default {
     <c-title>Quer Ajudar?</c-title>
 
     <div class="cards">
-      <c-card img="imgs/news.png" transparent>
-        <span class="title">Sugerir Noticia</span>
-      </c-card>
-
-      <c-card img="imgs/typewriter.png" transparent>
-        <span class="title">Escrever Matéria</span>
-      </c-card>
-
-      <c-card img="imgs/mic.png" transparent>
-        <span class="title">Narrar Matéria</span>
+      <c-card
+        v-for="(card, index) of $data.cards"
+        :key="index"
+        :to="{ name: 'contribute-to', params: { to: card.to } }"
+        :img="`imgs/${card.image}`"
+        transparent
+      >
+        <h5 class="title" v-text="card.title"></h5>
       </c-card>
     </div>
   </section>
