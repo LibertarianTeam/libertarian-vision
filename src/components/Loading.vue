@@ -1,16 +1,24 @@
 <template lang="html">
-  <div class="c-loading"></div>
+  <div class="c-loading">
+    <c-figure src="logov1.svg"></c-figure>
+  </div>
 </template>
 
 <script>
+import Figure from '~/components/Figure'
+
 export default {
-  name: 'Loading'
+  name: 'Loading',
+  components: {
+    'c-figure': Figure
+  }
 }
 </script>
 
 <style lang="css" scoped>
 .c-loading {
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -23,23 +31,24 @@ export default {
   background-color: var(--bg-primary);
 }
 
-.c-loading::after {
-  content: '';
+.c-loading .c-figure {
+  width: 80%;
+  height: 80%;
 
-  border: 60px solid #666;
-  border-top-color: var(--primary);
-  border-bottom-color: var(--primary);
-  border-radius: 50%;
-
-  animation: spin 1.4s linear infinite;
+  animation: loading 3s linear infinite;
 }
 
-@keyframes spin {
+@keyframes loading {
   from {
-    transform: rotate(0deg);
+    filter: opacity(80%);
+    transform: rotateZ(0deg);
+  }
+  50% {
+    filter: opacity(20%);
   }
   to {
-    transform: rotate(360deg);
+    filter: opacity(80%);
+    transform: rotateZ(360deg);
   }
 }
 </style>
