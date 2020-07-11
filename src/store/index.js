@@ -4,6 +4,9 @@ export const state = () => ({
   video: {
     list: []
   },
+  article: {
+    list: []
+  },
   window: {
     width: 0,
     height: 0
@@ -55,6 +58,9 @@ export const mutations = {
   updateVideoList(state, { videoList }) {
     state.video.list = videoList
   },
+  updateArticleList(state, { articleList }) {
+    state.article.list = articleList
+  },
   updateWindowSize(state) {
     state.window.width = window.innerWidth
     state.window.height = window.innerHeight
@@ -82,5 +88,26 @@ export const actions = {
     ).data
 
     commit('updateVideoList', { videoList })
+  },
+  async getArticleList({ commit }) {
+    const { articleList } = (
+      await this.$axios.$post('', {
+        query: `
+          query {
+            articleList {
+              id
+              title
+              image
+              category {
+                name
+                label
+              }
+            }
+          }
+        `
+      })
+    ).data
+
+    commit('updateArticleList', { articleList })
   }
 }

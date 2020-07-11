@@ -1,11 +1,14 @@
 <script>
 import buildClass from 'build-css-class'
+
 import Button from '~/components/Button'
+import Loading from '~/components/Loading'
 
 export default {
   name: 'Card',
   components: {
-    'c-button': Button
+    'c-button': Button,
+    'c-loading': Loading
   },
   props: {
     to: {
@@ -25,6 +28,10 @@ export default {
       default: 'icons/broken.svg'
     },
     transparent: {
+      type: Boolean,
+      default: false
+    },
+    skeleton: {
       type: Boolean,
       default: false
     },
@@ -59,7 +66,9 @@ export default {
 </script>
 
 <template lang="html">
-  <div :class="cardClass" :style="cardStyle">
+  <c-loading v-if="$props.skeleton" :class="cardClass"></c-loading>
+
+  <div v-else :style="cardStyle" :class="cardClass">
     <div class="content">
       <c-button
         v-if="$props.tag"
@@ -99,6 +108,13 @@ export default {
   box-shadow: inset 0 0 24px 4px var(--sw-tertiary);
 }
 
+.c-card.c-loading {
+  position: relative;
+  align-items: center;
+
+  min-height: 260px;
+}
+
 .c-card.compact {
   height: 220px;
   overflow: hidden;
@@ -108,11 +124,11 @@ export default {
   background-position: center;
 }
 
-.c-card > .content {
+.c-card .content {
   width: 100%;
 }
 
-.c-card > .content .tag {
+.c-card .content .tag {
   margin: 8px;
   border-radius: 4px;
 
@@ -123,7 +139,7 @@ export default {
   text-shadow: 2px 2px 2px var(--sw-secondary);
 }
 
-.c-card > .content .title {
+.c-card .content .title {
   width: 100%;
   padding: 8px 12px;
 
@@ -139,22 +155,22 @@ export default {
   background-color: transparent;
 }
 
-.c-card:not(.transparent) > .content .title {
+.c-card:not(.transparent) .content .title {
   padding: 6px 8px;
   min-height: 100px;
 
   background-color: var(--sw-tertiary);
 }
 
-.c-card:not(.transparent):hover > .content .title {
+.c-card:not(.transparent):hover .content .title {
   background-color: var(--bg-tertiary);
 }
 
-.c-card:not(.transparent) > .content .title:hover {
+.c-card:not(.transparent) .content .title:hover {
   background-color: var(--bg-secondary);
 }
 
-.c-card.compact > .content .title {
+.c-card.compact .content .title {
   min-height: 82px;
 
   font-size: 1.2rem;

@@ -36,10 +36,22 @@ export default {
     },
     itemsOnScreen() {
       const { dsmWindow, smdWindow, dmdWindow, lmdWindow } = this
+      const end = dsmWindow
+        ? 1
+        : smdWindow
+        ? 2
+        : dmdWindow
+        ? 3
+        : lmdWindow
+        ? 4
+        : 5
 
-      this.updateItemsOnScreen(
-        dsmWindow ? 1 : smdWindow ? 2 : dmdWindow ? 3 : lmdWindow ? 4 : 5
-      )
+      this.updateItemsOnScreen(end)
+
+      return end
+    },
+    skeleton() {
+      return this.$props.items.length === 0
     },
     cardClass() {
       const { start, end } = this.$data
@@ -88,19 +100,29 @@ export default {
     </c-button>
 
     <div class="cards">
-      <c-card
-        v-for="(item, index) in $props.items"
-        :key="index"
-        :class="cardClass(index)"
-        :title="item.title"
-        :to="item.to"
-        :img="item.image"
-        :tag="item.category.label"
-        :to-tag="item.toTag"
-        :centered="$props.centered"
-      >
-        <h4 class="title" v-text="item.title"></h4>
-      </c-card>
+      <template v-if="skeleton">
+        <c-card
+          v-for="index in 8"
+          :key="index"
+          :class="cardClass(index)"
+          skeleton
+        ></c-card>
+      </template>
+      <template v-else>
+        <c-card
+          v-for="(item, index) of items"
+          :key="index"
+          :class="cardClass(index)"
+          :title="item.title"
+          :to="item.to"
+          :img="item.image"
+          :tag="item.tag"
+          :to-tag="item.toTag"
+          :centered="$props.centered"
+        >
+          <h4 class="title" v-text="item.title"></h4>
+        </c-card>
+      </template>
     </div>
 
     <c-button
@@ -123,8 +145,14 @@ export default {
   justify-content: center;
 }
 
+.c-loading {
+  overflow: hidden;
+}
+
 .cards {
-  display: inherit;
+  display: flex;
+
+  width: 100%;
   overflow: hidden;
 }
 
@@ -177,6 +205,10 @@ export default {
 
 .c-card.show + .c-card.show {
   margin-left: 6px;
+}
+
+.cards > .c-card.show.skeleton {
+  height: 280px;
 }
 
 .title {

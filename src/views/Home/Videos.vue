@@ -3,18 +3,20 @@ import Title from '~/components/Title'
 import Carousel from '~/components/Carousel'
 
 export default {
-  name: 'HomeVDeos',
+  name: 'HomeVideos',
   components: {
     'c-title': Title,
     'c-carousel': Carousel
   },
   computed: {
-    items() {
+    videos() {
       return this.$store.state.video.list.map((video) => {
         video.to = {
           name: 'read-id',
           params: { read: video.category.name, id: video.id }
         }
+
+        video.tag = video.category.label
 
         video.toTag = {
           name: 'category-filter',
@@ -23,6 +25,9 @@ export default {
 
         return video
       })
+    },
+    skeleton() {
+      return this.videos.length === 0
     }
   },
   mounted() {
@@ -34,7 +39,7 @@ export default {
 <template lang="html">
   <section class="v-home-videos">
     <c-title>Últimos Vídeos do Canal</c-title>
-    <c-carousel :items="items"></c-carousel>
+    <c-carousel :items="videos" :skeleton="skeleton"></c-carousel>
   </section>
 </template>
 

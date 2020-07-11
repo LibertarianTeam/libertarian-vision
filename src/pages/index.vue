@@ -1,12 +1,12 @@
 <script>
 import metaInfo from '~/plugins/vue-meta'
 
-import News from '~/views/HomePage/News'
-import Funnel from '~/views/HomePage/Funnel'
-import Videos from '~/views/HomePage/Videos'
-import Numbers from '~/views/HomePage/Numbers'
-import Contribute from '~/views/HomePage/Contribute'
-import Newsletter from '~/views/HomePage/Newsletter'
+import News from '~/views/Home/News'
+import Funnel from '~/views/Home/Funnel'
+import Videos from '~/views/Home/Videos'
+import Numbers from '~/views/Home/Numbers'
+import Contribute from '~/views/Home/Contribute'
+import Newsletter from '~/views/Home/Newsletter'
 
 export default {
   name: 'Home',
