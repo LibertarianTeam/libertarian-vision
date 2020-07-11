@@ -97,6 +97,7 @@ export default {
   box-shadow: inset 0 0 18px 6px var(--sw-secondary);
   border-radius: 8px;
 
+  overflow: hidden;
   transition: box-shadow 0.2s linear;
 
   background: var(--primary) no-repeat;

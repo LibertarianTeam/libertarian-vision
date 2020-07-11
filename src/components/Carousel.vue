@@ -1,5 +1,4 @@
 <script>
-import { mapGetters } from 'vuex'
 import buildClass from 'build-css-class'
 
 import Card from '~/components/Card'
@@ -23,65 +22,21 @@ export default {
       default: false
     }
   },
-  data: () => ({
-    end: 1,
-    start: 1
-  }),
   computed: {
-    startOfList() {
-      return this.$data.start <= 1
-    },
-    endOfList() {
-      return this.$data.end >= this.$props.items.length
-    },
-    itemsOnScreen() {
-      const { dsmWindow, smdWindow, dmdWindow, lmdWindow } = this
-      const end = dsmWindow
-        ? 1
-        : smdWindow
-        ? 2
-        : dmdWindow
-        ? 3
-        : lmdWindow
-        ? 4
-        : 5
-
-      this.updateItemsOnScreen(end)
-
-      return end
-    },
     skeleton() {
       return this.$props.items.length === 0
-    },
-    cardClass() {
-      const { start, end } = this.$data
-
-      return (index) =>
-        buildClass('', { show: index + 1 >= start && index + 1 <= end })
-    },
-    ...mapGetters(['dsmWindow', 'smdWindow', 'dmdWindow', 'lmdWindow'])
-  },
-  watch: {
-    itemsOnScreen() {
-      // updates the start and end of the card list when the screen is resized
     }
   },
   methods: {
-    updateItemsOnScreen(end) {
-      this.$data.end = end
-      this.$data.start = 1
-    },
     handleNext() {
-      if (this.$data.endOfList) return
-
-      this.$data.end += 1
-      this.$data.start += 1
+      this.$refs.cards.scrollBy(this.$store.state.window.width, 0)
     },
     handlePrev() {
-      if (this.$data.startOfList) return
-
-      this.$data.end -= 1
-      this.$data.start -= 1
+      this.$refs.cards.scrollBy(this.$store.state.window.width * -1, 0)
+    },
+    handleScroll(event) {
+      if (event.deltaX > 40) this.handleNext()
+      else if (event.deltaX < -40) this.handlePrev()
     }
   }
 }
@@ -89,30 +44,18 @@ export default {
 
 <template lang="html">
   <div class="c-carousel">
-    <c-button
-      class="arrow"
-      title="Anterior"
-      :disabled="startOfList"
-      icon
-      @click="handlePrev"
-    >
+    <c-button class="arrow" title="Anterior" icon @click="handlePrev($event)">
       <c-figure src="icons/arrow-prev.svg"></c-figure>
     </c-button>
 
-    <div class="cards">
+    <div ref="cards" class="cards" @wheel="handleScroll($event)">
       <template v-if="skeleton">
-        <c-card
-          v-for="index in 8"
-          :key="index"
-          :class="cardClass(index)"
-          skeleton
-        ></c-card>
+        <c-card v-for="index in 5" :key="index" skeleton></c-card>
       </template>
       <template v-else>
         <c-card
           v-for="(item, index) of items"
           :key="index"
-          :class="cardClass(index)"
           :title="item.title"
           :to="item.to"
           :img="item.image"
@@ -124,13 +67,7 @@ export default {
       </template>
     </div>
 
-    <c-button
-      class="arrow"
-      title="Próximo"
-      :disabled="endOfList"
-      icon
-      @click="handleNext"
-    >
+    <c-button class="arrow" title="Próximo" icon @click="handleNext($event)">
       <c-figure src="icons/arrow-next.svg"></c-figure>
     </c-button>
   </div>
@@ -142,76 +79,91 @@ export default {
 
   align-items: center;
   justify-content: center;
+
+  width: 100%;
 }
 
-.c-loading {
-  overflow: hidden;
-}
-
-.cards {
+.c-carousel .cards {
   display: flex;
 
-  width: 100%;
-  overflow: hidden;
+  height: 340px;
+  overflow-x: hidden;
+
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  -webkit-overflow-scrolling: touch;
 }
 
-.arrow {
-  z-index: 2;
-  position: absolute;
+.c-carousel .cards .c-card {
+  flex: none;
 
-  min-width: 48px;
-  min-height: 48px;
-}
-
-.arrow .c-figure {
-  width: 48px;
-  height: 48px;
-}
-
-.arrow:active .c-figure {
-  width: 42px;
-  height: 42px;
-}
-
-.arrow.disabled:active .c-figure {
-  width: 48px;
-  height: 48px;
-}
-
-.arrow:first-child {
-  left: 28px;
-  margin-right: 4px;
-}
-
-.arrow:last-child {
-  right: 28px;
-  margin-left: 4px;
-}
-
-.cards > .c-card {
-  width: 0;
-  transition: all 0.2s;
-
-  background-size: auto;
-}
-
-.cards > .c-card.show {
-  width: 100%;
+  width: calc(20% - 4px);
   height: inherit;
+
+  margin: 0 2px;
+  scroll-snap-align: start;
 
   background-size: cover;
 }
 
-.c-card.show + .c-card.show {
-  margin-left: 6px;
-}
-
-.cards > .c-card.show.skeleton {
+.c-carousel .cards .c-card.skeleton {
   height: 280px;
 }
 
-.title {
+.c-carousel .cards .c-card .title {
   font-size: 1.2rem;
+}
+
+.c-carousel .arrow {
+  min-width: 48px;
+  min-height: 48px;
+
+  z-index: 2;
+  position: absolute;
+}
+
+.c-carousel .arrow .c-figure {
+  width: 48px;
+  height: 48px;
+}
+
+.c-carousel .arrow:active .c-figure {
+  width: 42px;
+  height: 42px;
+}
+
+.c-carousel .arrow.disabled:active .c-figure {
+  width: 48px;
+  height: 48px;
+}
+
+.c-carousel .arrow:first-child {
+  left: 28px;
+  margin-left: 4px;
+}
+
+.c-carousel .arrow:last-child {
+  right: 28px;
+  margin-right: 4px;
+}
+
+@media only screen and (max-width: 1366px) {
+  .c-carousel .cards .c-card {
+    width: calc(25% - 4px);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .c-carousel .cards .c-card {
+    width: calc(33.33% - 4px);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .c-carousel .cards .c-card {
+    width: calc(50% - 4px);
+  }
 }
 
 @media only screen and (max-width: 640px) {
@@ -219,17 +171,23 @@ export default {
     align-items: flex-start;
   }
 
-  .cards {
+  .c-carousel .cards {
     height: 280px;
   }
 
-  .arrow {
+  .c-carousel .arrow {
     margin: 64px 0 0;
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .c-carousel .cards .c-card {
+    width: calc(100%);
+  }
+}
+
 @media only screen and (max-width: 360px) {
-  .arrow {
+  .c-carousel .arrow {
     margin: 42px 0 0;
   }
 }
