@@ -4,14 +4,14 @@ export const state = () => ({
       gab: 'https://gab.ai/ancapsu',
       minds: 'https://minds.com/ancapsu',
       twitter: 'https://twitter.com/ancapsu',
-      youtube: 'https://youtube.com/ancapsu',
-      bitchute: 'https://bitchute.com/ancapsu',
+      youtube: 'https://youtube.com/c/ANCAPSUVlog',
+      bitchute: 'https://bitchute.com/channel/visaolibertaria/',
       facebook: 'https://facebook.com/pageancapsu',
-      visaolibertaria: 'https://www.youtube.com/visaolibertaria'
+      visaolibertaria: 'https://youtube.com/c/Vis%C3%A3oLibert%C3%A1riaAncapSu'
     },
     donation: {
-      padrim: 'https://www.padrim.com.br/ancapsu',
-      patreon: 'https://www.patreon.com/ancapsu',
+      padrim: 'https://padrim.com.br/ancapsu',
+      patreon: 'https://patreon.com/ancapsu',
       apoiase: 'https://apoia.se/ancapsu'
     },
     store: {
