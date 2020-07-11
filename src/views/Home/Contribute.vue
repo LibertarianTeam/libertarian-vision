@@ -76,14 +76,15 @@ export default {
   }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 480px) {
   .cards {
     align-items: center;
     flex-direction: column;
   }
 
   .c-card {
-    height: 96px;
+    height: 160px;
+    background-position: center;
   }
 
   .c-card + .c-card {

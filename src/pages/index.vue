@@ -74,7 +74,7 @@ export default {
   grid-area: v-home-numbers;
 }
 
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 1620px) {
   #p-home {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
@@ -85,8 +85,20 @@ export default {
   }
 }
 
+@media only screen and (max-width: 1024px) {
+  #p-home {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      'v-home-newsletter v-home-newsletter v-home-funnel v-home-funnel'
+      'v-home-videos v-home-videos v-home-videos v-home-videos'
+      'v-home-news v-home-news v-home-news v-home-news'
+      'v-home-numbers v-home-contribute v-home-contribute v-home-contribute';
+  }
+}
+
 @media only screen and (max-width: 800px) {
   #p-home {
+    grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
       'v-home-newsletter v-home-newsletter'
       'v-home-funnel v-home-funnel'

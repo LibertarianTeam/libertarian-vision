@@ -28,8 +28,6 @@
 }
 
 html {
-  min-width: 246px;
-
   scrollbar-width: thin;
   scrollbar-color: #fc0 #9999;
 }
@@ -47,7 +45,6 @@ html {
 }
 
 main {
-  max-width: 1920px;
   min-height: 100vh;
 
   margin: 0 auto;

@@ -44,7 +44,7 @@ export default {
 
     <div class="news">
       <template v-if="skeleton">
-        <c-card v-for="index in 9" :key="index" skeleton compact></c-card>
+        <c-card v-for="index in 12" :key="index" skeleton compact></c-card>
       </template>
       <template v-else>
         <c-card
@@ -62,33 +62,29 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.news {
+.v-home-news .news {
   display: grid;
 
   grid-gap: 8px;
   grid-template-columns: repeat(3, 1fr);
 }
 
-.c-card {
+.v-home-news .news .c-card {
   width: 100%;
 }
 
-@media only screen and (max-width: 800px) {
-  .news {
+@media only screen and (max-width: 1024px) {
+  .v-home-news .news {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .c-card:last-child {
-    grid-column: 1/3;
   }
 }
 
 @media only screen and (max-width: 640px) {
-  .news {
+  .v-home-news .news {
     grid-template-columns: auto;
   }
 
-  .c-card:last-child {
+  .v-home-news .news .c-card:last-child {
     grid-column: 1/2;
   }
 }
