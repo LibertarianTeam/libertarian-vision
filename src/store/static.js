@@ -1,13 +1,13 @@
 export const state = () => ({
   links: {
     social: {
-      gab: 'https://gab.ai/ancapsu',
-      minds: 'https://minds.com/ancapsu',
-      twitter: 'https://twitter.com/ancapsu',
+      visaolibertaria: 'https://youtube.com/c/Vis%C3%A3oLibert%C3%A1riaAncapSu',
       youtube: 'https://youtube.com/c/ANCAPSUVlog',
-      bitchute: 'https://bitchute.com/channel/visaolibertaria/',
+      twitter: 'https://twitter.com/ancapsu',
       facebook: 'https://facebook.com/pageancapsu',
-      visaolibertaria: 'https://youtube.com/c/Vis%C3%A3oLibert%C3%A1riaAncapSu'
+      bitchute: 'https://bitchute.com/channel/visaolibertaria',
+      gab: 'https://gab.ai/ancapsu',
+      minds: 'https://minds.com/ancapsu'
     },
     donation: {
       padrim: 'https://padrim.com.br/ancapsu',
