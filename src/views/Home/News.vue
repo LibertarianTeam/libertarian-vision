@@ -83,9 +83,5 @@ export default {
   .v-home-news .news {
     grid-template-columns: auto;
   }
-
-  .v-home-news .news .c-card:last-child {
-    grid-column: 1/2;
-  }
 }
 </style>

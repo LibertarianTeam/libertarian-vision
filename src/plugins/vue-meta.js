@@ -204,6 +204,7 @@ export default ({ page = {}, social = {} }) => {
 
   return {
     title: pageMetaInfo.title,
+    link: [...pageMetaInfo.link],
     meta: [
       ...pageMetaInfo.meta,
       ...twitterMetaInfo.meta,

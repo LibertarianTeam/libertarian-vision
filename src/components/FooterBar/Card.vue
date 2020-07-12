@@ -51,36 +51,36 @@ export default {
   height: 94px;
 }
 
-.c-figure {
+.c-footer-bar-card .c-button .c-figure {
   margin-right: 12px;
 }
 
-.content {
+.c-footer-bar-card .content {
   text-align: justify;
   color: var(--text-secondary);
 }
 
-.c-button.text {
+.c-footer-bar-card .content .c-button.text {
   color: var(--text-tertiary);
   font-size: 1.1rem;
 }
 
-.text {
+.c-footer-bar-card .content .text {
   font-size: 1rem;
 }
 
 @media only screen and (max-width: 1366px) {
-  .text {
+  .c-footer-bar-card .content .text {
     font-size: 0.9rem;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .c-figure {
+  .c-footer-bar-card .c-button .c-figure {
     height: 52px;
   }
 
-  .c-button.text {
+  .c-footer-bar-card .content .c-button.text {
     font-size: 1rem;
   }
 }
@@ -95,7 +95,7 @@ export default {
     margin-top: 12px;
   }
 
-  .c-figure {
+  .c-footer-bar-card .c-button .c-figure {
     margin: 0 0 12px;
   }
 }

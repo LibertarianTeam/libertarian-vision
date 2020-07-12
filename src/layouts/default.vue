@@ -30,7 +30,7 @@ export default {
       this.$store.commit('updateWindowSize')
     })
 
-    const theme = localStorage.getItem('theme')
+    const theme = window.localStorage.getItem('theme')
     if (theme) this.$store.commit('updateTheme', { theme })
 
     this.$store.commit('updateShowAppStatus', { show: true })

@@ -34,13 +34,13 @@ export default {
 </script>
 
 <template lang="html">
-  <div :class="sideNavClass" @click="$emit('hide', $event)">
+  <div :class="sideNavClass" @click="$emit('click:hide', $event)">
     <nav class="nav" @click.stop>
       <c-button
         title="Home"
         :to="{ name: 'index' }"
         icon
-        @click.stop="$emit('hide', $event)"
+        @click.stop="$emit('click:hide', $event)"
       >
         <c-figure src="icons/home.svg"></c-figure>
       </c-button>
@@ -51,8 +51,8 @@ export default {
         :items="navItem.items"
         :to="navItem.to"
         contained
-        @click:main.stop="$emit('hide', $event)"
-        @click:item.stop="$emit('hide', $event)"
+        @click:main.stop="$emit('click:hide', $event)"
+        @click:item.stop="$emit('click:hide', $event)"
       >
         {{ navItem.text }}
       </c-dropdown>
@@ -86,7 +86,7 @@ export default {
   opacity: 1;
 }
 
-.nav {
+.c-app-bar-side-nav .nav {
   display: flex;
   flex-direction: column;
 
@@ -101,22 +101,22 @@ export default {
   background-color: var(--bg-tertiary);
 }
 
-.nav > .c-button.icon {
+.c-app-bar-side-nav .nav > .c-button.icon {
   padding: 12px 0;
 }
 
-.nav > .c-button.icon:hover {
+.c-app-bar-side-nav .nav > .c-button.icon:hover {
   filter: opacity(60%);
 }
 
-.nav > .c-button.icon .c-figure {
+.c-app-bar-side-nav .nav > .c-button.icon .c-figure {
   width: 22px;
   height: 22px;
 
   fill: #fff;
 }
 
-.c-theme {
+.c-app-bar-side-nav .nav .c-theme {
   width: 100%;
   height: 48px;
 

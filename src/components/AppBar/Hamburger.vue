@@ -27,7 +27,7 @@ export default {
   padding: 2px;
 }
 
-.c-figure {
+.c-app-bar-hamburger .c-figure {
   width: 26px;
   height: 26px;
 

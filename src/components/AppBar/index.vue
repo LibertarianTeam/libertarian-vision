@@ -35,7 +35,7 @@ export default {
       <c-app-bar-side-nav
         v-if="smdWindow"
         :show="$data.showSideNav"
-        @hide="$data.showSideNav = false"
+        @click:hide="$data.showSideNav = false"
       ></c-app-bar-side-nav>
       <c-app-bar-nav v-else></c-app-bar-nav>
     </div>
@@ -47,16 +47,16 @@ export default {
   background: var(--primary) url('~assets/imgs/appbarv1.svg') no-repeat right;
 }
 
-.content {
+.c-app-bar .content {
   margin: 0 auto;
   padding: 0 48px;
 }
 
-.c-social-nav {
+.c-app-bar .content .c-social-nav {
   padding-top: 2px;
 }
 
-.c-app-bar-middle {
+.c-app-bar .content .c-app-bar-middle {
   margin-bottom: 18px;
 }
 
@@ -65,11 +65,11 @@ export default {
     background-image: url('~assets/imgs/appbarv2.svg');
   }
 
-  .content {
+  .c-app-bar .content {
     padding: 0 6px;
   }
 
-  .c-app-bar-middle {
+  .c-app-bar .content .c-app-bar-middle {
     margin: 12px 0 6px;
   }
 }
@@ -81,7 +81,7 @@ export default {
 }
 
 @media only screen and (max-width: 360px) {
-  .c-social-nav {
+  .c-app-bar .content .c-social-nav {
     width: 100%;
   }
 }

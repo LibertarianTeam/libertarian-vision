@@ -34,21 +34,21 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.inline {
+.c-form.inline {
   display: inline-flex;
   justify-content: space-between;
 
   width: 100%;
 }
 
-.inline .fields {
+.c-form.inline .fields {
   width: 100%;
   max-width: 400px;
 
   padding-right: 12px;
 }
 
-.c-button {
+.c-form .c-button {
   padding: 0 36px;
   border-radius: 8px;
 
@@ -56,17 +56,17 @@ export default {
 }
 
 @media only screen and (max-width: 480px) {
-  .inline {
+  .c-form.inline {
     flex-direction: column;
     padding: 6px;
   }
 
-  .inline .fields {
+  .c-form.inline .fields {
     max-width: 480px;
     padding: 0 0 12px;
   }
 
-  .c-button {
+  .c-form .c-button {
     padding: 12px;
   }
 }

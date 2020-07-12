@@ -43,26 +43,26 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.c-title {
+.c-footer-bar-store .c-title {
   margin-bottom: 40px;
 
   color: var(--text-secondary);
   font-size: 1.2rem;
 }
 
-.c-footer-bar-card + .c-footer-bar-card {
+.c-footer-bar-store .c-footer-bar-card + .c-footer-bar-card {
   margin-top: 38px;
 }
 
 @media only screen and (max-width: 800px) {
-  .c-title {
+  .c-footer-bar-store .c-title {
     font-size: 1.1rem;
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 640px) {
-  .c-footer-bar-card + .c-footer-bar-card {
+  .c-footer-bar-store .c-footer-bar-card + .c-footer-bar-card {
     margin-top: 0;
   }
 }

@@ -60,7 +60,7 @@ export default {
   text-align: center;
 }
 
-.c-figure {
+.c-social-nav .c-button .c-figure {
   width: 18px;
   height: 18px;
 
@@ -68,12 +68,12 @@ export default {
   box-sizing: content-box;
 }
 
-.text {
+.c-social-nav .c-button .text {
   font-size: 12px;
   font-weight: bold;
 }
 
-.c-button.icon + .c-button.icon {
+.c-social-nav .c-button + .c-button {
   margin-left: 18px;
 }
 
@@ -84,11 +84,7 @@ export default {
   width: 100%;
 }
 
-.c-social-nav.vertical .c-figure {
-  padding: 0 8px;
-}
-
-.c-social-nav.vertical .c-button.icon {
+.c-social-nav.vertical .c-button {
   align-items: center;
   justify-content: flex-start;
 
@@ -98,30 +94,34 @@ export default {
   background-color: transparent;
 }
 
-.c-social-nav.vertical .c-button.icon:hover {
+.c-social-nav.vertical .c-button:hover {
   filter: opacity(60%);
 }
 
-.c-social-nav.vertical .c-button.icon + .c-button.icon {
+.c-social-nav.vertical .c-button .c-figure {
+  padding: 0 8px;
+}
+
+.c-social-nav.vertical .c-button + .c-button {
   margin: 6px 0 0;
 }
 
-.c-social-nav.dark .c-figure {
+.c-social-nav.dark .c-button .c-figure {
   fill: #fff !important;
 }
 
-.c-social-nav.invert .c-figure {
+.c-social-nav.invert .c-button .c-figure {
   fill: #fff;
 }
 
 @media only screen and (max-width: 480px) {
-  .c-button.icon + .c-button.icon {
+  .c-social-nav .c-button + .c-button {
     margin-left: 16px;
   }
 }
 
 @media only screen and (max-width: 360px) {
-  .c-button.icon + .c-button.icon {
+  .c-social-nav .c-button + .c-button {
     margin-left: 12px;
   }
 }

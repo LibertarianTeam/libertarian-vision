@@ -24,7 +24,7 @@ export default {
     figureClass() {
       return buildClass('c-figure', {
         svg: this.isSvg,
-        description: this.description
+        description: this.$props.description
       })
     }
   }

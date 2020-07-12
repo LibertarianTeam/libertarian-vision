@@ -38,23 +38,19 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.cards {
+.v-home-contribute .cards {
   display: inline-flex;
   width: 100%;
 }
 
-.c-card {
+.v-home-contribute .cards .c-card {
   align-items: flex-start;
 
   width: 120px;
   height: 240px;
 }
 
-.c-card + .c-card {
-  margin-left: 6px;
-}
-
-.c-card .title {
+.v-home-contribute .cards .c-card .title {
   transition: color 0.4s;
 
   color: var(--text-tertiary);
@@ -62,32 +58,36 @@ export default {
   font-weight: bolder;
 }
 
-.c-card:hover .title {
+.v-home-contribute .cards .c-card:hover .title {
   color: var(--text-secondary);
 }
 
+.v-home-contribute .cards .c-card + .c-card {
+  margin-left: 6px;
+}
+
 @media only screen and (max-width: 800px) {
-  .cards {
+  .v-home-contribute .cards {
     justify-content: center;
   }
 
-  .c-card {
+  .v-home-contribute .cards .c-card {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .cards {
+  .v-home-contribute .cards {
     align-items: center;
     flex-direction: column;
   }
 
-  .c-card {
+  .v-home-contribute .cards .c-card {
     height: 160px;
     background-position: center;
   }
 
-  .c-card + .c-card {
+  .v-home-contribute .cards .c-card + .c-card {
     margin: 8px 0 0;
   }
 }

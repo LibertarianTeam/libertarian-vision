@@ -40,19 +40,23 @@ export default {
 
 <template lang="html">
   <div :class="dropdownClass">
-    <c-button class="main" :to="to" @click="$emit('click:main', $event)">
+    <c-button class="main" :to="$props.to" @click="$emit('click:main', $event)">
       <span class="text">
         <slot name="default"></slot>
       </span>
 
-      <c-button v-if="contained" icon @click.prevent.stop="show = !show">
+      <c-button
+        v-if="$props.contained"
+        icon
+        @click.prevent.stop="$data.show = !$data.show"
+      >
         <c-figure src="icons/arrow-down.svg"></c-figure>
       </c-button>
     </c-button>
 
     <div class="items">
       <c-button
-        v-for="(item, index) in items"
+        v-for="(item, index) in $props.items"
         :key="index"
         :to="item.to"
         @click="$emit('click:item', $event)"
@@ -69,7 +73,7 @@ export default {
   position: relative;
 }
 
-.c-button.main {
+.c-dropdown .c-button.main {
   padding: 8px 22px;
 
   border: none;
@@ -89,16 +93,16 @@ export default {
   margin-top: 2px;
 }
 
-.c-button.main .c-button {
+.c-dropdown .c-button.main .c-button {
   float: right;
 }
 
-.c-button.main .c-figure {
+.c-dropdown .c-button.main .c-button .c-figure {
   transform: none;
   transition: transform 0.4s;
 }
 
-.items {
+.c-dropdown .items {
   display: block;
   position: absolute;
 
@@ -116,24 +120,19 @@ export default {
   position: relative;
 }
 
-.items > .c-button {
+.c-dropdown .items .c-button {
   display: block;
 
   margin: 0;
   padding: 10px 14px;
 }
 
-.c-dropdown.contained .items > .c-button {
+.c-dropdown.contained .items .c-button {
   border: none;
 }
 
-.items > .c-button + .c-button {
+.c-dropdown .items .c-button + .c-button {
   border-top: none;
-}
-
-.c-dropdown.show .c-button.main .c-figure,
-.c-dropdown:not(.contained):hover .c-button.main .c-figure {
-  transform: rotate(180deg);
 }
 
 .c-dropdown.show .c-button.main,
@@ -145,5 +144,10 @@ export default {
 .c-dropdown:not(.contained):hover .items {
   height: auto;
   filter: opacity(100%);
+}
+
+.c-dropdown.show .c-button.main .c-button .c-figure,
+.c-dropdown:not(.contained):hover .c-button.main .c-button .c-figure {
+  transform: rotate(180deg);
 }
 </style>

@@ -48,7 +48,7 @@ export default {
   border-color: var(--primary);
 }
 
-.c-figure {
+.c-theme .c-figure {
   width: 100%;
   height: 100%;
 

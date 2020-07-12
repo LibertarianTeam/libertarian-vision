@@ -48,14 +48,10 @@ export default {
       return this.$props.to && !this.$props.to.name
     },
     buttonClass() {
-      return buildClass('c-button', this.$props, [
-        'fab',
-        'img',
-        'icon',
-        'text',
-        'outlined',
-        'disabled'
-      ])
+      const { fab, img, icon, text, outlined, disabled } = this.$props
+      const options = { fab, img, icon, text, outlined, disabled }
+
+      return buildClass('c-button', options)
     }
   }
 }

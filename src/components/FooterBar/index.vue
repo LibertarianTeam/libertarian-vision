@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template lang="html">
-  <footer class="v-footer-bar">
+  <footer class="c-footer-bar">
     <div class="content">
       <c-footer-bar-about></c-footer-bar-about>
       <c-footer-bar-donation></c-footer-bar-donation>
@@ -24,12 +24,12 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.v-footer-bar {
+.c-footer-bar {
   background: url('~assets/imgs/footer.png') no-repeat;
   background-size: cover;
 }
 
-.content {
+.c-footer-bar .content {
   display: grid;
 
   grid-gap: 6px 18px;
@@ -42,37 +42,37 @@ export default {
   background-color: var(--sw-tertiary);
 }
 
-.v-footer-bar:hover .content {
+.c-footer-bar:hover .content {
   background-color: var(--bg-tertiary);
 }
 
-.c-footer-bar-about {
+.c-footer-bar .content .c-footer-bar-about {
   grid-area: c-footer-bar-about;
 }
 
-.c-footer-bar-donation {
+.c-footer-bar .content .c-footer-bar-donation {
   grid-area: c-footer-bar-donation;
 }
 
-.c-footer-bar-store {
+.c-footer-bar .content .c-footer-bar-store {
   grid-area: c-footer-bar-store;
 }
 
 @media only screen and (max-width: 1024px) {
-  .content {
+  .c-footer-bar .content {
     grid-template-areas:
       'c-footer-bar-donation c-footer-bar-store'
       'c-footer-bar-about c-footer-bar-about';
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .c-footer-bar-about {
+  .c-footer-bar .content .c-footer-bar-about {
     margin-top: 24px;
   }
 }
 
 @media only screen and (max-width: 640px) {
-  .content {
+  .c-footer-bar .content {
     grid-template-columns: 1fr;
     grid-template-areas:
       'c-footer-bar-donation'
@@ -82,7 +82,7 @@ export default {
     padding: 12px;
   }
 
-  .c-footer-bar-about {
+  .c-footer-bar .content .c-footer-bar-about {
     margin-top: 12px;
   }
 }

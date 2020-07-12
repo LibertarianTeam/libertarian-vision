@@ -49,33 +49,33 @@ export default {
   justify-content: space-between;
 }
 
-.c-app-bar-nav > .content {
+.c-app-bar-nav .content {
   display: flex;
   align-items: flex-end;
 }
 
-.c-theme {
+.c-app-bar-nav .c-theme {
   width: 42px;
   height: 42px;
 
   margin: 0 0 12px;
 }
 
-.c-app-bar-nav > .content > .c-button.icon {
+.c-app-bar-nav .content > .c-button.icon {
   padding: 6px 22px;
 }
 
-.c-app-bar-nav > .content > .c-button.icon .c-figure {
+.c-app-bar-nav .content > .c-button.icon .c-figure {
   width: 22px;
   height: 22px;
 }
 
-.dark .c-app-bar-nav > .content > .c-button.icon .c-figure {
+#app.dark .c-app-bar-nav .content > .c-button.icon .c-figure {
   fill: #fff;
 }
 
 .c-dropdown::after,
-.c-app-bar-nav > .content > .c-button.icon::after {
+.c-app-bar-nav .content > .c-button.icon::after {
   content: '';
   position: absolute;
 
@@ -93,7 +93,7 @@ export default {
 }
 
 .c-dropdown:hover::after,
-.c-app-bar-nav > .content > .c-button.icon:hover::after {
+.c-app-bar-nav .content > .c-button.icon:hover::after {
   width: 100%;
 }
 </style>

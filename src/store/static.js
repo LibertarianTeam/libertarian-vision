@@ -134,7 +134,8 @@ export const state = () => ({
 export const getters = {
   email({ links }) {
     return (email) =>
-      `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${links.emails.primary}&tf=1`
+      `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${email ||
+        links.emails.primary}&tf=1`
   }
 }
 

@@ -45,12 +45,11 @@ export const getters = {
 
 export const mutations = {
   updateTheme(state, { theme } = { theme: 'next' }) {
-    if (theme !== 'next') return (state.theme = theme)
-
-    if (state.theme === 'light') state.theme = 'dark'
+    if (theme !== 'next') state.theme = theme
+    else if (state.theme === 'light') state.theme = 'dark'
     else state.theme = 'light'
 
-    localStorage.setItem('theme', state.theme)
+    window.localStorage.setItem('theme', state.theme)
   },
   updateShowAppStatus(state, { show }) {
     state.showApp = show

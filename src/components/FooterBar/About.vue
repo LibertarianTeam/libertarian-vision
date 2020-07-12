@@ -63,49 +63,49 @@ export default {
   flex-direction: column;
 }
 
-.c-figure {
+.c-footer-bar-about > .c-figure {
   width: 220px;
   padding: 0 0 22px;
 
   fill: var(--primary);
 }
 
-.contact,
-.description {
+.c-footer-bar-about .contact,
+.c-footer-bar-about .description {
   padding: 0 0 22px;
   color: var(--text-secondary);
 }
 
-.contact,
-.c-button,
-.description {
+.c-footer-bar-about .contact,
+.c-footer-bar-about .description,
+.c-footer-bar-about .c-button.text {
   font: italic bold 1.3rem/1.2 cursive;
 }
 
-.c-button {
+.c-footer-bar-about .c-button.text {
   color: var(--text-tertiary);
 }
 
 @media only screen and (max-width: 1366px) {
-  .contact,
-  .c-button,
-  .description {
+  .c-footer-bar-about .contact,
+  .c-footer-bar-about .description,
+  .c-footer-bar-about .c-button.text {
     font-size: 1.2rem;
   }
 }
 
 @media only screen and (max-width: 360px) {
-  .c-figure {
+  .c-footer-bar-about > .c-figure {
     width: 180px;
   }
 
-  .contact,
-  .c-button,
-  .description {
+  .c-footer-bar-about .contact,
+  .c-footer-bar-about .description,
+  .c-footer-bar-about .c-button.text {
     font-size: 1.2rem;
   }
 
-  .contact {
+  .c-footer-bar-about .contact {
     text-align: center;
   }
 }

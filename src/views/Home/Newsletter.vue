@@ -32,13 +32,13 @@ export default {
   flex-direction: column;
 }
 
-.subtitle {
+.v-home-newsletter .subtitle {
   margin-bottom: 24px;
   font-size: 0.9rem;
 }
 
 @media only screen and (max-width: 480px) {
-  .subtitle {
+  .v-home-newsletter .subtitle {
     margin: 0 6px 6px;
     text-align: justify;
   }

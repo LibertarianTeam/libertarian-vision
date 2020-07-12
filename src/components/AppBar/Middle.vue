@@ -50,11 +50,11 @@ export default {
   width: 100%;
 }
 
-.logo .c-figure {
+.c-app-bar-middle .logo .c-figure {
   width: 220px;
 }
 
-.c-app-bar-middle > .content {
+.c-app-bar-middle .content {
   display: inline-flex;
 
   align-items: center;
@@ -65,16 +65,16 @@ export default {
   margin-top: 6px;
 }
 
-.account {
+.c-app-bar-middle .content .account {
   margin: 0 auto 0 22%;
   padding-bottom: 14px;
 }
 
-.account .c-button {
+.c-app-bar-middle .content .account .c-button {
   font-size: 0.8rem;
 }
 
-.account .c-button + .c-button {
+.c-app-bar-middle .content .account .c-button + .c-button {
   margin-left: 6px;
 }
 
@@ -84,11 +84,11 @@ export default {
     align-items: center;
   }
 
-  .logo .c-figure {
+  .c-app-bar-middle .logo .c-figure {
     width: 180px;
   }
 
-  .account {
+  .c-app-bar-middle .content .account {
     margin: 0;
     padding: 0;
   }
