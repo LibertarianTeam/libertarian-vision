@@ -1,6 +1,6 @@
 # AncapSU
 
-[AncapSU] é a plataforma oficial do canal [Ancap.SU] feita em [ReactJS], o código nesse repositório é uma versão de cunho didática desenvolvida em [VueJS]/[NuxtJS].
+[AncapSU] é a plataforma oficial do canal [Ancap.SU] feita em [ReactJS], o código nesse repositório é uma versão não oficial desenvolvida em [VueJS]/[NuxtJS].
 
 ![Preview][preview]
 
@@ -8,6 +8,7 @@
 
 - [VueJS] - Framework JavaScript progressivo ❤️.
 - [NuxtJS] - Solução SSR(Server Side Rendered) para [VueJS].
+- [Axios] - Cliente HTTP baseado em promises para o navegador e [NodeJS].
 - [Vuex] - Padrão de gerenciamento de estado para [VueJS].
 - [VueMeta] - Plugin [NuxtJS] para gerenciar os metadados do aplicativo.
 - [VueRouter] - Roteador oficial para [VueJS].
@@ -16,7 +17,7 @@
 
 ### :wrench: Rode Localmente
 
-```shell
+```bash
   $ git clone https://github.com/LibertarianTeam/ancapsu.git # Clone o repositório.
   $ cd ancapsu # Navegue ate a pasta.
   # Crie/Configure o arquivo src/.env de acordo com o .env_example.
@@ -38,7 +39,7 @@
 
 #### :muscle: Progresso
 
-O código nesse repositório é de cunho didático (pelo menos por enquanto), caso queira contribuir ou ver de perto o progresso feito, acesse o [trello] do projeto.
+O código nesse repositório é apenas de cunho didático, caso queira contribuir ou ver de perto o progresso feito, acesse o [trello] do projeto.
 
 #### :memo: Licença
 
