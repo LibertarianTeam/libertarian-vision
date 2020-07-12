@@ -1,8 +1,8 @@
 {
   "name": "ancapsu",
-  "version": "0.1.1",
-  "description": "AncapSU é a plataforma oficial do canal Ancap.SU feita em ReactJS, o código nesse repositório é uma versão de cunho didática desenvolvida em VueJS.",
-  "author": "paulloclara <paulloclara@gmail.com>",
+  "version": "0.2.0",
+  "description": "AncapSU é a plataforma oficial do canal Ancap.SU feita em ReactJS, o código nesse repositório é uma versão não oficial desenvolvida em VueJS/NuxtJS.",
+  "author": "paulloclara <https://github.com/paulloclara>",
   "scripts": {
     "start": "nuxt",
     "build": "nuxt build",
