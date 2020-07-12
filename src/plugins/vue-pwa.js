@@ -12,9 +12,10 @@ export default {
   manifest: {
     display: 'standalone',
     name: defaultMetaInfo.title,
+    categories: ['internet', 'news', 'education', 'libertarianism'],
     short_name: defaultMetaInfo.title,
     lang: 'pt-BR',
-    start_url: '.',
+    start_url: '/',
     description: defaultMetaInfo.description,
     background_color: defaultMetaInfo.themeColor
   }
