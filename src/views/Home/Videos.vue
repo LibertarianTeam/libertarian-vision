@@ -43,8 +43,7 @@ export default {
 </template>
 
 <style lang="css" scoped>
-.c-carousel {
+.v-home-videos {
   width: 100%;
-  margin: 0 auto;
 }
 </style>

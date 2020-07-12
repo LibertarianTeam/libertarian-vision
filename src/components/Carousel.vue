@@ -79,8 +79,6 @@ export default {
 
   align-items: center;
   justify-content: center;
-
-  width: 100%;
 }
 
 .c-carousel .cards {

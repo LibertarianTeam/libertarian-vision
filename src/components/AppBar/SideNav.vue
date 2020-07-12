@@ -75,7 +75,7 @@ export default {
   top: 0;
   left: 0;
 
-  z-index: 4;
+  z-index: 40;
   transition: 0.4s 0.1s ease-in;
 
   background-color: var(--bg-tertiary);
