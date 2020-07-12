@@ -61,6 +61,7 @@ Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE] 
 [paulloclara]: https://github.com/PaulloClara
 [vuejs]: https://vuejs.org
 [nuxtjs]: https://nuxtjs.org
+[axios]: https://github.com/axios/axios
 [vuex]: https://vuex.vuejs.org
 [vuemeta]: https://github.com/nuxt/vue-meta
 [nodejs]: https://nodejs.org/en
