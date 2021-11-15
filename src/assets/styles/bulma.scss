@@ -1,0 +1,61 @@
+@import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import "../../../node_modules/bulma/sass/utilities/functions.sass";
+
+$primary: #fc0;
+$primary-invert: findColorInvert($primary);
+$secondary: #03a9f4;
+$secondary-invert: findColorInvert($secondary);
+$success: #4caf50;
+$warning: #faad14;
+$danger: #f44336;
+$info: #276cda;
+$blue: #276cda;
+
+$font-family: "Roboto", "Helvetica Neue", sans-serif;
+
+@import "../../../node_modules/bulma/sass/utilities/derived-variables.sass";
+
+$addColors: (
+  "secondary": (
+    $secondary,
+    $secondary-invert,
+  ),
+);
+
+$colors: map-merge($colors, $addColors);
+
+@import "../../../node_modules/bulma/bulma.sass";
+
+.button {
+  transition: all 0.2s;
+
+  &.is-warning:not(.is-light) {
+    color: #fff !important;
+  }
+
+  &:focus:not(:active) {
+    box-shadow: 0 0 0 0.125em $primary;
+  }
+}
+
+a {
+  transition: all 0.2s !important;
+
+  &:hover {
+    color: $secondary;
+  }
+}
+
+p {
+  font-weight: 500;
+}
+
+.title,
+.subtitle {
+  color: var(--primary-text-color);
+}
+
+.title {
+  margin-bottom: 0.75rem !important;
+  font-size: 1.5rem;
+}
