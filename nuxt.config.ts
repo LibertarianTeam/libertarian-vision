@@ -1,15 +1,13 @@
 import { defineNuxtConfig } from "nuxt3";
+import metaConfig from "./src/plugins/vue-meta";
 
 export default defineNuxtConfig({
   srcDir: "src",
-  meta: {
-    htmlAttrs: { lang: "pt-BR", dir: "ltr" },
-    titleTemplate: `%s | Visão libertária`,
-  },
+  meta: metaConfig,
   css: [
     "bulma",
     "@fortawesome/fontawesome-free/css/all.css",
-    "~/assets/styles/import.scss",
     "~/assets/fonts/import.scss",
+    "~/assets/styles/import.scss",
   ],
 });
