@@ -1,15 +1,13 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div id="p-index">
-    <button class="button is-primary">
-      <i class="fas fa-home mr-4" /> home
-    </button>
-  </div>
+  <main id="index-page">
+    <button class="button is-primary"><i class="fas fa-home mr-4" /> home</button>
+  </main>
 </template>
 
 <style lang="scss">
-#p-index {
+#index-page {
   min-height: 100%;
 
   button {

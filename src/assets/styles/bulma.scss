@@ -11,7 +11,8 @@ $danger: #f44336;
 $info: #276cda;
 $blue: #276cda;
 
-$font-family: "Roboto", "Helvetica Neue", sans-serif;
+$font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
+$family-primary: $font-family;
 
 @import "../../../node_modules/bulma/sass/utilities/derived-variables.sass";
 

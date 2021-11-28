@@ -1,13 +1,18 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div id="l-default">
-    <slot />
+  <div id="default-layout">
+    <appbar />
+    <slot name="default" />
   </div>
 </template>
 
 <style lang="scss">
-#l-default {
+#default-layout {
   min-height: 100%;
+
+  > main {
+    padding: 0.75rem 1.5rem;
+  }
 }
 </style>
