@@ -1,9 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <main id="index-page">
-    <button class="button is-primary"><i class="fas fa-home mr-4" /> home</button>
-  </main>
+  <main id="index-page"></main>
 </template>
 
 <style lang="scss">

@@ -60,3 +60,13 @@ p {
   margin-bottom: 0.75rem !important;
   font-size: 1.5rem;
 }
+
+.button {
+  border: 1px solid var(--primary-text-color) !important;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: transparent !important;
+  }
+}

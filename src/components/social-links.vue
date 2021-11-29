@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 // Links possivelmente desatualizados!
 const socialLinks = [
-  { title: "Youtube", icon: "fab fa-youtube", color: "#f00", link: "https://www.youtube.com/c/ANCAPSU" },
-  { title: "Twitter", icon: "fab fa-twitter", color: "#1da1f2", link: "https://twitter.com/visaolibertaria" },
-  { title: "Facebook", icon: "fab fa-facebook", color: "#1877f2", link: "https://www.facebook.com/visaolibertariafb" },
-  { title: "Patreon", icon: "fab fa-patreon", color: "#f96854", link: "https://www.patreon.com/ancapsu" },
-  { title: "Apoia", src: "/images/apoiase-icon.jpg", link: "https://apoia.se/ancapsu" },
+  { title: "Youtube", icon: "fab fa-youtube", link: "https://www.youtube.com/c/ANCAPSU" },
+  { title: "Twitter", icon: "fab fa-twitter", link: "https://twitter.com/visaolibertaria" },
+  { title: "Facebook", icon: "fab fa-facebook", link: "https://www.facebook.com/visaolibertariafb" },
+  { title: "Apoia", src: "/images/apoiase-icon.png", link: "https://apoia.se/ancapsu" },
+  { title: "Minds", src: "/images/minds-icon.svg", link: "https://www.minds.com/ancapsu" },
+  { title: "Gab", src: "/images/gab-icon.svg", link: "https://gab.com/ancapsu" },
+  { title: "Patreon", icon: "fab fa-patreon", link: "https://www.patreon.com/ancapsu" },
 ];
 </script>
 
@@ -14,14 +16,13 @@ const socialLinks = [
     <template v-for="(socialLink, index) of socialLinks" :key="index">
       <a
         :class="['social-link', socialLink.icon]"
-        :style="{ '--color': socialLink.color }"
         :href="socialLink.link"
         :title="socialLink.title"
         target="blank"
         rel="nofollow"
-        v-if="socialLink.icon"
-      />
-      <img class="social-link" :src="socialLink.src" :alt="socialLink.title" :title="socialLink.title" v-else />
+      >
+        <img :src="socialLink.src" :alt="socialLink.title" v-if="socialLink.src" />
+      </a>
     </template>
   </nav>
 </template>
@@ -32,22 +33,22 @@ const socialLinks = [
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background-color: var(--primary-color);
+  background-color: transparent;
 
-  a.social-link {
-    color: var(--color);
-    font-size: 1.25rem;
+  .social-link {
+    color: var(--primary-text-color);
+    font-size: 1.125rem;
     line-height: 0;
 
-    &.fa-facebook {
-      font-size: 1.25rem;
+    img {
+      width: 1.275rem;
+      height: 1.275rem;
+      border-radius: 50%;
     }
-  }
 
-  img.social-link {
-    width: 1.25rem;
-    height: 1.25rem;
-    border-radius: 50%;
+    &.fa-facebook {
+      font-size: 1.175rem;
+    }
   }
 }
 </style>
