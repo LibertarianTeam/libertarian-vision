@@ -49,6 +49,10 @@ const socialLinks = [
     &.fa-facebook {
       font-size: 1.175rem;
     }
+
+    &:hover {
+      filter: opacity(80%);
+    }
   }
 }
 </style>

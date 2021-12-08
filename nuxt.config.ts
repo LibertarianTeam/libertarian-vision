@@ -4,10 +4,5 @@ import metaConfig from "./src/plugins/vue-meta";
 export default defineNuxtConfig({
   srcDir: "src",
   meta: metaConfig,
-  css: [
-    "bulma",
-    "@fortawesome/fontawesome-free/css/all.css",
-    "~/assets/fonts/import.scss",
-    "~/assets/styles/import.scss",
-  ],
+  css: ["~/assets/styles/import.scss", "~/assets/fonts/import.scss", "@fortawesome/fontawesome-free/css/all.css"],
 });

@@ -22,7 +22,7 @@
 <style lang="scss">
 .appbar {
   width: 100%;
-  padding: 0.25rem 4rem;
+  padding: 0.25rem 4rem 0;
   background: var(--primary-color) url("~/assets/images/appbar-background.svg") no-repeat 100%;
 
   .appbar-center {
@@ -37,7 +37,7 @@
 
     .appbar-auth-options {
       position: absolute;
-      right: 50%;
+      right: 50vw;
       transform: translateX(-50%);
 
       .button {
@@ -47,6 +47,12 @@
         font-size: 12px;
         font-weight: 600;
       }
+    }
+  }
+
+  @media only screen and (max-width: 1366px) {
+    .appbar-auth-options {
+      right: 37vw !important;
     }
   }
 }

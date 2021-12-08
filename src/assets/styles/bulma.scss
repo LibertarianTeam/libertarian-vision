@@ -27,18 +27,6 @@ $colors: map-merge($colors, $addColors);
 
 @import "../../../node_modules/bulma/bulma.sass";
 
-.button {
-  transition: all 0.2s;
-
-  &.is-warning:not(.is-light) {
-    color: #fff !important;
-  }
-
-  &:focus:not(:active) {
-    box-shadow: 0 0 0 0.125em $primary;
-  }
-}
-
 a {
   transition: all 0.2s !important;
 
@@ -68,5 +56,13 @@ p {
 
   &:hover {
     border-color: transparent !important;
+  }
+
+  &.is-warning:not(.is-light) {
+    color: #fff !important;
+  }
+
+  &:focus:not(:active) {
+    box-shadow: 0 0 0 0.125em $primary;
   }
 }

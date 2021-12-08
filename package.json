@@ -6,11 +6,13 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "nuxt3": "latest"
+    "fibers": "^5.0.0",
+    "nuxt3": "latest",
+    "sass": "^1.44.0",
+    "sass-loader": "10"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "bulma": "^0.9.3",
-    "sass": "^1.43.4"
+    "bulma": "^0.9.3"
   }
 }
