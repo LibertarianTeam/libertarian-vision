@@ -53,6 +53,7 @@ withDefaults(defineProps<AppbarDropdownProps>(), { id: "navbar-dropdown" });
     padding: 0.5rem 1.5rem;
     border: none;
     border-radius: 4px;
+    color: var(--primary-text-color);
     font-size: 1rem;
     font-weight: 700;
     line-height: 1rem;
@@ -76,6 +77,7 @@ withDefaults(defineProps<AppbarDropdownProps>(), { id: "navbar-dropdown" });
       border: 1px solid #666;
       border-radius: 2px;
       transition: all 0.2s !important;
+      color: var(--primary-text-color);
       font-weight: 500;
 
       &:last-child {

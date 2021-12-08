@@ -28,6 +28,7 @@
   .appbar-center {
     display: flex;
     align-items: center;
+    position: relative;
     padding: 1rem 0;
 
     .appbar-logo {
@@ -37,22 +38,73 @@
 
     .appbar-auth-options {
       position: absolute;
-      right: 50vw;
+      right: 48vw;
       transform: translateX(-50%);
 
       .button {
         height: unset;
-        padding: 4px 8px;
+        padding: 0.25rem 0.5rem;
         border-radius: 2px;
-        font-size: 12px;
+        font-size: 0.75rem;
         font-weight: 600;
+        line-height: 1rem;
       }
     }
   }
 
   @media only screen and (max-width: 1366px) {
-    .appbar-auth-options {
-      right: 37vw !important;
+    .appbar-center {
+      .appbar-logo {
+        height: 48px;
+      }
+
+      .appbar-auth-options {
+        transform: translateX(-5%);
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .appbar-center {
+      padding-bottom: 3rem;
+
+      .appbar-auth-options {
+        bottom: 0.5rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 720px) {
+    padding: 0.25rem 2rem 0rem;
+    background-position: 130%;
+
+    .appbar-center {
+      padding-bottom: 3.25rem;
+
+      .appbar-auth-options {
+        left: 0;
+        right: unset;
+        transform: unset;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding: 0.25rem 1rem 0rem;
+    background: var(--primary-color);
+
+    .appbar-center {
+      padding-bottom: 3rem;
+
+      .appbar-logo {
+        height: 36px;
+      }
+
+      .appbar-auth-options {
+        min-width: max-content;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
   }
 }
