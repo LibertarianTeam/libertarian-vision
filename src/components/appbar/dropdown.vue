@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-type AppbarDropdownItem = {
+export type AppbarDropdownItem = {
   label?: string;
   href?: string;
   to?: { name: string; params?: { [key: string]: string }; query?: { [key: string]: string } };
@@ -64,6 +64,7 @@ withDefaults(defineProps<AppbarDropdownProps>(), { id: "navbar-dropdown" });
   }
 
   .navbar-dropdown {
+    display: none !important;
     min-width: 160px;
     padding: 0;
     border-color: transparent;
@@ -99,6 +100,10 @@ withDefaults(defineProps<AppbarDropdownProps>(), { id: "navbar-dropdown" });
   &:hover {
     &::after {
       width: 100%;
+    }
+
+    .navbar-dropdown {
+      display: block !important;
     }
 
     .navbar-link {

@@ -1,4 +1,6 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+defineEmits<{ (e: "toggle:sidebar", value?: boolean): void }>();
+</script>
 
 <template>
   <header class="appbar">
@@ -15,7 +17,7 @@
       </div>
     </div>
 
-    <appbar-navbar />
+    <appbar-navbar @toggle:sidebar="$emit('toggle:sidebar')" />
   </header>
 </template>
 
@@ -64,12 +66,12 @@
     }
   }
 
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1023px) {
     .appbar-center {
-      padding-bottom: 3rem;
+      padding-bottom: 3.5rem;
 
       .appbar-auth-options {
-        bottom: 0.5rem;
+        bottom: 1rem;
       }
     }
   }
@@ -79,7 +81,7 @@
     background-position: 130%;
 
     .appbar-center {
-      padding-bottom: 3.25rem;
+      padding-bottom: 3.75rem;
 
       .appbar-auth-options {
         left: 0;
@@ -94,7 +96,7 @@
     background: var(--primary-color);
 
     .appbar-center {
-      padding-bottom: 3rem;
+      padding-bottom: 3.5rem;
 
       .appbar-logo {
         height: 36px;

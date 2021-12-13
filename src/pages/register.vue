@@ -1,13 +1,13 @@
 <script lang="ts" setup></script>
 
 <template>
-  <main class="page" id="index-page">
-    <h1>Home</h1>
+  <main class="page" id="register-page">
+    <h1>Register</h1>
   </main>
 </template>
 
 <style lang="scss">
-#index-page {
+#register-page {
   min-height: 100%;
 
   button {

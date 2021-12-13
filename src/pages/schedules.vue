@@ -1,13 +1,13 @@
 <script lang="ts" setup></script>
 
 <template>
-  <main class="page" id="index-page">
-    <h1>Home</h1>
+  <main class="page" id="schedule-page">
+    <h1>Pautas</h1>
   </main>
 </template>
 
 <style lang="scss">
-#index-page {
+#schedule-page {
   min-height: 100%;
 
   button {
