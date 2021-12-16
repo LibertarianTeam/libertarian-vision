@@ -3,7 +3,6 @@ defineProps<{ isActive: boolean }>();
 defineEmits<{ (e: "toggle", value?: boolean): void }>();
 
 function handleLogout() {
-  alert("handleLogout");
   console.info("handleLogout");
 }
 

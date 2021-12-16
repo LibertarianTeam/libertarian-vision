@@ -50,8 +50,7 @@ p {
 }
 
 .button {
-  border: 1px solid var(--primary-text-color) !important;
-  border-radius: 6px;
+  border-radius: 4px;
   transition: all 0.2s ease;
 
   &:hover {
@@ -64,5 +63,50 @@ p {
 
   &:focus:not(:active) {
     box-shadow: 0 0 0 0.125em $primary;
+  }
+}
+
+.modal {
+  .modal-background {
+    background-color: #0004;
+  }
+
+  .modal-card {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    .modal-card-head {
+      padding: 1rem;
+
+      .modal-card-title {
+        color: var(--primary-text-color);
+        font-size: 1.25rem;
+      }
+
+      .delete {
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: var(--danger-color);
+        }
+      }
+    }
+
+    .modal-card-body {
+      padding: 1.5rem 1rem;
+    }
+
+    .modal-card-foot {
+      justify-content: center;
+      padding: 0.75rem 1rem;
+    }
+  }
+}
+
+.input {
+  transition: border-color 0.2s;
+
+  &:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
   }
 }

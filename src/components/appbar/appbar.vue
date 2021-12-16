@@ -12,8 +12,8 @@ defineEmits<{ (e: "toggle:sidebar", value?: boolean): void }>();
       </nuxt-link>
 
       <div class="appbar-auth-options">
-        <button class="button is-primary mr-2">Autenticar</button>
-        <button class="button is-primary">Criar conta</button>
+        <nuxt-link class="button is-primary mr-2" :to="{ name: 'index-login' }">Autenticar</nuxt-link>
+        <nuxt-link class="button is-primary" :to="{ name: 'index-register' }">Criar conta</nuxt-link>
       </div>
     </div>
 
@@ -46,6 +46,7 @@ defineEmits<{ (e: "toggle:sidebar", value?: boolean): void }>();
       .button {
         height: unset;
         padding: 0.25rem 0.5rem;
+        border: 1px solid var(--primary-text-color);
         border-radius: 2px;
         font-size: 0.75rem;
         font-weight: 600;
