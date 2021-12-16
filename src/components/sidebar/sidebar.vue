@@ -22,13 +22,13 @@ const links = [
     <ul class="sidebar-content">
       <template v-for="(link, index) of links" :key="index">
         <li class="sidebar-item">
-          <router-link class="sidebar-item-link" :to="link.to" v-if="link.to">
+          <nuxt-link class="sidebar-item-link" :to="link.to" v-if="link.to">
             <span class="cool-border one" />
             <span class="cool-border two" />
 
             <i :class="['sidebar-icon', link.icon]" />
             <span class="sidebar-title">{{ link.title }}</span>
-          </router-link>
+          </nuxt-link>
           <a class="sidebar-item-link" @click="link.command" v-else>
             <span class="cool-border one" />
             <span class="cool-border two" />

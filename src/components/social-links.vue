@@ -4,7 +4,6 @@ const socialLinks = [
   { title: "Youtube", icon: "fab fa-youtube", link: "https://www.youtube.com/c/ANCAPSU" },
   { title: "Twitter", icon: "fab fa-twitter", link: "https://twitter.com/visaolibertaria" },
   { title: "Facebook", icon: "fab fa-facebook", link: "https://www.facebook.com/visaolibertariafb" },
-  { title: "Apoia", src: "/images/apoiase-icon.png", link: "https://apoia.se/ancapsu" },
   { title: "Minds", src: "/images/minds-icon.svg", link: "https://www.minds.com/ancapsu" },
   { title: "Gab", src: "/images/gab-icon.svg", link: "https://gab.com/ancapsu" },
   { title: "Patreon", icon: "fab fa-patreon", link: "https://www.patreon.com/ancapsu" },
@@ -29,6 +28,9 @@ const socialLinks = [
 
 <style lang="scss">
 .social-links {
+  --invert: invert(0);
+  --color: var(--primary-text-color);
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +38,7 @@ const socialLinks = [
   background-color: transparent;
 
   .social-link {
-    color: var(--primary-text-color);
+    color: var(--color);
     font-size: 1.125rem;
     line-height: 0;
 
@@ -44,6 +46,7 @@ const socialLinks = [
       width: 1.275rem;
       height: 1.275rem;
       border-radius: 50%;
+      filter: var(--invert);
     }
 
     &.fa-facebook {

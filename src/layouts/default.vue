@@ -7,14 +7,15 @@ const sidebarState = reactive({ active: false });
     <appbar @toggle:sidebar="sidebarState.active = !sidebarState.active" />
     <sidebar :is-active="sidebarState.active" @toggle="sidebarState.active = false" />
     <slot name="default" />
+    <footerbar />
   </div>
 </template>
 
 <style lang="scss">
 #default-layout {
   display: grid;
-  grid-template-areas: "appbar appbar" "sidebar route";
-  grid-template-rows: min-content 1fr;
+  grid-template-areas: "appbar appbar" "sidebar route" "footerbar footerbar";
+  grid-template-rows: min-content 1fr min-content;
   grid-template-columns: min-content 1fr;
   min-height: 100vh;
 
@@ -30,6 +31,11 @@ const sidebarState = reactive({ active: false });
   .page {
     grid-area: route;
     padding: 0.75rem 1.5rem;
+    min-height: 86vh;
+  }
+
+  .footerbar {
+    grid-area: footerbar;
   }
 
   @media only screen and (max-width: 1023px) {
