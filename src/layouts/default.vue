@@ -30,7 +30,7 @@ const sidebarState = reactive({ active: false });
 
   .page {
     grid-area: route;
-    padding: 0.75rem 1.5rem;
+    padding: 1.5rem 2rem;
     min-height: 86vh;
   }
 
@@ -41,6 +41,21 @@ const sidebarState = reactive({ active: false });
   @media only screen and (max-width: 1023px) {
     .sidebar {
       display: block;
+    }
+
+    .page {
+      padding: 1rem;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .page {
+      padding: 0.5rem;
+      margin-left: 52px;
+    }
+
+    .sidebar {
+      position: absolute;
     }
   }
 }

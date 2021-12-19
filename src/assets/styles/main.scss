@@ -9,12 +9,14 @@
 :root {
   font-size: 16px;
   font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
+
+  --font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
 }
 
 html {
   overflow-y: auto;
   overflow-x: hidden;
-  min-width: 240px;
+  min-width: 260px;
   min-height: 100vh;
 }
 

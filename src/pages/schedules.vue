@@ -9,9 +9,5 @@
 <style lang="scss">
 #schedule-page {
   min-height: 100%;
-
-  button {
-    font-size: 10rem;
-  }
 }
 </style>

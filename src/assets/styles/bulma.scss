@@ -51,7 +51,8 @@ p {
 
 .button {
   border-radius: 4px;
-  transition: all 0.2s ease;
+  font-weight: 500;
+  transition: all 0.2s linear;
 
   &:hover {
     border-color: transparent !important;
@@ -63,6 +64,11 @@ p {
 
   &:focus:not(:active) {
     box-shadow: 0 0 0 0.125em $primary;
+  }
+
+  &.is-libertarian {
+    border: 1px solid var(--primary-text-color);
+    border-radius: 4px;
   }
 }
 

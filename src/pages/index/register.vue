@@ -9,9 +9,5 @@
 <style lang="scss">
 #register-page {
   min-height: 100%;
-
-  button {
-    font-size: 10rem;
-  }
 }
 </style>

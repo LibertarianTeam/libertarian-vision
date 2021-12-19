@@ -46,6 +46,7 @@ const links = [
   position: relative;
   width: 52px;
   min-height: 100%;
+  z-index: 999;
   overflow: hidden auto;
   background-color: var(--primary-color);
 

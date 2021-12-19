@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-useMeta({
-  title: "Login | Visão libertária",
-});
+useMeta({ title: "Login | Visão libertária" });
 
 const router = useRouter();
 
@@ -33,13 +31,13 @@ function handleLogin() {
     <form class="modal-card" @submit.prevent="handleLogin">
       <header class="modal-card-head">
         <p class="modal-card-title">Faça login</p>
-        <button class="delete" aria-label="close" @click="handleClose" />
+        <button class="delete" aria-label="close" type="button" @click="handleClose" />
       </header>
 
       <section class="modal-card-body">
         <div class="field">
-          <p class="control has-icons-left has-icons-right">
-            <input class="input" v-model="form.email" type="email" autocomplete="email" placeholder="E-mail" />
+          <p class="control has-icons-left">
+            <input class="input" v-model="form.email" type="email" autocomplete="email" placeholder="seu@email.com" />
             <span class="icon is-small is-left">
               <i class="fas fa-envelope" />
             </span>
@@ -62,7 +60,7 @@ function handleLogin() {
       </section>
 
       <footer class="modal-card-foot">
-        <button class="button is-danger" @click="handleClose">Cancelar</button>
+        <button class="button is-danger" type="button" @click="handleClose">Cancelar</button>
         <button :class="['button is-success', { 'is-loading': loading }]" type="submit">Entrar</button>
       </footer>
     </form>
