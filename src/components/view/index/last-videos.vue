@@ -1,58 +1,20 @@
 <script lang="ts" setup>
+import useVideoStore from "~/store/useVideo";
 import { TLibertarianCardTagsProp } from "~/components/libertarian-card.vue";
 
 type TLibertarianCardItem = { label: string; goTo: { name: string }; image: string; tags: TLibertarianCardTagsProp };
+const videoStore = useVideoStore();
 
-const libertarianCardItems: TLibertarianCardItem[] = [
-  {
-    label: "Carde Libertario 1",
+const libertarianCardItems = computed<TLibertarianCardItem[]>(() =>
+  videoStore.last.map((video) => ({
+    label: video.title,
     goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [{ label: "Artigo", to: { name: "index" } }],
-  },
-  {
-    label: "Carde Libertario 2",
-    goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [
-      { label: "Artigo", to: { name: "index" } },
-      { label: "Artigo2", to: { name: "index" } },
-    ],
-  },
-  {
-    label: "Carde Libertario 3",
-    goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [{ label: "Artigo", to: { name: "index" } }],
-  },
-  {
-    label: "Carde Libertario 4",
-    goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [{ label: "Artigo", to: { name: "index" } }],
-  },
-  {
-    label: "Carde Libertario 5",
-    goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [
-      { label: "Artigo", to: { name: "index" } },
-      { label: "Artigo2", to: { name: "index" } },
-      { label: "Artigo", to: { name: "index" } },
-      { label: "Artigo2", to: { name: "index" } },
-      { label: "Artigo", to: { name: "index" } },
-      { label: "Artigo2", to: { name: "index" } },
-      { label: "Artigo", to: { name: "index" } },
-      { label: "Artigo2", to: { name: "index" } },
-    ],
-  },
-  {
-    label: "Carde Libertario 6",
-    goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [{ label: "Artigo", to: { name: "index" } }],
-  },
-];
+    image: video.image,
+    tags: [{ label: video.category.label, to: { name: "index" } }],
+  }))
+);
+
+videoStore.getLastVideos();
 </script>
 
 <template>
@@ -78,7 +40,7 @@ const libertarianCardItems: TLibertarianCardItem[] = [
   min-height: min-content;
 
   .carousel {
-    --carousel-items: 5;
+    --carousel-items: 4;
 
     .libertarian-card {
       --height: unset;
@@ -86,12 +48,6 @@ const libertarianCardItems: TLibertarianCardItem[] = [
   }
 
   @media only screen and (max-width: 1440px) {
-    .carousel {
-      --carousel-items: 4;
-    }
-  }
-
-  @media only screen and (max-width: 1280px) {
     .carousel {
       --carousel-items: 3;
     }

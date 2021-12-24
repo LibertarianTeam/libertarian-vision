@@ -23,8 +23,8 @@ withDefaults(defineProps<TLibertarianCardProps>(), { tags: () => [] });
 <style lang="scss">
 .libertarian-card {
   --height: 160px;
-  --min-width: 240px;
-  --background-position: center;
+  --min-width: 180px;
+  --background-position: top center;
 
   overflow: hidden;
   display: flex;
@@ -69,7 +69,8 @@ withDefaults(defineProps<TLibertarianCardProps>(), { tags: () => [] });
 
   .libertarian-card-text {
     padding: 12px;
-    background-color: #0006;
+    min-height: 4.5rem;
+    background-color: #000a;
 
     color: #fff;
     font-size: 1rem;
@@ -80,7 +81,7 @@ withDefaults(defineProps<TLibertarianCardProps>(), { tags: () => [] });
 
   &:hover {
     .libertarian-card-text {
-      background-color: #000a;
+      background-color: #000e;
     }
   }
 }

@@ -14,6 +14,7 @@ const sidebarState = reactive({ active: false });
 <style lang="scss">
 #default-layout {
   display: grid;
+  position: relative;
   grid-template-areas: "appbar appbar" "sidebar route" "footerbar footerbar";
   grid-template-rows: min-content 1fr min-content;
   grid-template-columns: min-content 1fr;

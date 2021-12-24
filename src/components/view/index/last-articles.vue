@@ -1,58 +1,20 @@
 <script lang="ts" setup>
+import useArticleStore from "~/store/useArticle";
 import { TLibertarianCardTagsProp } from "~/components/libertarian-card.vue";
 
 type TLibertarianCardItem = { label: string; goTo: { name: string }; image: string; tags: TLibertarianCardTagsProp };
+const articleStore = useArticleStore();
 
-const libertarianCardItems: TLibertarianCardItem[] = [
-  {
-    label: "Carde Libertario 1",
+const libertarianCardItems = computed<TLibertarianCardItem[]>(() =>
+  articleStore.last.map((article) => ({
+    label: article.title,
     goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [{ label: "Artigo", to: { name: "index" } }],
-  },
-  {
-    label: "Carde Libertario 2",
-    goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [
-      { label: "Artigo", to: { name: "index" } },
-      { label: "Artigo2", to: { name: "index" } },
-    ],
-  },
-  {
-    label: "Carde Libertario 3",
-    goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [{ label: "Artigo", to: { name: "index" } }],
-  },
-  {
-    label: "Carde Libertario 4",
-    goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [{ label: "Artigo", to: { name: "index" } }],
-  },
-  {
-    label: "Carde Libertario 5",
-    goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [
-      { label: "Artigo", to: { name: "index" } },
-      { label: "Artigo2", to: { name: "index" } },
-      { label: "Artigo", to: { name: "index" } },
-      { label: "Artigo2", to: { name: "index" } },
-      { label: "Artigo", to: { name: "index" } },
-      { label: "Artigo2", to: { name: "index" } },
-      { label: "Artigo", to: { name: "index" } },
-      { label: "Artigo2", to: { name: "index" } },
-    ],
-  },
-  {
-    label: "Carde Libertario 6",
-    goTo: { name: "index" },
-    image: "https://libvw.com/api/article/image?id=eec91861-4e76-4903-b5cb-0e1b43865535",
-    tags: [{ label: "Artigo", to: { name: "index" } }],
-  },
-];
+    image: article.image,
+    tags: [{ label: article.category.label, to: { name: "index" } }],
+  }))
+);
+
+articleStore.getLastArticles();
 </script>
 
 <template>
@@ -60,8 +22,9 @@ const libertarianCardItems: TLibertarianCardItem[] = [
     <h4 class="index-section-title">Últimos artigos publicados</h4>
 
     <div class="libertarian-cards">
-      <template v-for="libertarianCardItem of libertarianCardItems">
+      <template v-for="(libertarianCardItem, index) of libertarianCardItems">
         <libertarian-card
+          :index="index"
           :go-to="libertarianCardItem.goTo"
           :tags="libertarianCardItem.tags"
           :image="libertarianCardItem.image"
@@ -87,12 +50,23 @@ const libertarianCardItems: TLibertarianCardItem[] = [
     }
   }
 
-  @media only screen and (max-width: 1440px) {
+  @media only screen and (max-width: 1800px) {
     --columns: 3;
   }
 
-  @media only screen and (max-width: 1280px) {
+  @media only screen and (max-width: 1440px) {
     --columns: 2;
+
+    .libertarian-card {
+      &[index="11"],
+      &[index="10"],
+      &[index="9"],
+      &[index="8"],
+      &[index="7"],
+      &[index="6"] {
+        display: none !important;
+      }
+    }
   }
 
   @media only screen and (max-width: 720px) {
