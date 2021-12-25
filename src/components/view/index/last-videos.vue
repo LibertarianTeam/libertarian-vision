@@ -1,11 +1,16 @@
 <script lang="ts" setup>
 import useVideoStore from "~/store/useVideo";
-import { TLibertarianCardTagsProp } from "~/components/libertarian-card.vue";
+import { LibertarianCardTagsPropType } from "~/components/libertarian-card.vue";
 
-type TLibertarianCardItem = { label: string; goTo: { name: string }; image: string; tags: TLibertarianCardTagsProp };
+type LibertarianCardItemType = {
+  label: string;
+  goTo: { name: string };
+  image: string;
+  tags: LibertarianCardTagsPropType;
+};
 const videoStore = useVideoStore();
 
-const libertarianCardItems = computed<TLibertarianCardItem[]>(() =>
+const libertarianCardItems = computed<LibertarianCardItemType[]>(() =>
   videoStore.last.map((video) => ({
     label: video.title,
     goTo: { name: "index" },
@@ -31,6 +36,7 @@ videoStore.getLastVideos();
           {{ libertarianCardItem.label }}
         </libertarian-card>
       </template>
+      <libertarian-card is-loading v-for="index in 5" :key="index" v-if="!libertarianCardItems.length" />
     </carousel>
   </section>
 </template>

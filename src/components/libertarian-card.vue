@@ -1,12 +1,38 @@
 <script lang="ts" setup>
-export type TLibertarianCardTagsProp = { label: string; to: { name: string } }[];
-type TLibertarianCardProps = { goTo: { name: string }; image: string; tags?: TLibertarianCardTagsProp };
+export type LibertarianCardTagsPropType = { label: string; to: { name: string } }[];
 
-withDefaults(defineProps<TLibertarianCardProps>(), { tags: () => [] });
+type LibertarianCardPropsType = {
+  goTo?: { name: string };
+  image?: string;
+  tags?: LibertarianCardTagsPropType;
+  isLoading?: boolean;
+};
+
+withDefaults(defineProps<LibertarianCardPropsType>(), {
+  goTo: () => ({ name: "index" }),
+  image: "",
+  tags: () => [],
+  isLoading: false,
+});
 </script>
 
 <template>
-  <div class="libertarian-card" :style="`--image: url(${image})`" title="Conferir conteúdo" @click="$router.push(goTo)">
+  <div class="libertarian-card skeleton is-loading" v-if="isLoading">
+    <div class="libertarian-card-tags">
+      <span class="skeleton skeleton-text" v-for="index of 4" :key="index" />
+    </div>
+    <p class="libertarian-card-text">
+      <span class="skeleton skeleton-text" v-for="index of 3" :key="index" />
+    </p>
+  </div>
+
+  <div
+    class="libertarian-card"
+    :style="`--image: url(${image})`"
+    title="Conferir conteúdo"
+    @click="$router.push(goTo)"
+    v-else
+  >
     <div class="libertarian-card-tags" @click.stop>
       <template v-for="tag of tags">
         <nuxt-link class="libertarian-card-tag button is-primary is-libertarian" :to="tag.to">
@@ -82,6 +108,29 @@ withDefaults(defineProps<TLibertarianCardProps>(), { tags: () => [] });
   &:hover {
     .libertarian-card-text {
       background-color: #000e;
+    }
+  }
+
+  &.is-loading {
+    --from-background-color: var(--primary-color);
+    --to-background-color: var(--warning-color);
+
+    .libertarian-card-tags {
+      .skeleton-text {
+        width: 100%;
+        height: 1rem;
+        border-radius: 2px;
+      }
+    }
+
+    .libertarian-card-text {
+      .skeleton-text {
+        height: 0.65rem;
+
+        + .skeleton-text {
+          margin-top: 0.4rem;
+        }
+      }
     }
   }
 }

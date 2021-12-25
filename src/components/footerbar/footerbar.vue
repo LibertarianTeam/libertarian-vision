@@ -154,7 +154,7 @@ const NUXT_ENV_MAIL = nuxtApp.$config.mail;
     .footerbar-about-text {
       margin-bottom: 1.5rem;
 
-      font: italic 700 1.3rem/1.2 cursive;
+      font: italic 700 1.125rem cursive;
       text-align: justify;
       line-height: 1.5rem;
     }

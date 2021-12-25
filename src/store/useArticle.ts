@@ -5,7 +5,7 @@ export type LastArticleType = {
   id: string;
   title: string;
   image: string;
-  category: { name: string; label: string };
+  categories?: { name: string; label: string }[];
 };
 
 type ArticleStoreType = {
@@ -19,7 +19,7 @@ export const useArticleStore = defineStore("article", {
   actions: {
     async getLastArticles() {
       const response = await libertarianVision.post<LVResponseType<{ articleList: LastArticleType[] }>>("", {
-        query: `query { articleList  { id title image category { name label } } }`,
+        query: `query { articleList  { id title image categories { name label } } }`,
       });
       this.$state.last = response.data?.data?.articleList;
 

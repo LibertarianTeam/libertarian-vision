@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-type TCarouselProps = { styleType?: "short" | "long" };
-
-withDefaults(defineProps<TCarouselProps>(), { styleType: "short" });
+type CarouselPropsType = { styleType?: "short" | "long" };
+withDefaults(defineProps<CarouselPropsType>(), { styleType: "short" });
 
 const carouselContent = ref<HTMLDivElement | null>(null);
 const scrollValue = 300;

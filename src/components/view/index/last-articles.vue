@@ -1,16 +1,21 @@
 <script lang="ts" setup>
 import useArticleStore from "~/store/useArticle";
-import { TLibertarianCardTagsProp } from "~/components/libertarian-card.vue";
+import { LibertarianCardTagsPropType } from "~/components/libertarian-card.vue";
 
-type TLibertarianCardItem = { label: string; goTo: { name: string }; image: string; tags: TLibertarianCardTagsProp };
+type LibertarianCardItemType = {
+  label: string;
+  goTo: { name: string };
+  image: string;
+  tags: LibertarianCardTagsPropType;
+};
 const articleStore = useArticleStore();
 
-const libertarianCardItems = computed<TLibertarianCardItem[]>(() =>
+const libertarianCardItems = computed<LibertarianCardItemType[]>(() =>
   articleStore.last.map((article) => ({
     label: article.title,
     goTo: { name: "index" },
     image: article.image,
-    tags: [{ label: article.category.label, to: { name: "index" } }],
+    tags: article.categories?.map((category) => ({ label: category.label, to: { name: "index" } })),
   }))
 );
 
@@ -32,6 +37,7 @@ articleStore.getLastArticles();
           {{ libertarianCardItem.label }}
         </libertarian-card>
       </template>
+      <libertarian-card is-loading v-for="index in 12" :key="index" v-if="!libertarianCardItems.length" />
     </div>
   </section>
 </template>
