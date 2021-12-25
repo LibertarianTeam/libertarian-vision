@@ -1,29 +1,20 @@
-# Nuxt 3 Minimal Starter
+# [Visão Libertária](https://visaolibertaria.netlify.app/)
 
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
+[Visão Libertária](https://www.youtube.com/c/ANCAPSU) é um jornal colaborativo, este projeto é uma versão não oficial desenvolvida em NuxtJS(v3 em beta).
 
-## Setup
-
-Make sure to install the dependencies
+## Rode Localmente
 
 ```bash
-yarn install
+$ yarn -i #instala as dependências
+$ yarn serve #inicia o servidor de desenvolvimento
 ```
 
-## Development
+Visite a [documentação do NuxtJS](https://v3.nuxtjs.org/docs/deployment).
 
-Start the development server on http://localhost:3000
+---
 
-```bash
-yarn dev
-```
+<div align="center">
 
-## Production
+> Imposto é roubo!
 
-Build the application for production:
-
-```bash
-yarn build
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
+</div>
