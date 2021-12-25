@@ -5,17 +5,18 @@
     "build": "nuxi build",
     "start": "node .output/server/index.mjs"
   },
-  "devDependencies": {
-    "fibers": "^5.0.0",
-    "nuxt3": "latest",
-    "sass": "^1.44.0",
-    "sass-loader": "10"
-  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@pinia/nuxt": "^0.1.8",
     "axios": "^0.24.0",
     "bulma": "^0.9.3",
     "pinia": "^2.0.9"
+  },
+  "devDependencies": {
+    "fibers": "^5.0.0",
+    "nuxt3": "^3.0.0-27338323.1e98259",
+    "sass": "^1.44.0",
+    "sass-loader": "10",
+    "vue-tsc": "^0.30.0"
   }
 }

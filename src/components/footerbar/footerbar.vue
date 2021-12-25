@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+const nuxtApp = useNuxtApp();
+
 const donateLinks = [
   {
     title: "PicPay",
@@ -29,7 +31,7 @@ const storeLinks = [
   },
 ];
 
-const { NUXT_ENV_MAIL } = process.env || {};
+const NUXT_ENV_MAIL = nuxtApp.$config.mail;
 </script>
 
 <template>
