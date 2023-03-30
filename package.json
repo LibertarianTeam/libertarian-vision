@@ -1,38 +1,19 @@
 {
-  "name": "ancapsu",
-  "version": "0.2.0",
-  "description": "AncapSU é a plataforma oficial do canal Ancap.SU feita em ReactJS, o código nesse repositório é uma versão não oficial desenvolvida em VueJS/NuxtJS.",
-  "author": "paulloclara <https://github.com/paulloclara>",
+  "name": "nuxt-app",
+  "private": true,
   "scripts": {
-    "start": "nuxt",
     "build": "nuxt build",
-    "devServer": "yarn build && nuxt start",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "proServer": "yarn generate && node production/server.js",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
-  },
-  "config": {
-    "nuxt": {
-      "port": "8080"
-    }
-  },
-  "dependencies": {
-    "@nuxtjs/axios": "^5.11.0",
-    "@nuxtjs/dotenv": "^1.4.0",
-    "@nuxtjs/pwa": "^3.0.0-0",
-    "@nuxtjs/svg": "^0.1.11",
-    "build-css-class": "^1.0.1",
-    "nuxt": "^2.0.0"
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^2.0.0",
-    "@nuxtjs/eslint-module": "^1.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-nuxt": ">=0.4.2",
-    "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^1.19.1"
+    "@types/node": "^18.15.10",
+    "nuxt": "^3.3.2"
   },
-  "license": "MIT"
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "sass": "^1.60.0"
+  }
 }

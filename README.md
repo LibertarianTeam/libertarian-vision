@@ -1,72 +1,42 @@
-# AncapSU
+# Nuxt 3 Minimal Starter
 
-[AncapSU] é a plataforma oficial do canal [Ancap.SU] feita em [ReactJS], o código nesse repositório é uma versão não oficial desenvolvida em [VueJS]/[NuxtJS].
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-![Preview][preview]
+## Setup
 
-## :fire: Tecs
-
-- [VueJS] - Framework JavaScript progressivo ❤️.
-- [NuxtJS] - Solução SSR(Server Side Rendered) para [VueJS].
-- [Axios] - Cliente HTTP baseado em promises para o navegador e [NodeJS].
-- [Vuex] - Padrão de gerenciamento de estado para [VueJS].
-- [VueMeta] - Plugin [NuxtJS] para gerenciar os metadados do aplicativo.
-- [VueRouter] - Roteador oficial para [VueJS].
-- [NuxtPWA] - Solução PWA(Progressive Web App) altamente testada, atualizada e estável.
-- [NodeJS] - Ferramenta de magia negra.
-
-### :wrench: Rode Localmente
+Make sure to install the dependencies:
 
 ```bash
-  $ git clone https://github.com/LibertarianTeam/ancapsu.git # Clone o repositório.
-  $ cd ancapsu # Navegue ate a pasta.
-  # Crie/Configure o arquivo src/.env de acordo com o .env_example.
-  $ yarn -i # Instale as dependencias.
-  $ cd production # Navegue ate a pasta do servidor de produção.
-  $ yarn -i # Instale as dependencias do servidor de produção.
-  $ cd .. # Volte para a pasta raiz do projeto.
-  $ yarn start # Execute o servidor de desenvolvimento.
+# yarn
+yarn install
+
+# npm
+npm install
+
+# pnpm
+pnpm install
 ```
 
-### :scroll: Scripts
+## Development Server
 
-- start - Inicia o servidor em modo de desenvolvimento.
-- build - Gera a versão dinâmica de produção do código.
-- devServer - Roda o script build e inicia o servidor de produção dinâmico.
-- generate - Gera a versão estática de produção do código.
-- proServer - Roda o script generate e inicia o servidor de produção estático.
-- lint - Verifica a qualidade do código.
+Start the development server on http://localhost:3000
 
-#### :muscle: Progresso
+```bash
+npm run dev
+```
 
-O código nesse repositório é apenas de cunho didático, caso queira contribuir ou ver de perto o progresso feito, acesse o [trello] do projeto.
+## Production
 
-#### :memo: Licença
+Build the application for production:
 
-Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE] para obter detalhes.
+```bash
+npm run build
+```
 
----
+Locally preview production build:
 
-<div align="center">
+```bash
+npm run preview
+```
 
-> Imposto é roubo!
-
-</div>
-
-<!-- Links -->
-
-[ancapsu]: https://ancap.su
-[ancap.su]: https://www.youtube.com/ancapsu
-[trello]: https://trello.com/b/eOBZHJ5j/ancapsu
-[paulloclara]: https://github.com/PaulloClara
-[vuejs]: https://vuejs.org
-[nuxtjs]: https://nuxtjs.org
-[axios]: https://github.com/axios/axios
-[vuex]: https://vuex.vuejs.org
-[vuemeta]: https://github.com/nuxt/vue-meta
-[nodejs]: https://nodejs.org/en
-[vuerouter]: https://router.vuejs.org
-[nuxtpwa]: https://pwa.nuxtjs.org
-[reactjs]: https://pt-br.reactjs.org
-[preview]: .github/preview.svg
-[license]: LICENSE
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
