@@ -1,0 +1,118 @@
+@import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import "../../../node_modules/bulma/sass/utilities/functions.sass";
+
+$primary: #fc0;
+$primary-invert: findColorInvert($primary);
+$secondary: #03a9f4;
+$secondary-invert: findColorInvert($secondary);
+$success: #4caf50;
+$warning: #faad14;
+$danger: #f44336;
+$info: #276cda;
+$blue: #276cda;
+
+$font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
+$family-primary: $font-family;
+
+@import "../../../node_modules/bulma/sass/utilities/derived-variables.sass";
+
+$addColors: (
+  "secondary": (
+    $secondary,
+    $secondary-invert,
+  ),
+);
+
+$colors: map-merge($colors, $addColors);
+
+@import "../../../node_modules/bulma/bulma.sass";
+
+a {
+  transition: all 0.2s !important;
+
+  &:hover {
+    color: $secondary;
+  }
+}
+
+p {
+  font-weight: 500;
+}
+
+.title,
+.subtitle {
+  color: var(--primary-text-color);
+}
+
+.title {
+  margin-bottom: 0.75rem !important;
+  font-size: 1.5rem;
+}
+
+.button {
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.2s linear;
+
+  &:hover {
+    border-color: transparent !important;
+  }
+
+  &.is-warning:not(.is-light) {
+    color: #fff !important;
+  }
+
+  &:focus:not(:active) {
+    box-shadow: 0 0 0 0.125em $primary;
+  }
+
+  &.is-libertarian {
+    border: 1px solid var(--primary-text-color);
+    border-radius: 4px;
+  }
+}
+
+.modal {
+  .modal-background {
+    background-color: #0004;
+  }
+
+  .modal-card {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    .modal-card-head {
+      padding: 1rem;
+
+      .modal-card-title {
+        color: var(--primary-text-color);
+        font-size: 1.25rem;
+      }
+
+      .delete {
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: var(--danger-color);
+        }
+      }
+    }
+
+    .modal-card-body {
+      padding: 1.5rem 1rem;
+    }
+
+    .modal-card-foot {
+      justify-content: center;
+      padding: 0.75rem 1rem;
+    }
+  }
+}
+
+.input {
+  transition: border-color 0.2s;
+
+  &:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+  }
+}

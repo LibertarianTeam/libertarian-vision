@@ -1,0 +1,29 @@
+.skeleton {
+  --from-background-color: #a3b8c2;
+  --to-background-color: #f0f3f5;
+
+  cursor: wait !important;
+  opacity: 0.75;
+  animation: skeleton-loading 1.25s linear infinite alternate;
+}
+
+.skeleton-text {
+  display: block;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 999px;
+
+  &:last-child {
+    margin-bottom: 0;
+    width: 80%;
+  }
+}
+
+@keyframes skeleton-loading {
+  from {
+    background-color: var(--from-background-color);
+  }
+  to {
+    background-color: var(--to-background-color);
+  }
+}
