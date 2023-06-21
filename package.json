@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.15.10",
-    "nuxt": "^3.3.2"
+    "nuxt": "^3.4.3"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
