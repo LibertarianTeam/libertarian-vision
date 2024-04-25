@@ -1,4 +1,6 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+useSeoMeta({ title: "Pagina inicial" });
+</script>
 
 <template>
   <main class="page" id="index-page">

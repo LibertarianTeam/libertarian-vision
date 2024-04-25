@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-useMeta({ title: "Login | Visão libertária" });
+useSeoMeta({ title: "Login | Visão libertária" });
 
 const router = useRouter();
 

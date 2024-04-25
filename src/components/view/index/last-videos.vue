@@ -19,7 +19,7 @@ const libertarianCardItems = computed<LibertarianCardItemType[]>(() =>
   }))
 );
 
-videoStore.getLastVideos();
+videoStore.getFakeLastVideos();
 </script>
 
 <template>

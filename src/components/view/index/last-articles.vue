@@ -6,20 +6,22 @@ type LibertarianCardItemType = {
   label: string;
   goTo: { name: string };
   image: string;
-  tags: LibertarianCardTagsPropType;
+  tags?: LibertarianCardTagsPropType;
 };
 const articleStore = useArticleStore();
 
-const libertarianCardItems = computed<LibertarianCardItemType[]>(() =>
-  articleStore.last.map((article) => ({
-    label: article.title,
-    goTo: { name: "index" },
-    image: article.image,
-    tags: article.categories?.map((category) => ({ label: category.label, to: { name: "index" } })),
-  }))
+const libertarianCardItems = computed(() =>
+  articleStore.last.map(
+    (article): LibertarianCardItemType => ({
+      label: article.title,
+      goTo: { name: "index" },
+      image: article.image,
+      tags: article.categories?.map((category) => ({ label: category.label, to: { name: "index" } })),
+    })
+  )
 );
 
-articleStore.getLastArticles();
+articleStore.getFakeLastArticles();
 </script>
 
 <template>
@@ -37,7 +39,7 @@ articleStore.getLastArticles();
           {{ libertarianCardItem.label }}
         </libertarian-card>
       </template>
-      <libertarian-card is-loading v-for="index in 12" :key="index" v-if="!libertarianCardItems.length" />
+      <libertarian-card is-loading v-for="index in 6" :key="index" v-if="!libertarianCardItems.length" />
     </div>
   </section>
 </template>

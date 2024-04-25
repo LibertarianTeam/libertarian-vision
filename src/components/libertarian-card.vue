@@ -73,7 +73,7 @@ withDefaults(defineProps<LibertarianCardPropsType>(), {
     display: flex;
     gap: 4px;
     margin: 0 4px 8px;
-    overflow-x: scroll;
+    overflow-x: auto;
 
     &::-webkit-scrollbar {
       width: 0;
