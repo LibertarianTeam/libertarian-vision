@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import useVideoStore from "~/store/useVideo";
-import { LibertarianCardTagsPropType } from "~/components/libertarian-card.vue";
+import type { LibertarianCardTagsPropType } from "~/components/libertarian-card.vue";
 
 type LibertarianCardItemType = {
   label: string;

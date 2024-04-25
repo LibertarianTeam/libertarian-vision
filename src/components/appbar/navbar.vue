@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { AppbarDropdownItem } from "@/components/appbar/dropdown.vue";
+import type { AppbarDropdownItem } from "@/components/appbar/dropdown.vue";
 
 defineEmits<{ (e: "toggle:sidebar", value?: boolean): void }>();
 

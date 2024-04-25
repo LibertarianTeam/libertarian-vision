@@ -1,5 +1,5 @@
-@import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
-@import "../../../node_modules/bulma/sass/utilities/functions.sass";
+@import "bulma/sass/utilities/initial-variables.sass";
+@import "bulma/sass/utilities/functions.sass";
 
 $primary: #fc0;
 $primary-invert: findColorInvert($primary);
@@ -14,7 +14,7 @@ $blue: #276cda;
 $font-family: "Inter", "Roboto", "Helvetica Neue", sans-serif;
 $family-primary: $font-family;
 
-@import "../../../node_modules/bulma/sass/utilities/derived-variables.sass";
+@import "bulma/sass/utilities/derived-variables.sass";
 
 $addColors: (
   "secondary": (
@@ -25,7 +25,7 @@ $addColors: (
 
 $colors: map-merge($colors, $addColors);
 
-@import "../../../node_modules/bulma/bulma.sass";
+@import "bulma/bulma.sass";
 
 a {
   transition: all 0.2s !important;

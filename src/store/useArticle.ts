@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import libertarianVision, { LVResponseType } from "~/services/libertarian-vision";
+import libertarianVision, { type LVResponseType } from "~/services/libertarian-vision";
 
 export type LastArticleType = {
   id: string;

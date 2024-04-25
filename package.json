@@ -1,27 +1,25 @@
 {
   "name": "libertarian-vision",
-  "version": "0.1.0",
-  "description": "Visão Libertária é um jornal colaborativo, este projeto é uma versão não oficial.",
-  "author": "paulloclara <https://github.com/paulloclara>",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "serve": "nuxi dev",
-    "build": "nuxi build",
-    "start": "node .output/server/index.mjs"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "@pinia/nuxt": "^0.1.8",
-    "axios": "^0.24.0",
+    "@fortawesome/fontawesome-free": "^6.5.2",
+    "@pinia/nuxt": "^0.5.1",
+    "axios": "^1.6.8",
     "bulma": "^0.9.3",
-    "pinia": "^2.0.9"
+    "nuxt": "^3.11.2",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "fibers": "^5.0.0",
-    "nuxt3": "^3.0.0-27338323.1e98259",
-    "sass": "^1.44.0",
-    "sass-loader": "10",
-    "vue-tsc": "^0.30.0"
-  },
-  "private": false,
-  "license": "MIT"
+    "sass": "^1.75.0"
+  }
 }

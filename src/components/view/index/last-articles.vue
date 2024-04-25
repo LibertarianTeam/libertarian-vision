@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import useArticleStore from "~/store/useArticle";
-import { LibertarianCardTagsPropType } from "~/components/libertarian-card.vue";
+import type { LibertarianCardTagsPropType } from "~/components/libertarian-card.vue";
 
 type LibertarianCardItemType = {
   label: string;
