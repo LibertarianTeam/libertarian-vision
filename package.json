@@ -11,7 +11,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@pinia/nuxt": "^0.1.8",
-    "axios": "^0.24.0",
+    "axios": "^0.28.0",
     "bulma": "^0.9.3",
     "pinia": "^2.0.9"
   },
